@@ -14,14 +14,28 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
-        if(XCI.GetAxis(XboxAxis.LeftStickX) != 0 || XCI.GetAxis(XboxAxis.LeftStickY) != 0)
+    {
+        if (XCI.IsPluggedIn(1))
         {
-            Vector3 v3InputDir = new Vector3(XCI.GetAxis(XboxAxis.LeftStickX),0, XCI.GetAxis(XboxAxis.LeftStickY));
-            v3InputDir.Normalize();
+            if (XCI.GetAxis(XboxAxis.LeftStickX) != 0 || XCI.GetAxis(XboxAxis.LeftStickY) != 0)
+            {
+                Vector3 v3InputDir = new Vector3(XCI.GetAxis(XboxAxis.LeftStickX), 0, XCI.GetAxis(XboxAxis.LeftStickY));
+                v3InputDir.Normalize();
 
-            m_Controller.transform.localRotation = Quaternion.LookRotation(v3InputDir,Vector3.up);
-            m_Controller.SimpleMove(m_Controller.transform.forward * m_fSpeed);
+                m_Controller.transform.localRotation = Quaternion.LookRotation(v3InputDir, Vector3.up);
+                m_Controller.SimpleMove(m_Controller.transform.forward * m_fSpeed);
+            }
+        }
+        else
+        {
+            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+            {
+                Vector3 v3InputDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                v3InputDir.Normalize();
+
+                m_Controller.transform.localRotation = Quaternion.LookRotation(v3InputDir, Vector3.up);
+                m_Controller.SimpleMove(m_Controller.transform.forward * m_fSpeed);
+            }
         }
     }
 }
