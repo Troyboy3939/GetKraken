@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class coin : MonoBehaviour
+public class Coin : MonoBehaviour
 {
     BoxCollider col;
+    bool held = false;
 
     private void Start()
     {
@@ -13,8 +14,12 @@ public class coin : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        transform.SetParent(other.transform);
-        transform.Translate(new Vector3(0, 1, 0));
-        Physics.IgnoreCollision(col, other);
+        if (!held)
+        {
+            transform.SetParent(other.transform);
+            transform.Translate(new Vector3(0, 1, 0));
+            Physics.IgnoreCollision(col, other);
+            held = true;
+        }
     }
 }
