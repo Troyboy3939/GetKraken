@@ -22,8 +22,16 @@ public class PlayerController : MonoBehaviour
 
     public void Stun()
     {
-        m_bStunned = true;
-        m_fTimeWhenStunned = Time.time;
+        if (!m_bStunned)
+        {
+            m_bStunned = true;
+            m_fTimeWhenStunned = Time.time;
+        }
+    }
+
+    public bool GetStunned()
+    {
+        return m_bStunned;
     }
     // Update is called once per frame
     void Update()
@@ -71,18 +79,19 @@ public class PlayerController : MonoBehaviour
             if (XCI.GetButtonDown(XboxButton.B, (XboxController)m_nPlayerID))
             {
                 //Do a raycast
-                if (Physics.SphereCast(transform.position, m_fSphereCastRadius, transform.forward, out hit, m_fSphereCastDist))
+                if (Physics.SphereCast(transform.position - (transform.forward * 2), m_fSphereCastRadius, transform.forward, out hit, m_fSphereCastDist))
                 {
                     Debug.Log("Hit");
 
                     Rigidbody hitController = hit.transform.GetComponent<Rigidbody>();
 
+                        PlayerController p = hit.transform.GetComponent<PlayerController>();
                     //hitController.velocity += transform.forward * m_fShovePower;
-
-                    hitController.AddForce(transform.forward * m_fShovePower, ForceMode.VelocityChange);
-                    PlayerController p = hit.transform.GetComponent<PlayerController>();
-                    p.Stun();
-                    
+                    if (!p.GetStunned())
+                    {
+                        hitController.AddForce(transform.forward * m_fShovePower, ForceMode.VelocityChange);
+                        p.Stun();
+                    }
 
                 }
 
