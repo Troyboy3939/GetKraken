@@ -75,27 +75,48 @@ public class PlayerController : MonoBehaviour
 
             RaycastHit hit;
 
-            //If button being pressed
-            if (XCI.GetButtonDown(XboxButton.B, (XboxController)m_nPlayerID))
+            if (XCI.IsPluggedIn(m_nPlayerID))
             {
-                //Do a raycast
-                if (Physics.SphereCast(transform.position - (transform.forward * 2), m_fSphereCastRadius, transform.forward, out hit, m_fSphereCastDist))
+                //If button being pressed
+                if (XCI.GetButtonDown(XboxButton.B, (XboxController)m_nPlayerID))
                 {
-                    Debug.Log("Hit");
+                    //Do a raycast
+                    if (Physics.SphereCast(transform.position - (transform.forward * 2), m_fSphereCastRadius, transform.forward, out hit, m_fSphereCastDist))
+                    {
+                        Debug.Log("Hit");
 
-                    Rigidbody hitController = hit.transform.GetComponent<Rigidbody>();
+                        Rigidbody hitController = hit.transform.GetComponent<Rigidbody>();
 
                         PlayerController p = hit.transform.GetComponent<PlayerController>();
-                    //hitController.velocity += transform.forward * m_fShovePower;
-                    if (!p.GetStunned())
-                    {
-                        hitController.AddForce(transform.forward * m_fShovePower, ForceMode.VelocityChange);
-                        p.Stun();
+                        //hitController.velocity += transform.forward * m_fShovePower;
+                        if (!p.GetStunned())
+                        {
+                            hitController.AddForce(transform.forward * m_fShovePower, ForceMode.VelocityChange);
+                            p.Stun();
+                        }
+
                     }
-
                 }
+            }
+            else
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    if (Physics.SphereCast(transform.position - (transform.forward * 2), m_fSphereCastRadius, transform.forward, out hit, m_fSphereCastDist))
+                    {
+                        Debug.Log("Hit Space");
 
+                        Rigidbody hitController = hit.transform.GetComponent<Rigidbody>();
 
+                        PlayerController p = hit.transform.GetComponent<PlayerController>();
+
+                        if (!p.GetStunned())
+                        {
+                            hitController.AddForce(transform.forward * m_fShovePower, ForceMode.VelocityChange);
+                            p.Stun();
+                        }
+                    }
+                }
             }
         }
         else //If stunned
