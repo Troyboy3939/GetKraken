@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_fSphereCastRadius = 1;
     [SerializeField] float m_fShovePower = 10;
     [SerializeField] float m_fStunTime = 10;
+    public bool m_bHasCoin;
     bool m_bStunned = false;
     float m_fTimeWhenStunned = 0.0f;
 
@@ -33,6 +34,31 @@ public class PlayerController : MonoBehaviour
     {
         return m_bStunned;
     }
+
+    public void SetHasCoin(bool hasCoin)
+    {
+        m_bHasCoin = hasCoin;
+    }
+    private void Shove(ref RaycastHit hit)
+    {
+        if (Physics.SphereCast(transform.position - (transform.forward * 2), m_fSphereCastRadius, transform.forward, out hit, m_fSphereCastDist))
+        {
+
+            Rigidbody hitController = hit.transform.GetComponent<Rigidbody>();
+
+            PlayerController p = hit.transform.GetComponent<PlayerController>();
+
+            if (!p.GetStunned())
+            {
+                hitController.AddForce(transform.forward * m_fShovePower, ForceMode.VelocityChange);
+                p.Stun();
+                p.SetHasCoin(false);
+
+            }
+        }
+    }
+
+
     // Update is called once per frame
     void Update()
     {
@@ -73,59 +99,56 @@ public class PlayerController : MonoBehaviour
             //Shoving
             //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-            RaycastHit hit;
+            RaycastHit hit = new RaycastHit();
 
             if (XCI.IsPluggedIn(m_nPlayerID))
             {
                 //If button being pressed
                 if (XCI.GetButtonDown(XboxButton.B, (XboxController)m_nPlayerID))
                 {
-                    //Do a raycast
-                    if (Physics.SphereCast(transform.position - (transform.forward * 2), m_fSphereCastRadius, transform.forward, out hit, m_fSphereCastDist))
-                    {
-                        Debug.Log("Hit");
-
-                        Rigidbody hitController = hit.transform.GetComponent<Rigidbody>();
-
-                        PlayerController p = hit.transform.GetComponent<PlayerController>();
-                        //hitController.velocity += transform.forward * m_fShovePower;
-                        if (!p.GetStunned())
-                        {
-                            hitController.AddForce(transform.forward * m_fShovePower, ForceMode.VelocityChange);
-                            p.Stun();
-                        }
-
-                    }
+                    Shove(ref hit);
                 }
             }
             else
             {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    if (Physics.SphereCast(transform.position - (transform.forward * 2), m_fSphereCastRadius, transform.forward, out hit, m_fSphereCastDist))
-                    {
-                        Debug.Log("Hit Space");
-
-                        Rigidbody hitController = hit.transform.GetComponent<Rigidbody>();
-
-                        PlayerController p = hit.transform.GetComponent<PlayerController>();
-
-                        if (!p.GetStunned())
-                        {
-                            hitController.AddForce(transform.forward * m_fShovePower, ForceMode.VelocityChange);
-                            p.Stun();
-                        }
-                    }
+                    Shove(ref hit);
                 }
             }
         }
         else //If stunned
         {
-            if(Time.time - m_fTimeWhenStunned > m_fStunTime)
+            if (Time.time - m_fTimeWhenStunned > m_fStunTime)
             {
                 m_bStunned = false;
                 m_fTimeWhenStunned = 0;
             }
+        }
+
+        //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+        //Other
+        //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+        if ((!m_bHasCoin) && (transform.childCount != 0))
+        {
+
+            Transform[] ChildrenTransforms = GetComponentsInChildren<Transform>();
+            int nChildCount = transform.childCount;
+            transform.DetachChildren();
+
+            for (int i = 0; i < nChildCount + 1; i++)
+            {
+                if (ChildrenTransforms[i].tag == "Nose")
+                {
+
+                    ChildrenTransforms[i].SetParent(transform);
+                }
+            }
+
+
+
+
+
         }
     }
 }

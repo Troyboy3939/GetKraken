@@ -16,6 +16,8 @@ public class CoinController : MonoBehaviour
     {
         if (!held)
         {
+            PlayerController p = other.GetComponentInParent<PlayerController>();
+            p.SetHasCoin(true);
             transform.SetParent(other.transform);
             transform.Translate(new Vector3(0, 1, 0));
             Physics.IgnoreCollision(col, other);
