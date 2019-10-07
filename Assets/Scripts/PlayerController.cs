@@ -145,7 +145,7 @@ public class PlayerController : MonoBehaviour
         //-------------------------------------------------------------------------------------------------------------------------------------------------------------
         //Other
         //-------------------------------------------------------------------------------------------------------------------------------------------------------------
-        if ((!m_bHasCoin) && (transform.childCount > 1))
+        if ((!m_bHasCoin) && (transform.childCount > 0))
         {
 
             Transform[] ChildrenTransforms = GetComponentsInChildren<Transform>();
@@ -163,7 +163,7 @@ public class PlayerController : MonoBehaviour
                 {
                     CoinController CC = ChildrenTransforms[i].GetComponentInParent<CoinController>();
                     CC.GetComponentInParent<BoxCollider>().enabled = true;
-                    CC.GetComponentInParent<Rigidbody>().isKinematic = true;
+                    
                     CC.SetHeld(false);
                     
                     
