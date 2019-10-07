@@ -293,6 +293,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd2511dcd79d9324fb7124939a642b38, type: 3}
+--- !u!1 &1037038305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 131662815312061849, guid: 31ea6fa09f2e0154ab4455975116bfad,
+    type: 3}
+  m_PrefabInstance: {fileID: 131662816977957320}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1371401874
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +400,8 @@ MonoBehaviour:
   m_nGridWidth: 15
   m_nGridHeight: 15
   m_Plane: {fileID: 1862734911}
-  m_GridPosition: {x: -5.38, y: 0, z: 4.93}
+  m_fDropHeight: 30
+  m_coin: {fileID: 1037038305}
 --- !u!4 &1519288279
 Transform:
   m_ObjectHideFlags: 0
@@ -600,7 +607,7 @@ Transform:
   m_GameObject: {fileID: 1862734911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.7, y: 29.97, z: -22.21}
-  m_LocalScale: {x: 0.22533987, y: 0.1, z: 0.24190213}
+  m_LocalScale: {x: 0.2, y: 0.1, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5

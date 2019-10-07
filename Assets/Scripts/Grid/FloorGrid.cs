@@ -8,7 +8,10 @@ public class FloorGrid : MonoBehaviour
     [SerializeField] int m_nGridWidth = 10;
     [SerializeField] int m_nGridHeight = 10;
     [SerializeField] GameObject m_Plane;
-    [SerializeField] Vector3 m_GridPosition;
+
+    [SerializeField] float m_fDropHeight;
+ 
+    [SerializeField] GameObject m_coin;
     Node[,] m_Nodes;
 
     //------------------------------------------------------------------------------------
@@ -39,73 +42,89 @@ public class FloorGrid : MonoBehaviour
         //STATE CLASSES
         //-----------------------------------------------------------
 
-        private class ChestState 
+        private abstract class State
         {
-            public  void OnEnter()
+            public abstract void OnEnter();
+
+            public abstract void OnExit();
+
+
+            public abstract void Update();
+           
+        }
+
+
+        private class ChestState: State 
+        {
+            public override void OnEnter()
             {
 
             }
 
-            public  void OnExit()
+            public override void OnExit()
             {
 
             }
 
-            public void Update()
+            public override void Update()
             {
                 
             }
         }
 
-        private class FloorState 
+        private class FloorState : State
         {
-            
-            public void OnEnter(Vector3 v3Position, ref GameObject plane)
-            {
-                plane = Instantiate(plane, v3Position, new Quaternion(0, 0, 0, 0));
-            }
-
-            public void OnExit()
+            [SerializeField] GameObject m_Plane;
+            public FloorState()
             {
 
             }
-            public void Update()
+            public override void OnEnter()
+            {
+                m_Plane.SetActive(true);
+            }
+
+            public override void OnExit()
+            {
+               // m_Plane.SetActive(false);
+            }
+            public override void Update()
             {
 
             }
         }
 
-        private class HoleState
+        private class HoleState : State
         {
-            public  void OnEnter()
+            public override void OnEnter()
             {
 
             }
 
-            public void OnExit()
+            public override void OnExit()
             {
 
             }
 
-            public void Update()
+            public override void Update()
             {
 
             }
         }
 
-        private class TentacleState
+        private class TentacleState : State
         {
-            public  void OnEnter()
+            public override void OnEnter()
             {
 
             }
 
-            public  void OnExit()
+            public override void OnExit()
             {
 
             }
 
-            public void Update()
+            public override void Update()
             {
 
             }
@@ -114,20 +133,15 @@ public class FloorGrid : MonoBehaviour
         public class StateMachine
         {
             private ChestState m_ChestState = new ChestState();
-            private FloorState m_FloorState;
+            private FloorState m_FloorState = new FloorState();
             private HoleState m_HoleState = new HoleState();
             private TentacleState m_TentacleState = new TentacleState();
             ESTATE m_eState = ESTATE.FLOOR;
 
 
             private Vector3 m_v3Position;
-            private GameObject m_Plane;
-            public StateMachine(Vector3 v3Position,GameObject plane)
-            {
-                m_FloorState = new FloorState();
-                m_v3Position = v3Position;
-                m_Plane = plane;
-            }
+            private GameObject m_BasePlane;
+            
             public void ChangeState(ESTATE eState)
             {
 
@@ -153,7 +167,7 @@ public class FloorGrid : MonoBehaviour
                 switch (eState)
                 {
                     case ESTATE.FLOOR:
-                        m_FloorState.OnEnter(m_v3Position, ref m_Plane);
+                        m_FloorState.OnEnter();
                         break;
                     case ESTATE.CHEST:
                         m_ChestState.OnEnter();
@@ -201,7 +215,14 @@ public class FloorGrid : MonoBehaviour
 
         public Vector3 m_v3Position;
         public StateMachine m_StateMachine;
+        GameObject m_BasePlane;
         GameObject m_Plane;
+
+
+        public GameObject GetPlane()
+        {
+            return m_Plane;
+        }
 
         public Node(float fX, float fY, float fZ, GameObject Plane)
         {
@@ -209,15 +230,17 @@ public class FloorGrid : MonoBehaviour
             m_v3Position.x = fX;
             m_v3Position.y = fY;
             m_v3Position.z = fZ;
-            m_Plane = Plane;
-            m_StateMachine = new StateMachine(m_v3Position,Plane);
+            m_BasePlane = Plane;
+            m_StateMachine = new StateMachine();
+            m_Plane = Instantiate(m_BasePlane, m_v3Position, new Quaternion(0, 0, 0, 0));
         }
 
         public Node(Vector3 v3Position, GameObject Plane)
         {
             m_v3Position = v3Position;
-            m_StateMachine = new StateMachine(m_v3Position, Plane);
-            
+            m_StateMachine = new StateMachine();
+            m_BasePlane = Plane;
+            m_Plane = Instantiate(m_BasePlane, m_v3Position, new Quaternion(0, 0, 0, 0));
 
         }
         public StateMachine GetStateMachine()
@@ -256,7 +279,8 @@ public class FloorGrid : MonoBehaviour
 
                 
                 m_Nodes[x, y] = new Node(new Vector3(x * size.x, 2.25f, y * size.z) ,m_Plane);
-                m_Nodes[x, y].GetStateMachine().ChangeState(Node.ESTATE.FLOOR);
+            
+                
             }
         }
 
@@ -264,9 +288,40 @@ public class FloorGrid : MonoBehaviour
         
     }
 
-    public Node GetNodeByPosition(Vector3 pos)
+    public Node GetNodeByPosition(Vector3 v3Pos)
     {
-        return new Node(pos,m_Plane); //remove later, just to clear errors
+
+        Collider col = m_Plane.GetComponent<Collider>();
+        float x = col.bounds.size.x;
+
+        //Vector3 toPos =  v3Pos - transform.position;
+        //toPos.z += (x / 2);
+        //toPos.x += (x / 2);
+        //float fW = toPos.x / col.bounds.size.x;
+
+
+
+        float fW = (v3Pos.x + 1)  /x;
+        if (fW < 0)
+        {
+            fW *= -1;
+        }
+        int nWidth = Mathf.FloorToInt(fW);
+
+
+        //float fH = toPos.z / col.bounds.size.x;
+
+        float fH = (v3Pos.z + 1)  /x;
+        if(fH < 0)
+        {
+            fH *= -1;
+        }
+
+        int nHeight = Mathf.FloorToInt(fH);
+        
+
+
+        return m_Nodes[nWidth, nHeight]; 
     }
 
     //----------------------------------------------------------------------------------------------------
@@ -275,7 +330,10 @@ public class FloorGrid : MonoBehaviour
     //----------------------------------------------------------------------------------------------------
     public void DropObjectAtNode(Node node, GameObject gameObject)
     {
-
+        Vector3 pos = node.GetPlane().transform.position;
+        pos.y += m_fDropHeight;
+        gameObject.transform.Translate(pos,Space.World);
+        
     }
 
 
@@ -285,13 +343,21 @@ public class FloorGrid : MonoBehaviour
     //----------------------------------------------------------------------------------------------------
     public void DropNewObjectAtNode(Node node, GameObject gameObject)
     {
-
+        Vector3 pos = node.GetPlane().transform.position;
+        pos.y += m_fDropHeight;
+        GameObject go = Instantiate<GameObject>(gameObject,pos,new Quaternion(0,0,0,0));
     }
 
+    bool done = false;
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (!done)
+        {
+            done = true;
+            Node n = GetNodeByPosition(m_coin.transform.position);
+            DropNewObjectAtNode(n, m_coin);
+        }
     }
 }
