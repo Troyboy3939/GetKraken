@@ -4,14 +4,16 @@ using UnityEngine;
 using XboxCtrlrInput;
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float m_fSpeed = 10;
+    float m_fSpeed;
+    [SerializeField] float m_fMaxSpeed = 14;
+    [SerializeField] float m_fCoinSpeed = 7;
     Rigidbody m_Controller;
-    [SerializeField] int m_nPlayerID = 1;
     [SerializeField] float m_fSphereCastDist = 10;
     [SerializeField] float m_fSphereCastRadius = 1;
     [SerializeField] float m_fShovePower = 10;
     [SerializeField] float m_fStunTime = 10;
     [SerializeField] float m_fGravityMultiplier = 3;
+    public int m_nPlayerID = 1;
     public bool m_bHasCoin;
     bool m_bStunned = false;
     float m_fTimeWhenStunned = 0.0f;
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         m_Controller = GetComponent<Rigidbody>();
+        m_fSpeed = m_fMaxSpeed;
     }
 
     public void Stun()
@@ -145,12 +148,22 @@ public class PlayerController : MonoBehaviour
         //-------------------------------------------------------------------------------------------------------------------------------------------------------------
         //Other
         //-------------------------------------------------------------------------------------------------------------------------------------------------------------
-        if ((!m_bHasCoin) && (transform.childCount > 0))
-        {
 
+        // when getting shoved
+        if ((!m_bHasCoin) && (transform.childCount != 0))
+        {
+            CoinController[] coins = GetComponentsInChildren<CoinController>();
             Transform[] ChildrenTransforms = GetComponentsInChildren<Transform>();
+
+
             int nChildCount = transform.childCount;
             transform.DetachChildren();
+
+            foreach (CoinController coin in coins)
+            {
+                coin.m_bHeld = false;
+                coin.transform.Translate(new Vector3(0, -1, 0));
+            }
 
             for (int i = 0; i < nChildCount + 1; i++)
             {
@@ -169,11 +182,16 @@ public class PlayerController : MonoBehaviour
                     
                 }
             }
+        }
 
-
-
-
-
+        // while holding coin, the player should be slowed
+        if (m_bHasCoin)
+        {
+            m_fSpeed = m_fCoinSpeed;
+        }
+        else
+        {
+            m_fSpeed = m_fMaxSpeed;
         }
     }
 }

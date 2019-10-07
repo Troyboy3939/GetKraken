@@ -5,7 +5,7 @@ using UnityEngine;
 public class CoinController : MonoBehaviour
 {
     BoxCollider col;
-    bool m_bHeld = false;
+    [HideInInspector] public bool m_bHeld = false;
 
     public void SetHeld(bool bHeld)
     {
