@@ -21,7 +21,7 @@ public class ChestController : MonoBehaviour
         {
             Destroy(pc.gameObject.GetComponentInChildren<CoinController>().gameObject);
             pc.m_bHasCoin = false;
-            // Add to the score when we add it
+            // Add to the score when we get to that
         }
     }
 }

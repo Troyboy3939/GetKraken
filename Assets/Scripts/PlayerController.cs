@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     bool m_bStunned = false;
     float m_fTimeWhenStunned = 0.0f;
 
+    // This will be used to store colliders that need to be accessed from multiple methods
+    private Collider tempCol;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,27 +46,27 @@ public class PlayerController : MonoBehaviour
     {
         m_bHasCoin = hasCoin;
     }
+
     private void Shove(ref RaycastHit hit)
     {
-        if (Physics.SphereCast(transform.position - (transform.forward * 2), m_fSphereCastRadius, transform.forward, out hit, m_fSphereCastDist))
+        if (!m_bHasCoin)
         {
-
-            Rigidbody hitController = hit.transform.GetComponent<Rigidbody>();
-            
-            PlayerController p = hit.transform.GetComponentInParent<PlayerController>();
-
-            if (p != null)
+            if (Physics.SphereCast(transform.position - (transform.forward * 2), m_fSphereCastRadius, transform.forward, out hit, m_fSphereCastDist))
             {
-                if (!p.GetStunned())
-                {
-                    if (hitController.tag == "Player")
-                    {
-                        hitController.AddForce(transform.forward * m_fShovePower, ForceMode.VelocityChange);
-                        p.Stun();
-                        p.SetHasCoin(false);
-                        
-                    }
+                Rigidbody hitController = hit.transform.GetComponent<Rigidbody>();
+                PlayerController p = hit.transform.GetComponentInParent<PlayerController>();
 
+                if (p != null)
+                {
+                    if (!p.GetStunned())
+                    {
+                        if (hitController.tag == "Player")
+                        {
+                            hitController.AddForce(transform.forward * m_fShovePower, ForceMode.VelocityChange);
+                            p.Stun();
+                            p.SetHasCoin(false);
+                        }
+                    }
                 }
             }
         }
@@ -107,9 +110,6 @@ public class PlayerController : MonoBehaviour
 
                     m_Controller.transform.localRotation = Quaternion.LookRotation(v3InputDir, Vector3.up);
                     m_Controller.velocity = transform.forward * m_fSpeed;
-                    
-
-
                 }
             }
 
@@ -137,11 +137,18 @@ public class PlayerController : MonoBehaviour
         }
         else //If stunned
         {
+            // End the stun
             if (Time.time - m_fTimeWhenStunned > m_fStunTime)
             {
                 m_bStunned = false;
                 m_fTimeWhenStunned = 0;
                 GetComponent<Rigidbody>().freezeRotation = false;
+
+                // Undo the IgnoreCollision call
+                if (tempCol.gameObject.tag == "Coin")
+                {
+                    Physics.IgnoreCollision(tempCol, gameObject.GetComponent<CapsuleCollider>(), false);
+                }
             }
         }
 
@@ -169,17 +176,14 @@ public class PlayerController : MonoBehaviour
             {
                 if (ChildrenTransforms[i].tag == "Nose")
                 {
-
                     ChildrenTransforms[i].SetParent(transform);
                 }
                 else if (ChildrenTransforms[i].tag == "Coin")
                 {
                     CoinController CC = ChildrenTransforms[i].GetComponentInParent<CoinController>();
-                    CC.GetComponentInParent<BoxCollider>().enabled = true;
-                    
+                    tempCol = CC.GetComponentInParent<BoxCollider>();
+                    tempCol.enabled = true;
                     CC.SetHeld(false);
-                    
-                    
                 }
             }
         }
