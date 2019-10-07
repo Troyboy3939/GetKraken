@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_fSphereCastRadius = 1;
     [SerializeField] float m_fShovePower = 10;
     [SerializeField] float m_fStunTime = 10;
+    [SerializeField] float m_fGravityMultiplier = 3;
     public bool m_bHasCoin;
     bool m_bStunned = false;
     float m_fTimeWhenStunned = 0.0f;
@@ -45,28 +46,41 @@ public class PlayerController : MonoBehaviour
         {
 
             Rigidbody hitController = hit.transform.GetComponent<Rigidbody>();
+            
+            PlayerController p = hit.transform.GetComponentInParent<PlayerController>();
 
-            PlayerController p = hit.transform.GetComponent<PlayerController>();
-
-            if (!p.GetStunned())
+            if (p != null)
             {
-                hitController.AddForce(transform.forward * m_fShovePower, ForceMode.VelocityChange);
-                p.Stun();
-                p.SetHasCoin(false);
+                if (!p.GetStunned())
+                {
+                    if (hitController.tag == "Player")
+                    {
+                        hitController.AddForce(transform.forward * m_fShovePower, ForceMode.VelocityChange);
+                        p.Stun();
+                        p.SetHasCoin(false);
+                        
+                    }
 
+                }
             }
         }
     }
 
+    
 
     // Update is called once per frame
     void Update()
     {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
         if (!m_bStunned)
         {
             //-------------------------------------------------------------------------------------------------------------------------------------------------------------
             //Movement
             //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+          
+            m_Controller.AddForce(m_fGravityMultiplier * Physics.gravity);
+
 
             //If your controller is plugged in
             if (XCI.IsPluggedIn(m_nPlayerID))
@@ -90,6 +104,7 @@ public class PlayerController : MonoBehaviour
 
                     m_Controller.transform.localRotation = Quaternion.LookRotation(v3InputDir, Vector3.up);
                     m_Controller.velocity = transform.forward * m_fSpeed;
+                    
 
 
                 }
@@ -123,13 +138,14 @@ public class PlayerController : MonoBehaviour
             {
                 m_bStunned = false;
                 m_fTimeWhenStunned = 0;
+                GetComponent<Rigidbody>().freezeRotation = false;
             }
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------------------------------
         //Other
         //-------------------------------------------------------------------------------------------------------------------------------------------------------------
-        if ((!m_bHasCoin) && (transform.childCount != 0))
+        if ((!m_bHasCoin) && (transform.childCount > 1))
         {
 
             Transform[] ChildrenTransforms = GetComponentsInChildren<Transform>();
@@ -142,6 +158,15 @@ public class PlayerController : MonoBehaviour
                 {
 
                     ChildrenTransforms[i].SetParent(transform);
+                }
+                else if (ChildrenTransforms[i].tag == "Coin")
+                {
+                    CoinController CC = ChildrenTransforms[i].GetComponentInParent<CoinController>();
+                    CC.GetComponentInParent<BoxCollider>().enabled = true;
+                    CC.GetComponentInParent<Rigidbody>().isKinematic = true;
+                    CC.SetHeld(false);
+                    
+                    
                 }
             }
 
