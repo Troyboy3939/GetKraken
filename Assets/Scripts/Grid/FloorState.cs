@@ -6,6 +6,8 @@ using UnityEngine;
 {
     GameObject m_Plane;
     Vector3 m_v3Position;
+    bool m_bHasTentacle = false;
+    bool m_bHasChest = false;
     public FloorState(ref GameObject plane)
     {
         m_Plane = plane;
@@ -24,6 +26,26 @@ using UnityEngine;
     public override void Update()
     {
 
+    }
+
+    public bool GetHasTentacle()
+    {
+        return m_bHasTentacle;
+    }
+
+    public bool GetHasChest()
+    {
+        return m_bHasChest;
+    }
+
+    public void SetHasTentacle(bool b)
+    {
+        m_bHasTentacle = b;
+    }
+
+    public void SetHasChest(bool b)
+    {
+        m_bHasChest = b;
     }
 }
 
