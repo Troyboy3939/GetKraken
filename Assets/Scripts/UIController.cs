@@ -12,6 +12,7 @@ public class UIController : MonoBehaviour
     public float m_fInitialTimeSeconds = 180;
     private float m_fCurrentTime;
     private int m_nTimeToDisplay;
+    [HideInInspector] public bool m_bGameEnded = false;
 
     public int m_nP1Score { get; set; } = 0;
     public int m_nP2Score { get; set; } = 0;
@@ -35,15 +36,28 @@ public class UIController : MonoBehaviour
 
     private void Update()
     {
-        if (m_fCurrentTime < 0)
+        if (m_fCurrentTime < 0 && !m_bGameEnded)
         {
-            Debug.Log("TIME IS UP!");
+            m_bGameEnded = true;
+            StartCoroutine("KillEachPlayer");
         }
-        else
+        else if (m_fCurrentTime > 0)
         {
             m_fCurrentTime -= Time.deltaTime;
             m_nTimeToDisplay = Mathf.CeilToInt(m_fCurrentTime);
             m_goTimer.GetComponent<Text>().text = m_nTimeToDisplay.ToString();
         }
     }
+
+    // trigger game over thing where the kraken kills each of the players one by one
+    // from last place to second, first place player stays alive
+
+    // add each player to a list, sorted by score
+    // remove the winning player from the list
+    // loop over the list every second (Time.deltaTime), kraken will kill the next player in the list
+
+    // What should happen when players are tied? What happens if the winning player is killed just
+    // before the time runs out?
+
+    // consider using a coroutine for this
 }

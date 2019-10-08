@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     float m_fTimeWhenStunned = 0.0f;
     float m_fTimeWhenKilled = 0.0f;
     public bool m_bIsDead = false;
+    private UIController m_uic;
 
     // This will be used to store colliders that need to be accessed from multiple methods
     private Collider tempCol;
@@ -29,6 +30,9 @@ public class PlayerController : MonoBehaviour
     {
         m_Controller = GetComponent<Rigidbody>();
         m_fSpeed = m_fMaxSpeed;
+
+        m_uic = GameObject.Find("Canvas").GetComponent<UIController>();
+        Debug.Assert(m_uic != null, "Cannot find the UIController script on Canvas.");
     }
 
     public void Stun()
@@ -104,135 +108,138 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Disable everything but the respawn timer while the player is dead
-        if (!m_bIsDead)
+        if (!m_uic.m_bGameEnded)
         {
-            Rigidbody rb = GetComponent<Rigidbody>();
-            rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
-            if (!m_bStunned)
+            // Disable everything but the respawn timer while the player is dead
+            if (!m_bIsDead)
             {
-                //-------------------------------------------------------------------------------------------------------------------------------------------------------------
-                //Movement
-                //-------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-                m_Controller.AddForce(m_fGravityMultiplier * Physics.gravity);
-
-
-                //If your controller is plugged in
-                if (XCI.IsPluggedIn(m_nPlayerID))
+                Rigidbody rb = GetComponent<Rigidbody>();
+                rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
+                if (!m_bStunned)
                 {
-                    //And if you are using the left or right stick
-                    if (XCI.GetAxis(XboxAxis.LeftStickX, (XboxController)m_nPlayerID) != 0 || XCI.GetAxis(XboxAxis.LeftStickY, (XboxController)m_nPlayerID) != 0)
-                    {
-                        Vector3 v3InputDir = new Vector3(XCI.GetAxis(XboxAxis.LeftStickX, (XboxController)m_nPlayerID), 0, XCI.GetAxis(XboxAxis.LeftStickY, (XboxController)m_nPlayerID));
-                        v3InputDir.Normalize();
+                    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+                    //Movement
+                    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-                        m_Controller.transform.localRotation = Quaternion.LookRotation(v3InputDir, Vector3.up);
-                        m_Controller.velocity = transform.forward * m_fSpeed;
+                    m_Controller.AddForce(m_fGravityMultiplier * Physics.gravity);
+
+
+                    //If your controller is plugged in
+                    if (XCI.IsPluggedIn(m_nPlayerID))
+                    {
+                        //And if you are using the left or right stick
+                        if (XCI.GetAxis(XboxAxis.LeftStickX, (XboxController)m_nPlayerID) != 0 || XCI.GetAxis(XboxAxis.LeftStickY, (XboxController)m_nPlayerID) != 0)
+                        {
+                            Vector3 v3InputDir = new Vector3(XCI.GetAxis(XboxAxis.LeftStickX, (XboxController)m_nPlayerID), 0, XCI.GetAxis(XboxAxis.LeftStickY, (XboxController)m_nPlayerID));
+                            v3InputDir.Normalize();
+
+                            m_Controller.transform.localRotation = Quaternion.LookRotation(v3InputDir, Vector3.up);
+                            m_Controller.velocity = transform.forward * m_fSpeed;
+                        }
+                    }
+                    else //else if controller not connected, use WASD instead
+                    {
+                        if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+                        {
+                            Vector3 v3InputDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                            v3InputDir.Normalize();
+
+                            m_Controller.transform.localRotation = Quaternion.LookRotation(v3InputDir, Vector3.up);
+                            m_Controller.velocity = transform.forward * m_fSpeed;
+                        }
+                    }
+
+                    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+                    //Shoving
+                    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                    RaycastHit hit = new RaycastHit();
+
+                    if (XCI.IsPluggedIn(m_nPlayerID))
+                    {
+                        //If button being pressed
+                        if (XCI.GetButtonDown(XboxButton.B, (XboxController)m_nPlayerID))
+                        {
+                            Shove(ref hit);
+                        }
+                    }
+                    else
+                    {
+                        if (Input.GetKeyDown(KeyCode.Space))
+                        {
+                            Shove(ref hit);
+                        }
                     }
                 }
-                else //else if controller not connected, use WASD instead
+                else //If stunned
                 {
-                    if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+                    // End the stun
+                    if (Time.time - m_fTimeWhenStunned > m_fStunTime)
                     {
-                        Vector3 v3InputDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-                        v3InputDir.Normalize();
+                        m_bStunned = false;
+                        m_fTimeWhenStunned = 0;
+                        GetComponent<Rigidbody>().freezeRotation = false;
 
-                        m_Controller.transform.localRotation = Quaternion.LookRotation(v3InputDir, Vector3.up);
-                        m_Controller.velocity = transform.forward * m_fSpeed;
+                        // Undo the IgnoreCollision call
+                        if (tempCol != null && tempCol.gameObject.tag == "Coin")
+                        {
+                            Physics.IgnoreCollision(tempCol, gameObject.GetComponent<CapsuleCollider>(), false);
+                        }
+
                     }
                 }
 
                 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
-                //Shoving
+                //Other
                 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-                RaycastHit hit = new RaycastHit();
-
-                if (XCI.IsPluggedIn(m_nPlayerID))
+                // when getting shoved
+                if ((!m_bHasCoin) && (transform.childCount != 0))
                 {
-                    //If button being pressed
-                    if (XCI.GetButtonDown(XboxButton.B, (XboxController)m_nPlayerID))
+                    CoinController[] coins = GetComponentsInChildren<CoinController>();
+                    Transform[] ChildrenTransforms = GetComponentsInChildren<Transform>();
+
+
+                    int nChildCount = transform.childCount;
+                    transform.DetachChildren();
+
+                    foreach (CoinController coin in coins)
                     {
-                        Shove(ref hit);
+                        coin.m_bHeld = false;
+                        coin.transform.Translate(new Vector3(0, -1, 0));
                     }
+
+                    for (int i = 0; i < nChildCount + 1; i++)
+                    {
+                        if (ChildrenTransforms[i].tag == "Nose")
+                        {
+                            ChildrenTransforms[i].SetParent(transform);
+                        }
+                        else if (ChildrenTransforms[i].tag == "Coin")
+                        {
+                            CoinController CC = ChildrenTransforms[i].GetComponentInParent<CoinController>();
+                            tempCol = CC.GetComponentInParent<BoxCollider>();
+                            tempCol.enabled = true;
+                            CC.SetHeld(false);
+                        }
+                    }
+                }
+
+                // while holding coin, the player should be slowed
+                if (m_bHasCoin)
+                {
+                    m_fSpeed = m_fCoinSpeed;
                 }
                 else
                 {
-                    if (Input.GetKeyDown(KeyCode.Space))
-                    {
-                        Shove(ref hit);
-                    }
+                    m_fSpeed = m_fMaxSpeed;
                 }
             }
-            else //If stunned
+            else if (Time.time - m_fTimeWhenKilled > m_fRespawnTime)
             {
-                // End the stun
-                if (Time.time - m_fTimeWhenStunned > m_fStunTime)
-                {
-                    m_bStunned = false;
-                    m_fTimeWhenStunned = 0;
-                    GetComponent<Rigidbody>().freezeRotation = false;
-
-                    // Undo the IgnoreCollision call
-                    if (tempCol != null && tempCol.gameObject.tag == "Coin")
-                    {
-                        Physics.IgnoreCollision(tempCol, gameObject.GetComponent<CapsuleCollider>(), false);
-                    }
-                    
-                }
+                m_fTimeWhenKilled = 0;
+                Respawn();
             }
-
-            //-------------------------------------------------------------------------------------------------------------------------------------------------------------
-            //Other
-            //-------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-            // when getting shoved
-            if ((!m_bHasCoin) && (transform.childCount != 0))
-            {
-                CoinController[] coins = GetComponentsInChildren<CoinController>();
-                Transform[] ChildrenTransforms = GetComponentsInChildren<Transform>();
-
-
-                int nChildCount = transform.childCount;
-                transform.DetachChildren();
-
-                foreach (CoinController coin in coins)
-                {
-                    coin.m_bHeld = false;
-                    coin.transform.Translate(new Vector3(0, -1, 0));
-                }
-
-                for (int i = 0; i < nChildCount + 1; i++)
-                {
-                    if (ChildrenTransforms[i].tag == "Nose")
-                    {
-                        ChildrenTransforms[i].SetParent(transform);
-                    }
-                    else if (ChildrenTransforms[i].tag == "Coin")
-                    {
-                        CoinController CC = ChildrenTransforms[i].GetComponentInParent<CoinController>();
-                        tempCol = CC.GetComponentInParent<BoxCollider>();
-                        tempCol.enabled = true;
-                        CC.SetHeld(false);
-                    }
-                }
-            }
-
-            // while holding coin, the player should be slowed
-            if (m_bHasCoin)
-            {
-                m_fSpeed = m_fCoinSpeed;
-            }
-            else
-            {
-                m_fSpeed = m_fMaxSpeed;
-            }
-        }
-        else if (Time.time - m_fTimeWhenKilled > m_fRespawnTime)
-        {
-            m_fTimeWhenKilled = 0;
-            Respawn();
         }
     }
 }

@@ -49,6 +49,7 @@ public class TentacleController : MonoBehaviour
     }
 
     // Hide the tentacle and start a timer
+    // Check that you're not trying to do the same thing across different scripts
     private void Hide()
     {
 
