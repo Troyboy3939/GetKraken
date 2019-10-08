@@ -60,9 +60,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Blackboard.cs" />
+    <Compile Include="Assets\Scripts\ChestController.cs" />
     <Compile Include="Assets\Scripts\CoinController.cs" />
+    <Compile Include="Assets\Scripts\CursorState.cs" />
+    <Compile Include="Assets\Scripts\Grid\FloorGrid.cs" />
+    <Compile Include="Assets\Scripts\Grid\FloorState.cs" />
+    <Compile Include="Assets\Scripts\Grid\HoleState.cs" />
+    <Compile Include="Assets\Scripts\Grid\Node.cs" />
+    <Compile Include="Assets\Scripts\Grid\State.cs" />
+    <Compile Include="Assets\Scripts\Grid\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\Grid\TentacleState.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Pointer.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
+    <Compile Include="Assets\Scripts\TentacleController.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput.cs" />
     <Compile Include="Assets\XInput\Plugins\XboxCtrlrInput_Helpers\XciAxisDeadzoneData.cs" />
@@ -71,31 +83,31 @@
     <Compile Include="Assets\XInput\XboxCtrlrInputExample\MoveLaser.cs" />
     <Compile Include="Assets\XInput\XboxCtrlrInputExample\MovePlayer.cs" />
     <Compile Include="Assets\XInput\XInputDotNet\Examples\XInputTestCS.cs" />
-    <None Include="Assets\Animations\Chest\bin.txt" />
-    <None Include="Assets\Audio\Other\bin.txt" />
-    <None Include="Assets\Audio\Ship\bin.txt" />
-    <None Include="Assets\Audio\Chest\bin.txt" />
-    <None Include="Assets\Meshes\Chest\bin.txt" />
-    <None Include="Assets\Audio\Kraken\bin.txt" />
-    <None Include="Assets\Audio\Diver\bin.txt" />
-    <None Include="Assets\Animations\Kraken\bin.txt" />
-    <None Include="Assets\Textures\Ship\bin.txt" />
-    <None Include="Assets\Textures\Kraken\bin.txt" />
-    <None Include="Assets\Meshes\Other\bin.txt" />
-    <None Include="Assets\Textures\Coins\bin.txt" />
-    <None Include="Assets\XInput\XInputDotNet\MITLicense.txt" />
-    <None Include="Assets\Textures\Chest\bin.txt" />
-    <None Include="Assets\Textures\Diver\bin.txt" />
-    <None Include="Assets\Meshes\Ship\bin.txt" />
-    <None Include="Assets\Animations\Other\bin.txt" />
-    <None Include="Assets\Animations\Coins\bin.txt" />
-    <None Include="Assets\Meshes\Diver\bin.txt" />
-    <None Include="Assets\Animations\Ship\bin.txt" />
     <None Include="Assets\Meshes\Coins\bin.txt" />
-    <None Include="Assets\Textures\Other\bin.txt" />
+    <None Include="Assets\Animations\Kraken\bin.txt" />
+    <None Include="Assets\Animations\Other\bin.txt" />
+    <None Include="Assets\Meshes\Ship\bin.txt" />
+    <None Include="Assets\Textures\Kraken\bin.txt" />
+    <None Include="Assets\Audio\Other\bin.txt" />
+    <None Include="Assets\Textures\Coins\bin.txt" />
+    <None Include="Assets\Textures\Chest\bin.txt" />
+    <None Include="Assets\Animations\Coins\bin.txt" />
     <None Include="Assets\Animations\Diver\bin.txt" />
-    <None Include="Assets\Audio\Coins\bin.txt" />
+    <None Include="Assets\Textures\Ship\bin.txt" />
+    <None Include="Assets\Textures\Diver\bin.txt" />
     <None Include="Assets\Meshes\Kraken\bin.txt" />
+    <None Include="Assets\Audio\Ship\bin.txt" />
+    <None Include="Assets\XInput\XInputDotNet\MITLicense.txt" />
+    <None Include="Assets\Meshes\Chest\bin.txt" />
+    <None Include="Assets\Textures\Other\bin.txt" />
+    <None Include="Assets\Animations\Ship\bin.txt" />
+    <None Include="Assets\Animations\Chest\bin.txt" />
+    <None Include="Assets\Audio\Kraken\bin.txt" />
+    <None Include="Assets\Audio\Chest\bin.txt" />
+    <None Include="Assets\Meshes\Diver\bin.txt" />
+    <None Include="Assets\Audio\Coins\bin.txt" />
+    <None Include="Assets\Meshes\Other\bin.txt" />
+    <None Include="Assets\Audio\Diver\bin.txt" />
     <Reference Include="Unity.ProBuilder">
       <HintPath>C:/Users/s191155/Desktop/KrakenRush/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
     </Reference>
