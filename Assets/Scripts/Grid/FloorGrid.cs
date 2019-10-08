@@ -121,11 +121,9 @@ public class FloorGrid : MonoBehaviour
         GameObject go = Instantiate<GameObject>(gameObject, v3Pos, new Quaternion(0, 0, 0, 0)); 
     }
 
-   
     // Update is called once per frame
     void Update()
     {
         
-      
     }
 }

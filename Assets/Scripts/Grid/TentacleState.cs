@@ -7,18 +7,26 @@ public class TentacleState : State
     GameObject m_Tentacle;
     GameObject m_Plane;
     Vector3 m_v3Position;
+    bool m_bFirstTime = true;
     public TentacleState(Vector3 pos,  GameObject plane)
     {
         m_v3Position = pos;
         m_Plane = plane;
-        m_Tentacle = GameObject.Instantiate<GameObject>(Blackboard.GetInstance().GetTentacle(),m_v3Position,new Quaternion(0,0,0,0));
-        m_Tentacle.SetActive(false);
+        //m_Tentacle.SetActive(false);
   
     }
 
     public override void OnEnter()
     {
-        m_Tentacle.SetActive(true);
+        if (m_bFirstTime)
+        {
+            m_Tentacle = GameObject.Instantiate<GameObject>(Blackboard.GetInstance().GetTentacle(), m_v3Position, new Quaternion(0, 0, 0, 0));
+            m_bFirstTime = false;
+        }
+        else
+        {
+            m_Tentacle.SetActive(true);
+        }
     }
 
     public override void OnExit()
