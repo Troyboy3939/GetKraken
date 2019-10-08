@@ -16,11 +16,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_fRespawnTime = 2;
     [SerializeField] GameObject m_Grid;
     public int m_nPlayerID = 1;
-    public bool m_bHasCoin;
+    [HideInInspector] public bool m_bHasCoin;
     bool m_bStunned = false;
     float m_fTimeWhenStunned = 0.0f;
     float m_fTimeWhenKilled = 0.0f;
-    public bool m_bIsDead = false;
+    [HideInInspector] public bool m_bIsDead = false;
     private UIController m_uic;
 
     // This will be used to store colliders that need to be accessed from multiple methods

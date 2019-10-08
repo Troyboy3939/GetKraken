@@ -39,7 +39,7 @@ public class UIController : MonoBehaviour
         if (m_fCurrentTime < 0 && !m_bGameEnded)
         {
             m_bGameEnded = true;
-            StartCoroutine("KillEachPlayer");
+            //StartCoroutine("KillEachPlayer");
         }
         else if (m_fCurrentTime > 0)
         {
