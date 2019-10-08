@@ -15,13 +15,16 @@ public class ChestController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        PlayerController pc = collision.gameObject.GetComponent<PlayerController>();
-
-        if (pc.m_bHasCoin && pc.m_nPlayerID == m_nPlayerID)
+        if (collision.gameObject.tag == "Player")
         {
-            Destroy(pc.gameObject.GetComponentInChildren<CoinController>().gameObject);
-            pc.m_bHasCoin = false;
-            // Add to the score when we get to that
+            PlayerController pc = collision.gameObject.GetComponent<PlayerController>();
+
+            if (pc.m_bHasCoin && pc.m_nPlayerID == m_nPlayerID)
+            {
+                Destroy(pc.gameObject.GetComponentInChildren<CoinController>().gameObject);
+                pc.m_bHasCoin = false;
+                // Add to the score when we get to that
+            }
         }
     }
 }

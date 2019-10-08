@@ -933,6 +933,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1086342821455336163, guid: fd2511dcd79d9324fb7124939a642b38,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1086342821455302339, guid: fd2511dcd79d9324fb7124939a642b38,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1003,6 +1008,16 @@ PrefabInstance:
       propertyPath: m_fGravityMultiplier
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 1086342821453401123, guid: fd2511dcd79d9324fb7124939a642b38,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534648410798562196, guid: fd2511dcd79d9324fb7124939a642b38,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd2511dcd79d9324fb7124939a642b38, type: 3}
 --- !u!1001 &7368743704574717204
@@ -1015,6 +1030,11 @@ PrefabInstance:
     - target: {fileID: 6844569604574024598, guid: 9a2c416d367b26349a437560558ff9ef,
         type: 3}
       propertyPath: m_Name
+      value: Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844569604574024598, guid: 9a2c416d367b26349a437560558ff9ef,
+        type: 3}
+      propertyPath: m_TagString
       value: Chest
       objectReference: {fileID: 0}
     - target: {fileID: 6844569604574252982, guid: 9a2c416d367b26349a437560558ff9ef,

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Tentacle should spawn in random positions on the grid, in two different states.
-// If player collides with tentacle, player will be killed (handle player killing and respawning in PlayerController)
-// When this happens, tentacle should also move to a different spot on the grid
+// If player collides with tentacle, player will be killed and tentacle will be hidden (handle player killing and respawning in PlayerController).
+// After a short time, tentacle should also move to a different spot on the grid.
 public class TentacleController : MonoBehaviour
 {
+    [SerializeField] float m_fRespawnTime = 2;
     ESTATE m_eTentacleState;
+
     private enum ESTATE
     {
         VERTICAL,
@@ -19,6 +21,10 @@ public class TentacleController : MonoBehaviour
 
     void Start()
     {
+        // TODO: Set up a loop that checks whether or not the current state is possible,
+        // eg. randomise again if the tentacle is ESTATE.DOWN, but there's already a tentacle
+        // in the way. Detect this with a raycast maybe
+
         // Tentacle will be in a random state when spawned
         m_eTentacleState = (ESTATE)Random.Range(0, 4);
 
@@ -42,12 +48,20 @@ public class TentacleController : MonoBehaviour
         }
     }
 
+    // Hide the tentacle and start a timer
+    private void Hide()
+    {
+
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             // kill player, should be a full animation in the full game but
             // for alpha just despawn both player and tentacle
+            collision.gameObject.GetComponent<PlayerController>().Kill();
+            Hide();
         }
     }
 }
