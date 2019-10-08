@@ -914,7 +914,7 @@ MonoBehaviour:
   m_goP1Score: {fileID: 1268860553}
   m_goP2Score: {fileID: 537322666}
   m_goTimer: {fileID: 1797399768}
-  m_fInitialTimeSeconds: 180
+  m_fInitialTimeSeconds: 20
 --- !u!1001 &1707608162
 PrefabInstance:
   m_ObjectHideFlags: 0
