@@ -5,13 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/TitleScreen01.unity
-    guid: 1057532ffd051cd45a1ee678df0e2d4d
-  - enabled: 1
-    path: Assets/Scenes/CalibrationScreen.unity
-    guid: 71ba70301e0cb0c4dbbbbbf0bfd40313
-  - enabled: 1
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/level.unity
     guid: 56ad89dfe1b7123498a1b60dc2c2aeca
+  - enabled: 1
+    path: Assets/Scenes/TitleScreen01.unity
+    guid: 7d3692a5639dab0409bec13fe3a103a4
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: 200870f5133993c4789008559d417e46
   m_configObjects: {}

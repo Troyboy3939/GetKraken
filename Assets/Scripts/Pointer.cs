@@ -22,7 +22,7 @@ public class Pointer : MonoBehaviour
             {
                 if (hit.transform.gameObject.tag == "MenuStart")
                 {
-                    SceneManager.LoadScene("CalibrationScreen");
+                    SceneManager.LoadScene("Game");
                 }
             }
         }
