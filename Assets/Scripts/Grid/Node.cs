@@ -40,6 +40,27 @@ public class Node
     {
         return m_StateMachine;
     }
+
+    public bool GetHasTentacle()
+    {
+        return m_StateMachine.GetFloorState().GetHasTentacle();
+    }
+
+    public bool GetHasChest()
+    {
+        return m_StateMachine.GetFloorState().GetHasChest();
+    }
+
+    public void SetHasTentacle(bool b)
+    {
+        m_StateMachine.GetFloorState().SetHasTentacle(b);
+    }
+
+    public void SetHasChest(bool b)
+    {
+        m_StateMachine.GetFloorState().SetHasChest(b);
+    }
+
     private void Start()
     {
 

@@ -33,7 +33,10 @@ public class StateMachine
         m_TentacleState = new TentacleState(pos, plane);
         m_FloorState =  new FloorState(ref plane);
     }
-
+   public ref FloorState GetFloorState()
+    {
+        return ref m_FloorState;
+    }
     public void ChangeState(ESTATE eState)
     {
 
