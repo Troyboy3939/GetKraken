@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_fStunTime = 10;
     [SerializeField] float m_fGravityMultiplier = 3;
     [SerializeField] float m_fRespawnTime = 2;
+    [SerializeField] GameObject m_Grid;
     public int m_nPlayerID = 1;
     public bool m_bHasCoin;
     bool m_bStunned = false;
@@ -99,8 +100,15 @@ public class PlayerController : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().useGravity = true;
 
         GameObject chest = Blackboard.GetInstance().GetChestWithID(m_nPlayerID);
-        gameObject.transform.position = chest.transform.position;
-        gameObject.transform.Translate(Vector3.up * 30);
+        //gameObject.transform.position = chest.transform.position;
+        //gameObject.transform.Translate(Vector3.up * 30);
+
+
+        FloorGrid grid = m_Grid.GetComponent<FloorGrid>();
+        grid.DropObjectAtNode(grid.GetNodeByPosition(chest.transform.position), transform);
+
+
+
 
         m_bIsDead = false;
     }

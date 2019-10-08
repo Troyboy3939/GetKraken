@@ -11,7 +11,17 @@ public class FloorGrid : MonoBehaviour
     [SerializeField] int m_nGridHeight = 10;
     [SerializeField] GameObject m_Plane;
     [SerializeField] GameObject m_Tentacle;
-    [SerializeField] float m_fDropHeight;
+    [SerializeField] GameObject m_Coin;
+    [SerializeField] float m_fDropHeight = 30;
+    [SerializeField] int m_nNumberOfHoles = 10;
+    [SerializeField] float m_fTentacleSwitchTime = 3;
+    [SerializeField] float m_fCoinSpawnTime = 3;
+    List<Vector2> m_HolePositions = new List<Vector2>();
+    List<Vector2> m_TentaclePositions = new List<Vector2>();
+    float m_fTentacleTimer = 0.0f;
+    float m_fCoinTimer = 0.0f;
+    bool m_bFirstTime = true;
+    int m_nCountCount = 0;
     Node[,] m_Nodes;
 
 
@@ -29,6 +39,7 @@ public class FloorGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         m_Nodes = new Node[m_nGridWidth,m_nGridHeight];
 
         for(int x = 0; x < m_nGridWidth; x++)
@@ -46,9 +57,46 @@ public class FloorGrid : MonoBehaviour
             }
         }
 
+
+       
+        for(int i = 0; i < m_nNumberOfHoles; i++)
+        {
+            int n1 = Random.Range(0,m_nGridWidth);
+            int n2 = Random.Range(0, m_nGridHeight);
+           // bool bValid = false;
+           // while (!bValid)
+           // {
+                if (m_Nodes[n1, n2].GetState() != StateMachine.ESTATE.HOLE)
+                {
+                    if (m_Nodes[n1, n2].GetState() != StateMachine.ESTATE.TENTACLE)
+                    {
+                      //  bValid = true;
+                    }
+                    else
+                    {
+                        n1 = Random.Range(0, m_nGridWidth);
+                        n2 = Random.Range(0, m_nGridHeight);
+                    }
+                }
+          // }
+            m_Nodes[n1, n2].ChangeState();
+            m_HolePositions.Add(new Vector2(n1,n2));
+        }
         
         
     }
+
+    public void SetCoinCount(int nNumber)
+    {
+        m_nCountCount = nNumber;
+    }
+
+    public int GetCoinCount()
+    {
+        return m_nCountCount;
+    }
+
+
 
     public Node GetNodeByPosition(Vector3 v3Pos)
     {
@@ -92,11 +140,21 @@ public class FloorGrid : MonoBehaviour
     //----------------------------------------------------------------------------------------------------
     public void DropObjectAtNode(Node node, GameObject gameObject)
     {
-        Vector3 v3Pos = node.GetPlane().transform.position;
-        v3Pos.y += m_fDropHeight;
-        gameObject.transform.Translate(v3Pos,Space.World);
-        
+        Vector3 v3Pos = node.GetPosition();
+        transform.position = v3Pos;
+        gameObject.transform.Translate(Vector3.up * m_fDropHeight, Space.World);
+
     }
+
+    public void DropObjectAtNode(Node node,  Transform transform)
+    {
+        Vector3 v3Pos = node.GetPosition();
+        transform.position = v3Pos;
+        transform.Translate(Vector3.up * m_fDropHeight, Space.World);
+    }
+
+
+
 
 
     //----------------------------------------------------------------------------------------------------
@@ -105,10 +163,37 @@ public class FloorGrid : MonoBehaviour
     //----------------------------------------------------------------------------------------------------
     public void DropNewObjectAtNode(Node node, GameObject gameObject)
     {
-        Vector3 v3Pos = node.GetPlane().transform.position;
-        v3Pos.y += m_fDropHeight;
+        Vector3 v3Pos = node.GetPosition();
         GameObject go = Instantiate<GameObject>(gameObject,v3Pos,new Quaternion(0,0,0,0));
+        DropObjectAtNode(node, go);
     }
+
+    public void DropCoin()
+    {
+        int n1 = Random.Range(0, m_nGridWidth);
+        int n2 = Random.Range(0, m_nGridHeight);
+
+
+
+        for (int i = 0; i < Blackboard.GetInstance().GetChestCount(); i++)
+        {
+            GameObject chest = Blackboard.GetInstance().GetChest(i);
+            Node pos = GetNodeByPosition(chest.transform.position);
+            if (m_Nodes[n1, n2] == pos || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.HOLE ||m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.TENTACLE)
+            {
+                n1 = Random.Range(0, m_nGridWidth);
+                n2 = Random.Range(0, m_nGridHeight);
+            }
+        }
+
+
+
+        m_nCountCount++;
+
+        DropNewObjectAtNode(m_Nodes[n1,n2],m_Coin);
+    }
+
+
 
     //----------------------------------------------------------------------------------------------------
     //SpawnNewObjectAtNode
@@ -121,9 +206,73 @@ public class FloorGrid : MonoBehaviour
         GameObject go = Instantiate<GameObject>(gameObject, v3Pos, new Quaternion(0, 0, 0, 0)); 
     }
 
+    
+
+
     // Update is called once per frame
     void Update()
     {
-        
+        m_fTentacleTimer += Time.deltaTime;
+        m_fCoinTimer += Time.deltaTime;
+
+
+        //Tentacle
+        if (m_fTentacleTimer > m_fTentacleSwitchTime)
+        {
+            m_fTentacleTimer = 0;
+            if (m_bFirstTime)
+            {
+                m_bFirstTime = false;
+            }
+            else
+            {
+                //for every tentacle
+                for (int i = 0; i < m_TentaclePositions.Count; i++)
+                {
+                    //Switch back to a hole
+                    m_Nodes[Mathf.FloorToInt(m_TentaclePositions[i].x), Mathf.FloorToInt(m_TentaclePositions[i].y)].ChangeState();
+                }
+                    m_TentaclePositions.Clear();
+                
+            }
+            
+            List<int> indexFinished = new List<int>();
+            for(int i = 0; i < Mathf.FloorToInt((m_HolePositions.Count / 2)); i++)
+            {
+                
+             int index = Random.Range(0, m_HolePositions.Count);
+             for(int j = 0; j < indexFinished.Count; j++)
+             {
+                 if(index == indexFinished[j])
+                 {
+                     index = Random.Range(0, m_HolePositions.Count);
+                 }
+                 
+             }
+
+
+
+                indexFinished.Add(index);
+                //Switch to tentacle
+                m_TentaclePositions.Add(m_HolePositions[index]);
+                m_Nodes[Mathf.FloorToInt( m_HolePositions[index].x), Mathf.FloorToInt(m_HolePositions[index].y)].ChangeState();
+            }
+        }
+
+        Debug.Log(m_fCoinTimer);
+        if(m_fCoinTimer > m_fCoinSpawnTime)
+        {
+            m_fCoinTimer = 0.0f;
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            if(m_nCountCount < players.Length - 1)
+            {
+                DropCoin();
+            }
+        }
+
+
+
+
+
     }
 }

@@ -19,7 +19,7 @@ public class StateMachine
 
 
     private FloorState m_FloorState;
-    private HoleState m_HoleState = new HoleState();
+    private HoleState m_HoleState;
     private TentacleState m_TentacleState;
     ESTATE m_eState = ESTATE.FLOOR;
 
@@ -32,45 +32,40 @@ public class StateMachine
     {
         m_TentacleState = new TentacleState(pos, plane);
         m_FloorState =  new FloorState(ref plane);
+        m_HoleState = new HoleState(ref plane);
     }
    public ref FloorState GetFloorState()
     {
         return ref m_FloorState;
     }
-    public void ChangeState(ESTATE eState)
+    public void ChangeState()
     {
 
-        //Exit the state you are currently in
+        //Exit the state you are currently and enter the next state
         switch (m_eState)
         {
             case ESTATE.FLOOR:
                 m_FloorState.OnExit();
+                m_HoleState.OnEnter();
+                m_eState = ESTATE.HOLE;
                 break;
             case ESTATE.HOLE:
                 m_HoleState.OnExit();
+                m_TentacleState.OnEnter();
+                m_eState = ESTATE.TENTACLE;
                 break;
             case ESTATE.TENTACLE:
                 m_TentacleState.OnExit();
-                break;
-        }
-
-
-
-        switch (eState)
-        {
-            case ESTATE.FLOOR:
-                m_FloorState.OnEnter();
-                break;
-            case ESTATE.HOLE:
                 m_HoleState.OnEnter();
-                break;
-            case ESTATE.TENTACLE:
-                m_TentacleState.OnEnter();
+                m_eState = ESTATE.HOLE;
                 break;
         }
+        
+    }
 
-        //Change State
-        m_eState = eState;
+    public ESTATE GetState()
+    {
+        return m_eState;
     }
 
     public void Update()

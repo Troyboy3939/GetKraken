@@ -8,6 +8,7 @@ public class Blackboard : MonoBehaviour
     [SerializeField] GameObject tentacle;
     [SerializeField] GameObject plane;
     [SerializeField] GameObject canvas;
+    GameObject[] m_Chests;
     void Start()
     {
         if (instance == null)
@@ -19,6 +20,11 @@ public class Blackboard : MonoBehaviour
         {
             Destroy(this);
         }
+
+        m_Chests = GameObject.FindGameObjectsWithTag("Chest");
+
+       
+
     }
 
     public static Blackboard GetInstance()
@@ -38,9 +44,9 @@ public class Blackboard : MonoBehaviour
 
     public GameObject GetChestWithID(int id)
     {
-        GameObject[] gos = GameObject.FindGameObjectsWithTag("Chest");
+      
 
-        foreach (GameObject go in gos)
+        foreach (GameObject go in m_Chests)
         {
             if (go.GetComponent<ChestController>().m_nPlayerID == id)
             {
@@ -50,6 +56,17 @@ public class Blackboard : MonoBehaviour
 
         Debug.Log("No chest found.");
         return null;
+    }
+
+    public GameObject GetChest(int nIndex)
+    {
+        return m_Chests[nIndex];
+    }
+
+
+    public int GetChestCount()
+    {
+        return m_Chests.Length;
     }
 
     public GameObject GetCanvas()

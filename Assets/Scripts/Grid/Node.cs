@@ -36,6 +36,10 @@ public class Node
     {
         return m_Plane;
     }
+    public Vector3 GetPosition()
+    {
+        return m_v3Position;
+    }
     public StateMachine GetStateMachine()
     {
         return m_StateMachine;
@@ -71,8 +75,13 @@ public class Node
         m_StateMachine.Update();
     }
 
-    public void ChangeState(StateMachine.ESTATE state)
+    public void ChangeState()
     {
-        m_StateMachine.ChangeState(state);
+        m_StateMachine.ChangeState();
+    }
+
+    public StateMachine.ESTATE GetState()
+    {
+        return m_StateMachine.GetState();
     }
 }
