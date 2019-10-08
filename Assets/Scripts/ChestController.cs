@@ -19,11 +19,28 @@ public class ChestController : MonoBehaviour
         {
             PlayerController pc = collision.gameObject.GetComponent<PlayerController>();
 
+            // Destroy the coin and update score
             if (pc.m_bHasCoin && pc.m_nPlayerID == m_nPlayerID)
             {
                 Destroy(pc.gameObject.GetComponentInChildren<CoinController>().gameObject);
                 pc.m_bHasCoin = false;
-                // Add to the score when we get to that
+
+                UIController uic = Blackboard.GetInstance().GetCanvas().GetComponent<UIController>();
+                switch (m_nPlayerID)
+                {
+                    // add to score based on which player it is
+                    case 1:
+                        uic.m_nP1Score++;
+                        break;
+                    case 2:
+                        uic.m_nP2Score++;
+                        break;
+                    default:
+                        Debug.LogError("Player ID is out of currently defined range.");
+                        break;
+                }
+
+                uic.UpdateScore();
             }
         }
     }

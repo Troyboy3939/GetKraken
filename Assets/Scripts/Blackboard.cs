@@ -7,6 +7,7 @@ public class Blackboard : MonoBehaviour
     private static Blackboard instance = null;
     [SerializeField] GameObject tentacle;
     [SerializeField] GameObject plane;
+    [SerializeField] GameObject canvas;
     void Start()
     {
         if (instance == null)
@@ -49,5 +50,10 @@ public class Blackboard : MonoBehaviour
 
         Debug.Log("No chest found.");
         return null;
+    }
+
+    public GameObject GetCanvas()
+    {
+        return canvas;
     }
 }
