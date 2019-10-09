@@ -33,10 +33,11 @@ public class CoinController : MonoBehaviour
         // If touching a player that is not stunned
         if (other.transform.tag == "Player")
         {
-            if (!m_bHeld)
+            PlayerController pc = other.gameObject.GetComponent<PlayerController>();
+
+            if (!m_bHeld && !pc.m_bHasCoin)
             {
-                PlayerController p = other.rigidbody.GetComponentInParent<PlayerController>();
-                p.SetHasCoin(true);
+                pc.SetHasCoin(true);
                 transform.SetParent(other.transform);
                 transform.Translate(new Vector3(0, 1, 0));
 
