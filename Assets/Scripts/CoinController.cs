@@ -18,15 +18,6 @@ public class CoinController : MonoBehaviour
         Rigidbody rb = GetComponent<Rigidbody>();
     }
 
-    private void Update()
-    {
-        if (!m_bHeld)
-        {
-            Rigidbody rb = GetComponent<Rigidbody>();
-            rb.constraints = RigidbodyConstraints.None;
-        }
-    }
-
     private void OnCollisionEnter(Collision other)
     {
         // If touching a player that is not stunned
@@ -41,8 +32,11 @@ public class CoinController : MonoBehaviour
                 transform.Translate(new Vector3(0, 1, 0));
 
                 Rigidbody rb = GetComponent<Rigidbody>();
-                rb.freezeRotation = true;
-                rb.constraints = RigidbodyConstraints.FreezeAll;
+                //rb.freezeRotation = true;
+                //rb.constraints = RigidbodyConstraints.FreezeAll;
+                rb.isKinematic = true;
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
 
                 BoxCollider bc = GetComponent<BoxCollider>();
                 bc.enabled = false;

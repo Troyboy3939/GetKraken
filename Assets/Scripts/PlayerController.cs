@@ -97,6 +97,17 @@ public class PlayerController : MonoBehaviour
 
         m_fTimeWhenKilled = Time.time;
         m_bIsDead = true;
+
+        // If the player is holding a coin when they die, the coin will be pushed away
+        if (m_bHasCoin)
+        {
+            Rigidbody coinRb = gameObject.GetComponentInChildren<Rigidbody>();
+            DetachCoin();
+
+            // This AddForce call is likely unecessary
+            coinRb.AddForce(Vector3.up * 10000, ForceMode.Impulse);
+            //coinRb.AddExplosionForce(1000,transform.position,2);
+        }
     }
 
     // Respawns the player at their chest
@@ -116,11 +127,50 @@ public class PlayerController : MonoBehaviour
         m_bIsDead = false;
     }
 
+    private void DetachCoin()
+    {
+        CoinController[] coins = GetComponentsInChildren<CoinController>();
+        Transform[] ChildrenTransforms = GetComponentsInChildren<Transform>();
+
+        int nChildCount = transform.childCount;
+        transform.DetachChildren();
+
+        foreach (CoinController coin in coins)
+        {
+            coin.m_bHeld = false;
+            coin.transform.Translate(new Vector3(0, -1, 0));
+
+            Rigidbody rb = coin.GetComponent<Rigidbody>();
+            //rb.constraints = RigidbodyConstraints.None;
+            rb.isKinematic = false;
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+
+            BoxCollider bc = rb.gameObject.GetComponent<BoxCollider>();
+            Physics.IgnoreCollision(bc, gameObject.GetComponent<CapsuleCollider>(), false);
+        }
+
+        for (int i = 0; i < nChildCount + 1; i++)
+        {
+            if (ChildrenTransforms[i].tag == "Nose")
+            {
+                ChildrenTransforms[i].SetParent(transform);
+            }
+            else if (ChildrenTransforms[i].tag == "Coin")
+            {
+                CoinController CC = ChildrenTransforms[i].GetComponentInParent<CoinController>();
+                tempCol = CC.GetComponentInParent<BoxCollider>();
+                tempCol.enabled = true;
+                CC.SetHeld(false);
+            }
+        }
+
+        m_bHasCoin = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
-
-
         if (!m_UiController.m_bGameEnded)
         {
             // Disable everything but the respawn timer while the player is dead
@@ -218,32 +268,7 @@ public class PlayerController : MonoBehaviour
                 // when getting shoved
                 if ((!m_bHasCoin) && (transform.childCount != 0))
                 {
-                    CoinController[] coins = GetComponentsInChildren<CoinController>();
-                    Transform[] ChildrenTransforms = GetComponentsInChildren<Transform>();
-
-                    int nChildCount = transform.childCount;
-                    transform.DetachChildren();
-
-                    foreach (CoinController coin in coins)
-                    {
-                        coin.m_bHeld = false;
-                        coin.transform.Translate(new Vector3(0, -1, 0));
-                    }
-
-                    for (int i = 0; i < nChildCount + 1; i++)
-                    {
-                        if (ChildrenTransforms[i].tag == "Nose")
-                        {
-                            ChildrenTransforms[i].SetParent(transform);
-                        }
-                        else if (ChildrenTransforms[i].tag == "Coin")
-                        {
-                            CoinController CC = ChildrenTransforms[i].GetComponentInParent<CoinController>();
-                            tempCol = CC.GetComponentInParent<BoxCollider>();
-                            tempCol.enabled = true;
-                            CC.SetHeld(false);
-                        }
-                    }
+                    DetachCoin();
                 }
 
                 // while holding coin, the player should be slowed
