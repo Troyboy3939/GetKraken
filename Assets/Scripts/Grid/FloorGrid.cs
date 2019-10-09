@@ -13,7 +13,6 @@ public class FloorGrid : MonoBehaviour
     [SerializeField] GameObject m_Tentacle;
     [SerializeField] GameObject m_Coin;
     [SerializeField] float m_fDropHeight = 30;
-    [SerializeField] int m_nNumberOfHoles = 10;
     [SerializeField] float m_fTentacleSwitchTime = 3;
     [SerializeField] float m_fCoinSpawnTime = 3;
     [SerializeField] List<Vector2> m_HolePositions = new List<Vector2>();

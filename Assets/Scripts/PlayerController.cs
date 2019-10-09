@@ -15,13 +15,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_fGravityMultiplier = 3;
     [SerializeField] float m_fRespawnTime = 2;
     [SerializeField] GameObject m_Grid;
+    public bool m_bIsFalling = false;
     public int m_nPlayerID = 1;
     [HideInInspector] public bool m_bHasCoin;
     bool m_bStunned = false;
     float m_fTimeWhenStunned = 0.0f;
     float m_fTimeWhenKilled = 0.0f;
     [HideInInspector] public bool m_bIsDead = false;
-    private UIController m_uic;
+    private UIController m_UiController;
 
     // This will be used to store colliders that need to be accessed from multiple methods
     private Collider tempCol;
@@ -32,8 +33,8 @@ public class PlayerController : MonoBehaviour
         m_Controller = GetComponent<Rigidbody>();
         m_fSpeed = m_fMaxSpeed;
 
-        m_uic = GameObject.Find("Canvas").GetComponent<UIController>();
-        Debug.Assert(m_uic != null, "Cannot find the UIController script on Canvas.");
+        m_UiController = GameObject.Find("Canvas").GetComponent<UIController>();
+        Debug.Assert(m_UiController != null, "Cannot find the UIController script on Canvas.");
 
         Respawn();
     }
@@ -111,20 +112,32 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!m_uic.m_bGameEnded)
+
+
+        if (!m_UiController.m_bGameEnded)
         {
             // Disable everything but the respawn timer while the player is dead
             if (!m_bIsDead)
             {
                 Rigidbody rb = GetComponent<Rigidbody>();
+
+                if (rb.velocity.y < -0.1)
+                {
+                    m_bIsFalling = true;
+                }
+                else
+                {
+                    m_bIsFalling = false;
+                }
+
                 rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
-                if (!m_bStunned)
+                m_Controller.AddForce(m_fGravityMultiplier * Physics.gravity);
+                if (!(m_bStunned) && !(m_bIsFalling))
                 {
                     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
                     //Movement
                     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-                    m_Controller.AddForce(m_fGravityMultiplier * Physics.gravity);
 
 
                     //If your controller is plugged in
@@ -174,7 +187,7 @@ public class PlayerController : MonoBehaviour
                         }
                     }
                 }
-                else //If stunned
+                else if(m_bStunned)//If stunned
                 {
                     // End the stun
                     if (Time.time - m_fTimeWhenStunned > m_fStunTime)
