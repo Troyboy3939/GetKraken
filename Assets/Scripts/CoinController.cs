@@ -16,7 +16,6 @@ public class CoinController : MonoBehaviour
     {
         col = GetComponent<BoxCollider>();
         Rigidbody rb = GetComponent<Rigidbody>();
-        
     }
 
     private void Update()

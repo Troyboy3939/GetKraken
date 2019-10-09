@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class Blackboard : MonoBehaviour
 {
     private static Blackboard instance = null;
+
     [SerializeField] GameObject tentacle;
     [SerializeField] GameObject plane;
     [SerializeField] GameObject canvas;
+
     GameObject[] m_Chests;
     void Awake()
     {

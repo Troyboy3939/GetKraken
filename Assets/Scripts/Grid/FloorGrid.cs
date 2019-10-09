@@ -223,16 +223,16 @@ public class FloorGrid : MonoBehaviour
             List<int> indexFinished = new List<int>();
             for(int i = 0; i < Mathf.FloorToInt((m_HolePositions.Count / 2)); i++)
             {
-                
-             int index = Random.Range(0, m_HolePositions.Count);
-             for(int j = 0; j < indexFinished.Count; j++)
-             {
-                 if(index == indexFinished[j])
-                 {
-                     index = Random.Range(0, m_HolePositions.Count);
-                 }
-                 
-             }
+                   
+                int index = Random.Range(0, m_HolePositions.Count);
+                for(int j = 0; j < indexFinished.Count; j++)
+                {
+                    if(index == indexFinished[j])
+                    {
+                        index = Random.Range(0, m_HolePositions.Count);
+                    }
+                    
+                }
 
 
 

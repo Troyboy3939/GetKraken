@@ -4,24 +4,30 @@ using UnityEngine;
 using XboxCtrlrInput;
 public class PlayerController : MonoBehaviour
 {
+    public int m_nPlayerID = 4;
+
     float m_fSpeed;
+    float m_fTimeWhenStunned = 0.0f;
+    float m_fTimeWhenKilled = 0.0f;
+
     [SerializeField] float m_fMaxSpeed = 14;
     [SerializeField] float m_fCoinSpeed = 7;
-    Rigidbody m_Controller;
     [SerializeField] float m_fSphereCastDist = 10;
     [SerializeField] float m_fSphereCastRadius = 1;
     [SerializeField] float m_fShovePower = 10;
     [SerializeField] float m_fStunTime = 10;
     [SerializeField] float m_fGravityMultiplier = 3;
     [SerializeField] float m_fRespawnTime = 2;
+
     [SerializeField] GameObject m_Grid;
     public bool m_bIsFalling = false;
-    public int m_nPlayerID = 1;
+    
     [HideInInspector] public bool m_bHasCoin;
-    bool m_bStunned = false;
-    float m_fTimeWhenStunned = 0.0f;
-    float m_fTimeWhenKilled = 0.0f;
     [HideInInspector] public bool m_bIsDead = false;
+
+    bool m_bStunned = false;
+
+    Rigidbody m_Controller;
     private UIController m_UiController;
 
     // This will be used to store colliders that need to be accessed from multiple methods
@@ -88,6 +94,7 @@ public class PlayerController : MonoBehaviour
         gameObject.GetComponent<MeshRenderer>().enabled = false;
         gameObject.GetComponent<CapsuleCollider>().enabled = false;
         gameObject.GetComponent<Rigidbody>().useGravity = false;
+
         m_fTimeWhenKilled = Time.time;
         m_bIsDead = true;
     }
@@ -137,7 +144,6 @@ public class PlayerController : MonoBehaviour
                     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
                     //Movement
                     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 
 
                     //If your controller is plugged in
@@ -214,7 +220,6 @@ public class PlayerController : MonoBehaviour
                 {
                     CoinController[] coins = GetComponentsInChildren<CoinController>();
                     Transform[] ChildrenTransforms = GetComponentsInChildren<Transform>();
-
 
                     int nChildCount = transform.childCount;
                     transform.DetachChildren();

@@ -8,6 +8,7 @@ using UnityEngine;
     Vector3 m_v3Position;
     bool m_bHasTentacle = false;
     bool m_bHasChest = false;
+
     public FloorState(ref GameObject plane)
     {
         m_Plane = plane;

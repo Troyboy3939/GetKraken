@@ -175,7 +175,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17604
+  m_Name: pb_Mesh17738
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -768,6 +768,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403945228}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -13.209584, y: -1.1057792, z: -12.232829}
   m_LocalPosition: {x: -13, y: -1.1057792, z: -12.232829}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2299,7 +2300,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17576
+  m_Name: pb_Mesh17710
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -2459,7 +2460,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17700
+  m_Name: pb_Mesh17826
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -2648,24 +2649,47 @@ MonoBehaviour:
   m_Tentacle: {fileID: 4638131791022858005}
   m_Coin: {fileID: 1033881062}
   m_fDropHeight: 30
-  m_fTentacleSwitchTime: 3
+  m_fTentacleSwitchTime: 15
   m_fCoinSpawnTime: 3
   m_HolePositions:
-  - {x: 1, y: 5}
-  - {x: 2, y: 6}
-  - {x: 1, y: 0}
-  - {x: 8, y: 2}
-  - {x: 4, y: 1}
   - {x: 1, y: 1}
-  - {x: 2, y: 6}
-  - {x: 3, y: 1}
-  - {x: 6, y: 1}
-  - {x: 4, y: 8}
-  - {x: 4, y: 8}
-  - {x: 4, y: 8}
-  - {x: 4, y: 8}
-  - {x: 4, y: 8}
-  - {x: 4, y: 8}
+  - {x: 13, y: 1}
+  - {x: 1, y: 13}
+  - {x: 13, y: 13}
+  - {x: 1, y: 4}
+  - {x: 1, y: 5}
+  - {x: 13, y: 4}
+  - {x: 13, y: 5}
+  - {x: 1, y: 9}
+  - {x: 1, y: 8}
+  - {x: 13, y: 9}
+  - {x: 13, y: 8}
+  - {x: 4, y: 6}
+  - {x: 4, y: 7}
+  - {x: 9, y: 6}
+  - {x: 9, y: 7}
+  - {x: 6, y: 5}
+  - {x: 7, y: 5}
+  - {x: 6, y: 9}
+  - {x: 7, y: 9}
+  - {x: 1, y: 2}
+  - {x: 2, y: 1}
+  - {x: 12, y: 1}
+  - {x: 13, y: 2}
+  - {x: 1, y: 12}
+  - {x: 2, y: 13}
+  - {x: 13, y: 12}
+  - {x: 12, y: 13}
+  - {x: 10, y: 0}
+  - {x: 10, y: 1}
+  - {x: 10, y: 2}
+  - {x: 4, y: 0}
+  - {x: 4, y: 1}
+  - {x: 4, y: 2}
+  - {x: 4, y: 3}
+  - {x: 10, y: 3}
+  - {x: 3, y: 3}
+  - {x: 11, y: 3}
 --- !u!4 &1519288279
 Transform:
   m_ObjectHideFlags: 0
@@ -2790,7 +2814,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17616
+  m_Name: pb_Mesh17750
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -3387,7 +3411,7 @@ MonoBehaviour:
   m_goP3Score: {fileID: 2108923815}
   m_goP4Score: {fileID: 1733201707}
   m_goTimer: {fileID: 1797399768}
-  m_fInitialTimeSeconds: 999
+  m_fInitialTimeSeconds: 500
   m_bGameEnded: 0
 --- !u!1001 &1707608162
 PrefabInstance:
@@ -4019,6 +4043,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1229342884642267519, guid: 466b315f306c7c74db11f89274d6ec8d,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b12cc607366cf5944a3078ff889fe26c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 466b315f306c7c74db11f89274d6ec8d, type: 3}
 --- !u!1 &4638131791022858005 stripped
