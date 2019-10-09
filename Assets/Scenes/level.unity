@@ -427,13 +427,18 @@ PrefabInstance:
     - target: {fileID: 8940773876451396842, guid: fd2511dcd79d9324fb7124939a642b38,
         type: 3}
       propertyPath: m_fGravityMultiplier
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8940773876451396842, guid: fd2511dcd79d9324fb7124939a642b38,
         type: 3}
       propertyPath: m_Grid
       value: 
       objectReference: {fileID: 1519288277}
+    - target: {fileID: 8940773876451396842, guid: fd2511dcd79d9324fb7124939a642b38,
+        type: 3}
+      propertyPath: m_fCoinSpeed
+      value: 9.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd2511dcd79d9324fb7124939a642b38, type: 3}
 --- !u!1 &1033881062 stripped
@@ -694,6 +699,17 @@ MonoBehaviour:
   m_nNumberOfHoles: 10
   m_fTentacleSwitchTime: 3
   m_fCoinSpawnTime: 3
+  m_HolePositions:
+  - {x: 0, y: 0}
+  - {x: 7, y: 9}
+  - {x: 4, y: 5}
+  - {x: 8, y: 14}
+  - {x: 13, y: 0}
+  - {x: 0, y: 6}
+  - {x: 1, y: 7}
+  - {x: 2, y: 8}
+  - {x: 9, y: 1}
+  - {x: 10, y: 10}
 --- !u!4 &1519288279
 Transform:
   m_ObjectHideFlags: 0
@@ -1363,6 +1379,11 @@ PrefabInstance:
       propertyPath: m_Grid
       value: 
       objectReference: {fileID: 1519288277}
+    - target: {fileID: 8940773876451396842, guid: fd2511dcd79d9324fb7124939a642b38,
+        type: 3}
+      propertyPath: m_fCoinSpeed
+      value: 9.8
+      objectReference: {fileID: 0}
     - target: {fileID: 1086342821453401123, guid: fd2511dcd79d9324fb7124939a642b38,
         type: 3}
       propertyPath: m_Enabled

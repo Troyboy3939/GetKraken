@@ -16,8 +16,9 @@ public class FloorGrid : MonoBehaviour
     [SerializeField] int m_nNumberOfHoles = 10;
     [SerializeField] float m_fTentacleSwitchTime = 3;
     [SerializeField] float m_fCoinSpawnTime = 3;
-    List<Vector2> m_HolePositions = new List<Vector2>();
+    [SerializeField] List<Vector2> m_HolePositions = new List<Vector2>();
     List<Vector2> m_TentaclePositions = new List<Vector2>();
+    
     float m_fTentacleTimer = 0.0f;
     float m_fCoinTimer = 0.0f;
     bool m_bFirstTime = true;
@@ -59,28 +60,12 @@ public class FloorGrid : MonoBehaviour
 
 
        
-        for(int i = 0; i < m_nNumberOfHoles; i++)
+        for(int i = 0; i < m_HolePositions.Count; i++)
         {
-            int n1 = Random.Range(0,m_nGridWidth);
-            int n2 = Random.Range(0, m_nGridHeight);
-           // bool bValid = false;
-           // while (!bValid)
-           // {
-                if (m_Nodes[n1, n2].GetState() != StateMachine.ESTATE.HOLE)
-                {
-                    if (m_Nodes[n1, n2].GetState() != StateMachine.ESTATE.TENTACLE)
-                    {
-                      //  bValid = true;
-                    }
-                    else
-                    {
-                        n1 = Random.Range(0, m_nGridWidth);
-                        n2 = Random.Range(0, m_nGridHeight);
-                    }
-                }
-          // }
-            m_Nodes[n1, n2].ChangeState();
-            m_HolePositions.Add(new Vector2(n1,n2));
+        
+          
+            m_Nodes[Mathf.FloorToInt(m_HolePositions[i].x), Mathf.FloorToInt(m_HolePositions[i].y)].ChangeState();
+            
         }
         
         

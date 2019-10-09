@@ -2459,6 +2459,7 @@ MonoBehaviour:
   m_nNumberOfHoles: 10
   m_fTentacleSwitchTime: 3
   m_fCoinSpawnTime: 3
+  m_HolePositions: []
 --- !u!4 &1519288279
 Transform:
   m_ObjectHideFlags: 0

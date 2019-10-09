@@ -123,10 +123,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d2fdda816624645848679abbe38138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fSpeed: 15
-  m_nPlayerID: 1
+  m_fMaxSpeed: 14
+  m_fCoinSpeed: 7
   m_fSphereCastDist: 10
   m_fSphereCastRadius: 2
   m_fShovePower: 100
   m_fStunTime: 1.5
+  m_fGravityMultiplier: 15
+  m_fRespawnTime: 2
+  m_Grid: {fileID: 0}
+  m_nPlayerID: 1
   m_bHasCoin: 0
+  m_bIsDead: 0
