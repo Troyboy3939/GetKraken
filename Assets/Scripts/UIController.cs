@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -39,7 +40,7 @@ public class UIController : MonoBehaviour
         if (m_fCurrentTime < 0 && !m_bGameEnded)
         {
             m_bGameEnded = true;
-            //StartCoroutine("KillEachPlayer");
+            SceneManager.LoadScene("TitleScreen01");
         }
         else if (m_fCurrentTime > 0)
         {

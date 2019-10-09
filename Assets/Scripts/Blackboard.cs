@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Blackboard : MonoBehaviour
 {
@@ -21,6 +22,13 @@ public class Blackboard : MonoBehaviour
             Destroy(this);
         }
 
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // This is required since the blackboard is only created once as a singleton, and you need
+    // to find the chests every time the scene is loaded. It's not a default Unity method, see Awake.
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
         m_Chests = GameObject.FindGameObjectsWithTag("Chest");
     }
 
