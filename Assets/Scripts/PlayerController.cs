@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
 
         m_uic = GameObject.Find("Canvas").GetComponent<UIController>();
         Debug.Assert(m_uic != null, "Cannot find the UIController script on Canvas.");
+
+        Respawn();
     }
 
     public void Stun()
@@ -103,12 +105,8 @@ public class PlayerController : MonoBehaviour
         //gameObject.transform.position = chest.transform.position;
         //gameObject.transform.Translate(Vector3.up * 30);
 
-
         FloorGrid grid = m_Grid.GetComponent<FloorGrid>();
         grid.DropObjectAtNode(grid.GetNodeByPosition(chest.transform.position), transform);
-
-
-
 
         m_bIsDead = false;
     }

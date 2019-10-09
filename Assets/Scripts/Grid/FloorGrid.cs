@@ -244,7 +244,6 @@ public class FloorGrid : MonoBehaviour
             }
         }
 
-        Debug.Log(m_fCoinTimer);
         if(m_fCoinTimer > m_fCoinSpawnTime)
         {
             m_fCoinTimer = 0.0f;
@@ -254,10 +253,5 @@ public class FloorGrid : MonoBehaviour
                 DropCoin();
             }
         }
-
-
-
-
-
     }
 }
