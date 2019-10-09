@@ -36,6 +36,12 @@ public class ChestController : MonoBehaviour
                     case 2:
                         uic.m_nP2Score++;
                         break;
+                    case 3:
+                        uic.m_nP3Score++;
+                        break;
+                    case 4:
+                        uic.m_nP4Score++;
+                        break;
                     default:
                         Debug.LogError("Player ID is out of currently defined range.");
                         break;
