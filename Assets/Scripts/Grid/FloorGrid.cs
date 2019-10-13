@@ -51,11 +51,13 @@ public class FloorGrid : MonoBehaviour
                 Vector3 size = m_Plane.GetComponent<Collider>().bounds.size;
 
                 
-                m_Nodes[x, y] = new Node(new Vector3(x * size.x, 2.25f, y * size.z) ,m_Plane);
+                m_Nodes[x, y] = new Node(new Vector3(x * size.x, 2.25f, y * size.z) ,m_Plane,new Vector2(x,y));
             
                 
             }
         }
+
+        Blackboard.GetInstance().SetNodes(ref m_Nodes);
 
 
        

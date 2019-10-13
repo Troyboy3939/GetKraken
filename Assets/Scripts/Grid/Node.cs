@@ -9,11 +9,11 @@ public class Node
     public StateMachine m_StateMachine;
     GameObject m_BasePlane;
     GameObject m_Plane;
-
+    Vector2 m_v2NodePos;
 
    
 
-    public Node(float fX, float fY, float fZ,  GameObject Plane)
+    public Node(float fX, float fY, float fZ,  GameObject Plane, Vector2 v2NodePos)
     {
 
         m_v3Position.x = fX;
@@ -22,15 +22,16 @@ public class Node
         m_BasePlane = Plane;
         m_Plane = GameObject.Instantiate(m_BasePlane, m_v3Position, new Quaternion(0, 0, 0, 0));
         m_StateMachine = new StateMachine(m_v3Position, ref m_Plane);
+        m_v2NodePos = v2NodePos;
     }
 
-    public Node(Vector3 v3Position, GameObject Plane)
+    public Node(Vector3 v3Position, GameObject Plane, Vector2 v2NodePos)
     {
         m_v3Position = v3Position;
         m_BasePlane = Plane;
         m_Plane = GameObject.Instantiate(m_BasePlane, m_v3Position, new Quaternion(0, 0, 0, 0));
         m_StateMachine = new StateMachine(m_v3Position, ref m_Plane);
-
+        m_v2NodePos = v2NodePos;
     }
     public GameObject GetPlane()
     {

@@ -10,8 +10,9 @@ public class Blackboard : MonoBehaviour
     [SerializeField] GameObject tentacle;
     [SerializeField] GameObject plane;
     [SerializeField] GameObject canvas;
-
+ 
     GameObject[] m_Chests;
+    Node[,] m_Nodes;
     void Awake()
     {
         if (instance == null)
@@ -76,4 +77,22 @@ public class Blackboard : MonoBehaviour
     {
         return canvas;
     }
+
+
+    public void SetNodes(ref Node[,] nodes)
+    {
+        m_Nodes = nodes;
+    }
+
+    public Node GetNode(Vector2 vec)
+    {
+        return m_Nodes[Mathf.FloorToInt(vec.x), Mathf.FloorToInt(vec.y)];
+    }
+
+    public Node GetNode(int x, int y)
+    {
+        return m_Nodes[x, y];
+    }
+
+
 }
