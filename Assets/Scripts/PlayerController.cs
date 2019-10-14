@@ -171,6 +171,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        m_Controller.AddForce(m_fGravityMultiplier * Physics.gravity);
+
         if (!m_UiController.m_bGameEnded)
         {
             // Disable everything but the respawn timer while the player is dead
@@ -188,7 +190,6 @@ public class PlayerController : MonoBehaviour
                 }
 
                 rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
-                m_Controller.AddForce(m_fGravityMultiplier * Physics.gravity);
                 if (!(m_bStunned) && !(m_bIsFalling))
                 {
                     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
