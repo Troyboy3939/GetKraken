@@ -161,6 +161,30 @@ public class PlayerController : MonoBehaviour
         m_bHasCoin = false;
     }
 
+    // TODO: This is currently not working
+    //private void DropCoin()
+    //{
+    //    Collider thisCol = GetComponent<Collider>();
+    //    Collider otherCol = GetComponentInParent<Collider>();
+
+    //    // Temporarily disable collision between the coin and the player that touched it
+    //    Physics.IgnoreCollision(thisCol, otherCol);
+    //    StartCoroutine(DropCoinCooldown(thisCol, otherCol));
+
+    //    DetachCoin();
+    //}
+
+    //private IEnumerator DropCoinCooldown(Collider col1, Collider col2)
+    //{
+    //    bool b = true;
+    //    while (b)
+    //    {
+    //        b = false;
+    //        yield return new WaitForSeconds(2);
+    //    }
+    //    Physics.IgnoreCollision(col1, col2, false);
+    //}
+
     // Update is called once per frame
     void Update()
     {
@@ -216,7 +240,7 @@ public class PlayerController : MonoBehaviour
                     }
 
                     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
-                    //Shoving
+                    //Shoving and Dropping
                     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
                     RaycastHit hit = new RaycastHit();
@@ -228,6 +252,12 @@ public class PlayerController : MonoBehaviour
                         {
                             Shove(ref hit);
                         }
+
+                        // Currently not working
+                        //if (XCI.GetButtonDown(XboxButton.X, (XboxController)m_nPlayerID))
+                        //{
+                        //    DropCoin();
+                        //}
                     }
                     else
                     {
@@ -235,6 +265,12 @@ public class PlayerController : MonoBehaviour
                         {
                             Shove(ref hit);
                         }
+
+                        // Currently not working
+                        //if (Input.GetKeyDown(KeyCode.LeftShift))
+                        //{
+                        //    DropCoin();
+                        //}
                     }
                 }
                 else if(m_bStunned)//If stunned
