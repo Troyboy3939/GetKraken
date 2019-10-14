@@ -103,10 +103,6 @@ public class PlayerController : MonoBehaviour
         {
             Rigidbody coinRb = gameObject.GetComponentInChildren<Rigidbody>();
             DetachCoin();
-
-            // This AddForce call is likely unecessary
-            //coinRb.AddForce(Vector3.up * 10000, ForceMode.Impulse);
-            //coinRb.AddExplosionForce(1000,transform.position,2);
         }
     }
 
@@ -118,8 +114,6 @@ public class PlayerController : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().useGravity = true;
 
         GameObject chest = Blackboard.GetInstance().GetChestWithID(m_nPlayerID);
-        //gameObject.transform.position = chest.transform.position;
-        //gameObject.transform.Translate(Vector3.up * 30);
 
         FloorGrid grid = m_Grid.GetComponent<FloorGrid>();
         grid.DropObjectAtNode(grid.GetNodeByPosition(chest.transform.position), transform);
@@ -141,7 +135,6 @@ public class PlayerController : MonoBehaviour
             coin.transform.Translate(new Vector3(0, -1, 0));
 
             Rigidbody rb = coin.GetComponent<Rigidbody>();
-            //rb.constraints = RigidbodyConstraints.None;
             rb.isKinematic = false;
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
@@ -258,7 +251,6 @@ public class PlayerController : MonoBehaviour
                         {
                             Physics.IgnoreCollision(m_tempCol, gameObject.GetComponent<CapsuleCollider>(), false);
                         }
-
                     }
                 }
 

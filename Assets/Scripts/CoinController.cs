@@ -25,7 +25,7 @@ public class CoinController : MonoBehaviour
         {
             PlayerController pc = other.gameObject.GetComponent<PlayerController>();
 
-            if (!m_bHeld && !pc.m_bHasCoin)
+            if (!m_bHeld && !pc.m_bHasCoin && !pc.GetStunned())
             {
                 pc.SetHasCoin(true);
                 transform.SetParent(other.transform);
