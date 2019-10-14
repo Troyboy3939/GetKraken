@@ -19,13 +19,13 @@ public class Pointer : MonoBehaviour
             {
                 if (hit.transform.gameObject.tag == "MenuStart")
                 {
-                    SceneManager.LoadScene("Game");
+                    SceneManager.LoadScene("OfficialBuild");
                 }
             }
         }
         else if (XCI.GetButtonDown(XboxButton.A))
         {
-            SceneManager.LoadScene("Game");
+            SceneManager.LoadScene("OfficialBuild");
         }
     }
 }

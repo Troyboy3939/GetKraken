@@ -17,7 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TitleScreen01.unity
     guid: 7d3692a5639dab0409bec13fe3a103a4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game.unity
     guid: 200870f5133993c4789008559d417e46
+  - enabled: 1
+    path: Assets/Scenes/Alpha Greyboxes V2/ToScaleGreybox001Template.unity
+    guid: da350bd387c199242943ee1d96cf7fc3
   m_configObjects: {}
