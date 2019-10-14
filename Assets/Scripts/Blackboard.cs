@@ -28,6 +28,22 @@ public class Blackboard : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    private void Update()
+    {
+        for (int i = 0; i < m_Nodes.GetLength(0); ++i)
+        {
+            for(int j = 0; j < m_Nodes.GetLength(1); ++j)
+            {
+                if (m_Nodes[i, j].GetHasTentacle())
+                {
+                    Vector3 pos = m_Nodes[i, j].GetPosition();
+                    Debug.DrawLine(new Vector3(pos.x - 0.2f, 2.25f, pos.z - 0.2f), new Vector3(pos.x + 0.2f, 2.25f, pos.z + 0.2f), Color.yellow);
+                }
+            }
+        }
+        
+    }
+
     // This is required since the blackboard is only created once as a singleton, and you need
     // to find these objects every time the scene is loaded. It's not a default Unity method, see Awake.
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)

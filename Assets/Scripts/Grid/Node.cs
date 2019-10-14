@@ -23,7 +23,7 @@ public class Node
         m_v3Position.z = fZ;
         m_BasePlane = Plane;
         m_Plane = GameObject.Instantiate(m_BasePlane, m_v3Position, new Quaternion(0, 0, 0, 0));
-        m_StateMachine = new StateMachine(m_v3Position, ref m_Plane);
+        m_StateMachine = new StateMachine(m_v3Position, ref m_Plane,v2NodePos);
         m_v2NodePos = v2NodePos;
     }
 
@@ -32,7 +32,7 @@ public class Node
         m_v3Position = v3Position;
         m_BasePlane = Plane;
         m_Plane = GameObject.Instantiate(m_BasePlane, m_v3Position, new Quaternion(0, 0, 0, 0));
-        m_StateMachine = new StateMachine(m_v3Position, ref m_Plane);
+        m_StateMachine = new StateMachine(m_v3Position, ref m_Plane,v2NodePos);
         m_v2NodePos = v2NodePos;
     }
     public GameObject GetPlane()

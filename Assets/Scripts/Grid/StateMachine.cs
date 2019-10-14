@@ -28,9 +28,9 @@ public class StateMachine
     private GameObject m_BasePlane;
 
 
-    public StateMachine(Vector3 pos, ref GameObject plane)
+    public StateMachine(Vector3 pos, ref GameObject plane, Vector2 vec)
     {
-        m_TentacleState = new TentacleState(pos, plane);
+        m_TentacleState = new TentacleState(pos, plane, vec);
         m_FloorState =  new FloorState(ref plane);
         m_HoleState = new HoleState(ref plane);
     }
@@ -38,6 +38,12 @@ public class StateMachine
     {
         return ref m_FloorState;
     }
+
+    public TentacleState GetTentacleState()
+    {
+        return m_TentacleState;
+    }
+
     public void ChangeState()
     {
 

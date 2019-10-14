@@ -221,11 +221,19 @@ public class FloorGrid : MonoBehaviour
                     m_TentaclePositions.Clear();
                 
             }
-            
-            List<int> indexFinished = new List<int>();
-            for(int i = 0; i < Mathf.FloorToInt((m_HolePositions.Count / 2)); i++)
+
+            for (int i = 0; i < m_Nodes.GetLength(0); ++i)
             {
-                   
+                for (int j = 0; j < m_Nodes.GetLength(1); ++j)
+                {
+                    TentacleState tentacle = m_Nodes[i, j].GetStateMachine().GetTentacleState();
+                    tentacle.Reset();
+                }
+            }
+
+            List<int> indexFinished = new List<int>();
+            for(int i = 0; i < Mathf.FloorToInt((m_HolePositions.Count / 2)); i++) //Number of tentacles
+            {
                 int index = Random.Range(0, m_HolePositions.Count);
                 for(int j = 0; j < indexFinished.Count; j++)
                 {
@@ -236,12 +244,17 @@ public class FloorGrid : MonoBehaviour
                     
                 }
 
-
-
                 indexFinished.Add(index);
                 //Switch to tentacle
                 m_TentaclePositions.Add(m_HolePositions[index]);
-                m_Nodes[Mathf.FloorToInt( m_HolePositions[index].x), Mathf.FloorToInt(m_HolePositions[index].y)].ChangeState();
+                
+                m_Nodes[Mathf.FloorToInt(m_HolePositions[index].x), Mathf.FloorToInt(m_HolePositions[index].y)].SetHasTentacle(true);
+            }
+
+            for (int i = 0; i < indexFinished.Count; i++) //Number of tentacles
+            {
+                int index = indexFinished[i];
+                m_Nodes[Mathf.FloorToInt(m_HolePositions[index].x), Mathf.FloorToInt(m_HolePositions[index].y)].ChangeState();
             }
         }
 
