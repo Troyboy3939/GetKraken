@@ -11,11 +11,13 @@ public class UIController : MonoBehaviour
     [SerializeField] GameObject m_goP3Score;
     [SerializeField] GameObject m_goP4Score;
     [SerializeField] GameObject m_goTimer;
+    [SerializeField] GameObject m_goStartTimer;
 
     public float m_fInitialTimeSeconds = 180;
     private float m_fCurrentTime;
     private int m_nTimeToDisplay;
-    [HideInInspector] public bool m_bGameEnded = false;
+
+    [HideInInspector] public bool m_bGameEnded = true;
 
     public int m_nP1Score { get; set; } = 0;
     public int m_nP2Score { get; set; } = 0;
@@ -24,11 +26,14 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
+        m_bGameEnded = true;
         UpdateScore();
         m_goTimer.GetComponent<Text>().text = m_fInitialTimeSeconds.ToString();
 
         m_fCurrentTime = m_fInitialTimeSeconds;
         m_nTimeToDisplay = (int)m_fInitialTimeSeconds;
+
+        StartCoroutine(StartGameCountdown(3));
     }
 
     // Updates all player's score counters
@@ -40,14 +45,50 @@ public class UIController : MonoBehaviour
         m_goP4Score.GetComponent<Text>().text = "Player 4: " + m_nP4Score.ToString();
     }
 
+    IEnumerator StartGameCountdown(int seconds)
+    {
+        int count = seconds;
+
+        while (count > -1)
+        {
+            switch (count)
+            {
+                case 3:
+                case 2:
+                case 1:
+                    m_goStartTimer.GetComponent<Text>().text = count.ToString();
+                    break;
+                case 0:
+                    m_goStartTimer.GetComponent<Text>().text = "GO!";
+                    StartGame();
+                    break;
+                default:
+                    Debug.LogError("The start countdown timer is greater than 3.");
+                    break;
+            }
+
+            yield return new WaitForSeconds(1);
+            count--;
+        }
+
+        m_goStartTimer.GetComponent<Text>().text = "";
+    }
+
+    private void StartGame()
+    {
+        m_bGameEnded = false;
+    }
+
     private void Update()
     {
+        // If game has ended, load the scene
         if (m_fCurrentTime < 0 && !m_bGameEnded)
         {
             m_bGameEnded = true;
             SceneManager.LoadScene("TitleScreen01");
         }
-        else if (m_fCurrentTime > 0)
+        // Otherwise, count down the timer
+        else if (m_fCurrentTime > 0 && !m_bGameEnded)
         {
             m_fCurrentTime -= Time.deltaTime;
             m_nTimeToDisplay = Mathf.CeilToInt(m_fCurrentTime);

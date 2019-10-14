@@ -25,13 +25,13 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool m_bHasCoin;
     [HideInInspector] public bool m_bIsDead = false;
 
-    bool m_bStunned = false;
+    private bool m_bStunned = false;
 
     Rigidbody m_Controller;
     private UIController m_UiController;
 
     // This will be used to store colliders that need to be accessed from multiple methods
-    private Collider tempCol;
+    private Collider m_tempCol;
 
     // Start is called before the first frame update
     void Start()
@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
             DetachCoin();
 
             // This AddForce call is likely unecessary
-            coinRb.AddForce(Vector3.up * 10000, ForceMode.Impulse);
+            //coinRb.AddForce(Vector3.up * 10000, ForceMode.Impulse);
             //coinRb.AddExplosionForce(1000,transform.position,2);
         }
     }
@@ -159,8 +159,8 @@ public class PlayerController : MonoBehaviour
             else if (ChildrenTransforms[i].tag == "Coin")
             {
                 CoinController CC = ChildrenTransforms[i].GetComponentInParent<CoinController>();
-                tempCol = CC.GetComponentInParent<BoxCollider>();
-                tempCol.enabled = true;
+                m_tempCol = CC.GetComponentInParent<BoxCollider>();
+                m_tempCol.enabled = true;
                 CC.SetHeld(false);
             }
         }
@@ -253,9 +253,9 @@ public class PlayerController : MonoBehaviour
                         GetComponent<Rigidbody>().freezeRotation = false;
 
                         // Undo the IgnoreCollision call
-                        if (tempCol != null && tempCol.gameObject.tag == "Coin")
+                        if (m_tempCol != null && m_tempCol.gameObject.tag == "Coin")
                         {
-                            Physics.IgnoreCollision(tempCol, gameObject.GetComponent<CapsuleCollider>(), false);
+                            Physics.IgnoreCollision(m_tempCol, gameObject.GetComponent<CapsuleCollider>(), false);
                         }
 
                     }
