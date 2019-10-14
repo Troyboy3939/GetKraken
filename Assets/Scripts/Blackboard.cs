@@ -7,12 +7,12 @@ public class Blackboard : MonoBehaviour
 {
     private static Blackboard instance = null;
 
-    [SerializeField] GameObject tentacle;
-    [SerializeField] GameObject plane;
-
+    GameObject tentacle;
+    GameObject plane;
     GameObject canvas;
     GameObject[] m_Chests;
     Node[,] m_Nodes;
+
     void Awake()
     {
         if (instance == null)
@@ -32,6 +32,8 @@ public class Blackboard : MonoBehaviour
     // to find these objects every time the scene is loaded. It's not a default Unity method, see Awake.
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        tentacle = GameObject.Find("Tentacle");
+        plane = GameObject.Find("Plane");
         canvas = GameObject.Find("/UI/Canvas");
         m_Chests = GameObject.FindGameObjectsWithTag("Chest");
     }
