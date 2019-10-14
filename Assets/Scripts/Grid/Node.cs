@@ -10,7 +10,9 @@ public class Node
     GameObject m_BasePlane;
     GameObject m_Plane;
     Vector2 m_v2NodePos;
-
+    bool m_bHasChest = false;
+    bool m_bHasTentacle = false;
+    bool m_bIsBuffer = false;
    
 
     public Node(float fX, float fY, float fZ,  GameObject Plane, Vector2 v2NodePos)
@@ -48,22 +50,30 @@ public class Node
 
     public bool GetHasTentacle()
     {
-        return m_StateMachine.GetFloorState().GetHasTentacle();
+        return m_bHasTentacle;
     }
 
     public bool GetHasChest()
     {
-        return m_StateMachine.GetFloorState().GetHasChest();
+        return m_bHasChest;
+    }
+    public bool GetIsBuffer()
+    {
+        return m_bIsBuffer;
     }
 
     public void SetHasTentacle(bool b)
     {
-        m_StateMachine.GetFloorState().SetHasTentacle(b);
+        m_bHasTentacle = b;
     }
-
     public void SetHasChest(bool b)
     {
-        m_StateMachine.GetFloorState().SetHasChest(b);
+        m_bHasChest = b;
+    }
+
+    public void SetIsBuffer(bool b)
+    {
+        m_bIsBuffer = b;
     }
 
     private void Start()

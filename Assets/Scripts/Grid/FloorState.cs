@@ -6,9 +6,6 @@ using UnityEngine;
 {
     GameObject m_Plane;
     Vector3 m_v3Position;
-    bool m_bHasTentacle = false;
-    bool m_bHasChest = false;
-    bool m_bIsBuffer = false;
 
     public FloorState(ref GameObject plane)
     {
@@ -30,38 +27,6 @@ using UnityEngine;
 
     }
 
-    
-    public bool GetHasTentacle()
-    {
-        return m_bHasTentacle;
-    }
-
-    public bool GetIsBuffer()
-    {
-        return m_bIsBuffer;
-    }
-
-
-
-    public bool GetHasChest()
-    {
-        return m_bHasChest;
-    }
-
-    public void SetHasTentacle(bool b)
-    {
-        m_bHasTentacle = b;
-    }
-
-    public void SetHasChest(bool b)
-    {
-        m_bHasChest = b;
-    }
-
-    public void SetIsBuffer(bool b)
-    {
-        m_bIsBuffer = b;
-    }
 }
 
 
