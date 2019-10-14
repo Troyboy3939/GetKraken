@@ -161,6 +161,14 @@ public class PlayerController : MonoBehaviour
         m_bHasCoin = false;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Tentacle")
+        {
+            Kill();
+        }
+    }
+
     // TODO: This is currently not working
     //private void DropCoin()
     //{

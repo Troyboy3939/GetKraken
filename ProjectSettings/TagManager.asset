@@ -7,6 +7,7 @@ TagManager:
   - Coin
   - Nose
   - Chest
+  - Tentacle
   layers:
   - Default
   - TransparentFX

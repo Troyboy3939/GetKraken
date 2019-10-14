@@ -55,14 +55,19 @@ public class TentacleController : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            // kill player, should be a full animation in the full game but
-            // for alpha just despawn both player and tentacle
-            collision.gameObject.GetComponent<PlayerController>().Kill();
-            Hide();
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        // kill player, should be a full animation in the full game but
+    //        // for alpha just despawn both player and tentacle
+    //        collision.gameObject.GetComponent<PlayerController>().Kill();
+    //        Hide();
+            
+    //    }
+    //}
+
+    
+
+    
 }
