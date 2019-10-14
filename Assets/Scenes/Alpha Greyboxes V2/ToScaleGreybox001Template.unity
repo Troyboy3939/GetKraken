@@ -184,6 +184,11 @@ PrefabInstance:
       propertyPath: plane
       value: 
       objectReference: {fileID: 1862734911}
+    - target: {fileID: 5701553704160344644, guid: 466b315f306c7c74db11f89274d6ec8d,
+        type: 3}
+      propertyPath: m_fRespawnTime
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 466b315f306c7c74db11f89274d6ec8d, type: 3}
 --- !u!1 &152055404
@@ -1377,8 +1382,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19ec3f0ad9cd604c8fbc407cd0352f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tentacle: {fileID: 533702416}
-  plane: {fileID: 1862734911}
 --- !u!1 &617044055
 GameObject:
   m_ObjectHideFlags: 0
@@ -4252,7 +4255,7 @@ MonoBehaviour:
   m_Tentacle: {fileID: 533702416}
   m_Coin: {fileID: 1033881062}
   m_fDropHeight: 30
-  m_fTentacleSwitchTime: 3
+  m_fTentacleSwitchTime: 10
   m_fCoinSpawnTime: 3
   m_HolePositions:
   - {x: 5, y: 3}
