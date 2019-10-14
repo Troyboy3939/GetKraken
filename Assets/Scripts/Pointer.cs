@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using XboxCtrlrInput;
+
 public class Pointer : MonoBehaviour
 {
     // Start is called before the first frame update
     private void Update()
     {
-        Clicked();
-    }
-
-    private void Clicked()
-    {
-
+        // Start the game if "Start" clicked or A button pressed
         if (Input.GetMouseButtonUp(0))
         {
             RaycastHit hit;
@@ -25,6 +22,10 @@ public class Pointer : MonoBehaviour
                     SceneManager.LoadScene("Game");
                 }
             }
+        }
+        else if (XCI.GetButtonDown(XboxButton.A))
+        {
+            SceneManager.LoadScene("Game");
         }
     }
 }
