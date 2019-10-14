@@ -37,7 +37,7 @@ public class Blackboard : MonoBehaviour
                 if (m_Nodes[i, j].GetHasTentacle())
                 {
                     Vector3 pos = m_Nodes[i, j].GetPosition();
-                    Debug.DrawLine(new Vector3(pos.x - 0.2f, 2.25f, pos.z - 0.2f), new Vector3(pos.x + 0.2f, 2.25f, pos.z + 0.2f), Color.yellow);
+                    //Debug.DrawLine(new Vector3(pos.x - 0.2f, 2.25f, pos.z - 0.2f), new Vector3(pos.x + 0.2f, 2.25f, pos.z + 0.2f), Color.yellow);
                 }
             }
         }
