@@ -151,7 +151,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17900
+  m_Name: pb_Mesh16540
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -1214,7 +1214,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tentacle: {fileID: 4638131791022858005}
   plane: {fileID: 1862734911}
-  canvas: {fileID: 1702106457}
 --- !u!1 &617044055
 GameObject:
   m_ObjectHideFlags: 0
@@ -2711,7 +2710,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17948
+  m_Name: pb_Mesh16588
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -3807,7 +3806,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17872
+  m_Name: pb_Mesh16512
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -3967,7 +3966,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18050
+  m_Name: pb_Mesh16690
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -4320,7 +4319,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17914
+  m_Name: pb_Mesh16554
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -5015,7 +5014,7 @@ MonoBehaviour:
   m_goP3Score: {fileID: 719554597}
   m_goP4Score: {fileID: 1298451799}
   m_goTimer: {fileID: 1797399768}
-  m_goStartTimer: {fileID: 1895920787}
+  m_goStartAndEndDisplay: {fileID: 0}
   m_fInitialTimeSeconds: 180
   m_bGameEnded: 0
 --- !u!1001 &1707608162
@@ -5429,7 +5428,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18006
+  m_Name: pb_Mesh16646
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -5856,7 +5855,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tentacle: {fileID: 4638131791022858005}
   plane: {fileID: 1862734911}
-  canvas: {fileID: 0}
 --- !u!4 &4638131791022858010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1229342884652076701, guid: 466b315f306c7c74db11f89274d6ec8d,

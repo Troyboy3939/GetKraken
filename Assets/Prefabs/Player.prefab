@@ -91,7 +91,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.0063108
+  m_Radius: 0.75
   m_Height: 2.2205918
   m_Direction: 1
   m_Center: {x: 0, y: 1.1102959, z: 0}
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d2fdda816624645848679abbe38138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_nPlayerID: 1
   m_fMaxSpeed: 14
   m_fCoinSpeed: 7
   m_fSphereCastDist: 10
@@ -132,6 +133,6 @@ MonoBehaviour:
   m_fGravityMultiplier: 15
   m_fRespawnTime: 2
   m_Grid: {fileID: 0}
-  m_nPlayerID: 1
+  m_bIsFalling: 0
   m_bHasCoin: 0
   m_bIsDead: 0

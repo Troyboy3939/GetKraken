@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 1229342884642267519}
   - component: {fileID: 5701553704160344644}
   - component: {fileID: 8604783256765091482}
+  - component: {fileID: 4638131791022858006}
   m_Layer: 0
   m_Name: Tentacle
   m_TagString: Untagged
@@ -292,7 +293,7 @@ Animator:
   m_GameObject: {fileID: 1229342884651651773}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: faf9c93c730061b48adb5b0939a4f095, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b12cc607366cf5944a3078ff889fe26c, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -313,6 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d963f9af2dcc2eb4a8ef1616bebb56bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_fRespawnTime: 2
 --- !u!64 &8604783256765091482
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -327,6 +329,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: faf9c93c730061b48adb5b0939a4f095, type: 3}
+--- !u!114 &4638131791022858006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229342884651651773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19ec3f0ad9cd604c8fbc407cd0352f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tentacle: {fileID: 1229342884651651773}
+  plane: {fileID: 0}
 --- !u!1 &1229342884651651775
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,7 +391,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5b358a8ba002f1a4fbd6b40af679366e, type: 2}
+  - {fileID: 2100000, guid: 6d019bfcdc9d25c4b9381962c7ecc69a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
