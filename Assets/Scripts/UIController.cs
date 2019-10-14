@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class UIController : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class UIController : MonoBehaviour
     [SerializeField] GameObject m_goP3Score;
     [SerializeField] GameObject m_goP4Score;
     [SerializeField] GameObject m_goTimer;
-    [SerializeField] GameObject m_goStartTimer;
+    [SerializeField] GameObject m_goStartAndEndDisplay;
 
     public float m_fInitialTimeSeconds = 180;
     private float m_fCurrentTime;
@@ -56,10 +57,10 @@ public class UIController : MonoBehaviour
                 case 3:
                 case 2:
                 case 1:
-                    m_goStartTimer.GetComponent<Text>().text = count.ToString();
+                    m_goStartAndEndDisplay.GetComponent<Text>().text = count.ToString();
                     break;
                 case 0:
-                    m_goStartTimer.GetComponent<Text>().text = "GO!";
+                    m_goStartAndEndDisplay.GetComponent<Text>().text = "GO!";
                     StartGame();
                     break;
                 default:
@@ -71,12 +72,83 @@ public class UIController : MonoBehaviour
             count--;
         }
 
-        m_goStartTimer.GetComponent<Text>().text = "";
+        m_goStartAndEndDisplay.GetComponent<Text>().text = "";
     }
 
     private void StartGame()
     {
         m_bGameEnded = false;
+    }
+
+    private IEnumerator ShowFinalScore(List<int> winningIDs)
+    {
+        bool coroutineDone = false;
+
+        while (!coroutineDone)
+        {
+            if (winningIDs.Count == 1)
+            {
+                m_goStartAndEndDisplay.GetComponent<Text>().text = "Player " + winningIDs[0] + " Wins!";
+            }
+            else
+            {
+                m_goStartAndEndDisplay.GetComponent<Text>().text = "It's a tie!";
+            }
+            
+            coroutineDone = true;
+            yield return new WaitForSeconds(3);
+        }
+
+        SceneManager.LoadScene("TitleScreen01");
+    }
+
+    private void EndGame()
+    {
+        List<int> winningIDs = FindWinners();
+        StartCoroutine(ShowFinalScore(winningIDs));
+    }
+
+    // Who has the highest score? Allow ties to happen
+    private List<int> FindWinners()
+    {
+        // I'll be using the index + 1 to get the player IDs
+        // Not an optimal way of doing this, but the IDs should never change
+        List<int> playerScores = new List<int>();
+        playerScores.Add(m_nP1Score);
+        playerScores.Add(m_nP2Score);
+        playerScores.Add(m_nP3Score);
+        playerScores.Add(m_nP4Score);
+
+        // Get the highest score
+        int winningScore = 0;
+        int winningID = 0;
+        for (int i = 0; i < playerScores.Count; i++)
+        {
+            if (playerScores[i] > winningScore)
+            {
+                winningScore = playerScores[i];
+                winningID = i + 1;
+            }
+        }
+
+        // Check if there's more than one winner
+        List<int> duplicates = new List<int>();
+        foreach (int score in playerScores)
+        {
+            if (score == winningScore) duplicates.Add(score);
+        }
+
+        List<int> winningIDs = new List<int>();
+        if (duplicates.Count > 1)
+        {
+            winningIDs = duplicates;
+        }
+        else
+        {
+            winningIDs.Add(winningID);
+        }
+
+        return winningIDs;
     }
 
     private void Update()
@@ -85,7 +157,7 @@ public class UIController : MonoBehaviour
         if (m_fCurrentTime < 0 && !m_bGameEnded)
         {
             m_bGameEnded = true;
-            SceneManager.LoadScene("TitleScreen01");
+            EndGame();
         }
         // Otherwise, count down the timer
         else if (m_fCurrentTime > 0 && !m_bGameEnded)
