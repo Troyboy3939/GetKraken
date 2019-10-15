@@ -167,9 +167,13 @@ public class FloorGrid : MonoBehaviour
             Node pos = GetNodeByPosition(chest.transform.position);
             if (m_Nodes[n1, n2] == pos || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.HOLE ||m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.TENTACLE)
             {
-                n1 = Random.Range(0, m_nGridWidth);
-                n2 = Random.Range(0, m_nGridHeight);
+                if(!m_Nodes[n1,n2].GetHasTentacle())
+                {
+                    n1 = Random.Range(0, m_nGridWidth);
+                    n2 = Random.Range(0, m_nGridHeight);
+                }
             }
+
         }
 
 

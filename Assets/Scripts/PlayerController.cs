@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public bool m_bIsFalling = false;
     
     [HideInInspector] public bool m_bHasCoin;
+    [HideInInspector] public bool m_bCanPickUpCoin = true;
     [HideInInspector] public bool m_bIsDead = false;
 
     private bool m_bStunned = false;
@@ -102,12 +103,8 @@ public class PlayerController : MonoBehaviour
         m_fTimeWhenKilled = Time.time;
         m_bIsDead = true;
 
-        // If the player is holding a coin when they die, the coin will be pushed away
-        if (m_bHasCoin)
-        {
-            Rigidbody coinRb = gameObject.GetComponentInChildren<Rigidbody>();
-            DetachCoin();
-        }
+        // If the player is holding a coin when they die, the coin will be dropped
+        if (m_bHasCoin) DetachCoin();
     }
 
     // Respawns the player at their chest
@@ -177,29 +174,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // TODO: This is currently not working
-    //private void DropCoin()
-    //{
-    //    Collider thisCol = GetComponent<Collider>();
-    //    Collider otherCol = GetComponentInParent<Collider>();
+    private void DropHeldCoin()
+    {
+        m_bCanPickUpCoin = false;
+        StartCoroutine(DropHeldCoinCooldown());
+        DetachCoin();
+    }
 
-    //    Temporarily disable collision between the coin and the player that touched it
-    //    Physics.IgnoreCollision(thisCol, otherCol);
-    //    StartCoroutine(DropCoinCooldown(thisCol, otherCol));
-
-    //    DetachCoin();
-    //}
-
-    //private IEnumerator DropCoinCooldown(Collider col1, Collider col2)
-    //{
-    //    bool b = true;
-    //    while (b)
-    //    {
-    //        b = false;
-    //        yield return new WaitForSeconds(2);
-    //    }
-    //    Physics.IgnoreCollision(col1, col2, false);
-    //}
+    private IEnumerator DropHeldCoinCooldown()
+    {
+        bool b = true;
+        while (b)
+        {
+            b = false;
+            yield return new WaitForSeconds(1);
+        }
+        m_bCanPickUpCoin = true;
+    }
 
     // Update is called once per frame
     void Update()
@@ -269,11 +260,10 @@ public class PlayerController : MonoBehaviour
                             Shove(ref hit);
                         }
 
-                        // Currently not working
-                        //if (XCI.GetButtonDown(XboxButton.X, (XboxController)m_nPlayerID))
-                        //{
-                        //    DropCoin();
-                        //}
+                        if (XCI.GetButtonDown(XboxButton.X, (XboxController)m_nPlayerID))
+                        {
+                            DropHeldCoin();
+                        }
                     }
                     else
                     {
@@ -282,11 +272,10 @@ public class PlayerController : MonoBehaviour
                             Shove(ref hit);
                         }
 
-                        // Currently not working
-                        //if (Input.GetKeyDown(KeyCode.LeftShift))
-                        //{
-                        //    DropCoin();
-                        //}
+                        if (Input.GetKeyDown(KeyCode.LeftShift))
+                        {
+                            DropHeldCoin();
+                        }
                     }
                 }
                 else if(m_bStunned)//If stunned

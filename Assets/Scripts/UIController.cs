@@ -60,7 +60,7 @@ public class UIController : MonoBehaviour
                     m_goStartAndEndDisplay.GetComponent<Text>().text = count.ToString();
                     break;
                 case 0:
-                    m_goStartAndEndDisplay.GetComponent<Text>().text = "GO!";
+                    m_goStartAndEndDisplay.GetComponent<Text>().text = "Get Kraken!";
                     StartGame();
                     break;
                 default:
