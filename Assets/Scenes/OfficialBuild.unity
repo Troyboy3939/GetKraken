@@ -524,6 +524,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100154, guid: b0d57eaa50717484a876ee1908a11520, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400140, guid: b0d57eaa50717484a876ee1908a11520, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.7
@@ -580,10 +584,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ff332e4e85af2184881469021e8a4231, type: 2}
-    - target: {fileID: 100154, guid: b0d57eaa50717484a876ee1908a11520, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0d57eaa50717484a876ee1908a11520, type: 3}
 --- !u!1 &259690229
@@ -6134,7 +6134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19ec3f0ad9cd604c8fbc407cd0352f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fTentacleVerticalPercentage: 100
+  m_fTentacleVerticalPercentage: 20
 --- !u!1 &617044055
 GameObject:
   m_ObjectHideFlags: 0
