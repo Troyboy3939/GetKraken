@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_fStunTime = 10;
     [SerializeField] float m_fGravityMultiplier = 3;
     [SerializeField] float m_fRespawnTime = 2;
+    [SerializeField] float m_fDropCoinCooldown = 1;
 
     [SerializeField] GameObject m_Grid;
     public bool m_bIsFalling = false;
@@ -187,7 +188,7 @@ public class PlayerController : MonoBehaviour
         while (b)
         {
             b = false;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(m_fDropCoinCooldown);
         }
         m_bCanPickUpCoin = true;
     }
