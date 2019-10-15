@@ -6134,7 +6134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19ec3f0ad9cd604c8fbc407cd0352f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fTentacleVerticalPercentage: 20
 --- !u!1 &617044055
 GameObject:
   m_ObjectHideFlags: 0
@@ -8817,16 +8816,34 @@ MonoBehaviour:
   m_fTentacleSwitchTime: 10
   m_fCoinSpawnTime: 3
   m_HolePositions:
-  - {x: 2, y: 2}
-  - {x: 22, y: 2}
-  - {x: 22, y: 13}
-  - {x: 2, y: 13}
-  - {x: 2, y: 10}
-  - {x: 10, y: 10}
-  - {x: 10, y: 10}
-  - {x: 10, y: 10}
-  - {x: 10, y: 10}
-  - {x: 10, y: 10}
+  - {x: 11, y: 15}
+  - {x: 14, y: 15}
+  - {x: 5, y: 13}
+  - {x: 3, y: 12}
+  - {x: 20, y: 13}
+  - {x: 22, y: 12}
+  - {x: 9, y: 11}
+  - {x: 16, y: 11}
+  - {x: 3, y: 9}
+  - {x: 22, y: 9}
+  - {x: 2, y: 8}
+  - {x: 2, y: 7}
+  - {x: 7, y: 8}
+  - {x: 7, y: 7}
+  - {x: 18, y: 8}
+  - {x: 23, y: 8}
+  - {x: 23, y: 7}
+  - {x: 22, y: 6}
+  - {x: 3, y: 6}
+  - {x: 3, y: 3}
+  - {x: 9, y: 4}
+  - {x: 5, y: 2}
+  - {x: 11, y: 0}
+  - {x: 14, y: 0}
+  - {x: 16, y: 4}
+  - {x: 20, y: 2}
+  - {x: 22, y: 3}
+  - {x: 18, y: 7}
 --- !u!4 &1519288279
 Transform:
   m_ObjectHideFlags: 0
