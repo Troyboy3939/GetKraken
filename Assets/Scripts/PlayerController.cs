@@ -36,6 +36,9 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ParticleSystem.MainModule ma = GetComponent<ParticleSystem>().main;
+        ma.startColor = GetComponent<Renderer>().material.color;
+
         m_Controller = GetComponent<Rigidbody>();
         m_fSpeed = m_fMaxSpeed;
 
@@ -77,6 +80,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if (hitController.tag == "Player")
                     {
+                        p.GetComponent<ParticleSystem>().Play();
                         hitController.AddForce(transform.forward * m_fShovePower, ForceMode.VelocityChange);
                         p.Stun();
                         p.SetHasCoin(false);
@@ -179,7 +183,7 @@ public class PlayerController : MonoBehaviour
     //    Collider thisCol = GetComponent<Collider>();
     //    Collider otherCol = GetComponentInParent<Collider>();
 
-    //    // Temporarily disable collision between the coin and the player that touched it
+    //    Temporarily disable collision between the coin and the player that touched it
     //    Physics.IgnoreCollision(thisCol, otherCol);
     //    StartCoroutine(DropCoinCooldown(thisCol, otherCol));
 
