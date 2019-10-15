@@ -12,9 +12,10 @@ public class Blackboard : MonoBehaviour
     GameObject canvas;
     GameObject[] m_Chests;
     Node[,] m_Nodes;
-
+    [SerializeField] float m_fTentacleVerticalPercentage;
     void Awake()
     {
+        Debug.Log("Creating a blackboard now");
         if (instance == null)
         {
             instance = this;
@@ -68,6 +69,17 @@ public class Blackboard : MonoBehaviour
     {
         return plane;
     }
+
+    public float GetTentacleVerticalPercentage()
+    {
+        return m_fTentacleVerticalPercentage;
+    }
+
+    public void SetTentacleVerticalPercentage(float fPercentage)
+    {
+        m_fTentacleVerticalPercentage = fPercentage;
+    }
+
 
     public GameObject GetChestWithID(int id)
     {

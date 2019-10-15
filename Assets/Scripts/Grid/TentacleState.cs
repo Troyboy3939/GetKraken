@@ -12,6 +12,13 @@ public class TentacleState : State
     Vector2 m_v2NodePos;
     List<Vector2> m_AdjacentNodes = new List<Vector2>();
     public Animator anim;
+    ETENTACLESTATE m_eState;
+    enum ETENTACLESTATE
+    {
+        VERTICAL,
+        HORIZONTAL
+    }
+
     public TentacleState(Vector3 pos,  GameObject plane, Vector2 vecPos)
     {
         m_v3Position = pos;
@@ -28,7 +35,11 @@ public class TentacleState : State
             //Creation of the actual tentacle
             m_Tentacle = GameObject.Instantiate<GameObject>(Blackboard.GetInstance().GetTentacle(), m_v3Position, new Quaternion(0, 0, 0, 0));
             anim = m_Tentacle.GetComponent<Animator>();
-            
+
+
+            AnimationPlayer();
+          
+
 
             //No longer go through this branch
             m_bFirstTime = false;
@@ -37,9 +48,62 @@ public class TentacleState : State
         else
         {
             m_Tentacle.SetActive(true);
-            anim.Play("Rise Up");
+
+
+            AnimationPlayer();
+
+
+
+
+            //anim.Play("Rise Up");
+
+            
+
             Blackboard.GetInstance().GetNode(m_v2NodePos).SetHasTentacle(true);
         }
+
+
+
+    }
+
+
+    void AnimationPlayer()
+    {
+        //Pick random state based on percentage on blackboard
+
+        int n = Random.Range(1, 100);
+
+        Blackboard instance = Blackboard.GetInstance();
+
+        if (n < instance.GetTentacleVerticalPercentage())
+        {
+            m_eState = ETENTACLESTATE.VERTICAL;
+        }
+        else
+        {
+            m_eState = ETENTACLESTATE.HORIZONTAL;
+        }
+
+
+
+
+        switch (m_eState)
+        {
+            case ETENTACLESTATE.HORIZONTAL:
+                StartUpRotation();
+                break;
+            case ETENTACLESTATE.VERTICAL:
+                anim.Play("Rise Up Vertical");
+                break;
+        }
+
+
+    }
+
+
+
+    private void StartUpRotation()
+    {
 
         float tentacleRotation = Random.Range(1, 4) * 90.0f;
 
@@ -112,14 +176,17 @@ public class TentacleState : State
             {
                 break;
             }
-                
+
             tentacleRotation += 90;
-                
+
         }
+
+
 
         if (!bValid)
         {
-            //Set it to be vertical instead, because it checked each direction and it was not
+            m_eState = ETENTACLESTATE.VERTICAL;
+            anim.Play("Rise Up Vertical");
             m_Tentacle.SetActive(false);
         }
         else
@@ -128,6 +195,8 @@ public class TentacleState : State
             anim.Play("Rise Up");
         }
     }
+
+
 
     public override void OnExit()
     {
