@@ -62,8 +62,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c29a8f895477458469f9e0a06609a53a, type: 2}
-  - {fileID: 2100000, guid: c29a8f895477458469f9e0a06609a53a, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,16 +127,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nPlayerID: 1
   m_fMaxSpeed: 14
-  m_fCoinSpeed: 7
+  m_fCoinSpeed: 10
   m_fSphereCastDist: 10
   m_fSphereCastRadius: 2
   m_fShovePower: 100
   m_fStunTime: 1.5
   m_fGravityMultiplier: 15
   m_fRespawnTime: 2
+  m_fDropCoinCooldown: 0.5
   m_Grid: {fileID: 0}
   m_bIsFalling: 0
   m_bHasCoin: 0
+  m_bCanPickUpCoin: 1
   m_bIsDead: 0
 --- !u!198 &1043297594707736748
 ParticleSystem:

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CoinController : MonoBehaviour
 {
     BoxCollider col;
+    [SerializeField] private float m_fGravityMultiplier;
     [HideInInspector] public bool m_bHeld = false;
 
     public void SetHeld(bool bHeld)
@@ -16,6 +17,11 @@ public class CoinController : MonoBehaviour
     {
         col = GetComponent<BoxCollider>();
         Rigidbody rb = GetComponent<Rigidbody>();
+    }
+
+    void FixedUpdate()
+    {
+        GetComponent<Rigidbody>().AddForce(m_fGravityMultiplier * Physics.gravity);
     }
 
     private void OnCollisionEnter(Collision other)

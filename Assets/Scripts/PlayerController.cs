@@ -193,11 +193,14 @@ public class PlayerController : MonoBehaviour
         m_bCanPickUpCoin = true;
     }
 
+    void FixedUpdate()
+    {
+        m_Controller.AddForce(m_fGravityMultiplier * Physics.gravity);
+    }
+
     // Update is called once per frame
     void Update()
     {
-        m_Controller.AddForce(m_fGravityMultiplier * Physics.gravity);
-
         if (!m_UiController.m_bGameEnded)
         {
             // Disable everything but the respawn timer while the player is dead
