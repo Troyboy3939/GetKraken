@@ -37,7 +37,8 @@ public class Pointer : MonoBehaviour
         }
         else if (XCI.GetButtonDown(XboxButton.A))
         {
-            SceneManager.LoadScene("OfficialBuild");
+            // SceneManager.LoadScene("OfficialBuild");
+            m_bClicked = true;
         }
 
         if(m_bClicked)

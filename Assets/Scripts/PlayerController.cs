@@ -253,6 +253,7 @@ public class PlayerController : MonoBehaviour
 
                             m_Controller.transform.localRotation = Quaternion.LookRotation(v3InputDir, Vector3.up);
                             m_Controller.velocity = transform.forward * m_fSpeed;
+                            
                         }
                     }
 
