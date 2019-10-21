@@ -30,13 +30,15 @@ public class Pointer : MonoBehaviour
             {
                 if (hit.transform.gameObject.tag == "MenuStart")
                 {
-                   // SceneManager.LoadScene("OfficialBuild");
+                   
                     m_bClicked = true;
+                    //SceneManager.LoadScene("OfficialBuild 15 x 21");
                 }
             }
         }
         else if (XCI.GetButtonDown(XboxButton.A))
         {
+            
             // SceneManager.LoadScene("OfficialBuild");
             m_bClicked = true;
         }

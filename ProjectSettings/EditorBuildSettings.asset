@@ -11,16 +11,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/Alpha/level.unity
-    guid: 56ad89dfe1b7123498a1b60dc2c2aeca
   - enabled: 1
     path: Assets/Scenes/TitleScreen01.unity
     guid: 7d3692a5639dab0409bec13fe3a103a4
   - enabled: 1
-    path: Assets/Scenes/OfficialBuild.unity
-    guid: a8473522fe651b84282b5083bc1aa838
-  - enabled: 1
     path: Assets/Scenes/CalibrationScreen.unity
     guid: 38435d0ae812def4fb4c86ffd96f750e
+  - enabled: 1
+    path: Assets/Scenes/OfficialBuild 15 x 21.unity
+    guid: 6795a6ad04e67614fa86d3a538a3bf21
   m_configObjects: {}
