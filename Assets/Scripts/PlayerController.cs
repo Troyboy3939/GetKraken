@@ -208,6 +208,12 @@ public class PlayerController : MonoBehaviour
             {
                 Rigidbody rb = GetComponent<Rigidbody>();
 
+                if(transform.position.y < -2)
+                {
+                    Kill();
+                }
+
+
                 if (rb.velocity.y < -0.1)
                 {
                     m_bIsFalling = true;

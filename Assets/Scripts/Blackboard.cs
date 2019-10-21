@@ -117,7 +117,15 @@ public class Blackboard : MonoBehaviour
 
     public Node GetNode(Vector2 vec)
     {
-        return m_Nodes[Mathf.FloorToInt(vec.x), Mathf.FloorToInt(vec.y)];
+        if (vec.x <= m_Nodes.GetLength(0))
+        {
+            if (vec.x <= m_Nodes.GetLength(1))
+            {
+                return m_Nodes[Mathf.FloorToInt(vec.x), Mathf.FloorToInt(vec.y)];
+            }
+        }
+        //Debug.Log("Blackboard, GetNode  out of bounds! X: " + vec.x + ", Y: " + vec.y);
+        return null;
     }
 
     public Node GetNode(int x, int y)

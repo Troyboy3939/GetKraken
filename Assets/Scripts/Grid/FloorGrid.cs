@@ -103,7 +103,9 @@ public class FloorGrid : MonoBehaviour
             fW *= -1;
         }
         int nWidth = Mathf.FloorToInt(fW);
+        
 
+        
 
         //float fH = toPos.z / col.bounds.size.x;
 
@@ -167,11 +169,13 @@ public class FloorGrid : MonoBehaviour
             Node pos = GetNodeByPosition(chest.transform.position);
             if (m_Nodes[n1, n2] == pos || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.HOLE ||m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.TENTACLE)
             {
-                if(!m_Nodes[n1,n2].GetHasTentacle())
-                {
-                    n1 = Random.Range(0, m_nGridWidth);
-                    n2 = Random.Range(0, m_nGridHeight);
-                }
+                
+                    if (m_Nodes[n1, n2].GetHasTentacle())
+                    {
+                        n1 = Random.Range(0, m_nGridWidth);
+                        n2 = Random.Range(0, m_nGridHeight);
+                    }
+                
             }
 
         }

@@ -59,7 +59,14 @@ public class TentacleState : State
 
             
 
-            Blackboard.GetInstance().GetNode(m_v2NodePos).SetHasTentacle(true);
+            if(Blackboard.GetInstance().GetNode(m_v2NodePos) != null)
+            {
+                Blackboard.GetInstance().GetNode(m_v2NodePos).SetHasTentacle(true);
+            }
+            else
+            {
+                ////Debug.Log("On Enter set own node has tentacle true returned null. Line 43");
+            }
         }
 
 
@@ -141,17 +148,26 @@ public class TentacleState : State
                 {
                     break;
                 }
-
-                if (!Blackboard.GetInstance().GetNode(vec).GetHasTentacle()) // check if node has tentacle on it
+                if (Blackboard.GetInstance().GetNode(vec) != null)
                 {
-                    if (!Blackboard.GetInstance().GetNode(vec).GetHasChest()) //check if node has a chest on top
+                    if (!Blackboard.GetInstance().GetNode(vec).GetHasTentacle()) // check if node has tentacle on it
                     {
-                        if (!Blackboard.GetInstance().GetNode(vec).GetIsBuffer()) //check if node is a buffer zone
+                        if (!Blackboard.GetInstance().GetNode(vec).GetHasChest()) //check if node has a chest on top
                         {
-                            Blackboard.GetInstance().GetNode(vec).SetHasTentacle(true);
-                            m_AdjacentNodes.Add(vec);
-                            bBreak = true;
-                            bValid = true;
+                            if (!Blackboard.GetInstance().GetNode(vec).GetIsBuffer()) //check if node is a buffer zone
+                            {
+
+                                Blackboard.GetInstance().GetNode(vec).SetHasTentacle(true);
+                                m_AdjacentNodes.Add(vec);
+                                bBreak = true;
+                                bValid = true;
+
+                            }
+                            else
+                            {
+                                bBreak = false;
+                                break;
+                            }
                         }
                         else
                         {
@@ -164,11 +180,6 @@ public class TentacleState : State
                         bBreak = false;
                         break;
                     }
-                }
-                else
-                {
-                    bBreak = false;
-                    break;
                 }
             }
 
@@ -217,8 +228,23 @@ public class TentacleState : State
 
             for (int i = 0; i < m_AdjacentNodes.Count; i++)
             {
-                Blackboard.GetInstance().GetNode(m_AdjacentNodes[i]).SetHasTentacle(false);
-                Blackboard.GetInstance().GetNode(m_v2NodePos).SetHasTentacle(false);
+                if (Blackboard.GetInstance().GetNode(m_AdjacentNodes[i]) != null)
+                {
+                    Blackboard.GetInstance().GetNode(m_AdjacentNodes[i]).SetHasTentacle(false);
+                }
+                else
+                {
+                    //Debug.Log("Reset tentacle state adjacent node returned null. Line 164");
+                }
+
+                if (Blackboard.GetInstance().GetNode(m_v2NodePos) != null)
+                {
+                    Blackboard.GetInstance().GetNode(m_v2NodePos).SetHasTentacle(false);
+                }
+                else
+                {
+                    //Debug.Log("Reset tentacle state own node returned null. Line 173");
+                }
             }
             m_AdjacentNodes.Clear();
         }
