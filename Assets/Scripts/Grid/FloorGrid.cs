@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class FloorGrid : MonoBehaviour
 {
     //-----------------------------------------------------------
@@ -16,6 +15,7 @@ public class FloorGrid : MonoBehaviour
     [SerializeField] float m_fTentacleSwitchTime = 3;
     [SerializeField] float m_fCoinSpawnTime = 3;
     [SerializeField] List<Vector2> m_HolePositions = new List<Vector2>();
+    [SerializeField] int m_nRandomSeed = 0;
     List<Vector2> m_TentaclePositions = new List<Vector2>();
     
     float m_fTentacleTimer = 0.0f;
@@ -39,6 +39,7 @@ public class FloorGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Random.InitState(System.DateTime.Now.Millisecond);
 
         m_Nodes = new Node[m_nGridWidth,m_nGridHeight];
 
@@ -58,6 +59,15 @@ public class FloorGrid : MonoBehaviour
         }
 
         Blackboard.GetInstance().SetNodes(ref m_Nodes);
+
+        
+
+        for(int i = 0; i < Blackboard.GetInstance().GetChestCount(); i++)
+        {
+            GetNodeByPosition(Blackboard.GetInstance().GetChest(i).transform.position).SetHasChest(true);
+
+        }
+
 
 
        
@@ -172,8 +182,12 @@ public class FloorGrid : MonoBehaviour
                 
                     if (m_Nodes[n1, n2].GetHasTentacle())
                     {
-                        n1 = Random.Range(0, m_nGridWidth);
-                        n2 = Random.Range(0, m_nGridHeight);
+                        if(m_Nodes[n1,n2].GetHasChest())
+                        {
+                            n1 = Random.Range(0, m_nGridWidth);
+                            n2 = Random.Range(0, m_nGridHeight);
+                        }
+                       
                     }
                 
             }

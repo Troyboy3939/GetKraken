@@ -55,11 +55,11 @@ public class BarrelController : MonoBehaviour
 
         if(m_bSwitch)
         {
-            m_fT -= m_fSpeed;
+            m_fT -= m_fSpeed * Time.deltaTime;
         }
         else
         {
-            m_fT += m_fSpeed;
+            m_fT += m_fSpeed * Time.deltaTime;
         }
 
     }

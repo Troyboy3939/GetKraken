@@ -54,8 +54,8 @@ public class Pointer : MonoBehaviour
         if(m_bClicked)
         {
             Vector3 v3Pos = transform.position;
-            m_fT += m_fMoveSpeed;
-            if(!(m_fT > 1))
+            m_fT += m_fMoveSpeed * Time.deltaTime;
+            if((m_fT < 1))
             {
                 transform.position = Vector3.Lerp(v3Pos, new Vector3(v3Pos.x + m_fDisplacement, v3Pos.y, v3Pos.z), m_fT);
                 
