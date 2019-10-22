@@ -13,7 +13,7 @@ public class Pointer : MonoBehaviour
     [SerializeField] string m_sz4PlayerLevel = "";
     [SerializeField] string m_sz3PlayerLevel = "";
     [SerializeField] string m_sz2PlayerLevel = "";
-
+    [SerializeField] Vector3 m_v3InterpolationEnd = new Vector3(0,0,0);
 
     bool m_bFirstPlayerConnected = false;
     bool m_bSecondPlayerConnected = false;
@@ -33,7 +33,7 @@ public class Pointer : MonoBehaviour
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            //Debug.DrawRay(Camera.main.ScreenToWorldPoint(Input.mousePosition),ray.direction * 5000,Color.red,199);
+            Debug.DrawRay(Camera.main.ScreenToWorldPoint(Input.mousePosition),ray.direction * 5000,Color.red,199);
             if (Physics.Raycast(ray, out hit,500))
             {
                 if (hit.transform.gameObject.tag == "MenuStart")
@@ -57,7 +57,7 @@ public class Pointer : MonoBehaviour
             m_fT += m_fMoveSpeed * Time.deltaTime;
             if((m_fT < 1))
             {
-                transform.position = Vector3.Lerp(v3Pos, new Vector3(v3Pos.x + m_fDisplacement, v3Pos.y, v3Pos.z), m_fT);
+                transform.position = Vector3.Lerp(v3Pos, m_v3InterpolationEnd , m_fT);
                 
               
             }
