@@ -15,7 +15,7 @@ public class FloorGrid : MonoBehaviour
     [SerializeField] float m_fTentacleSwitchTime = 3;
     [SerializeField] float m_fCoinSpawnTime = 3;
     [SerializeField] List<Vector2> m_HolePositions = new List<Vector2>();
-    [SerializeField] int m_nRandomSeed = 0;
+    int m_nRandomSeed = 0;
     List<Vector2> m_TentaclePositions = new List<Vector2>();
     
     float m_fTentacleTimer = 0.0f;
@@ -177,19 +177,12 @@ public class FloorGrid : MonoBehaviour
         {
             GameObject chest = Blackboard.GetInstance().GetChest(i);
             Node pos = GetNodeByPosition(chest.transform.position);
-            if (m_Nodes[n1, n2] == pos || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.HOLE ||m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.TENTACLE)
-            {
-                
-                    if (m_Nodes[n1, n2].GetHasTentacle())
-                    {
-                        if(m_Nodes[n1,n2].GetHasChest())
-                        {
-                            n1 = Random.Range(0, m_nGridWidth);
-                            n2 = Random.Range(0, m_nGridHeight);
-                        }
-                       
-                    }
-                
+
+            
+            if (m_Nodes[n1, n2].GetPosition() == pos.GetPosition() || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.HOLE ||m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.TENTACLE || m_Nodes[n1, n2].GetHasTentacle())
+            {   
+                n1 = Random.Range(0, m_nGridWidth);
+                n2 = Random.Range(0, m_nGridHeight);
             }
 
         }
