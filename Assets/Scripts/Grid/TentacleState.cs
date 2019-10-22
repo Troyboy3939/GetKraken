@@ -124,6 +124,18 @@ public class TentacleState : State
                 {
                     break;
                 }
+
+                if(vec.x > Blackboard.GetInstance().NodeSize(0) || vec.x < 0)
+                {
+                    break;
+                }
+
+                if (vec.y > Blackboard.GetInstance().NodeSize(1) || vec.y < 0)
+                {
+                    break;
+                }
+
+
                 if (Blackboard.GetInstance().GetNode(vec) != null)
                 {
                     if (!Blackboard.GetInstance().GetNode(vec).GetHasTentacle()) // check if node has tentacle on it

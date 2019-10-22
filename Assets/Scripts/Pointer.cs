@@ -51,7 +51,8 @@ public class Pointer : MonoBehaviour
             Vector3 v3Pos = transform.position;
 
             m_fT += m_fMoveSpeed * Time.deltaTime;
-            if(!(m_fT > 1))
+            //Debug.Log(m_fT);
+            if((m_fT < 1))
             {
                 transform.position = Vector3.Lerp(v3Pos, m_v3InterpolationEnd , m_fT);
             }

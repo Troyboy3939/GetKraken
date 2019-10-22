@@ -59,6 +59,12 @@ public class Blackboard : MonoBehaviour
         return instance;
     }
 
+    public int NodeSize(int nDimension)
+    {
+        return m_Nodes.GetLength(nDimension);
+    }
+
+
     public GameObject GetTentacle()
     {
         return tentacle;

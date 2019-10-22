@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -515,7 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e10d7f63005d14ba6a944131e58e5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fMoveSpeed: 0.1
+  m_fMoveSpeed: 0.5
   m_fDisplacement: 1
   m_sz4PlayerLevel: 
   m_sz3PlayerLevel: OfficialBuild 15 x 21
