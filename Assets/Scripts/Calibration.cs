@@ -9,8 +9,6 @@ public class Calibration : MonoBehaviour
     int m_nBlueID = 3;
     int m_nYellowID = 4;
 
-
-
     public int GetOrangeID()
     {
         return m_nOrangeID;
@@ -31,7 +29,6 @@ public class Calibration : MonoBehaviour
         return m_nYellowID;
     }
 
-
     public void SetOrangeID(int nID)
     {
         m_nOrangeID = nID;
@@ -48,8 +45,6 @@ public class Calibration : MonoBehaviour
     {
         m_nYellowID = nID;
     }
-
-
 
     // Start is called before the first frame update
     void Start()

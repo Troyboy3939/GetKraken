@@ -15,18 +15,13 @@ public class StateMachine
         TENTACLE
     };
 
-
-
-
     private FloorState m_FloorState;
     private HoleState m_HoleState;
     private TentacleState m_TentacleState;
     ESTATE m_eState = ESTATE.FLOOR;
 
-
     private Vector3 m_v3Position;
     private GameObject m_BasePlane;
-
 
     public StateMachine(Vector3 pos, ref GameObject plane, Vector2 vec)
     {
@@ -34,6 +29,7 @@ public class StateMachine
         m_FloorState =  new FloorState(ref plane);
         m_HoleState = new HoleState(ref plane);
     }
+
    public ref FloorState GetFloorState()
     {
         return ref m_FloorState;
@@ -46,7 +42,6 @@ public class StateMachine
 
     public void ChangeState()
     {
-
         //Exit the state you are currently and enter the next state
         switch (m_eState)
         {
@@ -66,7 +61,6 @@ public class StateMachine
                 m_eState = ESTATE.HOLE;
                 break;
         }
-        
     }
 
     public ESTATE GetState()

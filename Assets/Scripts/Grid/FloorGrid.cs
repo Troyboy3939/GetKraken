@@ -24,17 +24,9 @@ public class FloorGrid : MonoBehaviour
     int m_nCountCount = 0;
     Node[,] m_Nodes;
 
-
-
-
-
-
-
     //-----------------------------------------------------------
     //Functions
     //-----------------------------------------------------------
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -47,39 +39,23 @@ public class FloorGrid : MonoBehaviour
         {
             for(int y = 0;  y < m_nGridHeight; y++)
             {
-
-                
                 Vector3 size = m_Plane.GetComponent<Collider>().bounds.size;
-
                 
                 m_Nodes[x, y] = new Node(new Vector3(x * size.x, 2.25f, y * size.z) ,m_Plane,new Vector2(x,y));
-            
-                
             }
         }
 
         Blackboard.GetInstance().SetNodes(ref m_Nodes);
 
-        
-
         for(int i = 0; i < Blackboard.GetInstance().GetChestCount(); i++)
         {
             GetNodeByPosition(Blackboard.GetInstance().GetChest(i).transform.position).SetHasChest(true);
-
         }
 
-
-
-       
         for(int i = 0; i < m_HolePositions.Count; i++)
         {
-        
-          
             m_Nodes[Mathf.FloorToInt(m_HolePositions[i].x), Mathf.FloorToInt(m_HolePositions[i].y)].ChangeState();
-            
         }
-        
-        
     }
 
     public void SetCoinCount(int nNumber)
@@ -92,20 +68,15 @@ public class FloorGrid : MonoBehaviour
         return m_nCountCount;
     }
 
-
-
     public Node GetNodeByPosition(Vector3 v3Pos)
     {
-
         Collider col = m_Plane.GetComponent<Collider>();
         float x = col.bounds.size.x;
-
+        
         //Vector3 toPos =  v3Pos - transform.position;
         //toPos.z += (x / 2);
         //toPos.x += (x / 2);
         //float fW = toPos.x / col.bounds.size.x;
-
-
 
         float fW = (v3Pos.x + 1)  /x;
         if (fW < 0)
@@ -114,9 +85,6 @@ public class FloorGrid : MonoBehaviour
         }
         int nWidth = Mathf.FloorToInt(fW);
         
-
-        
-
         //float fH = toPos.z / col.bounds.size.x;
 
         float fH = (v3Pos.z + 1)  /x;
@@ -126,8 +94,6 @@ public class FloorGrid : MonoBehaviour
         }
 
         int nHeight = Mathf.FloorToInt(fH);
-        
-
 
         return m_Nodes[nWidth, nHeight]; 
     }
@@ -141,7 +107,6 @@ public class FloorGrid : MonoBehaviour
         Vector3 v3Pos = node.GetPosition();
         transform.position = v3Pos;
         gameObject.transform.Translate(Vector3.up * m_fDropHeight, Space.World);
-
     }
 
     public void DropObjectAtNode(Node node,  Transform transform)
@@ -150,10 +115,6 @@ public class FloorGrid : MonoBehaviour
         transform.position = v3Pos;
         transform.Translate(Vector3.up * m_fDropHeight, Space.World);
     }
-
-
-
-
 
     //----------------------------------------------------------------------------------------------------
     //DropNewObjectAtNode
@@ -171,30 +132,20 @@ public class FloorGrid : MonoBehaviour
         int n1 = Random.Range(0, m_nGridWidth);
         int n2 = Random.Range(0, m_nGridHeight);
 
-
-
         for (int i = 0; i < Blackboard.GetInstance().GetChestCount(); i++)
         {
             GameObject chest = Blackboard.GetInstance().GetChest(i);
             Node pos = GetNodeByPosition(chest.transform.position);
-
             
             if (m_Nodes[n1, n2].GetPosition() == pos.GetPosition() || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.HOLE ||m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.TENTACLE || m_Nodes[n1, n2].GetHasTentacle())
             {   
                 n1 = Random.Range(0, m_nGridWidth);
                 n2 = Random.Range(0, m_nGridHeight);
             }
-
         }
-
-
-
         m_nCountCount++;
-
         DropNewObjectAtNode(m_Nodes[n1,n2],m_Coin);
     }
-
-
 
     //----------------------------------------------------------------------------------------------------
     //SpawnNewObjectAtNode
@@ -207,15 +158,11 @@ public class FloorGrid : MonoBehaviour
         GameObject go = Instantiate<GameObject>(gameObject, v3Pos, new Quaternion(0, 0, 0, 0)); 
     }
 
-    
-
-
     // Update is called once per frame
     void Update()
     {
         m_fTentacleTimer += Time.deltaTime;
         m_fCoinTimer += Time.deltaTime;
-
 
         //Tentacle
         if (m_fTentacleTimer > m_fTentacleSwitchTime)
@@ -233,8 +180,7 @@ public class FloorGrid : MonoBehaviour
                     //Switch back to a hole
                     m_Nodes[Mathf.FloorToInt(m_TentaclePositions[i].x), Mathf.FloorToInt(m_TentaclePositions[i].y)].ChangeState();
                 }
-                    m_TentaclePositions.Clear();
-                
+                m_TentaclePositions.Clear();
             }
 
             for (int i = 0; i < m_Nodes.GetLength(0); ++i)
@@ -256,7 +202,6 @@ public class FloorGrid : MonoBehaviour
                     {
                         index = Random.Range(0, m_HolePositions.Count);
                     }
-                    
                 }
 
                 indexFinished.Add(index);

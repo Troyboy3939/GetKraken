@@ -1,38 +1,33 @@
 fileFormatVersion: 2
-guid: 7cdc220669569c54e9d9cec2ef3615c7
+guid: 44c676ca81a41ed48a2443203279d40d
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Chest_Bottom
-    100004: Chest_Lid
-    100006: ChestChest_BaseChest_Base_Siding006
-    100008: ChestChest_BaseChest_Handle001
-    100010: ChestChest_BaseChest_Handle002
-    100012: Chest 1
-    400000: //RootNode
-    400002: Chest_Bottom
-    400004: Chest_Lid
-    400006: ChestChest_BaseChest_Base_Siding006
-    400008: ChestChest_BaseChest_Handle001
-    400010: ChestChest_BaseChest_Handle002
-    400012: Chest 1
+    100000: Chest 1
+    100002: Chest_Lid
+    100004: //RootNode
+    100006: ChestChest_BaseChest_Handle001
+    100008: ChestChest_BaseChest_Handle002
+    400000: Chest 1
+    400002: Chest_Lid
+    400004: //RootNode
+    400006: ChestChest_BaseChest_Handle001
+    400008: ChestChest_BaseChest_Handle002
     2100000: Chest001PBR
-    2300000: Chest_Lid
-    2300002: ChestChest_BaseChest_Base_Siding006
+    2300000: Chest 1
+    2300002: Chest_Lid
     2300004: ChestChest_BaseChest_Handle001
     2300006: ChestChest_BaseChest_Handle002
-    2300008: Chest 1
-    3300000: Chest_Lid
-    3300002: ChestChest_BaseChest_Base_Siding006
+    3300000: Chest 1
+    3300002: Chest_Lid
     3300004: ChestChest_BaseChest_Handle001
     3300006: ChestChest_BaseChest_Handle002
-    3300008: Chest 1
-    4300000: Chest_Lid
-    4300002: ChestChest_BaseChest_Base_Siding006
+    4300000: Chest
+    4300002: Chest_Lid
     4300004: ChestChest_BaseChest_Handle002
     4300006: ChestChest_BaseChest_Handle001
-    4300008: Chest
+    7400000: Take 001
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -85,8 +80,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -113,7 +108,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

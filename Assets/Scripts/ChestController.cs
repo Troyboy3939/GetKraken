@@ -7,16 +7,18 @@ public class ChestController : MonoBehaviour
     // This should match the ID of the player that can deposit coins into this chest
     // Should be manually set in the inspector
     public int m_nPlayerID = 0;
-
     [SerializeField] GameObject m_bGrid;
+    public Animation chestAnimation;
 
     void Start()
     {
         Debug.Assert(m_nPlayerID > 0, "Player ID has not been set on " + gameObject.name);
+        chestAnimation = GetComponentInChildren<Animation>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+
         if (collision.gameObject.tag == "Player")
         {
             PlayerController pc = collision.gameObject.GetComponent<PlayerController>();
@@ -50,7 +52,8 @@ public class ChestController : MonoBehaviour
                         Debug.LogError("Player ID is out of currently defined range.");
                         break;
                 }
-
+                
+                chestAnimation.Play("ChestOpen");
                 uic.UpdateScore();
             }
         }

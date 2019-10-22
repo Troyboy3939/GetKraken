@@ -162,7 +162,6 @@ public class PlayerController : MonoBehaviour
                 CC.SetHeld(false);
             }
         }
-
         m_bHasCoin = false;
     }
 
@@ -216,7 +215,6 @@ public class PlayerController : MonoBehaviour
                     Kill();
                 }
 
-
                 if (rb.velocity.y < -0.1)
                 {
                     m_bIsFalling = true;
@@ -232,8 +230,7 @@ public class PlayerController : MonoBehaviour
                     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
                     //Movement
                     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
+                    
                     //If your controller is plugged in
                     if (XCI.IsPluggedIn(m_nPlayerID))
                     {

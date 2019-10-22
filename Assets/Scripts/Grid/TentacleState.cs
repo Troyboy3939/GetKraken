@@ -36,28 +36,16 @@ public class TentacleState : State
             m_Tentacle = GameObject.Instantiate<GameObject>(Blackboard.GetInstance().GetTentacle(), m_v3Position, new Quaternion(0, 0, 0, 0));
             anim = m_Tentacle.GetComponent<Animator>();
 
-
             AnimationPlayer();
-          
-
 
             //No longer go through this branch
             m_bFirstTime = false;
-
         }
         else
         {
             m_Tentacle.SetActive(true);
 
-
             AnimationPlayer();
-
-
-
-
-            //anim.Play("Rise Up");
-
-            
 
             if(Blackboard.GetInstance().GetNode(m_v2NodePos) != null)
             {
@@ -68,11 +56,7 @@ public class TentacleState : State
                 ////Debug.Log("On Enter set own node has tentacle true returned null. Line 43");
             }
         }
-
-
-
     }
-
 
     void AnimationPlayer()
     {
@@ -91,9 +75,6 @@ public class TentacleState : State
             m_eState = ETENTACLESTATE.HORIZONTAL;
         }
 
-
-
-
         switch (m_eState)
         {
             case ETENTACLESTATE.HORIZONTAL:
@@ -103,15 +84,10 @@ public class TentacleState : State
                 anim.Play("Rise Up Vertical");
                 break;
         }
-
-
     }
-
-
 
     private void StartUpRotation()
     {
-
         float tentacleRotation = Random.Range(1, 4) * 90.0f;
 
         bool bValid = false;
@@ -192,8 +168,6 @@ public class TentacleState : State
 
         }
 
-
-
         if (!bValid)
         {
             m_eState = ETENTACLESTATE.VERTICAL;
@@ -207,17 +181,12 @@ public class TentacleState : State
         }
     }
 
-
-
     public override void OnExit()
     {
-      
-       
     }
 
     public override void Update()
     {
-        
     }
 
     public void Reset()

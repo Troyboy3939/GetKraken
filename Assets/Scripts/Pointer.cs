@@ -21,9 +21,6 @@ public class Pointer : MonoBehaviour
     bool m_bFourthPlayerConnected = false;
 
     bool[] m_bControllersConnected = new bool[5] {true,false,false,false,false};
-
-
-
     
     // Start is called before the first frame update
     private void Update()
@@ -38,7 +35,6 @@ public class Pointer : MonoBehaviour
             {
                 if (hit.transform.gameObject.tag == "MenuStart")
                 {
-                   
                     m_bClicked = true;
                     //SceneManager.LoadScene("OfficialBuild 15 x 21");
                 }
@@ -46,7 +42,6 @@ public class Pointer : MonoBehaviour
         }
         else if (XCI.GetButtonDown(XboxButton.A))
         {
-            
             // SceneManager.LoadScene("OfficialBuild");
             m_bClicked = true;
         }
@@ -54,12 +49,11 @@ public class Pointer : MonoBehaviour
         if(m_bClicked)
         {
             Vector3 v3Pos = transform.position;
+
             m_fT += m_fMoveSpeed * Time.deltaTime;
-            if((m_fT < 1))
+            if(!(m_fT > 1))
             {
                 transform.position = Vector3.Lerp(v3Pos, m_v3InterpolationEnd , m_fT);
-                
-              
             }
             else
             {
@@ -90,27 +84,23 @@ public class Pointer : MonoBehaviour
                             SceneManager.LoadScene(m_sz2PlayerLevel);
                         }
                     }
-
                 }
 
                 for (int i = 1; i < 5; i++)
-                   {
-                       //Get whether the a button is presed for each controller
-                       if (XCI.GetButtonUp(XboxButton.A, (XboxController)i))
-                       {
+                {
+                    //Get whether the a button is presed for each controller
+                    if (XCI.GetButtonUp(XboxButton.A, (XboxController)i))
+                    {
 
                         if (!m_bFirstPlayerConnected)
                         {
-                            
-                                if (!m_bControllersConnected[i])
-                                {
-                                    c.SetBlueID(i);
-                                    m_bFirstPlayerConnected = true;
-                                    m_bControllersConnected[i] = true;
-                                }
-                            
-
-                        }
+                            if (!m_bControllersConnected[i])
+                            {
+                                c.SetBlueID(i);
+                                m_bFirstPlayerConnected = true;
+                                m_bControllersConnected[i] = true;
+                            }
+                         }
                         else if (!m_bSecondPlayerConnected)
                         {
                             if (!m_bControllersConnected[i])
@@ -119,41 +109,30 @@ public class Pointer : MonoBehaviour
                                 m_bSecondPlayerConnected = true;
                                 m_bControllersConnected[i] = true;
                             }
-
+                        
                         }
                         else if (!m_bThirdPlayerConnected)
                         {
                             if (!m_bControllersConnected[i])
                             {
-                                
                                c.SetOrangeID(i);
                                m_bThirdPlayerConnected = true;
                                m_bControllersConnected[i] = true;
                             }
-
-                       }
-                       else if (!m_bFourthPlayerConnected)
-                       {
+                        
+                        }
+                        else if (!m_bFourthPlayerConnected)
+                        {
                             if (!m_bControllersConnected[i])
                             {
-                                
                                 c.SetYellowID(i);
                                 m_bFourthPlayerConnected = true;
                                 m_bControllersConnected[i] = true;
                             }
-
-                       }
-
-
-
-
-
-                       }
-                   }
-
-                
+                        }
+                    }
+                }
             }
-           
         }
     }
 }

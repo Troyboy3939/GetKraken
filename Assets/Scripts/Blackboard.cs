@@ -15,7 +15,7 @@ public class Blackboard : MonoBehaviour
     [SerializeField] float m_fTentacleVerticalPercentage;
     void Awake()
     {
-        Debug.Log("Creating a blackboard now");
+        //Debug.Log("Creating a blackboard now");
         if (instance == null)
         {
             instance = this;
@@ -42,7 +42,6 @@ public class Blackboard : MonoBehaviour
                 }
             }
         }
-        
     }
 
     // This is required since the blackboard is only created once as a singleton, and you need
@@ -80,7 +79,6 @@ public class Blackboard : MonoBehaviour
         m_fTentacleVerticalPercentage = fPercentage;
     }
 
-
     public GameObject GetChestWithID(int id)
     {
         foreach (GameObject go in m_Chests)
@@ -109,7 +107,6 @@ public class Blackboard : MonoBehaviour
         return canvas;
     }
 
-
     public void SetNodes(ref Node[,] nodes)
     {
         m_Nodes = nodes;
@@ -132,6 +129,4 @@ public class Blackboard : MonoBehaviour
     {
         return m_Nodes[x, y];
     }
-
-
 }
