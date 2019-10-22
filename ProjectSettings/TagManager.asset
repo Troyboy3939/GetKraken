@@ -8,6 +8,8 @@ TagManager:
   - Nose
   - Chest
   - Tentacle
+  - MenuStart
+  - Calibration
   layers:
   - Default
   - TransparentFX

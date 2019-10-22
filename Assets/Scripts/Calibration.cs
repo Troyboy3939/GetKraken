@@ -44,7 +44,7 @@ public class Calibration : MonoBehaviour
     {
         m_nBlueID = nID;
     }
-    public void SetYelllowID(int nID)
+    public void SetYellowID(int nID)
     {
         m_nYellowID = nID;
     }

@@ -13,10 +13,18 @@ public class Pointer : MonoBehaviour
     [SerializeField] string m_sz4PlayerLevel = "";
     [SerializeField] string m_sz3PlayerLevel = "";
     [SerializeField] string m_sz2PlayerLevel = "";
+
+
     bool m_bFirstPlayerConnected = false;
     bool m_bSecondPlayerConnected = false;
     bool m_bThirdPlayerConnected = false;
     bool m_bFourthPlayerConnected = false;
+
+    bool[] m_bControllersConnected = new bool[5] {true,false,false,false,false};
+
+
+
+    
     // Start is called before the first frame update
     private void Update()
     {
@@ -50,53 +58,24 @@ public class Pointer : MonoBehaviour
             if(!(m_fT > 1))
             {
                 transform.position = Vector3.Lerp(v3Pos, new Vector3(v3Pos.x + m_fDisplacement, v3Pos.y, v3Pos.z), m_fT);
-
                 
-
-                        Calibration c = GetComponentInParent<Calibration>();
-                for(int i = 1; i < 5; i++)
-                {
-                    //Get whether the a button is presed for each controller
-                    if (XCI.GetButton(XboxButton.A, (XboxController)i))
-                    {
-                        
-                        if(!m_bFirstPlayerConnected)
-                        {
-                            c.SetBlueID(i);
-                            m_bFirstPlayerConnected = true;
-                        }
-                        else if(!m_bSecondPlayerConnected)
-                        {
-                            c.SetGreenID(i);
-                            m_bSecondPlayerConnected = true;
-                        }
-                        else if(!m_bThirdPlayerConnected)
-                        {
-                            c.SetOrangeID(i);
-                            m_bThirdPlayerConnected = true;
-                        }
-                        else if(!m_bFourthPlayerConnected)
-                        {
-                            c.SetYelllowID(i);
-                            m_bFourthPlayerConnected = true;
-                        }
-
-
-                        
-                    }
-                }
+              
+            }
+            else
+            {
+                Calibration c = GameObject.FindGameObjectWithTag("Calibration").GetComponent<Calibration>();
 
                 //If player 1 presses A
-                if (XCI.GetButton(XboxButton.A, XboxController.First))
+                if (XCI.GetButtonDown(XboxButton.A, XboxController.First))
                 {
                     //and if a second player has been connected
-                    if(m_bSecondPlayerConnected)
+                    if (m_bSecondPlayerConnected)
                     {
                         //if a third has
-                        if(m_bThirdPlayerConnected)
+                        if (m_bThirdPlayerConnected)
                         {
                             //if fourth player connected
-                            if(m_bFourthPlayerConnected)
+                            if (m_bFourthPlayerConnected)
                             {
                                 //Load 4 player level
                                 SceneManager.LoadScene(m_sz4PlayerLevel);
@@ -111,12 +90,68 @@ public class Pointer : MonoBehaviour
                             SceneManager.LoadScene(m_sz2PlayerLevel);
                         }
                     }
+
                 }
 
+                for (int i = 1; i < 5; i++)
+                   {
+                       //Get whether the a button is presed for each controller
+                       if (XCI.GetButtonUp(XboxButton.A, (XboxController)i))
+                       {
+
+                        if (!m_bFirstPlayerConnected)
+                        {
+                            
+                                if (!m_bControllersConnected[i])
+                                {
+                                    c.SetBlueID(i);
+                                    m_bFirstPlayerConnected = true;
+                                    m_bControllersConnected[i] = true;
+                                }
+                            
+
+                        }
+                        else if (!m_bSecondPlayerConnected)
+                        {
+                            if (!m_bControllersConnected[i])
+                            {
+                                c.SetGreenID(i);
+                                m_bSecondPlayerConnected = true;
+                                m_bControllersConnected[i] = true;
+                            }
+
+                        }
+                        else if (!m_bThirdPlayerConnected)
+                        {
+                            if (!m_bControllersConnected[i])
+                            {
+                                
+                               c.SetOrangeID(i);
+                               m_bThirdPlayerConnected = true;
+                               m_bControllersConnected[i] = true;
+                            }
+
+                       }
+                       else if (!m_bFourthPlayerConnected)
+                       {
+                            if (!m_bControllersConnected[i])
+                            {
+                                
+                                c.SetYellowID(i);
+                                m_bFourthPlayerConnected = true;
+                                m_bControllersConnected[i] = true;
+                            }
+
+                       }
 
 
 
 
+
+                       }
+                   }
+
+                
             }
            
         }

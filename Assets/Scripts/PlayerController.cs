@@ -71,21 +71,24 @@ public class PlayerController : MonoBehaviour
 
     private void Shove(ref RaycastHit hit)
     {
-        if (Physics.SphereCast(transform.position - (transform.forward * 2), m_fSphereCastRadius, transform.forward, out hit, m_fSphereCastDist))
+        if (!m_bHasCoin)
         {
-            Rigidbody hitController = hit.transform.GetComponent<Rigidbody>();
-            PlayerController p = hit.transform.GetComponentInParent<PlayerController>();
-
-            if (p != null)
+            if (Physics.SphereCast(transform.position - (transform.forward * 2), m_fSphereCastRadius, transform.forward, out hit, m_fSphereCastDist))
             {
-                if (!p.GetStunned())
+                Rigidbody hitController = hit.transform.GetComponent<Rigidbody>();
+                PlayerController p = hit.transform.GetComponentInParent<PlayerController>();
+
+                if (p != null)
                 {
-                    if (hitController.tag == "Player")
+                    if (!p.GetStunned())
                     {
-                        p.GetComponent<ParticleSystem>().Play();
-                        hitController.AddForce(transform.forward * m_fShovePower, ForceMode.VelocityChange);
-                        p.Stun();
-                        p.SetHasCoin(false);
+                        if (hitController.tag == "Player")
+                        {
+                            p.GetComponent<ParticleSystem>().Play();
+                            hitController.AddForce(transform.forward * m_fShovePower, ForceMode.VelocityChange);
+                            p.Stun();
+                            p.SetHasCoin(false);
+                        }
                     }
                 }
             }
