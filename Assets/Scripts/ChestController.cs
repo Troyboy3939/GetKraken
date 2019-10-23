@@ -9,11 +9,46 @@ public class ChestController : MonoBehaviour
     public int m_nPlayerID = 0;
     [SerializeField] GameObject m_bGrid;
     public Animation chestAnimation;
-
+    [SerializeField] string m_szColour = "";
     void Start()
     {
         Debug.Assert(m_nPlayerID > 0, "Player ID has not been set on " + gameObject.name);
         chestAnimation = GetComponentInChildren<Animation>();
+
+        GameObject calOb = GameObject.FindGameObjectWithTag("Calibration");
+
+        Calibration c = new Calibration();
+        if (calOb != null)
+        {
+            c = calOb.GetComponent<Calibration>();
+        }
+
+
+            MeshRenderer m = GetComponent<MeshRenderer>();
+            if(c != null)
+            {
+                if (m_szColour == "Blue")
+                {
+                    m_nPlayerID = c.GetBlueID();
+                   // m.material = Blackboard.GetInstance().GetBlueChestMat();
+                }
+                else if(m_szColour == "Green")
+                {
+                    m_nPlayerID = c.GetGreenID();
+                   // m.material = Blackboard.GetInstance().GetGreenChestMat();
+                }
+                else if (m_szColour == "Yellow")
+                {
+                    m_nPlayerID = c.GetYellowID();
+                    //m.material = Blackboard.GetInstance().GetYellowChestMat();
+                }
+                else if (m_szColour == "Orange")
+                {
+                    m_nPlayerID = c.GetOrangeID();
+                   // m.material = Blackboard.GetInstance().GetOrangeChestMat();
+                }
+        }
+
     }
 
     private void OnCollisionEnter(Collision collision)

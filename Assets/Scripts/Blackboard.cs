@@ -13,6 +13,17 @@ public class Blackboard : MonoBehaviour
     GameObject[] m_Chests;
     Node[,] m_Nodes;
     [SerializeField] float m_fTentacleVerticalPercentage;
+    [SerializeField] Material m_OrangeMaterial;
+    [SerializeField] Material m_BlueMaterial;
+    [SerializeField] Material m_YellowMaterial;
+    [SerializeField] Material m_GreenMaterial;
+
+
+    [SerializeField] Material m_OrangeChestMaterial;
+    [SerializeField] Material m_BlueChestMaterial;
+    [SerializeField] Material m_YellowChestMaterial;
+    [SerializeField] Material m_GreenChestMaterial;
+
     void Awake()
     {
         //Debug.Log("Creating a blackboard now");
@@ -53,6 +64,49 @@ public class Blackboard : MonoBehaviour
         canvas = GameObject.Find("/UI/Canvas");
         m_Chests = GameObject.FindGameObjectsWithTag("Chest");
     }
+
+    public Material GetBlueMat()
+    {
+        return m_BlueMaterial;
+    }
+    public Material GetGreenMat()
+    {
+        return m_GreenMaterial;
+    }
+
+    public Material GetYellowMat()
+    {
+        return m_YellowMaterial;
+    }
+
+    public Material GetOrangeMat()
+    {
+        return m_OrangeMaterial;
+    }
+
+    public Material GetBlueChestMat()
+    {
+        return m_BlueChestMaterial;
+    }
+    public Material GetGreenChestMat()
+    {
+        return m_GreenChestMaterial;
+    }
+
+    public Material GetYellowChestMat()
+    {
+        return m_YellowMaterial;
+    }
+
+    public Material GetOrangeChestMat()
+    {
+        return m_OrangeChestMaterial;
+    }
+
+
+
+
+
 
     public static Blackboard GetInstance()
     {

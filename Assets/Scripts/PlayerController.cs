@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_fGravityMultiplier = 3;
     [SerializeField] float m_fRespawnTime = 2;
     [SerializeField] float m_fDropCoinCooldown = 1;
-
+    [SerializeField] string m_szColour = "";
     [SerializeField] GameObject m_Grid;
     public bool m_bIsFalling = false;
     
@@ -38,6 +38,51 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
+
+        GameObject calOb = GameObject.FindGameObjectWithTag("Calibration");
+
+        Calibration c = new Calibration();
+        if (calOb != null)
+        {
+             c = calOb.GetComponent<Calibration>();
+        }
+
+        MeshRenderer m = GetComponent<MeshRenderer>();
+        if (c != null && m !=  null)
+        {
+            int nBlueID = c.GetBlueID();
+            int nGreenID = c.GetGreenID();
+            int nYellowID = c.GetYellowID();
+            int nOrangeID = c.GetOrangeID();
+
+            if (m_szColour == "Blue")
+            {
+                m_nPlayerID = nBlueID;
+                m.material = Blackboard.GetInstance().GetBlueMat();
+            }
+            else if (m_szColour == "Green")
+            {
+                m_nPlayerID = nGreenID;
+                m.material = Blackboard.GetInstance().GetGreenMat();
+            }
+            else if (m_szColour == "Yellow")
+            {
+                m_nPlayerID = nYellowID;
+                m.material = Blackboard.GetInstance().GetYellowMat();
+            }
+            else if (m_szColour == "Orange")
+            {
+                m_nPlayerID = nOrangeID;
+                m.material = Blackboard.GetInstance().GetOrangeMat();
+            }
+        }
+
+
+
+
+
         ParticleSystem.MainModule ma = GetComponent<ParticleSystem>().main;
         ma.startColor = GetComponent<Renderer>().material.color;
 

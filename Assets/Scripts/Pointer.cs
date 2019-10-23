@@ -22,6 +22,10 @@ public class Pointer : MonoBehaviour
     bool m_bFourthPlayerConnected = false;
 
     bool[] m_bControllersConnected = new bool[5] {true,false,false,false,false};
+    [SerializeField] GameObject[] m_Players = new GameObject[4];
+
+    // Start is called before the first frame update
+    private void Update()
 
     [SerializeField] float m_fMouseSpeed = 5f;
     private Vector2 m_v2CursorPosition;
@@ -133,6 +137,7 @@ public class Pointer : MonoBehaviour
                                 c.SetBlueID(i);
                                 m_bFirstPlayerConnected = true;
                                 m_bControllersConnected[i] = true;
+                                m_Players[0].GetComponent<MainMenuDiverController>().Go();
                             }
                          }
                         else if (!m_bSecondPlayerConnected)
@@ -142,6 +147,7 @@ public class Pointer : MonoBehaviour
                                 c.SetGreenID(i);
                                 m_bSecondPlayerConnected = true;
                                 m_bControllersConnected[i] = true;
+                                m_Players[1].GetComponent<MainMenuDiverController>().Go();
                             }
                         
                         }
@@ -152,6 +158,7 @@ public class Pointer : MonoBehaviour
                                c.SetOrangeID(i);
                                m_bThirdPlayerConnected = true;
                                m_bControllersConnected[i] = true;
+                               m_Players[2].GetComponent<MainMenuDiverController>().Go();
                             }
                         
                         }
@@ -162,6 +169,7 @@ public class Pointer : MonoBehaviour
                                 c.SetYellowID(i);
                                 m_bFourthPlayerConnected = true;
                                 m_bControllersConnected[i] = true;
+                                m_Players[3].GetComponent<MainMenuDiverController>().Go();
                             }
                         }
                     }

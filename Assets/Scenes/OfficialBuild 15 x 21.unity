@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -821,6 +821,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fSphereCastDist
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940773876451396842, guid: fd2511dcd79d9324fb7124939a642b38,
+        type: 3}
+      propertyPath: m_szColour
+      value: Blue
       objectReference: {fileID: 0}
     - target: {fileID: 1086342821453401123, guid: fd2511dcd79d9324fb7124939a642b38,
         type: 3}
@@ -5991,6 +5996,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fTentacleVerticalPercentage: 20
+  m_OrangeMaterial: {fileID: 2100000, guid: cec7e1bad7b3f5a42b15dd83009fc515, type: 2}
+  m_BlueMaterial: {fileID: 2100000, guid: b4eaedcff4acbbc4e82e8cd2cd9599a1, type: 2}
+  m_YellowMaterial: {fileID: 2100000, guid: 88d5cc3e1abf1364bb1d2246630e6aab, type: 2}
+  m_GreenMaterial: {fileID: 2100000, guid: 1d615c65c894b6348adc1897894d4c02, type: 2}
+  m_OrangeChestMaterial: {fileID: 2100000, guid: e07529b7cfb47664ca1fc8882296f077,
+    type: 2}
+  m_BlueChestMaterial: {fileID: 2100000, guid: cc9add44f49f066468fad891233f4e7d, type: 2}
+  m_YellowChestMaterial: {fileID: 2100000, guid: 572741ea9e5c7ef4097c3ca36c6b591c,
+    type: 2}
+  m_GreenChestMaterial: {fileID: 2100000, guid: 6ada0014670da5a4eab109425f1e434f,
+    type: 2}
 --- !u!1 &617044055
 GameObject:
   m_ObjectHideFlags: 0
@@ -6717,6 +6733,11 @@ PrefabInstance:
       propertyPath: chestAnimation
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5829428562472057026, guid: 9a2c416d367b26349a437560558ff9ef,
+        type: 3}
+      propertyPath: m_szColour
+      value: Blue
+      objectReference: {fileID: 0}
     - target: {fileID: 6844569604576021846, guid: 9a2c416d367b26349a437560558ff9ef,
         type: 3}
       propertyPath: m_Enabled
@@ -6866,6 +6887,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &792680756 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7368743705671976452, guid: 9a2c416d367b26349a437560558ff9ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 2063677745}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &792680758
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792680756}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 0dd8881e0b995e54dbc48fe3db939bc1, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 41a12c8f8345c4043b2d238fe9d2d644, type: 2}
+  - {fileID: 7400000, guid: 0dd8881e0b995e54dbc48fe3db939bc1, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!43 &810931815
 Mesh:
   m_ObjectHideFlags: 0
@@ -7548,6 +7592,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8940773876451396842, guid: fd2511dcd79d9324fb7124939a642b38,
         type: 3}
+      propertyPath: m_szColour
+      value: Yellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940773876451396842, guid: fd2511dcd79d9324fb7124939a642b38,
+        type: 3}
       propertyPath: m_fSphereCastDist
       value: 3
       objectReference: {fileID: 0}
@@ -7563,6 +7612,29 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 88d5cc3e1abf1364bb1d2246630e6aab, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd2511dcd79d9324fb7124939a642b38, type: 3}
+--- !u!1 &914425247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7368743705671976452, guid: 9a2c416d367b26349a437560558ff9ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 7368743704574717204}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &914425249
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914425247}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 0dd8881e0b995e54dbc48fe3db939bc1, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 41a12c8f8345c4043b2d238fe9d2d644, type: 2}
+  - {fileID: 7400000, guid: 0dd8881e0b995e54dbc48fe3db939bc1, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &989384336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7669,6 +7741,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fCoinSpeed
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940773876451396842, guid: fd2511dcd79d9324fb7124939a642b38,
+        type: 3}
+      propertyPath: m_szColour
+      value: Green
       objectReference: {fileID: 0}
     - target: {fileID: 8940773876451396842, guid: fd2511dcd79d9324fb7124939a642b38,
         type: 3}
@@ -8697,6 +8774,29 @@ Transform:
   m_Father: {fileID: 2029052812}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1425412677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7368743705671976452, guid: 9a2c416d367b26349a437560558ff9ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 1707608162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &1425412679
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425412677}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 0dd8881e0b995e54dbc48fe3db939bc1, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 41a12c8f8345c4043b2d238fe9d2d644, type: 2}
+  - {fileID: 7400000, guid: 0dd8881e0b995e54dbc48fe3db939bc1, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!43 &1431882418
 Mesh:
   m_ObjectHideFlags: 0
@@ -9435,14 +9535,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -1628
       objectReference: {fileID: 0}
-    - target: {fileID: 400086, guid: feaea0a1286e42047b4b6cba357234b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1697
-      objectReference: {fileID: 0}
-    - target: {fileID: 400086, guid: feaea0a1286e42047b4b6cba357234b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1014
-      objectReference: {fileID: 0}
     - target: {fileID: 400308, guid: feaea0a1286e42047b4b6cba357234b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 296
@@ -9450,6 +9542,14 @@ PrefabInstance:
     - target: {fileID: 400308, guid: feaea0a1286e42047b4b6cba357234b1, type: 3}
       propertyPath: m_LocalPosition.z
       value: -2030
+      objectReference: {fileID: 0}
+    - target: {fileID: 400086, guid: feaea0a1286e42047b4b6cba357234b1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1697
+      objectReference: {fileID: 0}
+    - target: {fileID: 400086, guid: feaea0a1286e42047b4b6cba357234b1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1014
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: feaea0a1286e42047b4b6cba357234b1, type: 3}
@@ -9775,6 +9875,29 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 347731217}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1698741827 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7368743705671976452, guid: 9a2c416d367b26349a437560558ff9ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 718491581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &1698741829
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698741827}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 0dd8881e0b995e54dbc48fe3db939bc1, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 41a12c8f8345c4043b2d238fe9d2d644, type: 2}
+  - {fileID: 7400000, guid: 0dd8881e0b995e54dbc48fe3db939bc1, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1702106457
 GameObject:
   m_ObjectHideFlags: 0
@@ -10001,6 +10124,11 @@ PrefabInstance:
         type: 3}
       propertyPath: chestAnimation
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5829428562472057026, guid: 9a2c416d367b26349a437560558ff9ef,
+        type: 3}
+      propertyPath: m_szColour
+      value: Yellow
       objectReference: {fileID: 0}
     - target: {fileID: 6844569604576021846, guid: 9a2c416d367b26349a437560558ff9ef,
         type: 3}
@@ -10785,6 +10913,11 @@ PrefabInstance:
       propertyPath: chestAnimation
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5829428562472057026, guid: 9a2c416d367b26349a437560558ff9ef,
+        type: 3}
+      propertyPath: m_szColour
+      value: Green
+      objectReference: {fileID: 0}
     - target: {fileID: 6844569604576021846, guid: 9a2c416d367b26349a437560558ff9ef,
         type: 3}
       propertyPath: m_Enabled
@@ -10937,6 +11070,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8940773876451396842, guid: fd2511dcd79d9324fb7124939a642b38,
         type: 3}
+      propertyPath: m_szColour
+      value: Orange
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940773876451396842, guid: fd2511dcd79d9324fb7124939a642b38,
+        type: 3}
       propertyPath: m_fSphereCastDist
       value: 3
       objectReference: {fileID: 0}
@@ -11038,6 +11176,11 @@ PrefabInstance:
       propertyPath: m_bGrid
       value: 
       objectReference: {fileID: 1519288277}
+    - target: {fileID: 5829428562472057026, guid: 9a2c416d367b26349a437560558ff9ef,
+        type: 3}
+      propertyPath: m_szColour
+      value: Orange
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 639871293, guid: 9a2c416d367b26349a437560558ff9ef, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9a2c416d367b26349a437560558ff9ef, type: 3}

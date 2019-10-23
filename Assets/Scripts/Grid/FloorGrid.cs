@@ -82,6 +82,15 @@ public class FloorGrid : MonoBehaviour
         
     }
 
+
+    void PlayRiseUp()
+    {
+        for(int i = 0;  i < m_TentaclePositions.Count; i++)
+        {
+            //m_Nodes[m_TentaclePositions[i].x, m_TentaclePositions[i].y].OnEnter()
+        }
+    }
+
     public void SetCoinCount(int nNumber)
     {
         m_nCountCount = nNumber;
