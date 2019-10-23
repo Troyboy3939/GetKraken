@@ -40,10 +40,13 @@ public class UIController : MonoBehaviour
     // Updates all player's score counters
     public void UpdateScore()
     {
-        m_goP1Score.GetComponent<Text>().text = "Player 1: " + m_nP1Score.ToString();
-        m_goP2Score.GetComponent<Text>().text = "Player 2: " + m_nP2Score.ToString();
-        m_goP3Score.GetComponent<Text>().text = "Player 3: " + m_nP3Score.ToString();
-        m_goP4Score.GetComponent<Text>().text = "Player 4: " + m_nP4Score.ToString();
+        if (!m_bGameEnded)
+        {
+            m_goP1Score.GetComponent<Text>().text = "Player 1: " + m_nP1Score.ToString();
+            m_goP2Score.GetComponent<Text>().text = "Player 2: " + m_nP2Score.ToString();
+            m_goP3Score.GetComponent<Text>().text = "Player 3: " + m_nP3Score.ToString();
+            m_goP4Score.GetComponent<Text>().text = "Player 4: " + m_nP4Score.ToString();
+        }
     }
 
     IEnumerator StartGameCountdown(int seconds)
@@ -104,6 +107,7 @@ public class UIController : MonoBehaviour
 
     private void EndGame()
     {
+        m_bGameEnded = true;
         List<int> winningIDs = FindWinners();
         StartCoroutine(ShowFinalScore(winningIDs));
     }
@@ -156,7 +160,6 @@ public class UIController : MonoBehaviour
         // If game has ended, load the scene
         if (m_fCurrentTime < 0 && !m_bGameEnded)
         {
-            m_bGameEnded = true;
             EndGame();
         }
         // Otherwise, count down the timer

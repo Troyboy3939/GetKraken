@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_nPlayerID: 1
-  m_fMaxSpeed: 14
-  m_fCoinSpeed: 10
+  m_fMaxSpeed: 20
+  m_fCoinSpeed: 15
   m_fSphereCastDist: 10
   m_fSphereCastRadius: 2
   m_fShovePower: 100
