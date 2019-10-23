@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using XboxCtrlrInput;
 
 public class Pointer : MonoBehaviour
@@ -21,29 +22,61 @@ public class Pointer : MonoBehaviour
     bool m_bFourthPlayerConnected = false;
 
     bool[] m_bControllersConnected = new bool[5] {true,false,false,false,false};
-    
-    // Start is called before the first frame update
+
+    [SerializeField] float m_fMouseSpeed = 5f;
+    private Vector2 m_v2CursorPosition;
+    [SerializeField] Texture m_tCursorImage;
+
+    [SerializeField] Collider m_cBarrelCollider;
+
+    private void Start()
+    {
+        // Disable the mouse cursor and use a software cursor
+        //Cursor.visible = false;
+        m_v2CursorPosition = new Vector2(Screen.width / 2f, Screen.height / 2f);
+    }
+
+    private void OnGUI()
+    {
+        // Allow a joystick to move the mouse cursor if a controller is connected
+        if (XCI.IsPluggedIn(1) && !m_bClicked)
+        {
+            Cursor.visible = false;
+
+            float h = m_fMouseSpeed * XCI.GetAxis(XboxAxis.LeftStickX);
+            float v = m_fMouseSpeed * XCI.GetAxis(XboxAxis.LeftStickY);
+
+            m_v2CursorPosition.x += h;
+            m_v2CursorPosition.y += v;
+
+            if (m_tCursorImage != null)
+            {
+                GUI.DrawTexture(new Rect(m_v2CursorPosition.x, Screen.height - m_v2CursorPosition.y, 32, 32), m_tCursorImage);
+            }
+        }
+        else
+        {
+            Cursor.visible = true;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (XCI.IsPluggedIn(1) && !m_bClicked)
+        {
+            if (XCI.GetButtonDown(XboxButton.A) && !m_bClicked)
+            {
+                Click(m_v2CursorPosition);
+            }
+        }
+    }
+
     private void Update()
     {
         // Start the game if "Start" clicked or A button pressed
         if (Input.GetMouseButtonUp(0))
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Debug.DrawRay(Camera.main.ScreenToWorldPoint(Input.mousePosition),ray.direction * 5000,Color.red,199);
-            if (Physics.Raycast(ray, out hit,500))
-            {
-                if (hit.transform.gameObject.tag == "MenuStart")
-                {
-                    m_bClicked = true;
-                    //SceneManager.LoadScene("OfficialBuild 15 x 21");
-                }
-            }
-        }
-        else if (XCI.GetButtonDown(XboxButton.A))
-        {
-            // SceneManager.LoadScene("OfficialBuild");
-            m_bClicked = true;
+            Click(Input.mousePosition);
         }
 
         if(m_bClicked)
@@ -133,6 +166,20 @@ public class Pointer : MonoBehaviour
                         }
                     }
                 }
+            }
+        }
+    }
+
+    private void Click(Vector2 pos)
+    {
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(pos);
+        if (Physics.Raycast(ray, out hit, 500))
+        {
+            if (hit.transform.gameObject.tag == "MenuStart")
+            {
+                m_bClicked = true;
+                //SceneManager.LoadScene("OfficialBuild 15 x 21");
             }
         }
     }
