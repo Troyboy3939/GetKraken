@@ -356,6 +356,7 @@ Mesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: pb_Mesh15860
+  m_Name: pb_Mesh35850
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -814,6 +815,11 @@ PrefabInstance:
     - target: {fileID: 8940773876451396842, guid: fd2511dcd79d9324fb7124939a642b38,
         type: 3}
       propertyPath: m_nPlayerID
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940773876451396842, guid: fd2511dcd79d9324fb7124939a642b38,
+        type: 3}
+      propertyPath: m_fSphereCastDist
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1086342821453401123, guid: fd2511dcd79d9324fb7124939a642b38,
@@ -6889,6 +6895,7 @@ Mesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: pb_Mesh15912
+  m_Name: pb_Mesh35898
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -7561,6 +7568,11 @@ PrefabInstance:
       propertyPath: m_fCoinSpeed
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 8940773876451396842, guid: fd2511dcd79d9324fb7124939a642b38,
+        type: 3}
+      propertyPath: m_fSphereCastDist
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1086342821453401123, guid: fd2511dcd79d9324fb7124939a642b38,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -7701,6 +7713,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fCoinSpeed
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940773876451396842, guid: fd2511dcd79d9324fb7124939a642b38,
+        type: 3}
+      propertyPath: m_fSphereCastDist
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1086342821453401123, guid: fd2511dcd79d9324fb7124939a642b38,
         type: 3}
@@ -8495,6 +8512,7 @@ Mesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: pb_Mesh16016
+  m_Name: pb_Mesh35994
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -8752,6 +8770,7 @@ Mesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: pb_Mesh15820
+  m_Name: pb_Mesh35810
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -9140,6 +9159,7 @@ Mesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: pb_Mesh15872
+  m_Name: pb_Mesh35862
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -10117,6 +10137,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 639871293, guid: 9a2c416d367b26349a437560558ff9ef, type: 3}
+    - target: {fileID: 7368743705671976452, guid: 9a2c416d367b26349a437560558ff9ef,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a2c416d367b26349a437560558ff9ef, type: 3}
 --- !u!4 &1708826694 stripped
 Transform:
@@ -10591,6 +10617,7 @@ Mesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: pb_Mesh15966
+  m_Name: pb_Mesh35948
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -10995,6 +11022,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fCoinSpeed
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940773876451396842, guid: fd2511dcd79d9324fb7124939a642b38,
+        type: 3}
+      propertyPath: m_fSphereCastDist
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1086342821453401123, guid: fd2511dcd79d9324fb7124939a642b38,
         type: 3}
