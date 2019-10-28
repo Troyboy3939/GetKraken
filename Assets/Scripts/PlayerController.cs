@@ -35,10 +35,12 @@ public class PlayerController : MonoBehaviour
     // This will be used to store colliders that need to be accessed from multiple methods
     private Collider m_tempCol;
 
+    public ParticleSystem dustRun;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        dustRun = GetComponent<ParticleSystem>();
 
 
         GameObject calOb = GameObject.FindGameObjectWithTag("Calibration");
@@ -287,6 +289,8 @@ public class PlayerController : MonoBehaviour
 
                             m_Controller.transform.localRotation = Quaternion.LookRotation(v3InputDir, Vector3.up);
                             m_Controller.velocity = transform.forward * m_fSpeed;
+
+                            dustRun.Play();
                         }
                     }
                     else //else if controller not connected, use WASD instead
@@ -298,7 +302,8 @@ public class PlayerController : MonoBehaviour
 
                             m_Controller.transform.localRotation = Quaternion.LookRotation(v3InputDir, Vector3.up);
                             m_Controller.velocity = transform.forward * m_fSpeed;
-                            
+
+                            dustRun.Play();
                         }
                     }
 
