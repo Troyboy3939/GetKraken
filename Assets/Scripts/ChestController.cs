@@ -10,6 +10,9 @@ public class ChestController : MonoBehaviour
     [SerializeField] GameObject m_bGrid;
     private Animation chestAnimation;
     [SerializeField] string m_szColour = "";
+
+    public ParticleSystem coinSplash;
+
     void Start()
     {
         Debug.Assert(m_nPlayerID > 0, "Player ID has not been set on " + gameObject.name);
@@ -22,6 +25,8 @@ public class ChestController : MonoBehaviour
         {
             c = calOb.GetComponent<Calibration>();
         }
+
+        coinSplash = GetComponentInChildren<ParticleSystem>();
 
 
             MeshRenderer m = GetComponent<MeshRenderer>();
@@ -87,7 +92,8 @@ public class ChestController : MonoBehaviour
                         Debug.LogError("Player ID is out of currently defined range.");
                         break;
                 }
-                
+
+                coinSplash.Play();
                 chestAnimation.Play("ChestOpen");
                 uic.UpdateScore();
             }
