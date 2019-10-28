@@ -27,6 +27,12 @@ public class ExitingState : State
 
         }
 
+        MeshCollider m = m_Tentacle.GetComponent<MeshCollider>();
+
+        if(m != null)
+        {
+            m.enabled = true;
+        }
         m_Anim.SetTrigger("Exit");
         
        
@@ -37,6 +43,12 @@ public class ExitingState : State
     public override void OnExit()
     {
         m_Anim.ResetTrigger("Exit");
+        MeshCollider m = m_Tentacle.GetComponent<MeshCollider>();
+
+        if (m != null)
+        {
+            m.enabled = false;
+        }
     }
 
     public override void Update()

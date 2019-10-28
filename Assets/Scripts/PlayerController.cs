@@ -215,7 +215,7 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "Tentacle")
         {
             Animator a = collision.gameObject.GetComponentInParent<Animator>();
-            if (!a.GetCurrentAnimatorStateInfo(0).IsName("Rise Up"))
+            if (!a.GetCurrentAnimatorStateInfo(0).IsName("Rise Up") && !a.GetCurrentAnimatorStateInfo(0).IsName("Exit") && !a.GetCurrentAnimatorStateInfo(0).IsName("Exit Vertical"))
             {
                 Kill();
             }

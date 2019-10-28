@@ -25,6 +25,9 @@ public class TentacleState : State
         m_Plane = plane;
         //m_Tentacle.SetActive(false);
         m_v2NodePos = vecPos;
+
+
+        
     }
 
     public Animator GetAnimator()
