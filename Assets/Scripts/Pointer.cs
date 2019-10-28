@@ -16,6 +16,7 @@ public class Pointer : MonoBehaviour
     [SerializeField] string m_sz2PlayerLevel = "";
     [SerializeField] Vector3 m_v3InterpolationEnd = new Vector3(0,0,0);
 
+    bool m_bFirstControllerConnected = false;
     bool m_bFirstPlayerConnected = false;
     bool m_bSecondPlayerConnected = false;
     bool m_bThirdPlayerConnected = false;
@@ -95,7 +96,7 @@ public class Pointer : MonoBehaviour
                 Calibration c = GameObject.FindGameObjectWithTag("Calibration").GetComponent<Calibration>();
 
                 //If player 1 presses A
-                if (XCI.GetButtonDown(XboxButton.A, XboxController.First))
+                if (m_bFirstControllerConnected && XCI.GetButtonDown(XboxButton.A, XboxController.First))
                 {
                     //and if a second player has been connected
                     if (m_bSecondPlayerConnected)
@@ -126,6 +127,10 @@ public class Pointer : MonoBehaviour
                     //Get whether the a button is presed for each controller
                     if (XCI.GetButtonUp(XboxButton.A, (XboxController)i))
                     {
+                        if ((XboxController)i == XboxController.First)
+                        {
+                            m_bFirstControllerConnected = true;
+                        }
 
                         if (!m_bFirstPlayerConnected)
                         {
