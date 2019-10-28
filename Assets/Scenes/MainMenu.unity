@@ -586,13 +586,16 @@ MonoBehaviour:
   m_fDisplacement: 1
   m_sz4PlayerLevel: OfficialBuild 15 x 21
   m_sz3PlayerLevel: OfficialBuild 15 x 21
-  m_sz2PlayerLevel: OfficialBuild 15 x 21
+  m_sz2PlayerLevel: OfficialBuild 15 x 21 2 player
   m_v3InterpolationEnd: {x: 46, y: 24, z: 37}
   m_Players:
   - {fileID: 1646204107}
   - {fileID: 228906824}
   - {fileID: 175838601}
   - {fileID: 44995956}
+  m_fMouseSpeed: 5
+  m_tCursorImage: {fileID: 2800000, guid: 0eecc937eb492a745901ef10789ca9fc, type: 3}
+  m_cBarrelCollider: {fileID: 0}
 --- !u!1 &1270485639 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 44ad4c7a1277d124e9792e64ca01d7e7,

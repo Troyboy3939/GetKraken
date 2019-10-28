@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OfficialBuild 15 x 21.unity
     guid: 6795a6ad04e67614fa86d3a538a3bf21
+  - enabled: 1
+    path: Assets/Scenes/OfficialBuild 15 x 21 2 player.unity
+    guid: d570c11870624424a8d481b9fb8b003d
   m_configObjects: {}

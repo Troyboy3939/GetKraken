@@ -24,10 +24,10 @@ public class FloorGrid : MonoBehaviour
     int m_nCountCount = 0;
     Node[,] m_Nodes;
 
-
-
-
-
+    private Node posChest0;
+    private Node posChest1;
+    private Node posChest2;
+    private Node posChest3;
 
 
     //-----------------------------------------------------------
@@ -203,18 +203,27 @@ public class FloorGrid : MonoBehaviour
                 }
 
             }
-            Node posChest0 = GetNodeByPosition(chests[0].transform.position);
-            Node posChest1 = GetNodeByPosition(chests[1].transform.position);
-            Node posChest2 = GetNodeByPosition(chests[2].transform.position);
-            Node posChest3 = GetNodeByPosition(chests[3].transform.position);
+
+            posChest0 = GetNodeByPosition(chests[0].transform.position);
+            posChest1 = GetNodeByPosition(chests[1].transform.position);
+
+            if (chests.Length == 3)
+            {
+                posChest2 = GetNodeByPosition(chests[2].transform.position);
+            }
+
+            if (chests.Length == 4)
+            {
+                posChest3 = GetNodeByPosition(chests[3].transform.position);
+            }
 
             if (m_Nodes[n1, n2].GetPosition() != posChest0.GetPosition())
             {
                 if (m_Nodes[n1, n2].GetPosition() != posChest1.GetPosition())
                 {
-                    if (m_Nodes[n1, n2].GetPosition() != posChest2.GetPosition())
+                    if (posChest2 != null && m_Nodes[n1, n2].GetPosition() != posChest2.GetPosition())
                     {
-                        if (m_Nodes[n1, n2].GetPosition() != posChest3.GetPosition())
+                        if (posChest3 != null && m_Nodes[n1, n2].GetPosition() != posChest3.GetPosition())
                         {
                             if(m_Nodes[n1, n2].GetState() != StateMachine.ESTATE.HOLE)
                             {
@@ -227,6 +236,14 @@ public class FloorGrid : MonoBehaviour
                                 }
                             }
                         }
+                        else
+                        {
+                            bValid = true;
+                        }
+                    }
+                    else
+                    {
+                        bValid = true;
                     }
                 }
             }

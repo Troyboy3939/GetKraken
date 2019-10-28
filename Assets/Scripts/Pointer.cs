@@ -24,9 +24,6 @@ public class Pointer : MonoBehaviour
     bool[] m_bControllersConnected = new bool[5] {true,false,false,false,false};
     [SerializeField] GameObject[] m_Players = new GameObject[4];
 
-    // Start is called before the first frame update
-    private void Update()
-
     [SerializeField] float m_fMouseSpeed = 5f;
     private Vector2 m_v2CursorPosition;
     [SerializeField] Texture m_tCursorImage;

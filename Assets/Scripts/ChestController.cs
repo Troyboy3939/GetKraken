@@ -8,7 +8,7 @@ public class ChestController : MonoBehaviour
     // Should be manually set in the inspector
     public int m_nPlayerID = 0;
     [SerializeField] GameObject m_bGrid;
-    public Animation chestAnimation;
+    private Animation chestAnimation;
     [SerializeField] string m_szColour = "";
     void Start()
     {
