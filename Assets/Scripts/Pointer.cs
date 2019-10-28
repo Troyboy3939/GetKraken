@@ -131,7 +131,7 @@ public class Pointer : MonoBehaviour
                         {
                             if (!m_bControllersConnected[i])
                             {
-                                c.SetBlueID(i);
+                                c.SetOrangeID(i);
                                 m_bFirstPlayerConnected = true;
                                 m_bControllersConnected[i] = true;
                                 m_Players[0].GetComponent<MainMenuDiverController>().Go();
@@ -152,7 +152,7 @@ public class Pointer : MonoBehaviour
                         {
                             if (!m_bControllersConnected[i])
                             {
-                               c.SetOrangeID(i);
+                               c.SetBlueID(i);
                                m_bThirdPlayerConnected = true;
                                m_bControllersConnected[i] = true;
                                m_Players[2].GetComponent<MainMenuDiverController>().Go();
