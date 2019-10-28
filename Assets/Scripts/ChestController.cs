@@ -17,7 +17,7 @@ public class ChestController : MonoBehaviour
 
         GameObject calOb = GameObject.FindGameObjectWithTag("Calibration");
 
-        Calibration c = new Calibration();
+        Calibration c = null;
         if (calOb != null)
         {
             c = calOb.GetComponent<Calibration>();

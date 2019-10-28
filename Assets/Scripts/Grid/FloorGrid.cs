@@ -21,6 +21,7 @@ public class FloorGrid : MonoBehaviour
     float m_fTentacleTimer = 0.0f;
     float m_fCoinTimer = 0.0f;
     bool m_bFirstTime = true;
+    bool m_bSwitch = false;
     int m_nCountCount = 0;
     Node[,] m_Nodes;
 
@@ -75,7 +76,7 @@ public class FloorGrid : MonoBehaviour
         {
         
           
-            m_Nodes[Mathf.FloorToInt(m_HolePositions[i].x), Mathf.FloorToInt(m_HolePositions[i].y)].ChangeState();
+            m_Nodes[Mathf.FloorToInt(m_HolePositions[i].x), Mathf.FloorToInt(m_HolePositions[i].y)].ChangeState(StateMachine.ESTATE.HOLE);
             
         }
         
@@ -269,57 +270,51 @@ public class FloorGrid : MonoBehaviour
         m_fTentacleTimer += Time.deltaTime;
         m_fCoinTimer += Time.deltaTime;
 
-        //Tentacle
+
+        bool bReadyToSpawn = true;
+        //Update All nodes
+        for (int x = 0; x < m_Nodes.GetLength(0); x++)
+        {
+            for (int y = 0; y < m_Nodes.GetLength(1); y++)
+            {
+                m_Nodes[x, y].Update();
+                StateMachine.ESTATE e = m_Nodes[x, y].GetState();
+                if (e == StateMachine.ESTATE.TENTACLE || e == StateMachine.ESTATE.EXITING)
+                {
+                    //If the state is a tentacle or exiting
+                    bReadyToSpawn = false;
+                }
+            }
+        }
+
+
+
+
+        //Tentacle Switching
         if (m_fTentacleTimer > m_fTentacleSwitchTime)
         {
-            m_fTentacleTimer = 0;
-            if (m_bFirstTime)
+            //if all tiles that are not floors, are holes
+            if (bReadyToSpawn)
             {
-                m_bFirstTime = false;
+                SpawnTentacles();
             }
-            else
+            else //Time to switch but there are already tentacles or exiting tentacle
             {
-                //for every tentacle
-                for (int i = 0; i < m_TentaclePositions.Count; i++)
-                {
-                    //Switch back to a hole
-                    m_Nodes[Mathf.FloorToInt(m_TentaclePositions[i].x), Mathf.FloorToInt(m_TentaclePositions[i].y)].ChangeState();
-                }
-                m_TentaclePositions.Clear();
-            }
 
-            for (int i = 0; i < m_Nodes.GetLength(0); ++i)
-            {
-                for (int j = 0; j < m_Nodes.GetLength(1); ++j)
-                {
-                    TentacleState tentacle = m_Nodes[i, j].GetStateMachine().GetTentacleState();
-                    tentacle.Reset();
-                }
-            }
 
-            List<int> indexFinished = new List<int>();
-            for(int i = 0; i < Mathf.FloorToInt((m_HolePositions.Count / 2)); i++) //Number of tentacles
-            {
-                int index = Random.Range(0, m_HolePositions.Count);
-                for(int j = 0; j < indexFinished.Count; j++)
+              
+                //change exiting state
+                if (m_TentaclePositions.Count > 0)
                 {
-                    if(index == indexFinished[j])
+                    for (int i = 0; i < m_TentaclePositions.Count; i++)
                     {
-                        index = Random.Range(0, m_HolePositions.Count);
+                        m_Nodes[Mathf.FloorToInt(m_TentaclePositions[i].x), Mathf.FloorToInt(m_TentaclePositions[i].y)].ChangeState(StateMachine.ESTATE.EXITING);
                     }
+                    m_TentaclePositions.Clear();
+                   // m_bSwitch = true;
                 }
-
-                indexFinished.Add(index);
-                //Switch to tentacle
-                m_TentaclePositions.Add(m_HolePositions[index]);
-                
-                m_Nodes[Mathf.FloorToInt(m_HolePositions[index].x), Mathf.FloorToInt(m_HolePositions[index].y)].SetHasTentacle(true);
-            }
-
-            for (int i = 0; i < indexFinished.Count; i++) //Number of tentacles
-            {
-                int index = indexFinished[i];
-                m_Nodes[Mathf.FloorToInt(m_HolePositions[index].x), Mathf.FloorToInt(m_HolePositions[index].y)].ChangeState();
+              
+              
             }
         }
 
@@ -330,6 +325,40 @@ public class FloorGrid : MonoBehaviour
             if(m_nCountCount < players.Length - 1)
             {
                 DropCoin();
+            }
+        }
+
+     
+
+       
+    }
+
+    
+
+    void SpawnTentacles()
+    {
+        m_fTentacleTimer = 0;
+
+        //Reset all tentacles
+        for (int i = 0; i < m_Nodes.GetLength(0); ++i)
+        {
+            for (int j = 0; j < m_Nodes.GetLength(1); ++j)
+            {
+                TentacleState tentacle = m_Nodes[i, j].GetStateMachine().GetTentacleState();
+                tentacle.Reset();
+            }
+        }
+
+        for (int i = 0; i < Mathf.FloorToInt((m_HolePositions.Count / 2)); i++) //Number of tentacles
+        {
+            int index = Random.Range(0, m_HolePositions.Count);
+
+            //Switch to tentacle
+            if (!m_TentaclePositions.Contains(m_HolePositions[index]))
+            {
+                m_TentaclePositions.Add(m_HolePositions[index]);
+                m_Nodes[Mathf.FloorToInt(m_HolePositions[index].x), Mathf.FloorToInt(m_HolePositions[index].y)].SetHasTentacle(true);
+                m_Nodes[Mathf.FloorToInt(m_HolePositions[index].x), Mathf.FloorToInt(m_HolePositions[index].y)].ChangeState(StateMachine.ESTATE.TENTACLE);
             }
         }
     }

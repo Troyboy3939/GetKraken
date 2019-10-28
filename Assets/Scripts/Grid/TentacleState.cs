@@ -11,7 +11,7 @@ public class TentacleState : State
     bool m_bFirstTime = true;
     Vector2 m_v2NodePos;
     List<Vector2> m_AdjacentNodes = new List<Vector2>();
-    public Animator anim;
+    public Animator m_Anim;
     ETENTACLESTATE m_eState;
     enum ETENTACLESTATE
     {
@@ -27,6 +27,10 @@ public class TentacleState : State
         m_v2NodePos = vecPos;
     }
 
+    public Animator GetAnimator()
+    {
+        return m_Anim;
+    }
     public override void OnEnter()
     {
         //Code that is done the first time a tentacle is spawned / state switched into . This first branch of the if statement is basically a constructor
@@ -34,7 +38,7 @@ public class TentacleState : State
         {
             //Creation of the actual tentacle
             m_Tentacle = GameObject.Instantiate<GameObject>(Blackboard.GetInstance().GetTentacle(), m_v3Position, new Quaternion(0, 0, 0, 0));
-            anim = m_Tentacle.GetComponent<Animator>();
+            m_Anim = m_Tentacle.GetComponent<Animator>();
 
             AnimationPlayer();
 
@@ -81,7 +85,7 @@ public class TentacleState : State
                 StartUpRotation();
                 break;
             case ETENTACLESTATE.VERTICAL:
-                anim.Play("Rise Up Vertical");
+                m_Anim.Play("Rise Up Vertical");
                 break;
         }
     }
@@ -183,29 +187,36 @@ public class TentacleState : State
         if (!bValid)
         {
             m_eState = ETENTACLESTATE.VERTICAL;
-            anim.Play("Rise Up Vertical");
-            m_Tentacle.SetActive(false);
+            m_Anim.Play("Rise Up Vertical");
+            //m_Tentacle.SetActive(false);
         }
         else
         {
             m_Tentacle.transform.rotation = Quaternion.AngleAxis(tentacleRotation, Vector3.up);
-            anim.Play("Rise Up");
+            m_Anim.Play("Rise Up");
         }
     }
 
     public override void OnExit()
     {
+        //m_Tentacle.SetActive(false);
     }
 
     public override void Update()
     {
     }
 
+    public GameObject GetTentacle()
+    {
+        return m_Tentacle;
+    }
+
+
     public void Reset()
     {
         if (m_Tentacle)
         {
-            m_Tentacle.SetActive(false);
+           // m_Tentacle.SetActive(false);
 
             for (int i = 0; i < m_AdjacentNodes.Count; i++)
             {

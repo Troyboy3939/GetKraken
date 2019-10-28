@@ -102,6 +102,7 @@ public class UIController : MonoBehaviour
             yield return new WaitForSeconds(3);
         }
 
+       
         SceneManager.LoadScene("MainMenu");
     }
 

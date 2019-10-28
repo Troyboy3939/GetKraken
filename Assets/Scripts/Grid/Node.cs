@@ -81,14 +81,15 @@ public class Node
 
     }
 
-    private void Update()
+    public void Update()
     {
+        m_StateMachine.m_v2NodePos = m_v2NodePos;
         m_StateMachine.Update();
     }
 
-    public void ChangeState()
+    public void ChangeState(StateMachine.ESTATE nextState)
     {
-        m_StateMachine.ChangeState();
+        m_StateMachine.ChangeState(nextState);
     }
 
     public StateMachine.ESTATE GetState()
