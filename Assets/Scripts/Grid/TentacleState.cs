@@ -36,6 +36,8 @@ public class TentacleState : State
     }
     public override void OnEnter()
     {
+       // m_Tentacle.transform.position = m_Tentacle.transform.position + new Vector3(0, 1, 0);
+
         //Code that is done the first time a tentacle is spawned / state switched into . This first branch of the if statement is basically a constructor
         if (m_bFirstTime)
         {
@@ -62,7 +64,9 @@ public class TentacleState : State
             {
                 ////Debug.Log("On Enter set own node has tentacle true returned null. Line 43");
             }
+            m_Tentacle.transform.Translate(new Vector3(0,1,0),Space.Self);
         }
+
     }
 
     void AnimationPlayer()

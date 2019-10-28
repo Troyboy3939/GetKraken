@@ -49,6 +49,8 @@ public class ExitingState : State
         {
             m.enabled = false;
         }
+
+        m_Tentacle.transform.Translate(new Vector3(0, -1, 0), Space.Self);
     }
 
     public override void Update()
