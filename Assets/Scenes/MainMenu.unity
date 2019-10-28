@@ -585,7 +585,7 @@ MonoBehaviour:
   m_fMoveSpeed: 0.5
   m_fDisplacement: 1
   m_sz4PlayerLevel: OfficialBuild 15 x 21
-  m_sz3PlayerLevel: OfficialBuild 15 x 21
+  m_sz3PlayerLevel: OfficialBuild 15 x 21 3 player
   m_sz2PlayerLevel: OfficialBuild 15 x 21 2 player
   m_v3InterpolationEnd: {x: 46, y: 24, z: 37}
   m_Players:
