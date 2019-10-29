@@ -590,9 +590,9 @@ MonoBehaviour:
   m_v3InterpolationEnd: {x: 86.2, y: 16.11, z: 22.73}
   m_Players:
   - {fileID: 175838601}
-  - {fileID: 228906824}
-  - {fileID: 1646204107}
-  - {fileID: 44995956}
+  - {fileID: 175838601}
+  - {fileID: 175838601}
+  - {fileID: 175838601}
   m_fMouseSpeed: 300
   m_tCursorImage: {fileID: 2800000, guid: 0eecc937eb492a745901ef10789ca9fc, type: 3}
   m_cBarrelCollider: {fileID: 0}
