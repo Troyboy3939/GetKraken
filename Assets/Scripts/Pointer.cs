@@ -45,8 +45,8 @@ public class Pointer : MonoBehaviour
         {
             Cursor.visible = false;
 
-            float h = m_fMouseSpeed * XCI.GetAxis(XboxAxis.LeftStickX);
-            float v = m_fMouseSpeed * XCI.GetAxis(XboxAxis.LeftStickY);
+            float h = (m_fMouseSpeed * XCI.GetAxis(XboxAxis.LeftStickX)) * Time.deltaTime;
+            float v = (m_fMouseSpeed * XCI.GetAxis(XboxAxis.LeftStickY)) * Time.deltaTime;
 
             m_v2CursorPosition.x += h;
             m_v2CursorPosition.y += v;
@@ -95,8 +95,10 @@ public class Pointer : MonoBehaviour
             {
                 Calibration c = GameObject.FindGameObjectWithTag("Calibration").GetComponent<Calibration>();
 
+                // TODO: Make it possible to calibrate keyboard for a specific player
+
                 //If player 1 presses A
-                if (m_bFirstControllerConnected && XCI.GetButtonDown(XboxButton.A, XboxController.First))
+                if (m_bFirstControllerConnected && (XCI.GetButtonDown(XboxButton.A, XboxController.First) || Input.GetKeyDown(KeyCode.Space)))
                 {
                     //and if a second player has been connected
                     if (m_bSecondPlayerConnected)
@@ -118,6 +120,24 @@ public class Pointer : MonoBehaviour
                         else //if third hasn't connect load two player level
                         {
                             SceneManager.LoadScene(m_sz2PlayerLevel);
+                        }
+                    }
+                }
+
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    if (m_bFirstPlayerConnected)
+                    {
+                        if (m_bSecondPlayerConnected)
+                        {
+                            if (m_bThirdPlayerConnected)
+                            {
+
+                            }
+                            else
+                            {
+
+                            }
                         }
                     }
                 }
