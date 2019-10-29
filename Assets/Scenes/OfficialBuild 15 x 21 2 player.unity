@@ -234,6 +234,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Tentacle
       objectReference: {fileID: 0}
+    - target: {fileID: 1229342884642267519, guid: 466b315f306c7c74db11f89274d6ec8d,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 50e09fcdc09de2a4381e6afeef85dc97, type: 2}
     m_RemovedComponents:
     - {fileID: 4638131791022858006, guid: 466b315f306c7c74db11f89274d6ec8d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 466b315f306c7c74db11f89274d6ec8d, type: 3}
@@ -9365,6 +9370,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chest Player 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7368743705671976452, guid: 9a2c416d367b26349a437560558ff9ef,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6844569604574252982, guid: 9a2c416d367b26349a437560558ff9ef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9500,11 +9510,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6ada0014670da5a4eab109425f1e434f, type: 2}
-    - target: {fileID: 7368743705671976452, guid: 9a2c416d367b26349a437560558ff9ef,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 639871293, guid: 9a2c416d367b26349a437560558ff9ef, type: 3}
     - {fileID: 0}
