@@ -37,7 +37,9 @@ public class CoinController : MonoBehaviour
                 transform.SetParent(other.transform);
                 transform.Translate(new Vector3(0, 1, 0));
 
+
                 Rigidbody rb = GetComponent<Rigidbody>();
+                rb.constraints = RigidbodyConstraints.FreezePositionY;
                 rb.isKinematic = true;
                 rb.velocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;

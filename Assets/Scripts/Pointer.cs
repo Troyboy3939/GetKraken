@@ -30,12 +30,17 @@ public class Pointer : MonoBehaviour
     [SerializeField] Texture m_tCursorImage;
 
     [SerializeField] Collider m_cBarrelCollider;
+    Vector3 m_Rot; 
+    [SerializeField] Vector3 m_RotationEnd;
 
+    [SerializeField] float m_fLerpSpeedScale = 4; 
     private void Start()
     {
         // Disable the mouse cursor and use a software cursor
         //Cursor.visible = false;
         m_v2CursorPosition = new Vector2(Screen.width / 2f, Screen.height / 2f);
+        m_Rot = transform.rotation.eulerAngles;
+        
     }
 
     private void OnGUI()
@@ -84,12 +89,14 @@ public class Pointer : MonoBehaviour
         if(m_bClicked)
         {
             Vector3 v3Pos = transform.position;
-
+            
             m_fT += m_fMoveSpeed * Time.deltaTime;
             //Debug.Log(m_fT);
             if((m_fT < 1))
             {
-                transform.position = Vector3.Lerp(v3Pos, m_v3InterpolationEnd , m_fT);
+                Vector3 rot = Vector3.Lerp(m_Rot, m_RotationEnd, m_fT * m_fLerpSpeedScale);
+                transform.position = Vector3.Lerp(v3Pos, m_v3InterpolationEnd , m_fT * Time.deltaTime * m_fLerpSpeedScale);
+                transform.rotation = Quaternion.Euler(rot.x, rot.y, rot.z);
             }
             else
             {

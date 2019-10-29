@@ -28,7 +28,7 @@
             "typeInfo": {
                 "fullName": "UnityEditor.ShaderGraph.ColorShaderProperty"
             },
-            "JSONnodeData": "{\n    \"m_Value\": {\n        \"r\": 0.27358490228652956,\n        \"g\": 0.27358490228652956,\n        \"b\": 0.27358490228652956,\n        \"a\": 0.0\n    },\n    \"m_Name\": \"Tint\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"cf455dff-c3fc-4e93-88c6-9804699d3495\"\n    },\n    \"m_OverrideReferenceName\": \"\",\n    \"m_ColorMode\": 0,\n    \"m_Hidden\": false\n}"
+            "JSONnodeData": "{\n    \"m_Value\": {\n        \"r\": 0.8500000238418579,\n        \"g\": 0.8500000238418579,\n        \"b\": 0.8500000238418579,\n        \"a\": 0.0\n    },\n    \"m_Name\": \"Tint\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"cf455dff-c3fc-4e93-88c6-9804699d3495\"\n    },\n    \"m_OverrideReferenceName\": \"\",\n    \"m_ColorMode\": 0,\n    \"m_Hidden\": false\n}"
         },
         {
             "typeInfo": {

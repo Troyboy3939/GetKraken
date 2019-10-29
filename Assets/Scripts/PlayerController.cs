@@ -124,7 +124,8 @@ public class PlayerController : MonoBehaviour
             {
                 Rigidbody hitController = hit.transform.GetComponent<Rigidbody>();
                 PlayerController p = hit.transform.GetComponentInParent<PlayerController>();
-
+                
+                
                 if (p != null)
                 {
                     if (!p.GetStunned())
@@ -134,6 +135,7 @@ public class PlayerController : MonoBehaviour
                             p.GetComponent<ParticleSystem>().Play();
                             hitController.AddForce(transform.forward * m_fShovePower, ForceMode.VelocityChange);
                             p.Stun();
+                            p.DetachCoin();
                             p.SetHasCoin(false);
                         }
                     }
@@ -179,7 +181,18 @@ public class PlayerController : MonoBehaviour
         Transform[] ChildrenTransforms = GetComponentsInChildren<Transform>();
 
         int nChildCount = transform.childCount;
-        transform.DetachChildren();
+
+        Transform coinTransform = transform.Find("Coin(Clone)");
+
+        if (coinTransform != null)
+        {
+            coinTransform.parent = null;
+
+            //coinTransform.GetComponentInParent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        }
+
+       // if (transform.Find("Coin(Clone)"))
+            
 
         foreach (CoinController coin in coins)
         {
