@@ -53,250 +53,251 @@ ModelImporter:
     100094: Bolt_8
     100096: Bolt_9
     100098: Bolts
-    100100: bost1
-    100102: bost10
-    100104: bost11
-    100106: bost12
-    100108: bost13
-    100110: bost14
-    100112: bost15
-    100114: bost16
-    100116: bost17
-    100118: bost18
-    100120: bost19
-    100122: bost2
-    100124: bost3
-    100126: bost4
-    100128: bost5
-    100130: bost6
-    100132: bost7
-    100134: bost8
-    100136: bost9
-    100138: BowSprit
-    100140: BrokenMast
-    100142: CabinDoorway
-    100144: CabinLantern_Light1
-    100146: CabinLantern_Light2
-    100148: CabinLanterns
-    100150: CaptainsQuarters
-    100152: Door_1
-    100154: Door_2
-    100156: Doors
-    100158: //RootNode
-    100160: FlagHolder_1
-    100162: FlagHolder_2
-    100164: Floorboard_1
-    100166: Floorboard_10
-    100168: Floorboard_11
-    100170: Floorboard_12
-    100172: Floorboard_13
-    100174: Floorboard_14
-    100176: Floorboard_15
-    100178: Floorboard_16
-    100180: Floorboard_17
-    100182: Floorboard_2
-    100184: Floorboard_3
-    100186: Floorboard_4
-    100188: Floorboard_5
-    100190: Floorboard_6
-    100192: Floorboard_7
-    100194: Floorboard_8
-    100196: Floorboard_9
-    100198: Floorboards
-    100200: Foremast
-    100202: Forepeak
-    100204: Foscle
-    100206: Foscle_Lantern_2
-    100208: Foscle_Light_1
-    100210: Foscle_Light_2
-    100212: FoscleDeck
-    100214: FoscleLantern_1
-    100216: go1
-    100218: go2
-    100220: go3
-    100222: go4
-    100224: go5
-    100226: Gunport_1
-    100228: Gunport_10
-    100230: Gunport_2
-    100232: Gunport_3
-    100234: Gunport_4
-    100236: Gunport_5
-    100238: Gunport_6
-    100240: Gunport_7
-    100242: Gunport_8
-    100244: Gunport_9
-    100246: Gunports
-    100248: Hull
-    100250: Hull_1
-    100252: Hull_1_1
-    100254: Hull_1_2
-    100256: Hull_1_3
-    100258: Hull_1_4
-    100260: Hull_1_5
-    100262: Hull_1_6
-    100264: Hull_2
-    100266: Hull_3
-    100268: JollyRoger
-    100270: Keel
-    100272: MainMast
-    100274: Mast
-    100276: MastRail
-    100278: MastRail 1
-    100280: MastRail_1
-    100282: MastRail_2
-    100284: Mizzen
-    100286: Platform
-    100288: Platform 1
-    100290: Platform_1
-    100292: Platform_2
-    100294: polySurface841
-    100296: Post_1
-    100298: Post_1 1
-    100300: Post_1 2
-    100302: Post_1_1
-    100304: Post_1_1 1
-    100306: Post_1_1 2
-    100308: Post_1_2
-    100310: Post_1_2 1
-    100312: Post_1_2 2
-    100314: Post_2
-    100316: Post_2 1
-    100318: Post_2 2
-    100320: Post_3
-    100322: Post_3 1
-    100324: Post_3 2
-    100326: Post_4
-    100328: PostGrip_1
-    100330: PostGrip_1 1
-    100332: PostGrip_1 2
-    100334: PostGrip_2
-    100336: PostGrip_2 1
-    100338: PostGrip_2 2
-    100340: Quaterdeck
-    100342: Quaterdeck_1
-    100344: Quaterdeck_2
-    100346: Rail
-    100348: Rail 1
-    100350: Rail_1
-    100352: Rail_2
-    100354: Rail_3
-    100356: Rail_4
-    100358: Rail_5
-    100360: Rail_6
-    100362: Railing
-    100364: RailSpiral
-    100366: RailSupport
-    100368: RailSupport_1
-    100370: RailSupport_10
-    100372: RailSupport_11
-    100374: RailSupport_12
-    100376: RailSupport_13
-    100378: RailSupport_14
-    100380: RailSupport_15
-    100382: RailSupport_16
-    100384: RailSupport_17
-    100386: RailSupport_18
-    100388: RailSupport_19
-    100390: RailSupport_2
-    100392: RailSupport_20
-    100394: RailSupport_21
-    100396: RailSupport_22
-    100398: RailSupport_23
-    100400: RailSupport_3
-    100402: RailSupport_4
-    100404: RailSupport_5
-    100406: RailSupport_6
-    100408: RailSupport_7
-    100410: RailSupport_8
-    100412: RailSupport_9
-    100414: Rope
-    100416: Rope_1
-    100418: Rope_2
-    100420: Ropes
-    100422: Rudder
-    100424: Sail_1
-    100426: Sail_2
-    100428: Sail_3
-    100430: Sail_5
-    100432: Sail_6
-    100434: SailHolder_1
-    100436: SailHolder_1_1
-    100438: SailHolder_1_2
-    100440: SailHolder_2
-    100442: SailHolder_2_1
-    100444: SailHolder_2_2
-    100446: SailHolder_3
-    100448: SailRope_1
-    100450: SailRope_10
-    100452: SailRope_11
-    100454: SailRope_12
-    100456: SailRope_13
-    100458: SailRope_14
-    100460: SailRope_15
-    100462: SailRope_16
-    100464: SailRope_17
-    100466: SailRope_18
-    100468: SailRope_19
-    100470: SailRope_2
-    100472: SailRope_3
-    100474: SailRope_4
-    100476: SailRope_5
-    100478: SailRope_6
-    100480: SailRope_7
-    100482: SailRope_8
-    100484: SailRope_9
-    100486: Sails
-    100488: SailSupport
-    100490: SailSupport 1
-    100492: Shroud_1
-    100494: Shroud_2
-    100496: ShroudClasp_1
-    100498: ShroudClasp_1 1
-    100500: ShroudClasp_1 2
-    100502: ShroudClasp_2
-    100504: ShroudClasp_2 1
-    100506: ShroudClasp_2 2
-    100508: ShroudDeck_1
-    100510: ShroudDeck_2
-    100512: ShroudDeck_3
-    100514: ShroudDeck_4
-    100516: ShroudDeck_5
-    100518: ShroudDeck_6
-    100520: Shrouds
-    100522: Stair_1
-    100524: Stair_10
-    100526: Stair_11
-    100528: Stair_12
-    100530: Stair_13
-    100532: Stair_14
-    100534: Stair_2
-    100536: Stair_3
-    100538: Stair_4
-    100540: Stair_5
-    100542: Stair_6
-    100544: Stair_7
-    100546: Stair_8
-    100548: Stair_9
-    100550: Staircase
-    100552: StairGuides_1
-    100554: StairGuides_2
-    100556: StairGuides_3
-    100558: StairGuides_4
-    100560: StairPost_1
-    100562: StairPost_2
-    100564: StairPost_3
-    100566: StairPost_4
-    100568: StairPost_5
-    100570: StairPost_6
-    100572: StairPost_7
-    100574: StairPost_8
-    100576: StairPost_9
-    100578: StairRail_1
-    100580: StairRail_2
-    100582: StairRail_3
-    100584: Starfish
-    100586: Sun_Light
+    100100: BowSprit
+    100102: BrokenMast
+    100104: CabinDoorway
+    100106: CaptainsQuarters
+    100108: Door_1
+    100110: Door_2
+    100112: Doors
+    100114: //RootNode
+    100116: FlagHolder_1
+    100118: FlagHolder_2
+    100120: Floorboard_1
+    100122: Floorboard_10
+    100124: Floorboard_11
+    100126: Floorboard_12
+    100128: Floorboard_13
+    100130: Floorboard_14
+    100132: Floorboard_15
+    100134: Floorboard_16
+    100136: Floorboard_17
+    100138: Floorboard_2
+    100140: Floorboard_3
+    100142: Floorboard_4
+    100144: Floorboard_5
+    100146: Floorboard_6
+    100148: Floorboard_7
+    100150: Floorboard_8
+    100152: Floorboard_9
+    100154: Floorboards
+    100156: Foremast
+    100158: Forepeak
+    100160: Foscle
+    100162: Foscle_Light_1
+    100164: Foscle_Light_2
+    100166: FoscleDeck
+    100168: FoscleLantern_1
+    100170: FoscleLantern_2
+    100172: Gunport_1
+    100174: Gunport_10
+    100176: Gunport_2
+    100178: Gunport_3
+    100180: Gunport_4
+    100182: Gunport_5
+    100184: Gunport_6
+    100186: Gunport_7
+    100188: Gunport_8
+    100190: Gunport_9
+    100192: Gunports
+    100194: Hull
+    100196: Hull_1
+    100198: Hull_1_1
+    100200: Hull_1_2
+    100202: Hull_1_3
+    100204: Hull_1_4
+    100206: Hull_1_6
+    100208: Hull_1_7
+    100210: Hull_2
+    100212: Hull_3
+    100214: JollyRoger
+    100216: Keel
+    100218: MainMast
+    100220: Mast
+    100222: MastRail
+    100224: MastRail 1
+    100226: MastRail_1
+    100228: MastRail_2
+    100230: Mizzen
+    100232: Platform
+    100234: Platform 1
+    100236: Platform_1
+    100238: Platform_2
+    100240: Post_1
+    100242: Post_1 1
+    100244: Post_1 2
+    100246: Post_1_1
+    100248: Post_1_1 1
+    100250: Post_1_1 2
+    100252: Post_1_2
+    100254: Post_1_2 1
+    100256: Post_1_2 2
+    100258: Post_2
+    100260: Post_2 1
+    100262: Post_2 2
+    100264: Post_3
+    100266: Post_3 1
+    100268: Post_3 2
+    100270: Post_4
+    100272: PostGrip_1
+    100274: PostGrip_1 1
+    100276: PostGrip_1 2
+    100278: PostGrip_2
+    100280: PostGrip_2 1
+    100282: PostGrip_2 2
+    100284: Quaterdeck
+    100286: Quaterdeck_1
+    100288: Quaterdeck_2
+    100290: Rail
+    100292: Rail 1
+    100294: Rail_1
+    100296: Rail_2
+    100298: Rail_3
+    100300: Rail_4
+    100302: Rail_5
+    100304: Rail_6
+    100306: Railing
+    100308: RailSpiral
+    100310: RailSupport
+    100312: RailSupport_1
+    100314: RailSupport_10
+    100316: RailSupport_11
+    100318: RailSupport_12
+    100320: RailSupport_13
+    100322: RailSupport_14
+    100324: RailSupport_15
+    100326: RailSupport_16
+    100328: RailSupport_17
+    100330: RailSupport_18
+    100332: RailSupport_19
+    100334: RailSupport_2
+    100336: RailSupport_20
+    100338: RailSupport_21
+    100340: RailSupport_22
+    100342: RailSupport_23
+    100344: RailSupport_3
+    100346: RailSupport_4
+    100348: RailSupport_5
+    100350: RailSupport_6
+    100352: RailSupport_7
+    100354: RailSupport_8
+    100356: RailSupport_9
+    100358: Rope
+    100360: Rope_1
+    100362: Rope_2
+    100364: Ropes
+    100366: Rudder
+    100368: Sail_1
+    100370: Sail_2
+    100372: Sail_3
+    100374: Sail_5
+    100376: Sail_6
+    100378: SailHolder_1
+    100380: SailHolder_1_1
+    100382: SailHolder_1_2
+    100384: SailHolder_2
+    100386: SailHolder_2_1
+    100388: SailHolder_2_2
+    100390: SailHolder_3
+    100392: SailRope_1
+    100394: SailRope_10
+    100396: SailRope_11
+    100398: SailRope_12
+    100400: SailRope_14
+    100402: SailRope_15
+    100404: SailRope_16
+    100406: SailRope_17
+    100408: SailRope_18
+    100410: SailRope_19
+    100412: SailRope_2
+    100414: SailRope_20
+    100416: SailRope_3
+    100418: SailRope_4
+    100420: SailRope_5
+    100422: SailRope_6
+    100424: SailRope_7
+    100426: SailRope_8
+    100428: SailRope_9
+    100430: Sails
+    100432: SailSupport
+    100434: SailSupport 1
+    100436: Shroud_1
+    100438: Shroud_2
+    100440: ShroudClasp_1
+    100442: ShroudClasp_1 1
+    100444: ShroudClasp_1 2
+    100446: ShroudClasp_2
+    100448: ShroudClasp_2 1
+    100450: ShroudClasp_2 2
+    100452: ShroudDeck_1
+    100454: ShroudDeck_2
+    100456: ShroudDeck_3
+    100458: ShroudDeck_4
+    100460: ShroudDeck_5
+    100462: ShroudDeck_6
+    100464: Shrouds
+    100466: Stair_1
+    100468: Stair_10
+    100470: Stair_11
+    100472: Stair_12
+    100474: Stair_13
+    100476: Stair_14
+    100478: Stair_15
+    100480: Stair_16
+    100482: Stair_17
+    100484: Stair_18
+    100486: Stair_19
+    100488: Stair_2
+    100490: Stair_20
+    100492: Stair_21
+    100494: Stair_22
+    100496: Stair_23
+    100498: Stair_24
+    100500: Stair_25
+    100502: Stair_26
+    100504: Stair_27
+    100506: Stair_28
+    100508: Stair_29
+    100510: Stair_3
+    100512: Stair_30
+    100514: Stair_31
+    100516: Stair_32
+    100518: Stair_33
+    100520: Stair_4
+    100522: Stair_5
+    100524: Stair_6
+    100526: Stair_7
+    100528: Stair_8
+    100530: Stair_9
+    100532: Staircase
+    100534: StairGuide_1
+    100536: Stairguide_1
+    100538: StairGuide_2
+    100540: Stairguide_2
+    100542: StairGuide_3
+    100544: Stairguide_3
+    100546: StairGuide_4
+    100548: Stairguide_4
+    100550: Stairguide_5
+    100552: Stairguides
+    100554: Stairguides 1
+    100556: StairPost_1
+    100558: StairPost_2
+    100560: StairPost_3
+    100562: StairPost_4
+    100564: StairPost_5
+    100566: StairPost_6
+    100568: StairPost_7
+    100570: StairPost_8
+    100572: StairPost_9
+    100574: StairPosts
+    100576: StairRail_1
+    100578: StairRail_2
+    100580: StairRail_3
+    100582: StairRails
+    100584: Stairs
+    100586: Stairs 1
+    100588: Starfish
     400000: Barnacle_1
     400002: Barnacle_12
     400004: Barnacle_13
@@ -347,254 +348,253 @@ ModelImporter:
     400094: Bolt_8
     400096: Bolt_9
     400098: Bolts
-    400100: bost1
-    400102: bost10
-    400104: bost11
-    400106: bost12
-    400108: bost13
-    400110: bost14
-    400112: bost15
-    400114: bost16
-    400116: bost17
-    400118: bost18
-    400120: bost19
-    400122: bost2
-    400124: bost3
-    400126: bost4
-    400128: bost5
-    400130: bost6
-    400132: bost7
-    400134: bost8
-    400136: bost9
-    400138: BowSprit
-    400140: BrokenMast
-    400142: CabinDoorway
-    400144: CabinLantern_Light1
-    400146: CabinLantern_Light2
-    400148: CabinLanterns
-    400150: CaptainsQuarters
-    400152: Door_1
-    400154: Door_2
-    400156: Doors
-    400158: //RootNode
-    400160: FlagHolder_1
-    400162: FlagHolder_2
-    400164: Floorboard_1
-    400166: Floorboard_10
-    400168: Floorboard_11
-    400170: Floorboard_12
-    400172: Floorboard_13
-    400174: Floorboard_14
-    400176: Floorboard_15
-    400178: Floorboard_16
-    400180: Floorboard_17
-    400182: Floorboard_2
-    400184: Floorboard_3
-    400186: Floorboard_4
-    400188: Floorboard_5
-    400190: Floorboard_6
-    400192: Floorboard_7
-    400194: Floorboard_8
-    400196: Floorboard_9
-    400198: Floorboards
-    400200: Foremast
-    400202: Forepeak
-    400204: Foscle
-    400206: Foscle_Lantern_2
-    400208: Foscle_Light_1
-    400210: Foscle_Light_2
-    400212: FoscleDeck
-    400214: FoscleLantern_1
-    400216: go1
-    400218: go2
-    400220: go3
-    400222: go4
-    400224: go5
-    400226: Gunport_1
-    400228: Gunport_10
-    400230: Gunport_2
-    400232: Gunport_3
-    400234: Gunport_4
-    400236: Gunport_5
-    400238: Gunport_6
-    400240: Gunport_7
-    400242: Gunport_8
-    400244: Gunport_9
-    400246: Gunports
-    400248: Hull
-    400250: Hull_1
-    400252: Hull_1_1
-    400254: Hull_1_2
-    400256: Hull_1_3
-    400258: Hull_1_4
-    400260: Hull_1_5
-    400262: Hull_1_6
-    400264: Hull_2
-    400266: Hull_3
-    400268: JollyRoger
-    400270: Keel
-    400272: MainMast
-    400274: Mast
-    400276: MastRail
-    400278: MastRail 1
-    400280: MastRail_1
-    400282: MastRail_2
-    400284: Mizzen
-    400286: Platform
-    400288: Platform 1
-    400290: Platform_1
-    400292: Platform_2
-    400294: polySurface841
-    400296: Post_1
-    400298: Post_1 1
-    400300: Post_1 2
-    400302: Post_1_1
-    400304: Post_1_1 1
-    400306: Post_1_1 2
-    400308: Post_1_2
-    400310: Post_1_2 1
-    400312: Post_1_2 2
-    400314: Post_2
-    400316: Post_2 1
-    400318: Post_2 2
-    400320: Post_3
-    400322: Post_3 1
-    400324: Post_3 2
-    400326: Post_4
-    400328: PostGrip_1
-    400330: PostGrip_1 1
-    400332: PostGrip_1 2
-    400334: PostGrip_2
-    400336: PostGrip_2 1
-    400338: PostGrip_2 2
-    400340: Quaterdeck
-    400342: Quaterdeck_1
-    400344: Quaterdeck_2
-    400346: Rail
-    400348: Rail 1
-    400350: Rail_1
-    400352: Rail_2
-    400354: Rail_3
-    400356: Rail_4
-    400358: Rail_5
-    400360: Rail_6
-    400362: Railing
-    400364: RailSpiral
-    400366: RailSupport
-    400368: RailSupport_1
-    400370: RailSupport_10
-    400372: RailSupport_11
-    400374: RailSupport_12
-    400376: RailSupport_13
-    400378: RailSupport_14
-    400380: RailSupport_15
-    400382: RailSupport_16
-    400384: RailSupport_17
-    400386: RailSupport_18
-    400388: RailSupport_19
-    400390: RailSupport_2
-    400392: RailSupport_20
-    400394: RailSupport_21
-    400396: RailSupport_22
-    400398: RailSupport_23
-    400400: RailSupport_3
-    400402: RailSupport_4
-    400404: RailSupport_5
-    400406: RailSupport_6
-    400408: RailSupport_7
-    400410: RailSupport_8
-    400412: RailSupport_9
-    400414: Rope
-    400416: Rope_1
-    400418: Rope_2
-    400420: Ropes
-    400422: Rudder
-    400424: Sail_1
-    400426: Sail_2
-    400428: Sail_3
-    400430: Sail_5
-    400432: Sail_6
-    400434: SailHolder_1
-    400436: SailHolder_1_1
-    400438: SailHolder_1_2
-    400440: SailHolder_2
-    400442: SailHolder_2_1
-    400444: SailHolder_2_2
-    400446: SailHolder_3
-    400448: SailRope_1
-    400450: SailRope_10
-    400452: SailRope_11
-    400454: SailRope_12
-    400456: SailRope_13
-    400458: SailRope_14
-    400460: SailRope_15
-    400462: SailRope_16
-    400464: SailRope_17
-    400466: SailRope_18
-    400468: SailRope_19
-    400470: SailRope_2
-    400472: SailRope_3
-    400474: SailRope_4
-    400476: SailRope_5
-    400478: SailRope_6
-    400480: SailRope_7
-    400482: SailRope_8
-    400484: SailRope_9
-    400486: Sails
-    400488: SailSupport
-    400490: SailSupport 1
-    400492: Shroud_1
-    400494: Shroud_2
-    400496: ShroudClasp_1
-    400498: ShroudClasp_1 1
-    400500: ShroudClasp_1 2
-    400502: ShroudClasp_2
-    400504: ShroudClasp_2 1
-    400506: ShroudClasp_2 2
-    400508: ShroudDeck_1
-    400510: ShroudDeck_2
-    400512: ShroudDeck_3
-    400514: ShroudDeck_4
-    400516: ShroudDeck_5
-    400518: ShroudDeck_6
-    400520: Shrouds
-    400522: Stair_1
-    400524: Stair_10
-    400526: Stair_11
-    400528: Stair_12
-    400530: Stair_13
-    400532: Stair_14
-    400534: Stair_2
-    400536: Stair_3
-    400538: Stair_4
-    400540: Stair_5
-    400542: Stair_6
-    400544: Stair_7
-    400546: Stair_8
-    400548: Stair_9
-    400550: Staircase
-    400552: StairGuides_1
-    400554: StairGuides_2
-    400556: StairGuides_3
-    400558: StairGuides_4
-    400560: StairPost_1
-    400562: StairPost_2
-    400564: StairPost_3
-    400566: StairPost_4
-    400568: StairPost_5
-    400570: StairPost_6
-    400572: StairPost_7
-    400574: StairPost_8
-    400576: StairPost_9
-    400578: StairRail_1
-    400580: StairRail_2
-    400582: StairRail_3
-    400584: Starfish
-    400586: Sun_Light
+    400100: BowSprit
+    400102: BrokenMast
+    400104: CabinDoorway
+    400106: CaptainsQuarters
+    400108: Door_1
+    400110: Door_2
+    400112: Doors
+    400114: //RootNode
+    400116: FlagHolder_1
+    400118: FlagHolder_2
+    400120: Floorboard_1
+    400122: Floorboard_10
+    400124: Floorboard_11
+    400126: Floorboard_12
+    400128: Floorboard_13
+    400130: Floorboard_14
+    400132: Floorboard_15
+    400134: Floorboard_16
+    400136: Floorboard_17
+    400138: Floorboard_2
+    400140: Floorboard_3
+    400142: Floorboard_4
+    400144: Floorboard_5
+    400146: Floorboard_6
+    400148: Floorboard_7
+    400150: Floorboard_8
+    400152: Floorboard_9
+    400154: Floorboards
+    400156: Foremast
+    400158: Forepeak
+    400160: Foscle
+    400162: Foscle_Light_1
+    400164: Foscle_Light_2
+    400166: FoscleDeck
+    400168: FoscleLantern_1
+    400170: FoscleLantern_2
+    400172: Gunport_1
+    400174: Gunport_10
+    400176: Gunport_2
+    400178: Gunport_3
+    400180: Gunport_4
+    400182: Gunport_5
+    400184: Gunport_6
+    400186: Gunport_7
+    400188: Gunport_8
+    400190: Gunport_9
+    400192: Gunports
+    400194: Hull
+    400196: Hull_1
+    400198: Hull_1_1
+    400200: Hull_1_2
+    400202: Hull_1_3
+    400204: Hull_1_4
+    400206: Hull_1_6
+    400208: Hull_1_7
+    400210: Hull_2
+    400212: Hull_3
+    400214: JollyRoger
+    400216: Keel
+    400218: MainMast
+    400220: Mast
+    400222: MastRail
+    400224: MastRail 1
+    400226: MastRail_1
+    400228: MastRail_2
+    400230: Mizzen
+    400232: Platform
+    400234: Platform 1
+    400236: Platform_1
+    400238: Platform_2
+    400240: Post_1
+    400242: Post_1 1
+    400244: Post_1 2
+    400246: Post_1_1
+    400248: Post_1_1 1
+    400250: Post_1_1 2
+    400252: Post_1_2
+    400254: Post_1_2 1
+    400256: Post_1_2 2
+    400258: Post_2
+    400260: Post_2 1
+    400262: Post_2 2
+    400264: Post_3
+    400266: Post_3 1
+    400268: Post_3 2
+    400270: Post_4
+    400272: PostGrip_1
+    400274: PostGrip_1 1
+    400276: PostGrip_1 2
+    400278: PostGrip_2
+    400280: PostGrip_2 1
+    400282: PostGrip_2 2
+    400284: Quaterdeck
+    400286: Quaterdeck_1
+    400288: Quaterdeck_2
+    400290: Rail
+    400292: Rail 1
+    400294: Rail_1
+    400296: Rail_2
+    400298: Rail_3
+    400300: Rail_4
+    400302: Rail_5
+    400304: Rail_6
+    400306: Railing
+    400308: RailSpiral
+    400310: RailSupport
+    400312: RailSupport_1
+    400314: RailSupport_10
+    400316: RailSupport_11
+    400318: RailSupport_12
+    400320: RailSupport_13
+    400322: RailSupport_14
+    400324: RailSupport_15
+    400326: RailSupport_16
+    400328: RailSupport_17
+    400330: RailSupport_18
+    400332: RailSupport_19
+    400334: RailSupport_2
+    400336: RailSupport_20
+    400338: RailSupport_21
+    400340: RailSupport_22
+    400342: RailSupport_23
+    400344: RailSupport_3
+    400346: RailSupport_4
+    400348: RailSupport_5
+    400350: RailSupport_6
+    400352: RailSupport_7
+    400354: RailSupport_8
+    400356: RailSupport_9
+    400358: Rope
+    400360: Rope_1
+    400362: Rope_2
+    400364: Ropes
+    400366: Rudder
+    400368: Sail_1
+    400370: Sail_2
+    400372: Sail_3
+    400374: Sail_5
+    400376: Sail_6
+    400378: SailHolder_1
+    400380: SailHolder_1_1
+    400382: SailHolder_1_2
+    400384: SailHolder_2
+    400386: SailHolder_2_1
+    400388: SailHolder_2_2
+    400390: SailHolder_3
+    400392: SailRope_1
+    400394: SailRope_10
+    400396: SailRope_11
+    400398: SailRope_12
+    400400: SailRope_14
+    400402: SailRope_15
+    400404: SailRope_16
+    400406: SailRope_17
+    400408: SailRope_18
+    400410: SailRope_19
+    400412: SailRope_2
+    400414: SailRope_20
+    400416: SailRope_3
+    400418: SailRope_4
+    400420: SailRope_5
+    400422: SailRope_6
+    400424: SailRope_7
+    400426: SailRope_8
+    400428: SailRope_9
+    400430: Sails
+    400432: SailSupport
+    400434: SailSupport 1
+    400436: Shroud_1
+    400438: Shroud_2
+    400440: ShroudClasp_1
+    400442: ShroudClasp_1 1
+    400444: ShroudClasp_1 2
+    400446: ShroudClasp_2
+    400448: ShroudClasp_2 1
+    400450: ShroudClasp_2 2
+    400452: ShroudDeck_1
+    400454: ShroudDeck_2
+    400456: ShroudDeck_3
+    400458: ShroudDeck_4
+    400460: ShroudDeck_5
+    400462: ShroudDeck_6
+    400464: Shrouds
+    400466: Stair_1
+    400468: Stair_10
+    400470: Stair_11
+    400472: Stair_12
+    400474: Stair_13
+    400476: Stair_14
+    400478: Stair_15
+    400480: Stair_16
+    400482: Stair_17
+    400484: Stair_18
+    400486: Stair_19
+    400488: Stair_2
+    400490: Stair_20
+    400492: Stair_21
+    400494: Stair_22
+    400496: Stair_23
+    400498: Stair_24
+    400500: Stair_25
+    400502: Stair_26
+    400504: Stair_27
+    400506: Stair_28
+    400508: Stair_29
+    400510: Stair_3
+    400512: Stair_30
+    400514: Stair_31
+    400516: Stair_32
+    400518: Stair_33
+    400520: Stair_4
+    400522: Stair_5
+    400524: Stair_6
+    400526: Stair_7
+    400528: Stair_8
+    400530: Stair_9
+    400532: Staircase
+    400534: StairGuide_1
+    400536: Stairguide_1
+    400538: StairGuide_2
+    400540: Stairguide_2
+    400542: StairGuide_3
+    400544: Stairguide_3
+    400546: StairGuide_4
+    400548: Stairguide_4
+    400550: Stairguide_5
+    400552: Stairguides
+    400554: Stairguides 1
+    400556: StairPost_1
+    400558: StairPost_2
+    400560: StairPost_3
+    400562: StairPost_4
+    400564: StairPost_5
+    400566: StairPost_6
+    400568: StairPost_7
+    400570: StairPost_8
+    400572: StairPost_9
+    400574: StairPosts
+    400576: StairRail_1
+    400578: StairRail_2
+    400580: StairRail_3
+    400582: StairRails
+    400584: Stairs
+    400586: Stairs 1
+    400588: Starfish
     2100000: Ship_Wood_MAT
-    2100002: lambert1
-    2100004: Sail_Cloth_MAT
-    2100006: Default_Material
+    2100002: Ship_Cloth_MAT
     2300000: Barnacle_1
     2300002: Barnacle_12
     2300004: Barnacle_13
@@ -642,205 +642,205 @@ ModelImporter:
     2300088: Bolt_7
     2300090: Bolt_8
     2300092: Bolt_9
-    2300094: bost1
-    2300096: bost10
-    2300098: bost11
-    2300100: bost12
-    2300102: bost13
-    2300104: bost14
-    2300106: bost15
-    2300108: bost16
-    2300110: bost17
-    2300112: bost18
-    2300114: bost19
-    2300116: bost2
-    2300118: bost3
-    2300120: bost4
-    2300122: bost5
-    2300124: bost6
-    2300126: bost7
-    2300128: bost8
-    2300130: bost9
-    2300132: BowSprit
-    2300134: CabinDoorway
-    2300136: Door_1
-    2300138: Door_2
-    2300140: FlagHolder_1
-    2300142: FlagHolder_2
-    2300144: Floorboard_1
-    2300146: Floorboard_10
-    2300148: Floorboard_11
-    2300150: Floorboard_12
-    2300152: Floorboard_13
-    2300154: Floorboard_14
-    2300156: Floorboard_15
-    2300158: Floorboard_16
-    2300160: Floorboard_17
-    2300162: Floorboard_2
-    2300164: Floorboard_3
-    2300166: Floorboard_4
-    2300168: Floorboard_5
-    2300170: Floorboard_6
-    2300172: Floorboard_7
-    2300174: Floorboard_8
-    2300176: Floorboard_9
-    2300178: Forepeak
-    2300180: Foscle_Lantern_2
-    2300182: FoscleDeck
-    2300184: FoscleLantern_1
-    2300186: go1
-    2300188: go2
-    2300190: go3
-    2300192: go4
-    2300194: go5
-    2300196: Gunport_1
-    2300198: Gunport_10
-    2300200: Gunport_2
-    2300202: Gunport_3
-    2300204: Gunport_4
-    2300206: Gunport_5
-    2300208: Gunport_6
-    2300210: Gunport_7
-    2300212: Gunport_8
-    2300214: Gunport_9
-    2300216: Hull_1_1
-    2300218: Hull_1_2
-    2300220: Hull_1_3
-    2300222: Hull_1_4
-    2300224: Hull_1_5
-    2300226: Hull_1_6
-    2300228: Hull_2
-    2300230: Hull_3
-    2300232: JollyRoger
-    2300234: Keel
-    2300236: Mast
-    2300238: MastRail
-    2300240: MastRail 1
-    2300242: MastRail_1
-    2300244: MastRail_2
-    2300246: Platform
-    2300248: Platform 1
-    2300250: Platform_1
-    2300252: Platform_2
-    2300254: Post_1_1
-    2300256: Post_1_1 1
-    2300258: Post_1_1 2
-    2300260: Post_1_2
-    2300262: Post_1_2 1
-    2300264: Post_1_2 2
-    2300266: Post_2
-    2300268: Post_2 1
-    2300270: Post_2 2
-    2300272: Post_3
-    2300274: Post_3 1
-    2300276: Post_3 2
-    2300278: Post_4
-    2300280: PostGrip_1
-    2300282: PostGrip_1 1
-    2300284: PostGrip_1 2
-    2300286: PostGrip_2
-    2300288: PostGrip_2 1
-    2300290: PostGrip_2 2
-    2300292: Quaterdeck_1
-    2300294: Quaterdeck_2
-    2300296: Rail
-    2300298: Rail_1
-    2300300: Rail_2
-    2300302: Rail_3
-    2300304: Rail_4
-    2300306: Rail_5
-    2300308: Rail_6
-    2300310: RailSpiral
-    2300312: RailSupport_1
-    2300314: RailSupport_10
-    2300316: RailSupport_11
-    2300318: RailSupport_12
-    2300320: RailSupport_13
-    2300322: RailSupport_14
-    2300324: RailSupport_15
-    2300326: RailSupport_16
-    2300328: RailSupport_17
-    2300330: RailSupport_18
-    2300332: RailSupport_19
-    2300334: RailSupport_2
-    2300336: RailSupport_20
-    2300338: RailSupport_21
-    2300340: RailSupport_22
-    2300342: RailSupport_23
-    2300344: RailSupport_3
-    2300346: RailSupport_4
-    2300348: RailSupport_5
-    2300350: RailSupport_6
-    2300352: RailSupport_7
-    2300354: RailSupport_8
-    2300356: RailSupport_9
-    2300358: Rope
-    2300360: Rope_1
-    2300362: Rope_2
-    2300364: Rudder
-    2300366: Sail_1
-    2300368: Sail_2
-    2300370: Sail_3
-    2300372: Sail_5
-    2300374: Sail_6
-    2300376: SailHolder_1_1
-    2300378: SailHolder_1_2
-    2300380: SailHolder_2_1
-    2300382: SailHolder_2_2
-    2300384: SailHolder_3
-    2300386: SailRope_1
-    2300388: SailRope_10
-    2300390: SailRope_11
-    2300392: SailRope_12
-    2300394: SailRope_13
-    2300396: SailRope_14
-    2300398: SailRope_15
-    2300400: SailRope_16
-    2300402: SailRope_17
-    2300404: SailRope_18
-    2300406: SailRope_19
-    2300408: SailRope_2
-    2300410: SailRope_3
-    2300412: SailRope_4
-    2300414: SailRope_5
-    2300416: SailRope_6
-    2300418: SailRope_7
-    2300420: SailRope_8
-    2300422: SailRope_9
-    2300424: SailSupport
-    2300426: SailSupport 1
-    2300428: Shroud_1
-    2300430: Shroud_2
-    2300432: ShroudClasp_1
-    2300434: ShroudClasp_1 1
-    2300436: ShroudClasp_1 2
-    2300438: ShroudClasp_2
-    2300440: ShroudClasp_2 1
-    2300442: ShroudClasp_2 2
-    2300444: ShroudDeck_1
-    2300446: ShroudDeck_2
-    2300448: ShroudDeck_3
-    2300450: ShroudDeck_4
-    2300452: ShroudDeck_5
-    2300454: ShroudDeck_6
-    2300456: Stair_1
-    2300458: Stair_10
-    2300460: Stair_11
-    2300462: Stair_12
-    2300464: Stair_13
-    2300466: Stair_14
-    2300468: Stair_2
-    2300470: Stair_3
-    2300472: Stair_4
-    2300474: Stair_5
-    2300476: Stair_6
-    2300478: Stair_7
-    2300480: Stair_8
-    2300482: Stair_9
-    2300484: StairGuides_1
-    2300486: StairGuides_2
-    2300488: StairGuides_3
-    2300490: StairGuides_4
+    2300094: BowSprit
+    2300096: CabinDoorway
+    2300098: Door_1
+    2300100: Door_2
+    2300102: FlagHolder_1
+    2300104: FlagHolder_2
+    2300106: Floorboard_1
+    2300108: Floorboard_10
+    2300110: Floorboard_11
+    2300112: Floorboard_12
+    2300114: Floorboard_13
+    2300116: Floorboard_14
+    2300118: Floorboard_15
+    2300120: Floorboard_16
+    2300122: Floorboard_17
+    2300124: Floorboard_2
+    2300126: Floorboard_3
+    2300128: Floorboard_4
+    2300130: Floorboard_5
+    2300132: Floorboard_6
+    2300134: Floorboard_7
+    2300136: Floorboard_8
+    2300138: Floorboard_9
+    2300140: Forepeak
+    2300142: FoscleDeck
+    2300144: FoscleLantern_1
+    2300146: FoscleLantern_2
+    2300148: Gunport_1
+    2300150: Gunport_10
+    2300152: Gunport_2
+    2300154: Gunport_3
+    2300156: Gunport_4
+    2300158: Gunport_5
+    2300160: Gunport_6
+    2300162: Gunport_7
+    2300164: Gunport_8
+    2300166: Gunport_9
+    2300168: Hull_1_1
+    2300170: Hull_1_2
+    2300172: Hull_1_3
+    2300174: Hull_1_4
+    2300176: Hull_1_6
+    2300178: Hull_1_7
+    2300180: Hull_2
+    2300182: Hull_3
+    2300184: JollyRoger
+    2300186: Keel
+    2300188: Mast
+    2300190: MastRail
+    2300192: MastRail 1
+    2300194: MastRail_1
+    2300196: MastRail_2
+    2300198: Platform
+    2300200: Platform 1
+    2300202: Platform_1
+    2300204: Platform_2
+    2300206: Post_1_1
+    2300208: Post_1_1 1
+    2300210: Post_1_1 2
+    2300212: Post_1_2
+    2300214: Post_1_2 1
+    2300216: Post_1_2 2
+    2300218: Post_2
+    2300220: Post_2 1
+    2300222: Post_2 2
+    2300224: Post_3
+    2300226: Post_3 1
+    2300228: Post_3 2
+    2300230: Post_4
+    2300232: PostGrip_1
+    2300234: PostGrip_1 1
+    2300236: PostGrip_1 2
+    2300238: PostGrip_2
+    2300240: PostGrip_2 1
+    2300242: PostGrip_2 2
+    2300244: Quaterdeck_1
+    2300246: Quaterdeck_2
+    2300248: Rail
+    2300250: Rail_1
+    2300252: Rail_2
+    2300254: Rail_3
+    2300256: Rail_4
+    2300258: Rail_5
+    2300260: Rail_6
+    2300262: RailSpiral
+    2300264: RailSupport_1
+    2300266: RailSupport_10
+    2300268: RailSupport_11
+    2300270: RailSupport_12
+    2300272: RailSupport_13
+    2300274: RailSupport_14
+    2300276: RailSupport_15
+    2300278: RailSupport_16
+    2300280: RailSupport_17
+    2300282: RailSupport_18
+    2300284: RailSupport_19
+    2300286: RailSupport_2
+    2300288: RailSupport_20
+    2300290: RailSupport_21
+    2300292: RailSupport_22
+    2300294: RailSupport_23
+    2300296: RailSupport_3
+    2300298: RailSupport_4
+    2300300: RailSupport_5
+    2300302: RailSupport_6
+    2300304: RailSupport_7
+    2300306: RailSupport_8
+    2300308: RailSupport_9
+    2300310: Rope
+    2300312: Rope_1
+    2300314: Rope_2
+    2300316: Rudder
+    2300318: Sail_1
+    2300320: Sail_2
+    2300322: Sail_3
+    2300324: Sail_5
+    2300326: Sail_6
+    2300328: SailHolder_1_1
+    2300330: SailHolder_1_2
+    2300332: SailHolder_2_1
+    2300334: SailHolder_2_2
+    2300336: SailHolder_3
+    2300338: SailRope_1
+    2300340: SailRope_10
+    2300342: SailRope_11
+    2300344: SailRope_12
+    2300346: SailRope_14
+    2300348: SailRope_15
+    2300350: SailRope_16
+    2300352: SailRope_17
+    2300354: SailRope_18
+    2300356: SailRope_19
+    2300358: SailRope_2
+    2300360: SailRope_20
+    2300362: SailRope_3
+    2300364: SailRope_4
+    2300366: SailRope_5
+    2300368: SailRope_6
+    2300370: SailRope_7
+    2300372: SailRope_8
+    2300374: SailRope_9
+    2300376: SailSupport
+    2300378: SailSupport 1
+    2300380: Shroud_1
+    2300382: Shroud_2
+    2300384: ShroudClasp_1
+    2300386: ShroudClasp_1 1
+    2300388: ShroudClasp_1 2
+    2300390: ShroudClasp_2
+    2300392: ShroudClasp_2 1
+    2300394: ShroudClasp_2 2
+    2300396: ShroudDeck_1
+    2300398: ShroudDeck_2
+    2300400: ShroudDeck_3
+    2300402: ShroudDeck_4
+    2300404: ShroudDeck_5
+    2300406: ShroudDeck_6
+    2300408: Stair_1
+    2300410: Stair_10
+    2300412: Stair_11
+    2300414: Stair_12
+    2300416: Stair_13
+    2300418: Stair_14
+    2300420: Stair_15
+    2300422: Stair_16
+    2300424: Stair_17
+    2300426: Stair_18
+    2300428: Stair_19
+    2300430: Stair_2
+    2300432: Stair_20
+    2300434: Stair_21
+    2300436: Stair_22
+    2300438: Stair_23
+    2300440: Stair_24
+    2300442: Stair_25
+    2300444: Stair_26
+    2300446: Stair_27
+    2300448: Stair_28
+    2300450: Stair_29
+    2300452: Stair_3
+    2300454: Stair_30
+    2300456: Stair_31
+    2300458: Stair_32
+    2300460: Stair_33
+    2300462: Stair_4
+    2300464: Stair_5
+    2300466: Stair_6
+    2300468: Stair_7
+    2300470: Stair_8
+    2300472: Stair_9
+    2300474: StairGuide_1
+    2300476: Stairguide_1
+    2300478: StairGuide_2
+    2300480: Stairguide_2
+    2300482: StairGuide_3
+    2300484: Stairguide_3
+    2300486: StairGuide_4
+    2300488: Stairguide_4
+    2300490: Stairguide_5
     2300492: StairPost_1
     2300494: StairPost_2
     2300496: StairPost_3
@@ -901,205 +901,205 @@ ModelImporter:
     3300088: Bolt_7
     3300090: Bolt_8
     3300092: Bolt_9
-    3300094: bost1
-    3300096: bost10
-    3300098: bost11
-    3300100: bost12
-    3300102: bost13
-    3300104: bost14
-    3300106: bost15
-    3300108: bost16
-    3300110: bost17
-    3300112: bost18
-    3300114: bost19
-    3300116: bost2
-    3300118: bost3
-    3300120: bost4
-    3300122: bost5
-    3300124: bost6
-    3300126: bost7
-    3300128: bost8
-    3300130: bost9
-    3300132: BowSprit
-    3300134: CabinDoorway
-    3300136: Door_1
-    3300138: Door_2
-    3300140: FlagHolder_1
-    3300142: FlagHolder_2
-    3300144: Floorboard_1
-    3300146: Floorboard_10
-    3300148: Floorboard_11
-    3300150: Floorboard_12
-    3300152: Floorboard_13
-    3300154: Floorboard_14
-    3300156: Floorboard_15
-    3300158: Floorboard_16
-    3300160: Floorboard_17
-    3300162: Floorboard_2
-    3300164: Floorboard_3
-    3300166: Floorboard_4
-    3300168: Floorboard_5
-    3300170: Floorboard_6
-    3300172: Floorboard_7
-    3300174: Floorboard_8
-    3300176: Floorboard_9
-    3300178: Forepeak
-    3300180: Foscle_Lantern_2
-    3300182: FoscleDeck
-    3300184: FoscleLantern_1
-    3300186: go1
-    3300188: go2
-    3300190: go3
-    3300192: go4
-    3300194: go5
-    3300196: Gunport_1
-    3300198: Gunport_10
-    3300200: Gunport_2
-    3300202: Gunport_3
-    3300204: Gunport_4
-    3300206: Gunport_5
-    3300208: Gunport_6
-    3300210: Gunport_7
-    3300212: Gunport_8
-    3300214: Gunport_9
-    3300216: Hull_1_1
-    3300218: Hull_1_2
-    3300220: Hull_1_3
-    3300222: Hull_1_4
-    3300224: Hull_1_5
-    3300226: Hull_1_6
-    3300228: Hull_2
-    3300230: Hull_3
-    3300232: JollyRoger
-    3300234: Keel
-    3300236: Mast
-    3300238: MastRail
-    3300240: MastRail 1
-    3300242: MastRail_1
-    3300244: MastRail_2
-    3300246: Platform
-    3300248: Platform 1
-    3300250: Platform_1
-    3300252: Platform_2
-    3300254: Post_1_1
-    3300256: Post_1_1 1
-    3300258: Post_1_1 2
-    3300260: Post_1_2
-    3300262: Post_1_2 1
-    3300264: Post_1_2 2
-    3300266: Post_2
-    3300268: Post_2 1
-    3300270: Post_2 2
-    3300272: Post_3
-    3300274: Post_3 1
-    3300276: Post_3 2
-    3300278: Post_4
-    3300280: PostGrip_1
-    3300282: PostGrip_1 1
-    3300284: PostGrip_1 2
-    3300286: PostGrip_2
-    3300288: PostGrip_2 1
-    3300290: PostGrip_2 2
-    3300292: Quaterdeck_1
-    3300294: Quaterdeck_2
-    3300296: Rail
-    3300298: Rail_1
-    3300300: Rail_2
-    3300302: Rail_3
-    3300304: Rail_4
-    3300306: Rail_5
-    3300308: Rail_6
-    3300310: RailSpiral
-    3300312: RailSupport_1
-    3300314: RailSupport_10
-    3300316: RailSupport_11
-    3300318: RailSupport_12
-    3300320: RailSupport_13
-    3300322: RailSupport_14
-    3300324: RailSupport_15
-    3300326: RailSupport_16
-    3300328: RailSupport_17
-    3300330: RailSupport_18
-    3300332: RailSupport_19
-    3300334: RailSupport_2
-    3300336: RailSupport_20
-    3300338: RailSupport_21
-    3300340: RailSupport_22
-    3300342: RailSupport_23
-    3300344: RailSupport_3
-    3300346: RailSupport_4
-    3300348: RailSupport_5
-    3300350: RailSupport_6
-    3300352: RailSupport_7
-    3300354: RailSupport_8
-    3300356: RailSupport_9
-    3300358: Rope
-    3300360: Rope_1
-    3300362: Rope_2
-    3300364: Rudder
-    3300366: Sail_1
-    3300368: Sail_2
-    3300370: Sail_3
-    3300372: Sail_5
-    3300374: Sail_6
-    3300376: SailHolder_1_1
-    3300378: SailHolder_1_2
-    3300380: SailHolder_2_1
-    3300382: SailHolder_2_2
-    3300384: SailHolder_3
-    3300386: SailRope_1
-    3300388: SailRope_10
-    3300390: SailRope_11
-    3300392: SailRope_12
-    3300394: SailRope_13
-    3300396: SailRope_14
-    3300398: SailRope_15
-    3300400: SailRope_16
-    3300402: SailRope_17
-    3300404: SailRope_18
-    3300406: SailRope_19
-    3300408: SailRope_2
-    3300410: SailRope_3
-    3300412: SailRope_4
-    3300414: SailRope_5
-    3300416: SailRope_6
-    3300418: SailRope_7
-    3300420: SailRope_8
-    3300422: SailRope_9
-    3300424: SailSupport
-    3300426: SailSupport 1
-    3300428: Shroud_1
-    3300430: Shroud_2
-    3300432: ShroudClasp_1
-    3300434: ShroudClasp_1 1
-    3300436: ShroudClasp_1 2
-    3300438: ShroudClasp_2
-    3300440: ShroudClasp_2 1
-    3300442: ShroudClasp_2 2
-    3300444: ShroudDeck_1
-    3300446: ShroudDeck_2
-    3300448: ShroudDeck_3
-    3300450: ShroudDeck_4
-    3300452: ShroudDeck_5
-    3300454: ShroudDeck_6
-    3300456: Stair_1
-    3300458: Stair_10
-    3300460: Stair_11
-    3300462: Stair_12
-    3300464: Stair_13
-    3300466: Stair_14
-    3300468: Stair_2
-    3300470: Stair_3
-    3300472: Stair_4
-    3300474: Stair_5
-    3300476: Stair_6
-    3300478: Stair_7
-    3300480: Stair_8
-    3300482: Stair_9
-    3300484: StairGuides_1
-    3300486: StairGuides_2
-    3300488: StairGuides_3
-    3300490: StairGuides_4
+    3300094: BowSprit
+    3300096: CabinDoorway
+    3300098: Door_1
+    3300100: Door_2
+    3300102: FlagHolder_1
+    3300104: FlagHolder_2
+    3300106: Floorboard_1
+    3300108: Floorboard_10
+    3300110: Floorboard_11
+    3300112: Floorboard_12
+    3300114: Floorboard_13
+    3300116: Floorboard_14
+    3300118: Floorboard_15
+    3300120: Floorboard_16
+    3300122: Floorboard_17
+    3300124: Floorboard_2
+    3300126: Floorboard_3
+    3300128: Floorboard_4
+    3300130: Floorboard_5
+    3300132: Floorboard_6
+    3300134: Floorboard_7
+    3300136: Floorboard_8
+    3300138: Floorboard_9
+    3300140: Forepeak
+    3300142: FoscleDeck
+    3300144: FoscleLantern_1
+    3300146: FoscleLantern_2
+    3300148: Gunport_1
+    3300150: Gunport_10
+    3300152: Gunport_2
+    3300154: Gunport_3
+    3300156: Gunport_4
+    3300158: Gunport_5
+    3300160: Gunport_6
+    3300162: Gunport_7
+    3300164: Gunport_8
+    3300166: Gunport_9
+    3300168: Hull_1_1
+    3300170: Hull_1_2
+    3300172: Hull_1_3
+    3300174: Hull_1_4
+    3300176: Hull_1_6
+    3300178: Hull_1_7
+    3300180: Hull_2
+    3300182: Hull_3
+    3300184: JollyRoger
+    3300186: Keel
+    3300188: Mast
+    3300190: MastRail
+    3300192: MastRail 1
+    3300194: MastRail_1
+    3300196: MastRail_2
+    3300198: Platform
+    3300200: Platform 1
+    3300202: Platform_1
+    3300204: Platform_2
+    3300206: Post_1_1
+    3300208: Post_1_1 1
+    3300210: Post_1_1 2
+    3300212: Post_1_2
+    3300214: Post_1_2 1
+    3300216: Post_1_2 2
+    3300218: Post_2
+    3300220: Post_2 1
+    3300222: Post_2 2
+    3300224: Post_3
+    3300226: Post_3 1
+    3300228: Post_3 2
+    3300230: Post_4
+    3300232: PostGrip_1
+    3300234: PostGrip_1 1
+    3300236: PostGrip_1 2
+    3300238: PostGrip_2
+    3300240: PostGrip_2 1
+    3300242: PostGrip_2 2
+    3300244: Quaterdeck_1
+    3300246: Quaterdeck_2
+    3300248: Rail
+    3300250: Rail_1
+    3300252: Rail_2
+    3300254: Rail_3
+    3300256: Rail_4
+    3300258: Rail_5
+    3300260: Rail_6
+    3300262: RailSpiral
+    3300264: RailSupport_1
+    3300266: RailSupport_10
+    3300268: RailSupport_11
+    3300270: RailSupport_12
+    3300272: RailSupport_13
+    3300274: RailSupport_14
+    3300276: RailSupport_15
+    3300278: RailSupport_16
+    3300280: RailSupport_17
+    3300282: RailSupport_18
+    3300284: RailSupport_19
+    3300286: RailSupport_2
+    3300288: RailSupport_20
+    3300290: RailSupport_21
+    3300292: RailSupport_22
+    3300294: RailSupport_23
+    3300296: RailSupport_3
+    3300298: RailSupport_4
+    3300300: RailSupport_5
+    3300302: RailSupport_6
+    3300304: RailSupport_7
+    3300306: RailSupport_8
+    3300308: RailSupport_9
+    3300310: Rope
+    3300312: Rope_1
+    3300314: Rope_2
+    3300316: Rudder
+    3300318: Sail_1
+    3300320: Sail_2
+    3300322: Sail_3
+    3300324: Sail_5
+    3300326: Sail_6
+    3300328: SailHolder_1_1
+    3300330: SailHolder_1_2
+    3300332: SailHolder_2_1
+    3300334: SailHolder_2_2
+    3300336: SailHolder_3
+    3300338: SailRope_1
+    3300340: SailRope_10
+    3300342: SailRope_11
+    3300344: SailRope_12
+    3300346: SailRope_14
+    3300348: SailRope_15
+    3300350: SailRope_16
+    3300352: SailRope_17
+    3300354: SailRope_18
+    3300356: SailRope_19
+    3300358: SailRope_2
+    3300360: SailRope_20
+    3300362: SailRope_3
+    3300364: SailRope_4
+    3300366: SailRope_5
+    3300368: SailRope_6
+    3300370: SailRope_7
+    3300372: SailRope_8
+    3300374: SailRope_9
+    3300376: SailSupport
+    3300378: SailSupport 1
+    3300380: Shroud_1
+    3300382: Shroud_2
+    3300384: ShroudClasp_1
+    3300386: ShroudClasp_1 1
+    3300388: ShroudClasp_1 2
+    3300390: ShroudClasp_2
+    3300392: ShroudClasp_2 1
+    3300394: ShroudClasp_2 2
+    3300396: ShroudDeck_1
+    3300398: ShroudDeck_2
+    3300400: ShroudDeck_3
+    3300402: ShroudDeck_4
+    3300404: ShroudDeck_5
+    3300406: ShroudDeck_6
+    3300408: Stair_1
+    3300410: Stair_10
+    3300412: Stair_11
+    3300414: Stair_12
+    3300416: Stair_13
+    3300418: Stair_14
+    3300420: Stair_15
+    3300422: Stair_16
+    3300424: Stair_17
+    3300426: Stair_18
+    3300428: Stair_19
+    3300430: Stair_2
+    3300432: Stair_20
+    3300434: Stair_21
+    3300436: Stair_22
+    3300438: Stair_23
+    3300440: Stair_24
+    3300442: Stair_25
+    3300444: Stair_26
+    3300446: Stair_27
+    3300448: Stair_28
+    3300450: Stair_29
+    3300452: Stair_3
+    3300454: Stair_30
+    3300456: Stair_31
+    3300458: Stair_32
+    3300460: Stair_33
+    3300462: Stair_4
+    3300464: Stair_5
+    3300466: Stair_6
+    3300468: Stair_7
+    3300470: Stair_8
+    3300472: Stair_9
+    3300474: StairGuide_1
+    3300476: Stairguide_1
+    3300478: StairGuide_2
+    3300480: Stairguide_2
+    3300482: StairGuide_3
+    3300484: Stairguide_3
+    3300486: StairGuide_4
+    3300488: Stairguide_4
+    3300490: Stairguide_5
     3300492: StairPost_1
     3300494: StairPost_2
     3300496: StairPost_3
@@ -1121,8 +1121,8 @@ ModelImporter:
     4300010: Hull_1_2
     4300012: Hull_1_3
     4300014: Hull_1_4
-    4300016: Hull_1_5
-    4300018: Hull_1_6
+    4300016: Hull_1_6
+    4300018: Hull_1_7
     4300020: Hull_2
     4300022: Hull_3
     4300024: Gunport_1
@@ -1190,10 +1190,10 @@ ModelImporter:
     4300148: Starfish
     4300150: Rail
     4300152: FoscleDeck
-    4300154: StairGuides_1
-    4300156: StairGuides_2
-    4300158: StairGuides_3
-    4300160: StairGuides_4
+    4300154: StairGuide_1
+    4300156: StairGuide_2
+    4300158: StairGuide_3
+    4300160: StairGuide_4
     4300162: Stair_1
     4300164: Stair_2
     4300166: Stair_3
@@ -1209,7 +1209,7 @@ ModelImporter:
     4300186: Stair_13
     4300188: Stair_14
     4300190: FoscleLantern_1
-    4300192: Foscle_Lantern_2
+    4300192: FoscleLantern_2
     4300194: Sail_1
     4300196: Sail_2
     4300198: Sail_3
@@ -1227,13 +1227,13 @@ ModelImporter:
     4300222: SailRope_10
     4300224: SailRope_11
     4300226: SailRope_12
-    4300228: SailRope_13
-    4300230: SailRope_14
-    4300232: SailRope_15
-    4300234: SailRope_16
-    4300236: SailRope_17
-    4300238: SailRope_18
-    4300240: SailRope_19
+    4300228: SailRope_14
+    4300230: SailRope_15
+    4300232: SailRope_16
+    4300234: SailRope_17
+    4300236: SailRope_18
+    4300238: SailRope_19
+    4300240: SailRope_20
     4300242: SailHolder_1_1
     4300244: SailHolder_1_2
     4300246: SailHolder_2_1
@@ -1247,97 +1247,97 @@ ModelImporter:
     4300262: ShroudDeck_4
     4300264: ShroudDeck_5
     4300266: ShroudDeck_6
-    4300268: Floorboard_1
-    4300270: Floorboard_2
-    4300272: Floorboard_3
-    4300274: Floorboard_4
-    4300276: Floorboard_5
-    4300278: Floorboard_6
-    4300280: Floorboard_7
-    4300282: Floorboard_8
-    4300284: Floorboard_9
-    4300286: Floorboard_10
-    4300288: Floorboard_11
-    4300290: Floorboard_12
-    4300292: Floorboard_13
-    4300294: Floorboard_14
-    4300296: Floorboard_15
-    4300298: Floorboard_16
-    4300300: Floorboard_17
-    4300302: Platform
-    4300304: MastRail
-    4300306: SailSupport
-    4300308: Post_1_1
-    4300310: Post_1_2
-    4300312: Post_2
-    4300314: Post_3
-    4300316: PostGrip_1
-    4300318: PostGrip_2
-    4300320: ShroudClasp_1
-    4300322: ShroudClasp_2
-    4300324: Platform
-    4300326: MastRail
-    4300328: SailSupport
-    4300330: JollyRoger
-    4300332: Post_1_1
-    4300334: Post_1_2
-    4300336: Post_2
-    4300338: Post_3
-    4300340: Post_4
-    4300342: PostGrip_1
-    4300344: PostGrip_2
-    4300346: ShroudClasp_1
-    4300348: ShroudClasp_2
-    4300350: FlagHolder_1
-    4300352: FlagHolder_2
-    4300354: Post_1_1
-    4300356: Post_1_2
-    4300358: Post_2
-    4300360: Post_3
-    4300362: PostGrip_1
-    4300364: PostGrip_2
-    4300366: MastRail_1
-    4300368: MastRail_2
-    4300370: Platform_1
-    4300372: Platform_2
-    4300374: ShroudClasp_1
-    4300376: ShroudClasp_2
-    4300378: StairRail_1
-    4300380: StairRail_2
-    4300382: StairRail_3
-    4300384: StairPost_1
-    4300386: StairPost_2
-    4300388: StairPost_3
-    4300390: StairPost_4
-    4300392: StairPost_5
-    4300394: StairPost_6
-    4300396: StairPost_7
-    4300398: StairPost_8
-    4300400: StairPost_9
-    4300402: go5
-    4300404: go4
-    4300406: go3
-    4300408: go2
-    4300410: go1
-    4300412: bost1
-    4300414: bost2
-    4300416: bost3
-    4300418: bost4
-    4300420: bost5
-    4300422: bost6
-    4300424: bost7
-    4300426: bost8
-    4300428: bost9
-    4300430: bost10
-    4300432: bost11
-    4300434: bost12
-    4300436: bost13
-    4300438: bost14
-    4300440: bost15
-    4300442: bost16
-    4300444: bost17
-    4300446: bost18
-    4300448: bost19
+    4300268: Stair_15
+    4300270: Stair_16
+    4300272: Stair_17
+    4300274: Stair_18
+    4300276: Stair_19
+    4300278: Stair_20
+    4300280: Stair_21
+    4300282: Stair_22
+    4300284: Stair_23
+    4300286: Stair_24
+    4300288: Stair_25
+    4300290: Stair_26
+    4300292: Stair_27
+    4300294: Stair_28
+    4300296: Stair_29
+    4300298: Stair_30
+    4300300: Stair_31
+    4300302: Stair_32
+    4300304: Stair_33
+    4300306: StairRail_1
+    4300308: StairRail_2
+    4300310: StairRail_3
+    4300312: StairPost_1
+    4300314: StairPost_2
+    4300316: StairPost_3
+    4300318: StairPost_4
+    4300320: StairPost_5
+    4300322: StairPost_6
+    4300324: StairPost_7
+    4300326: StairPost_8
+    4300328: StairPost_9
+    4300330: Stairguide_1
+    4300332: Stairguide_2
+    4300334: Stairguide_3
+    4300336: Stairguide_4
+    4300338: Stairguide_5
+    4300340: Floorboard_1
+    4300342: Floorboard_2
+    4300344: Floorboard_3
+    4300346: Floorboard_4
+    4300348: Floorboard_5
+    4300350: Floorboard_6
+    4300352: Floorboard_7
+    4300354: Floorboard_8
+    4300356: Floorboard_9
+    4300358: Floorboard_10
+    4300360: Floorboard_11
+    4300362: Floorboard_12
+    4300364: Floorboard_13
+    4300366: Floorboard_14
+    4300368: Floorboard_15
+    4300370: Floorboard_16
+    4300372: Floorboard_17
+    4300374: Platform
+    4300376: MastRail
+    4300378: SailSupport
+    4300380: Post_1_1
+    4300382: Post_1_2
+    4300384: Post_2
+    4300386: Post_3
+    4300388: PostGrip_1
+    4300390: PostGrip_2
+    4300392: ShroudClasp_1
+    4300394: ShroudClasp_2
+    4300396: Platform
+    4300398: MastRail
+    4300400: SailSupport
+    4300402: JollyRoger
+    4300404: Post_1_1
+    4300406: Post_1_2
+    4300408: Post_2
+    4300410: Post_3
+    4300412: Post_4
+    4300414: PostGrip_1
+    4300416: PostGrip_2
+    4300418: ShroudClasp_1
+    4300420: ShroudClasp_2
+    4300422: FlagHolder_1
+    4300424: FlagHolder_2
+    4300426: Post_1_1
+    4300428: Post_1_2
+    4300430: Post_2
+    4300432: Post_3
+    4300434: PostGrip_1
+    4300436: PostGrip_2
+    4300438: MastRail_1
+    4300440: MastRail_2
+    4300442: Platform_1
+    4300444: Platform_2
+    4300446: ShroudClasp_1
+    4300448: ShroudClasp_2
     4300450: Bolt_1
     4300452: Bolt_2
     4300454: Bolt_3
@@ -1349,8 +1349,8 @@ ModelImporter:
     4300466: Bolt_9
     4300468: Bolt_10
     4300470: Bolt_11
-    4300472: Bolt_13
-    4300474: Bolt_12
+    4300472: Bolt_12
+    4300474: Bolt_13
     4300476: Bolt_14
     4300478: Bolt_15
     4300480: Bolt_16
@@ -1372,11 +1372,8 @@ ModelImporter:
     4300512: Quaterdeck_1
     4300514: Quaterdeck_2
     4300516: CabinDoorway
-    10800000: CabinLantern_Light1
-    10800002: CabinLantern_Light2
-    10800004: Foscle_Light_1
-    10800006: Foscle_Light_2
-    10800008: Sun_Light
+    10800000: Foscle_Light_1
+    10800002: Foscle_Light_2
   externalObjects: {}
   materials:
     importMaterials: 1

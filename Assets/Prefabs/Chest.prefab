@@ -95,7 +95,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nPlayerID: 1
   m_bGrid: {fileID: 0}
-  chestAnimation: {fileID: 639871293}
+  m_szColour: 
+  coinSplash: {fileID: 0}
 --- !u!65 &8823611325345413826
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -134,9 +135,10 @@ Animation:
   m_GameObject: {fileID: 7368743705671976452}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 9a1dd4b4191898b418d6655d36b47845, type: 2}
+  m_Animation: {fileID: 7400000, guid: ff60420de9596c144a8f5f64a814782d, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 9a1dd4b4191898b418d6655d36b47845, type: 2}
+  - {fileID: 0}
+  - {fileID: 7400000, guid: ff60420de9596c144a8f5f64a814782d, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -196,7 +198,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2300008, guid: 7cdc220669569c54e9d9cec2ef3615c7, type: 3}
+    - target: {fileID: 2300000, guid: 7cdc220669569c54e9d9cec2ef3615c7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e07529b7cfb47664ca1fc8882296f077, type: 2}
@@ -208,7 +210,7 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e07529b7cfb47664ca1fc8882296f077, type: 2}
-    - target: {fileID: 2300000, guid: 7cdc220669569c54e9d9cec2ef3615c7, type: 3}
+    - target: {fileID: 2300008, guid: 7cdc220669569c54e9d9cec2ef3615c7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e07529b7cfb47664ca1fc8882296f077, type: 2}
