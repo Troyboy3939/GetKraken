@@ -10868,7 +10868,7 @@ PrefabInstance:
     - target: {fileID: 5829428562472057026, guid: 9a2c416d367b26349a437560558ff9ef,
         type: 3}
       propertyPath: m_szColour
-      value: Yellow
+      value: Green
       objectReference: {fileID: 0}
     - target: {fileID: 5829428562472057026, guid: 9a2c416d367b26349a437560558ff9ef,
         type: 3}
@@ -12092,7 +12092,7 @@ PrefabInstance:
     - target: {fileID: 5829428562472057026, guid: 9a2c416d367b26349a437560558ff9ef,
         type: 3}
       propertyPath: m_szColour
-      value: Green
+      value: Yellow
       objectReference: {fileID: 0}
     - target: {fileID: 5829428562472057026, guid: 9a2c416d367b26349a437560558ff9ef,
         type: 3}

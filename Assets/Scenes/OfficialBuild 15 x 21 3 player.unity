@@ -234,6 +234,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Tentacle
       objectReference: {fileID: 0}
+    - target: {fileID: 1229342884642267519, guid: 466b315f306c7c74db11f89274d6ec8d,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 50e09fcdc09de2a4381e6afeef85dc97, type: 2}
     m_RemovedComponents:
     - {fileID: 4638131791022858006, guid: 466b315f306c7c74db11f89274d6ec8d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 466b315f306c7c74db11f89274d6ec8d, type: 3}

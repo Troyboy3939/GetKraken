@@ -62,7 +62,7 @@ public class TentacleState : State
             }
             else
             {
-                ////Debug.Log("On Enter set own node has tentacle true returned null. Line 43");
+                //Debug.Log("On Enter set own node has tentacle true returned null. Line 43");
             }
             m_Tentacle.transform.Translate(new Vector3(0,1,0),Space.Self);
         }

@@ -15,6 +15,9 @@ public class Pointer : MonoBehaviour
     [SerializeField] string m_sz3PlayerLevel = "";
     [SerializeField] string m_sz2PlayerLevel = "";
     [SerializeField] Vector3 m_v3InterpolationEnd = new Vector3(0,0,0);
+    [SerializeField] GameObject m_Bezier1 = null;
+    [SerializeField] GameObject m_Bezier2 = null;
+
 
     bool m_bFirstControllerConnected = false;
     bool m_bFirstPlayerConnected = false;
@@ -33,7 +36,9 @@ public class Pointer : MonoBehaviour
     Vector3 m_Rot; 
     [SerializeField] Vector3 m_RotationEnd;
 
-    [SerializeField] float m_fLerpSpeedScale = 4; 
+    [SerializeField] float m_fLerpSpeedScale = 4;
+    Vector3 m_v3Pos;
+    bool m_bDone = false;
     private void Start()
     {
         // Disable the mouse cursor and use a software cursor
@@ -88,14 +93,18 @@ public class Pointer : MonoBehaviour
 
         if(m_bClicked)
         {
-            Vector3 v3Pos = transform.position;
+            if (!m_bDone)
+            {
+               m_v3Pos = transform.position;
+                m_bDone = true;
+            }
             
             m_fT += m_fMoveSpeed * Time.deltaTime;
             //Debug.Log(m_fT);
             if((m_fT < 1))
             {
-                Vector3 rot = Vector3.Lerp(m_Rot, m_RotationEnd, m_fT * m_fLerpSpeedScale);
-                transform.position = Vector3.Lerp(v3Pos, m_v3InterpolationEnd , m_fT * Time.deltaTime * m_fLerpSpeedScale);
+                Vector3 rot = Vector3.Lerp(m_Rot, m_RotationEnd, m_fT * m_fLerpSpeedScale * 1.5f);
+                transform.position = Bezier(m_v3Pos, m_v3InterpolationEnd,m_Bezier1.transform.position,m_Bezier2.transform.position,m_fT * m_fLerpSpeedScale);
                 transform.rotation = Quaternion.Euler(rot.x, rot.y, rot.z);
             }
             else
@@ -220,4 +229,22 @@ public class Pointer : MonoBehaviour
             }
         }
     }
+
+    private Vector3 Bezier(Vector3 v3Start, Vector3 v3End, Vector3 v3Control1, Vector3 v3Control2, float fT)
+    {
+        Vector3 L1 = Vector3.Lerp(v3Start,v3Control1,fT);
+        Vector3 L2 = Vector3.Lerp(v3Control1, v3Control2, fT);
+        Vector3 L3 = Vector3.Lerp(v3Control2, v3End, fT);
+        Vector3 L4 = Vector3.Lerp(L1,L2,fT);
+        Vector3 L5 = Vector3.Lerp(L2, L3, fT);
+
+        return (Vector3.Lerp(L4,L5,fT));
+
+
+
+    }
+
+    
 }
+
+
