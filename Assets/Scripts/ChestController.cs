@@ -12,6 +12,7 @@ public class ChestController : MonoBehaviour
     [SerializeField] string m_szColour = "";
 
     public ParticleSystem coinSplash;
+    private AudioSource audioSource;
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class ChestController : MonoBehaviour
         chestAnimation = GetComponentInChildren<Animation>();
 
         GameObject calOb = GameObject.FindGameObjectWithTag("Calibration");
+        audioSource = GetComponent<AudioSource>();
 
         Calibration c = null;
         if (calOb != null)
@@ -93,6 +95,7 @@ public class ChestController : MonoBehaviour
                         break;
                 }
 
+                audioSource.Play();
                 coinSplash.Play();
                 chestAnimation.Play("ChestOpen");
                 uic.UpdateScore();
