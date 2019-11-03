@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6844569604576021846}
   - component: {fileID: 5829428562472057026}
   - component: {fileID: 8823611325345413826}
-  - component: {fileID: 639871293}
   - component: {fileID: 2822523075175907125}
   m_Layer: 0
   m_Name: Chest
@@ -111,22 +110,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.975465, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!111 &639871293
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6844569604574024598}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations:
-  - {fileID: 0}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!82 &2822523075175907125
 AudioSource:
   m_ObjectHideFlags: 0
@@ -237,7 +220,7 @@ Animation:
   - {fileID: 0}
   - {fileID: 7400000, guid: ff60420de9596c144a8f5f64a814782d, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!1001 &7368743705671942308
