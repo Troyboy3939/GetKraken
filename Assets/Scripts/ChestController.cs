@@ -73,6 +73,7 @@ public class ChestController : MonoBehaviour
 
                 Destroy(pc.gameObject.GetComponentInChildren<CoinController>().gameObject);
                 pc.m_bHasCoin = false;
+                pc.m_bCanPickUpCoin = true;
                 UIController uic = Blackboard.GetInstance().GetCanvas().GetComponent<UIController>();
 
                 switch (m_nPlayerID)

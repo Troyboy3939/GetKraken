@@ -24,6 +24,11 @@ public class CoinController : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(m_fGravityMultiplier * Physics.gravity);
     }
 
+    private void Update()
+    {
+        if (transform.position.y < 2.35f) transform.position = new Vector3(transform.position.x, 2.35f, transform.position.z);
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         
