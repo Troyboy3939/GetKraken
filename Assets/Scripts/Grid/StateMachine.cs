@@ -14,7 +14,8 @@ public class StateMachine
         FLOOR,
         HOLE,
         TENTACLE,
-        EXITING
+        EXITING,
+        COINBLACKLIST
     };
 
     private FloorState m_FloorState;

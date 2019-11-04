@@ -15,6 +15,7 @@ public class FloorGrid : MonoBehaviour
     [SerializeField] float m_fTentacleSwitchTime = 3;
     [SerializeField] float m_fCoinSpawnTime = 3;
     [SerializeField] List<Vector2> m_HolePositions = new List<Vector2>();
+    [SerializeField] List<Vector2> m_CoinSpawnBlacklist = new List<Vector2>();
     int m_nRandomSeed = 0;
     List<Vector2> m_TentaclePositions = new List<Vector2>();
     
@@ -61,26 +62,21 @@ public class FloorGrid : MonoBehaviour
 
         Blackboard.GetInstance().SetNodes(ref m_Nodes);
 
-        
-
         for(int i = 0; i < Blackboard.GetInstance().GetChestCount(); i++)
         {
             GetNodeByPosition(Blackboard.GetInstance().GetChest(i).transform.position).SetHasChest(true);
 
         }
-
-
-
        
-        for(int i = 0; i < m_HolePositions.Count; i++)
+        for (int i = 0; i < m_HolePositions.Count; i++)
         {
-        
-          
             m_Nodes[Mathf.FloorToInt(m_HolePositions[i].x), Mathf.FloorToInt(m_HolePositions[i].y)].ChangeState(StateMachine.ESTATE.HOLE);
-            
         }
-        
-        
+
+        for (int i = 0; i < m_CoinSpawnBlacklist.Count; i++)
+        {
+            m_Nodes[Mathf.FloorToInt(m_CoinSpawnBlacklist[i].x), Mathf.FloorToInt(m_CoinSpawnBlacklist[i].y)].ChangeState(StateMachine.ESTATE.COINBLACKLIST);
+        }
     }
 
 
@@ -193,11 +189,11 @@ public class FloorGrid : MonoBehaviour
 
             for (int i = 0; i < chests.Length; i++)
             {
-                
+
                 Node pos = GetNodeByPosition(chests[i].transform.position);
 
 
-                if (m_Nodes[n1, n2].GetPosition() == pos.GetPosition() || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.HOLE || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.TENTACLE || m_Nodes[n1, n2].GetHasTentacle())
+                if (m_Nodes[n1, n2].GetPosition() == pos.GetPosition() || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.HOLE || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.COINBLACKLIST || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.TENTACLE || m_Nodes[n1, n2].GetHasTentacle())
                 {
                     n1 = Random.Range(0, m_nGridWidth);
                     n2 = Random.Range(0, m_nGridHeight);
