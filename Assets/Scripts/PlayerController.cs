@@ -305,6 +305,34 @@ public class PlayerController : MonoBehaviour
 
                             dustRun.Play();
                         }
+                        // Or if you're using the dpad
+                        else if (XCI.GetDPad(XboxDPad.Left, (XboxController)m_nPlayerID) || XCI.GetDPad(XboxDPad.Right, (XboxController)m_nPlayerID) || XCI.GetDPad(XboxDPad.Up, (XboxController)m_nPlayerID) || XCI.GetDPad(XboxDPad.Down, (XboxController)m_nPlayerID))
+                        {
+                            Vector3 v3InputDir = Vector3.zero;
+                            if (XCI.GetDPad(XboxDPad.Left, (XboxController)m_nPlayerID))
+                            {
+                                v3InputDir.x = -1;
+                            }
+                            else if (XCI.GetDPad(XboxDPad.Right, (XboxController)m_nPlayerID))
+                            {
+                                v3InputDir.x = 1;
+                            }
+                            else if (XCI.GetDPad(XboxDPad.Up, (XboxController)m_nPlayerID))
+                            {
+                                v3InputDir.z = 1;
+                            }
+                            else if (XCI.GetDPad(XboxDPad.Down, (XboxController)m_nPlayerID))
+                            {
+                                v3InputDir.z = -1;
+                            }
+
+                            v3InputDir.Normalize();
+
+                            m_Controller.transform.localRotation = Quaternion.LookRotation(v3InputDir, Vector3.up);
+                            m_Controller.velocity = transform.forward * m_fSpeed;
+
+                            dustRun.Play();
+                        }
                     }
                     else //else if controller not connected, use WASD instead
                     {
@@ -329,7 +357,7 @@ public class PlayerController : MonoBehaviour
                     if (XCI.IsPluggedIn(m_nPlayerID))
                     {
                         //If button being pressed
-                        if (XCI.GetButtonDown(XboxButton.B, (XboxController)m_nPlayerID))
+                        if (XCI.GetButtonDown(XboxButton.B, (XboxController)m_nPlayerID) || XCI.GetButtonDown(XboxButton.A, (XboxController)m_nPlayerID))
                         {
                             Shove(ref hit);
                         }
