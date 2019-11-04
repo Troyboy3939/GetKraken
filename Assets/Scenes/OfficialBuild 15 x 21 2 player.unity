@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5985,8 +5985,8 @@ MonoBehaviour:
   m_fTentacleVerticalPercentage: 20
   m_OrangeMaterial: {fileID: 2100000, guid: cec7e1bad7b3f5a42b15dd83009fc515, type: 2}
   m_BlueMaterial: {fileID: 2100000, guid: b4eaedcff4acbbc4e82e8cd2cd9599a1, type: 2}
-  m_YellowMaterial: {fileID: 2100000, guid: 88d5cc3e1abf1364bb1d2246630e6aab, type: 2}
-  m_GreenMaterial: {fileID: 2100000, guid: 1d615c65c894b6348adc1897894d4c02, type: 2}
+  m_YellowMaterial: {fileID: 2100000, guid: 1d615c65c894b6348adc1897894d4c02, type: 2}
+  m_GreenMaterial: {fileID: 2100000, guid: 88d5cc3e1abf1364bb1d2246630e6aab, type: 2}
   m_OrangeChestMaterial: {fileID: 2100000, guid: e07529b7cfb47664ca1fc8882296f077,
     type: 2}
   m_BlueChestMaterial: {fileID: 2100000, guid: cc9add44f49f066468fad891233f4e7d, type: 2}
