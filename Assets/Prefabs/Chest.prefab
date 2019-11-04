@@ -96,8 +96,7 @@ MonoBehaviour:
   m_nPlayerID: 1
   m_bGrid: {fileID: 0}
   m_szColour: 
-  coinSplash: {fileID: 8576929132098844701, guid: 918cd09b53c315a469346445c6d41835,
-    type: 3}
+  coinSplash: {fileID: 0}
 --- !u!65 &8823611325345413826
 BoxCollider:
   m_ObjectHideFlags: 0
