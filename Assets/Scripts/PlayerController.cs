@@ -131,7 +131,6 @@ public class PlayerController : MonoBehaviour
                             hitController.AddForce(transform.forward * m_fShovePower, ForceMode.VelocityChange);
                             p.Stun();
                             p.DetachCoin();
-                            p.SetHasCoin(false);
                         }
                     }
                 }
@@ -173,26 +172,13 @@ public class PlayerController : MonoBehaviour
 
     private void DetachCoin()
     {
+        StartCoroutine(DropHeldCoinCooldown());
         CoinController[] coins = GetComponentsInChildren<CoinController>();
-        Transform[] ChildrenTransforms = GetComponentsInChildren<Transform>();
-
-        int nChildCount = transform.childCount;
-
-        Transform coinTransform = transform.Find("Coin(Clone)");
-
-        if (coinTransform != null)
-        {
-            coinTransform.parent = null;
-
-            //coinTransform.GetComponentInParent<Rigidbody>().constraints = RigidbodyConstraints.None;
-        }
-
-       // if (transform.Find("Coin(Clone)"))
-            
 
         foreach (CoinController coin in coins)
         {
-            coin.m_bHeld = false;
+            coin.SetHeld(false);
+            coin.transform.parent = null;
             coin.transform.Translate(new Vector3(0, -1, 0));
 
             Rigidbody rb = coin.GetComponent<Rigidbody>();
@@ -200,25 +186,11 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
 
-            BoxCollider bc = rb.gameObject.GetComponent<BoxCollider>();
-            Physics.IgnoreCollision(bc, gameObject.GetComponent<CapsuleCollider>(), false);
+            Collider col = coin.GetComponent<Collider>();
+            col.enabled = true;
         }
 
-        for (int i = 0; i < nChildCount + 1; i++)
-        {
-            if (ChildrenTransforms[i].tag == "Nose")
-            {
-                ChildrenTransforms[i].SetParent(transform);
-            }
-            else if (ChildrenTransforms[i].tag == "Coin")
-            {
-                CoinController CC = ChildrenTransforms[i].GetComponentInParent<CoinController>();
-                m_tempCol = CC.GetComponentInParent<BoxCollider>();
-                m_tempCol.enabled = true;
-                CC.SetHeld(false);
-            }
-        }
-        m_bHasCoin = false;
+        SetHasCoin(false);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -235,8 +207,6 @@ public class PlayerController : MonoBehaviour
 
     private void DropHeldCoin()
     {
-        m_bCanPickUpCoin = false;
-        StartCoroutine(DropHeldCoinCooldown());
         DetachCoin();
     }
 
@@ -396,12 +366,6 @@ public class PlayerController : MonoBehaviour
                 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
                 //Other
                 //-------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-                // when getting shoved
-                if ((!m_bHasCoin) && (transform.childCount != 0))
-                {
-                    DetachCoin();
-                }
 
                 // while holding coin, the player should be slowed
                 if (m_bHasCoin)

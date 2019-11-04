@@ -26,6 +26,7 @@ public class CoinController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        
         // If touching a player that is not stunned
         if (other.transform.tag == "Player")
         {
@@ -33,10 +34,10 @@ public class CoinController : MonoBehaviour
 
             if (!m_bHeld && !pc.m_bHasCoin && !pc.GetStunned() && pc.m_bCanPickUpCoin)
             {
+                pc.m_bCanPickUpCoin = false;
                 pc.SetHasCoin(true);
                 transform.SetParent(other.transform);
                 transform.Translate(new Vector3(0, 1, 0));
-
 
                 Rigidbody rb = GetComponent<Rigidbody>();
                 rb.constraints = RigidbodyConstraints.FreezePositionY;
@@ -46,7 +47,7 @@ public class CoinController : MonoBehaviour
 
                 BoxCollider bc = GetComponent<BoxCollider>();
                 bc.enabled = false;
-                Physics.IgnoreCollision(col, other.rigidbody.GetComponent<Collider>());
+                //Physics.IgnoreCollision(col, other.rigidbody.GetComponent<Collider>());
                 m_bHeld = true;
             }
         }

@@ -53,8 +53,6 @@ public class Blackboard : MonoBehaviour
         plane = GameObject.Find("Plane");
         canvas = GameObject.Find("/UI/Canvas");
         m_Chests = GameObject.FindGameObjectsWithTag("Chest");
-
-        Debug.Log("Chests: " + m_Chests.Length);
     }
 
     public Material GetBlueMat()
