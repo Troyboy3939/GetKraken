@@ -52,10 +52,8 @@ public class CoinController : MonoBehaviour
 
                 BoxCollider bc = GetComponent<BoxCollider>();
                 bc.enabled = false;
-                //Physics.IgnoreCollision(col, other.rigidbody.GetComponent<Collider>());
                 m_bHeld = true;
             }
         }
     }
 }
-

@@ -328,7 +328,7 @@ public class PlayerController : MonoBehaviour
                             Shove(ref hit);
                         }
 
-                        if (XCI.GetButtonDown(XboxButton.X, (XboxController)m_nPlayerID))
+                        if (XCI.GetButtonDown(XboxButton.X, (XboxController)m_nPlayerID) || XCI.GetButtonDown(XboxButton.Y, (XboxController)m_nPlayerID))
                         {
                             DropHeldCoin();
                         }
