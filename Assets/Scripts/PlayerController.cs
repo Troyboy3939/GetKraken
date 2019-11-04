@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dustRun = GetComponent<ParticleSystem>();
+        //dustRun = GetComponent<ParticleSystem>();
 
         GameObject calOb = GameObject.FindGameObjectWithTag("Calibration");
 
