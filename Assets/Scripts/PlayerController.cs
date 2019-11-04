@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_fRespawnTime = 2;
     [SerializeField] float m_fDropCoinCooldown = 1;
     [SerializeField] string m_szColour = "";
+    [SerializeField] float m_fRespawnHeight = 30;
+    [SerializeField] float m_fRespawnOffset = 2;
     [SerializeField] GameObject m_Grid;
     public bool m_bIsFalling = false;
     
@@ -41,7 +43,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         dustRun = GetComponent<ParticleSystem>();
-
 
         GameObject calOb = GameObject.FindGameObjectWithTag("Calibration");
 
@@ -80,10 +81,6 @@ public class PlayerController : MonoBehaviour
                 m.material = Blackboard.GetInstance().GetOrangeMat();
             }
         }
-
-
-
-
 
         ParticleSystem.MainModule ma = GetComponent<ParticleSystem>().main;
         ma.startColor = GetComponent<Renderer>().material.color;
@@ -169,8 +166,9 @@ public class PlayerController : MonoBehaviour
 
         GameObject chest = Blackboard.GetInstance().GetChestWithID(m_nPlayerID);
 
-        FloorGrid grid = m_Grid.GetComponent<FloorGrid>();
-        grid.DropObjectAtNode(grid.GetNodeByPosition(chest.transform.position), transform);
+        transform.position = chest.transform.position;
+        transform.Translate(Vector3.up * m_fRespawnHeight, Space.World);
+        transform.Translate(chest.transform.TransformDirection(0, 0, 1) * m_fRespawnOffset, Space.World);
 
         m_bIsDead = false;
     }
