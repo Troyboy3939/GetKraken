@@ -42,10 +42,10 @@ public class UIController : MonoBehaviour
     {
         if (!m_bGameEnded)
         {
-            m_goP1Score.GetComponent<Text>().text = "Player 1: " + m_nP1Score.ToString();
-            m_goP2Score.GetComponent<Text>().text = "Player 2: " + m_nP2Score.ToString();
-            m_goP3Score.GetComponent<Text>().text = "Player 3: " + m_nP3Score.ToString();
-            m_goP4Score.GetComponent<Text>().text = "Player 4: " + m_nP4Score.ToString();
+            m_goP1Score.GetComponent<Text>().text = m_nP1Score.ToString();
+            m_goP2Score.GetComponent<Text>().text = m_nP2Score.ToString();
+            m_goP3Score.GetComponent<Text>().text = m_nP3Score.ToString();
+            m_goP4Score.GetComponent<Text>().text = m_nP4Score.ToString();
         }
     }
 
