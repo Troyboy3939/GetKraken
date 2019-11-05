@@ -1081,7 +1081,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211807033}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 62.509995, y: 14.228484, z: -65.91}
+  m_LocalPosition: {x: 62.509995, y: 14.228484, z: -81.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 278353273}
@@ -1190,6 +1190,10 @@ MonoBehaviour:
   m_v3InterpolationEnd: {x: 86.2, y: 16.11, z: 22.73}
   m_Bezier1: {fileID: 2061016162}
   m_Bezier2: {fileID: 1211807033}
+  m_Logo: {fileID: 1875968756}
+  m_Start: {fileID: 958037716}
+  m_Controls: {fileID: 997856728}
+  m_Credits: {fileID: 679974235}
   m_Players:
   - {fileID: 175838601}
   - {fileID: 228906824}
@@ -2034,7 +2038,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061016162}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 34.379997, y: 14.228484, z: -66.71}
+  m_LocalPosition: {x: 34.379997, y: 37.7, z: -79.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 278353273}

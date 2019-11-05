@@ -78,10 +78,7 @@ public class FloorGrid : MonoBehaviour
             m_Nodes[Mathf.FloorToInt(m_HolePositions[i].x), Mathf.FloorToInt(m_HolePositions[i].y)].ChangeState(StateMachine.ESTATE.HOLE);
         }
 
-        for (int i = 0; i < m_CoinSpawnBlacklist.Count; i++)
-        {
-            m_Nodes[Mathf.FloorToInt(m_CoinSpawnBlacklist[i].x), Mathf.FloorToInt(m_CoinSpawnBlacklist[i].y)].SetIsBuffer(true);
-        }
+       
     }
 
 
@@ -204,7 +201,7 @@ public class FloorGrid : MonoBehaviour
                 Node pos = GetNodeByPosition(chests[i].transform.position);
 
 
-                if (m_Nodes[n1, n2].GetPosition() == pos.GetPosition() || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.HOLE || m_Nodes[n1, n2].GetIsBuffer() || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.TENTACLE || m_Nodes[n1, n2].GetHasTentacle())
+                if (m_Nodes[n1, n2].GetPosition() == pos.GetPosition() || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.HOLE ||  m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.TENTACLE || m_Nodes[n1, n2].GetHasTentacle())
                 {
                     n1 = Random.Range(0, m_nGridWidth);
                     n2 = Random.Range(0, m_nGridHeight);

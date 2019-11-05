@@ -19,6 +19,11 @@ public class Pointer : MonoBehaviour
     [SerializeField] GameObject m_Bezier2 = null;
 
 
+    [SerializeField] GameObject m_Logo = null;
+    [SerializeField] GameObject m_Start = null;
+    [SerializeField] GameObject m_Controls = null;
+    [SerializeField] GameObject m_Credits = null;
+
     bool m_bFirstControllerConnected = false;
     bool m_bFirstPlayerConnected = false;
     bool m_bSecondPlayerConnected = false;
@@ -102,7 +107,7 @@ public class Pointer : MonoBehaviour
             m_fT += m_fMoveSpeed * Time.deltaTime;
             if((m_fT < 1))
             {
-                Vector3 rot = Vector3.Lerp(m_Rot, m_RotationEnd, m_fT * m_fLerpSpeedScale);
+                Vector3 rot = Vector3.Lerp(m_Rot, m_RotationEnd, m_fT * m_fLerpSpeedScale * 1.3f);
                 transform.position = Bezier(m_v3Pos, m_v3InterpolationEnd,m_Bezier1.transform.position,m_Bezier2.transform.position,m_fT * m_fLerpSpeedScale);
                 transform.rotation = Quaternion.Euler(rot.x, rot.y, rot.z);
             }
@@ -224,6 +229,27 @@ public class Pointer : MonoBehaviour
             if (hit.transform.gameObject.tag == "MenuStart")
             {
                 m_bClicked = true;
+
+                if(m_Logo != null)
+                {
+                    m_Logo.SetActive(false);
+                }
+
+                if (m_Start != null)
+                {
+                    m_Start.SetActive(false);
+                }
+                if (m_Controls != null)
+                {
+                    m_Controls.SetActive(false);
+                }
+                if (m_Credits != null)
+                {
+                    m_Credits.SetActive(false);
+                }
+
+
+
                 //SceneManager.LoadScene("OfficialBuild 15 x 21");
             }
         }
