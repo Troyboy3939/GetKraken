@@ -23,13 +23,16 @@ public class FloorGrid : MonoBehaviour
     float m_fCoinTimer = 0.0f;
     bool m_bFirstTime = true;
     bool m_bSwitch = false;
-    int m_nCountCount = 0;
+    int m_nCoinCount = 0;
     Node[,] m_Nodes;
 
     private Node posChest0;
     private Node posChest1;
     private Node posChest2;
     private Node posChest3;
+
+    // Only use this field for debugging! Should always be true when testing the game.
+    [SerializeField] private bool m_bLimitCoinCount = true;
 
 
     //-----------------------------------------------------------
@@ -77,7 +80,7 @@ public class FloorGrid : MonoBehaviour
 
         for (int i = 0; i < m_CoinSpawnBlacklist.Count; i++)
         {
-            m_Nodes[Mathf.FloorToInt(m_CoinSpawnBlacklist[i].x), Mathf.FloorToInt(m_CoinSpawnBlacklist[i].y)].ChangeState(StateMachine.ESTATE.COINBLACKLIST);
+            m_Nodes[Mathf.FloorToInt(m_CoinSpawnBlacklist[i].x), Mathf.FloorToInt(m_CoinSpawnBlacklist[i].y)].SetIsBuffer(true);
         }
     }
 
@@ -102,12 +105,12 @@ public class FloorGrid : MonoBehaviour
 
     public void SetCoinCount(int nNumber)
     {
-        m_nCountCount = nNumber;
+        m_nCoinCount = nNumber;
     }
 
     public int GetCoinCount()
     {
-        return m_nCountCount;
+        return m_nCoinCount;
     }
 
 
@@ -201,7 +204,7 @@ public class FloorGrid : MonoBehaviour
                 Node pos = GetNodeByPosition(chests[i].transform.position);
 
 
-                if (m_Nodes[n1, n2].GetPosition() == pos.GetPosition() || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.HOLE || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.COINBLACKLIST || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.TENTACLE || m_Nodes[n1, n2].GetHasTentacle())
+                if (m_Nodes[n1, n2].GetPosition() == pos.GetPosition() || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.HOLE || m_Nodes[n1, n2].GetIsBuffer() || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.TENTACLE || m_Nodes[n1, n2].GetHasTentacle())
                 {
                     n1 = Random.Range(0, m_nGridWidth);
                     n2 = Random.Range(0, m_nGridHeight);
@@ -253,7 +256,7 @@ public class FloorGrid : MonoBehaviour
                 }
             }
         }
-        m_nCountCount++;
+        m_nCoinCount++;
         DropNewObjectAtNode(m_Nodes[n1,n2],m_Coin);
     }
 
@@ -330,7 +333,12 @@ public class FloorGrid : MonoBehaviour
         {
             m_fCoinTimer = 0.0f;
             GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-            if(m_nCountCount < players.Length - 1)
+
+            if (!m_bLimitCoinCount)
+            {
+                DropCoin();
+            }
+            else if(m_nCoinCount < players.Length - 1)
             {
                 DropCoin();
             }

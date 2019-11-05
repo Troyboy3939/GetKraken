@@ -14,7 +14,7 @@ public class StateMachine
         FLOOR,
         HOLE,
         TENTACLE,
-        EXITING
+        EXITING,
         ATTACKING
     };
 
