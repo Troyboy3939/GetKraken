@@ -12,17 +12,18 @@ public class Blackboard : MonoBehaviour
     GameObject canvas;
     GameObject[] m_Chests;
     Node[,] m_Nodes;
+    FloorGrid m_Grid;
     [SerializeField] float m_fTentacleVerticalPercentage;
-    [SerializeField] Material m_OrangeMaterial;
-    [SerializeField] Material m_BlueMaterial;
-    [SerializeField] Material m_YellowMaterial;
-    [SerializeField] Material m_GreenMaterial;
+    [SerializeField] Material m_OrangeMaterial = null;
+    [SerializeField] Material m_BlueMaterial = null;
+    [SerializeField] Material m_YellowMaterial = null;
+    [SerializeField] Material m_GreenMaterial = null;
 
 
-    [SerializeField] Material m_OrangeChestMaterial;
-    [SerializeField] Material m_BlueChestMaterial;
-    [SerializeField] Material m_YellowChestMaterial;
-    [SerializeField] Material m_GreenChestMaterial;
+    [SerializeField] Material m_OrangeChestMaterial = null;
+    [SerializeField] Material m_BlueChestMaterial = null;
+    [SerializeField] Material m_YellowChestMaterial = null;
+    [SerializeField] Material m_GreenChestMaterial = null;
 
     void Awake()
     {
@@ -179,4 +180,16 @@ public class Blackboard : MonoBehaviour
     {
         return m_Nodes[x, y];
     }
+
+    public FloorGrid GetGrid()
+    {
+        return m_Grid;
+    }
+
+    public void SetGrid(FloorGrid grid)
+    {
+        m_Grid = grid;
+    }
+
+
 }

@@ -8,9 +8,9 @@ public class FloorGrid : MonoBehaviour
     //-----------------------------------------------------------
     [SerializeField] int m_nGridWidth = 10;
     [SerializeField] int m_nGridHeight = 10;
-    [SerializeField] GameObject m_Plane;
-    [SerializeField] GameObject m_Tentacle;
-    [SerializeField] GameObject m_Coin;
+    [SerializeField] GameObject m_Plane = null;
+    [SerializeField] GameObject m_Tentacle = null;
+    [SerializeField] GameObject m_Coin = null;
     [SerializeField] float m_fDropHeight = 30;
     [SerializeField] float m_fTentacleSwitchTime = 3;
     [SerializeField] float m_fCoinSpawnTime = 3;
@@ -41,6 +41,7 @@ public class FloorGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         Random.InitState(System.DateTime.Now.Millisecond);
 
         m_Nodes = new Node[m_nGridWidth,m_nGridHeight];
@@ -61,6 +62,7 @@ public class FloorGrid : MonoBehaviour
         }
 
         Blackboard.GetInstance().SetNodes(ref m_Nodes);
+        Blackboard.GetInstance().SetGrid(this);
 
         for(int i = 0; i < Blackboard.GetInstance().GetChestCount(); i++)
         {
@@ -79,6 +81,16 @@ public class FloorGrid : MonoBehaviour
         }
     }
 
+
+    public List<Vector2> GetTentaclePos()
+    {
+        return m_TentaclePositions;
+    }
+
+    public void SetTentaclePos(List<Vector2> l)
+    {
+        m_TentaclePositions = l;
+    }
 
     void PlayRiseUp()
     {
@@ -106,11 +118,7 @@ public class FloorGrid : MonoBehaviour
         Collider col = m_Plane.GetComponent<Collider>();
         float x = col.bounds.size.x;
 
-        //Vector3 toPos =  v3Pos - transform.position;
-        //toPos.z += (x / 2);
-        //toPos.x += (x / 2);
-        //float fW = toPos.x / col.bounds.size.x;
-
+       
 
 
         float fW = (v3Pos.x + 1)  /x;
@@ -275,8 +283,9 @@ public class FloorGrid : MonoBehaviour
             {
                 m_Nodes[x, y].Update();
                 StateMachine.ESTATE e = m_Nodes[x, y].GetState();
-                if (e == StateMachine.ESTATE.TENTACLE || e == StateMachine.ESTATE.EXITING)
+                if (e == StateMachine.ESTATE.TENTACLE || e == StateMachine.ESTATE.EXITING || e == StateMachine.ESTATE.ATTACKING)
                 {
+                    
                     //If the state is a tentacle or exiting
                     bReadyToSpawn = false;
                 }
@@ -296,21 +305,24 @@ public class FloorGrid : MonoBehaviour
             }
             else //Time to switch but there are already tentacles or exiting tentacle
             {
-
-
-              
                 //change exiting state
                 if (m_TentaclePositions.Count > 0)
                 {
                     for (int i = 0; i < m_TentaclePositions.Count; i++)
                     {
-                        m_Nodes[Mathf.FloorToInt(m_TentaclePositions[i].x), Mathf.FloorToInt(m_TentaclePositions[i].y)].ChangeState(StateMachine.ESTATE.EXITING);
+                        StateMachine.ESTATE e = m_Nodes[Mathf.FloorToInt(m_TentaclePositions[i].x), Mathf.FloorToInt(m_TentaclePositions[i].y)].GetState();
+                        if (e == StateMachine.ESTATE.TENTACLE && e != StateMachine.ESTATE.ATTACKING)
+                        {
+                            m_Nodes[Mathf.FloorToInt(m_TentaclePositions[i].x), Mathf.FloorToInt(m_TentaclePositions[i].y)].ChangeState(StateMachine.ESTATE.EXITING);
+                        }
+                       
                     }
-                    m_TentaclePositions.Clear();
+                    
+                    
                    // m_bSwitch = true;
                 }
-              
-              
+                
+               
             }
         }
 

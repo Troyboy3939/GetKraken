@@ -14,26 +14,28 @@ public class StateMachine
         FLOOR,
         HOLE,
         TENTACLE,
-        EXITING,
-        COINBLACKLIST
+        EXITING
+        ATTACKING
     };
 
     private FloorState m_FloorState;
     private HoleState m_HoleState;
     private TentacleState m_TentacleState;
     private ExitingState m_ExitingState;
+    private AttackingState m_AttackingState;
     ESTATE m_eState = ESTATE.FLOOR;
     public Vector2 m_v2NodePos;
 
     private Vector3 m_v3Position;
     private GameObject m_BasePlane;
 
-    public StateMachine(Vector3 pos, ref GameObject plane, Vector2 vec)
+    public StateMachine(Vector3 pos, ref GameObject plane, Vector2 v2NodePos)
     {
-        m_TentacleState = new TentacleState(pos, plane, vec);
+        m_TentacleState = new TentacleState(pos, plane, v2NodePos,this);
         m_FloorState =  new FloorState(ref plane);
         m_HoleState = new HoleState(ref plane);
-        m_ExitingState = new ExitingState(this);
+        m_ExitingState = new ExitingState(this,v2NodePos);
+        m_AttackingState = new AttackingState(this,v2NodePos);
     }
 
    public ref FloorState GetFloorState()
@@ -49,7 +51,10 @@ public class StateMachine
     public void ChangeState(StateMachine.ESTATE nextState)
     {
         if (nextState == m_eState)
+        {
             Debug.LogError("Changing to same state: " + nextState);
+            return;
+        }
 
         //Exit the state you are currently and enter the next state
         switch (m_eState)
@@ -65,6 +70,9 @@ public class StateMachine
                 break;
             case ESTATE.EXITING:
                 m_ExitingState.OnExit();
+                break;
+            case ESTATE.ATTACKING:
+                m_AttackingState.OnExit();
                 break;
         }
 
@@ -87,6 +95,10 @@ public class StateMachine
                 m_ExitingState.OnEnter();
                 m_eState = ESTATE.EXITING;
                 break;
+            case ESTATE.ATTACKING:
+                m_AttackingState.OnEnter();
+                m_eState = ESTATE.ATTACKING;
+                break;
         }
     }
 
@@ -99,10 +111,6 @@ public class StateMachine
     {
         switch (m_eState)
         {
-            case ESTATE.FLOOR:
-                m_FloorState.Update();
-                break;
-
             case ESTATE.HOLE:
                 m_HoleState.Update();
                 break;
@@ -111,6 +119,9 @@ public class StateMachine
                 break;
             case ESTATE.EXITING:
                 m_ExitingState.Update();
+                break;
+            case ESTATE.ATTACKING:
+                m_AttackingState.Update();
                 break;
         }
     }

@@ -198,12 +198,35 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "Tentacle")
         {
             Animator a = collision.gameObject.GetComponentInParent<Animator>();
-            if (!a.GetCurrentAnimatorStateInfo(0).IsName("Rise Up") && !a.GetCurrentAnimatorStateInfo(0).IsName("Exit") && !a.GetCurrentAnimatorStateInfo(0).IsName("Exit Vertical"))
+            if (!a.GetCurrentAnimatorStateInfo(0).IsName("Rise Up") && !a.GetCurrentAnimatorStateInfo(0).IsName("Exit Horizontal") && !a.GetCurrentAnimatorStateInfo(0).IsName("Exit Vertical"))
             {
+                TentacleController tc = collision.gameObject.GetComponentInParent<TentacleController>();
+                StateMachine stateMachine = null;
+                if (tc != null)
+                {
+                    stateMachine = tc.GetStateMachine();
+                    if (!a.GetCurrentAnimatorStateInfo(0).IsName("Lay Down Idle"))
+                    {
+                        if(stateMachine.GetState() != StateMachine.ESTATE.ATTACKING)
+                        {
+                           stateMachine.GetTentacleState().Attack();
+                        }
+                       
+                    }
+                }
+              
+                    
+                   
+                }
+                else
+                {
+
+                }
                 Kill();
             }
         }
-    }
+
+
 
     private void DropHeldCoin()
     {

@@ -100,10 +100,9 @@ public class Pointer : MonoBehaviour
             }
             
             m_fT += m_fMoveSpeed * Time.deltaTime;
-            //Debug.Log(m_fT);
             if((m_fT < 1))
             {
-                Vector3 rot = Vector3.Lerp(m_Rot, m_RotationEnd, m_fT * m_fLerpSpeedScale * 1.5f);
+                Vector3 rot = Vector3.Lerp(m_Rot, m_RotationEnd, m_fT * m_fLerpSpeedScale);
                 transform.position = Bezier(m_v3Pos, m_v3InterpolationEnd,m_Bezier1.transform.position,m_Bezier2.transform.position,m_fT * m_fLerpSpeedScale);
                 transform.rotation = Quaternion.Euler(rot.x, rot.y, rot.z);
             }
@@ -239,12 +238,8 @@ public class Pointer : MonoBehaviour
         Vector3 L5 = Vector3.Lerp(L2, L3, fT);
 
         return (Vector3.Lerp(L4,L5,fT));
-
-
-
     }
-
-    
+   
 }
 
 

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExitingState : State
+public class AttackingState : State
 {
     bool m_bFirstTime = true;
     StateMachine m_StateMachine;
     GameObject m_Tentacle;
     Vector2 m_v2NodePos;
     public Animator m_Anim;
-    public ExitingState(StateMachine stateMachine, Vector2 v2NodePos)
+    public AttackingState(StateMachine stateMachine, Vector2 v2NodePos)
     {
         m_StateMachine = stateMachine;
         m_v2NodePos = v2NodePos;
@@ -30,20 +30,19 @@ public class ExitingState : State
 
         MeshCollider m = m_Tentacle.GetComponent<MeshCollider>();
 
-        if(m != null)
+        if (m != null)
         {
             m.enabled = true;
         }
-        m_Anim.SetTrigger("Exit");
-        
-       
+        m_Anim.SetTrigger("Attack");
+
+
 
     }
 
 
     public override void OnExit()
     {
-        m_Anim.ResetTrigger("Exit");
         m_Anim.ResetTrigger("Attack");
         MeshCollider m = m_Tentacle.GetComponent<MeshCollider>();
 
@@ -51,15 +50,14 @@ public class ExitingState : State
         {
             m.enabled = false;
         }
-
-        //m_Tentacle.transform.Translate(new Vector3(0, -1, 0), Space.Self);
+        
     }
 
     public override void Update()
     {
-        if(m_Anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
-         {
-            if (!m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Vertical Idle") && !m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Lay Down Idle"))
+          if (m_Anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+          {
+            if (!m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Lay Down Idle") && !m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Vertical Idle"))
             {
                 m_StateMachine.ChangeState(StateMachine.ESTATE.HOLE);
                 List<Vector2> l = Blackboard.GetInstance().GetGrid().GetTentaclePos();
@@ -70,7 +68,7 @@ public class ExitingState : State
 
                 Blackboard.GetInstance().GetGrid().SetTentaclePos(l);
             }
-         }
+          }
         
     }
 

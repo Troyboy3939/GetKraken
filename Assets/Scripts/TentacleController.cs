@@ -7,51 +7,34 @@ using UnityEngine;
 // After a short time, tentacle should also move to a different spot on the grid.
 public class TentacleController : MonoBehaviour
 {
-    [SerializeField] float m_fRespawnTime = 2;
-    ESTATE m_eTentacleState;
-
-    private enum ESTATE
-    {
-        VERTICAL,
-        UP,
-        DOWN,
-        LEFT,
-        RIGHT
-    }
+    TentacleState m_TentacleState = null;
+    StateMachine m_StateMachine;
 
     void Start()
     {
-        // TODO: Set up a loop that checks whether or not the current state is possible,
-        // eg. randomise again if the tentacle is ESTATE.DOWN, but there's already a tentacle
-        // in the way. Detect this with a raycast maybe
-
-        // Tentacle will be in a random state when spawned
-        m_eTentacleState = (ESTATE)Random.Range(0, 4);
-
-        switch(m_eTentacleState)
-        {
-            case ESTATE.VERTICAL:
-                // tentacle sticks straight up
-                break;
-            case ESTATE.UP:
-                // tentacle makes a wall upwards
-                break;
-            case ESTATE.DOWN:
-                // tentacle makes a wall downwards
-                break;
-            case ESTATE.LEFT:
-                // tentacle makes a wall to the left
-                break;
-            case ESTATE.RIGHT:
-                // tentacle makes a wall to the right
-                break;
-        }
+  
     }
 
-    // Hide the tentacle and start a timer
-    // Check that you're not trying to do the same thing across different scripts
-    private void Hide()
+    public TentacleState GetTentacleState()
     {
-
+        return m_TentacleState;
     }
+
+    public void SetTentacleState(TentacleState state)
+    {
+        m_TentacleState = state;
+    }
+
+
+    public StateMachine GetStateMachine()
+    {
+        return m_StateMachine;
+    }
+
+    public void SetStateMachine(StateMachine state)
+    {
+        m_StateMachine = state;
+    }
+
+
 }

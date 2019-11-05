@@ -13,21 +13,22 @@ public class TentacleState : State
     List<Vector2> m_AdjacentNodes = new List<Vector2>();
     public Animator m_Anim;
     ETENTACLESTATE m_eState;
+    StateMachine m_StateMachine;
     enum ETENTACLESTATE
     {
         VERTICAL,
         HORIZONTAL
     }
 
-    public TentacleState(Vector3 pos,  GameObject plane, Vector2 vecPos)
+    public TentacleState(Vector3 pos,  GameObject plane, Vector2 NodePos, StateMachine stateMachine)
     {
         m_v3Position = pos;
         m_Plane = plane;
         //m_Tentacle.SetActive(false);
-        m_v2NodePos = vecPos;
+        m_v2NodePos = NodePos;
 
+        m_StateMachine = stateMachine;
 
-        
     }
 
     public Animator GetAnimator()
@@ -49,6 +50,11 @@ public class TentacleState : State
 
             //No longer go through this branch
             m_bFirstTime = false;
+
+            TentacleController c = m_Tentacle.GetComponent<TentacleController>();
+            c.SetTentacleState(this);
+            c.SetStateMachine(m_StateMachine);
+
         }
         else
         {
@@ -64,7 +70,7 @@ public class TentacleState : State
             {
                 //Debug.Log("On Enter set own node has tentacle true returned null. Line 43");
             }
-            m_Tentacle.transform.Translate(new Vector3(0,1,0),Space.Self);
+            //m_Tentacle.transform.Translate(new Vector3(0,1,0),Space.Self);
         }
 
     }
@@ -211,6 +217,20 @@ public class TentacleState : State
 
     public override void Update()
     {
+        if(m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack Vertical") || m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack Horizontal"))
+        {
+            if(m_Anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+            {
+                ChangeState();
+                List<Vector2> l = Blackboard.GetInstance().GetGrid().GetTentaclePos();
+                if(l.Contains(m_v2NodePos))
+                {
+                    l.Remove(m_v2NodePos);
+                }
+                Blackboard.GetInstance().GetGrid().SetTentaclePos(l);
+            }
+          
+        }
     }
 
     public GameObject GetTentacle()
@@ -223,8 +243,6 @@ public class TentacleState : State
     {
         if (m_Tentacle)
         {
-           // m_Tentacle.SetActive(false);
-
             for (int i = 0; i < m_AdjacentNodes.Count; i++)
             {
                 if (Blackboard.GetInstance().GetNode(m_AdjacentNodes[i]) != null)
@@ -247,6 +265,16 @@ public class TentacleState : State
             }
             m_AdjacentNodes.Clear();
         }
+    }
+
+    private void ChangeState()
+    {
+        m_StateMachine.ChangeState(StateMachine.ESTATE.HOLE);
+    }
+
+    public void Attack()
+    {
+        m_StateMachine.ChangeState(StateMachine.ESTATE.ATTACKING);
     }
 }
 
