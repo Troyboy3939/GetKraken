@@ -11,6 +11,7 @@ TagManager:
   - MenuStart
   - Calibration
   - MenuControls
+  - MenuCredits
   layers:
   - Default
   - TransparentFX

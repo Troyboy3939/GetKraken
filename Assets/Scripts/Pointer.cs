@@ -256,6 +256,10 @@ public class Pointer : MonoBehaviour
                 m_bControlsScreen = true;
                 HideUI();
             }
+            else if (hit.transform.gameObject.tag == "MenuCredits")
+            {
+                SceneManager.LoadScene("Credits");
+            }
         }
     }
 
