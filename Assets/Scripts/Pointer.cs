@@ -23,6 +23,7 @@ public class Pointer : MonoBehaviour
     [SerializeField] GameObject m_Start = null;
     [SerializeField] GameObject m_Controls = null;
     [SerializeField] GameObject m_Credits = null;
+    [SerializeField] GameObject m_ControlsImage = null;
 
     bool m_bFirstControllerConnected = false;
     bool m_bFirstPlayerConnected = false;
@@ -44,13 +45,19 @@ public class Pointer : MonoBehaviour
     [SerializeField] float m_fLerpSpeedScale = 4;
     Vector3 m_v3Pos;
     bool m_bDone = false;
+
+    [SerializeField] private float m_fLoadingDuration = 5;
+
     private void Start()
     {
         // Disable the mouse cursor and use a software cursor
         //Cursor.visible = false;
         m_v2CursorPosition = new Vector2(Screen.width / 2f, Screen.height / 2f);
         m_Rot = transform.rotation.eulerAngles;
-        
+
+        if (!m_ControlsImage) Debug.LogError("Pointer.cs: The ControlsImage object is not in the correct field in the inspector.");
+
+        if (m_ControlsImage.activeSelf) m_ControlsImage.SetActive(false);
     }
 
     private void OnGUI()
@@ -130,16 +137,16 @@ public class Pointer : MonoBehaviour
                             if (m_bFourthPlayerConnected)
                             {
                                 //Load 4 player level
-                                SceneManager.LoadScene(m_sz4PlayerLevel);
+                                StartCoroutine(ShowLoadingScreen(m_fLoadingDuration, m_sz4PlayerLevel));
                             }
                             else //fourth isn't connect, load three player level
                             {
-                                SceneManager.LoadScene(m_sz3PlayerLevel);
+                                StartCoroutine(ShowLoadingScreen(m_fLoadingDuration, m_sz3PlayerLevel));
                             }
                         }
                         else //if third hasn't connect load two player level
                         {
-                            SceneManager.LoadScene(m_sz2PlayerLevel);
+                            StartCoroutine(ShowLoadingScreen(m_fLoadingDuration, m_sz2PlayerLevel));
                         }
                     }
                 }
@@ -264,6 +271,19 @@ public class Pointer : MonoBehaviour
         Vector3 L5 = Vector3.Lerp(L2, L3, fT);
 
         return (Vector3.Lerp(L4,L5,fT));
+    }
+
+    private IEnumerator ShowLoadingScreen(float duration, string sceneName)
+    {
+        bool b = true;
+        while (b)
+        {
+            b = false;
+            m_ControlsImage.SetActive(true);
+            yield return new WaitForSeconds(duration);
+        }
+        m_ControlsImage.SetActive(false);
+        SceneManager.LoadScene(sceneName);
     }
    
 }

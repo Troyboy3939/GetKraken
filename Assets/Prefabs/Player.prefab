@@ -135,11 +135,15 @@ MonoBehaviour:
   m_fGravityMultiplier: 15
   m_fRespawnTime: 2
   m_fDropCoinCooldown: 0.5
+  m_szColour: 
+  m_fRespawnHeight: 30
+  m_fRespawnOffset: 2
   m_Grid: {fileID: 0}
   m_bIsFalling: 0
   m_bHasCoin: 0
   m_bCanPickUpCoin: 1
   m_bIsDead: 0
+  dustRun: {fileID: 0}
 --- !u!198 &1043297594707736748
 ParticleSystem:
   m_ObjectHideFlags: 0
