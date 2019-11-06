@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using XboxCtrlrInput;
 
+
 public class Pointer : MonoBehaviour
 {
     bool m_bClicked = false;
@@ -57,7 +58,7 @@ public class Pointer : MonoBehaviour
         m_v2CursorPosition = new Vector2(Screen.width / 2f, Screen.height / 2f);
         m_Rot = transform.rotation.eulerAngles;
 
-        if (!m_ControlsImage) Debug.LogError("Pointer.cs: The ControlsImage object is not in the correct field in the inspector.");
+        if (!m_ControlsImage) Debug.LogError("Pointer.cs: The Controls Image object is not in the correct field in the inspector.");
 
         if (m_ControlsImage.activeSelf) m_ControlsImage.SetActive(false);
     }

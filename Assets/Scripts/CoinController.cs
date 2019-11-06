@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CoinController : MonoBehaviour
 {
     BoxCollider col;
@@ -46,6 +47,7 @@ public class CoinController : MonoBehaviour
 
                 Rigidbody rb = GetComponent<Rigidbody>();
                 rb.constraints = RigidbodyConstraints.FreezePositionY;
+
                 rb.isKinematic = true;
                 rb.velocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;

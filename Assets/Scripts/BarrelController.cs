@@ -19,48 +19,25 @@ public class BarrelController : MonoBehaviour
         return fStart * (1 - fT) + fEnd * fT;
     }
 
-
+    Vector3 startPos;
+    float occilationSpeed = 2.0f;
+    float displacementScale = 0.50f;
+    float rngOffest;
+    float rngOffestrolling;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-        m_fT = Random.value;
+        startPos = transform.position;
+        rngOffest = Random.value;
+        rngOffestrolling = Random.value;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float fRot = Lerp(m_RotationStart, m_RotationEnd, m_fT);
-
         
-
-
-
-
-        
-        
-       
-        transform.position = new Vector3( transform.position.x, m_fPositionSinModifier1 * Mathf.Sin(m_fT / m_fPositionSinModifier2) + m_fStartY, transform.position.z);
-        transform.rotation = Quaternion.Euler(0,0,fRot);
-
-        if(m_fT > 1)
-        {
-            m_bSwitch = true;
-        }
-        else if(m_fT < 0)
-        {
-            m_bSwitch = false;
-        }
-
-        if(m_bSwitch)
-        {
-            m_fT -= m_fSpeed * Time.deltaTime;
-        }
-        else
-        {
-            m_fT += m_fSpeed * Time.deltaTime;
-        }
-
+        transform.position = new Vector3(startPos.x, startPos.y + Mathf.Sin(Time.time * (occilationSpeed + rngOffest)) * displacementScale, startPos.z);
+        transform.localEulerAngles = new Vector3(0, Mathf.Sin(Time.time + rngOffestrolling) * 5.0f, 90 + Mathf.Sin(Time.time * (occilationSpeed + rngOffestrolling)) * 10);
     }
 }
