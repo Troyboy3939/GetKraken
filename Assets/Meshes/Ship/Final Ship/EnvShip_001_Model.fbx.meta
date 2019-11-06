@@ -1374,7 +1374,17 @@ ModelImporter:
     4300516: CabinDoorway
     10800000: Foscle_Light_1
     10800002: Foscle_Light_2
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ship_Cloth_MAT
+    second: {fileID: 2100000, guid: 96b6c79e9c05ecf4bad6503ab275319c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ship_Wood_MAT
+    second: {fileID: 2100000, guid: 6260d94b2ec94d74cacc4c6b017babdf, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

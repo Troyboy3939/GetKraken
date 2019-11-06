@@ -15,11 +15,14 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: c0ca02fda6cccea48894312c6c6fa9bd
   - enabled: 1
-    path: Assets/Scenes/OfficialBuild 15 x 21.unity
-    guid: 6795a6ad04e67614fa86d3a538a3bf21
-  - enabled: 1
     path: Assets/Scenes/OfficialBuild 15 x 21 2 player.unity
     guid: d570c11870624424a8d481b9fb8b003d
+  - enabled: 1
+    path: Assets/Scenes/OfficialBuild 15 x 21 3 player.unity
+    guid: bc9e7b1fbebe02c489fcb7f5e667edad
+  - enabled: 1
+    path: Assets/Scenes/OfficialBuild 15 x 21.unity
+    guid: 6795a6ad04e67614fa86d3a538a3bf21
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: d9e2973c0433e494fbfff3faf0511f6f
