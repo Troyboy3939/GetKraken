@@ -14,7 +14,7 @@ public class Pointer : MonoBehaviour
     [SerializeField] string m_sz4PlayerLevel = "";
     [SerializeField] string m_sz3PlayerLevel = "";
     [SerializeField] string m_sz2PlayerLevel = "";
-    [SerializeField] Vector3 m_v3InterpolationEnd = new Vector3(0,0,0);
+    [SerializeField] Vector3 m_v3InterpolationEnd = new Vector3(0, 0, 0);
     [SerializeField] GameObject m_Bezier1 = null;
     [SerializeField] GameObject m_Bezier2 = null;
 
@@ -31,7 +31,7 @@ public class Pointer : MonoBehaviour
     bool m_bThirdPlayerConnected = false;
     bool m_bFourthPlayerConnected = false;
 
-    bool[] m_bControllersConnected = new bool[5] {true,false,false,false,false};
+    bool[] m_bControllersConnected = new bool[5] { true, false, false, false, false };
     [SerializeField] GameObject[] m_Players = new GameObject[4];
 
     [SerializeField] float m_fMouseSpeed = 5f;
@@ -39,7 +39,7 @@ public class Pointer : MonoBehaviour
     [SerializeField] Texture m_tCursorImage;
 
     [SerializeField] Collider m_cBarrelCollider;
-    Vector3 m_Rot; 
+    Vector3 m_Rot;
     [SerializeField] Vector3 m_RotationEnd;
 
     [SerializeField] float m_fLerpSpeedScale = 4;
@@ -47,6 +47,8 @@ public class Pointer : MonoBehaviour
     bool m_bDone = false;
 
     [SerializeField] private float m_fLoadingDuration = 5;
+
+    private bool m_bControlsScreen = false;
 
     private void Start()
     {
@@ -103,19 +105,19 @@ public class Pointer : MonoBehaviour
             Click(Input.mousePosition);
         }
 
-        if(m_bClicked)
+        if (m_bClicked)
         {
             if (!m_bDone)
             {
-               m_v3Pos = transform.position;
+                m_v3Pos = transform.position;
                 m_bDone = true;
             }
-            
+
             m_fT += m_fMoveSpeed * Time.deltaTime;
-            if((m_fT < 1))
+            if ((m_fT < 1))
             {
                 Vector3 rot = Vector3.Lerp(m_Rot, m_RotationEnd, m_fT * m_fLerpSpeedScale * 1.3f);
-                transform.position = Bezier(m_v3Pos, m_v3InterpolationEnd,m_Bezier1.transform.position,m_Bezier2.transform.position,m_fT * m_fLerpSpeedScale);
+                transform.position = Bezier(m_v3Pos, m_v3InterpolationEnd, m_Bezier1.transform.position, m_Bezier2.transform.position, m_fT * m_fLerpSpeedScale);
                 transform.rotation = Quaternion.Euler(rot.x, rot.y, rot.z);
             }
             else
@@ -188,7 +190,7 @@ public class Pointer : MonoBehaviour
                                 m_bControllersConnected[i] = true;
                                 m_Players[0].GetComponent<MainMenuDiverController>().Go();
                             }
-                         }
+                        }
                         else if (!m_bSecondPlayerConnected)
                         {
                             if (!m_bControllersConnected[i])
@@ -198,18 +200,18 @@ public class Pointer : MonoBehaviour
                                 m_bControllersConnected[i] = true;
                                 m_Players[1].GetComponent<MainMenuDiverController>().Go();
                             }
-                        
+
                         }
                         else if (!m_bThirdPlayerConnected)
                         {
                             if (!m_bControllersConnected[i])
                             {
-                               c.SetBlueID(i);
-                               m_bThirdPlayerConnected = true;
-                               m_bControllersConnected[i] = true;
-                               m_Players[2].GetComponent<MainMenuDiverController>().Go();
+                                c.SetBlueID(i);
+                                m_bThirdPlayerConnected = true;
+                                m_bControllersConnected[i] = true;
+                                m_Players[2].GetComponent<MainMenuDiverController>().Go();
                             }
-                        
+
                         }
                         else if (!m_bFourthPlayerConnected)
                         {
@@ -225,6 +227,16 @@ public class Pointer : MonoBehaviour
                 }
             }
         }
+
+        if (XCI.GetButtonDown(XboxButton.B, XboxController.All))
+        {
+            if (m_bControlsScreen)
+            {
+                ShowUI();
+                m_bControlsScreen = false;
+                m_ControlsImage.SetActive(false);
+            }
+        }
     }
 
     private void Click(Vector2 pos)
@@ -233,33 +245,34 @@ public class Pointer : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(pos);
         if (Physics.Raycast(ray, out hit, 500))
         {
-            if (hit.transform.gameObject.tag == "MenuStart")
+            if (hit.transform.gameObject.tag == "MenuStart" && !m_bControlsScreen)
             {
                 m_bClicked = true;
-
-                if(m_Logo != null)
-                {
-                    m_Logo.SetActive(false);
-                }
-
-                if (m_Start != null)
-                {
-                    m_Start.SetActive(false);
-                }
-                if (m_Controls != null)
-                {
-                    m_Controls.SetActive(false);
-                }
-                if (m_Credits != null)
-                {
-                    m_Credits.SetActive(false);
-                }
-
-
-
-                //SceneManager.LoadScene("OfficialBuild 15 x 21");
+                HideUI();
+            }
+            else if (hit.transform.gameObject.tag == "MenuControls")
+            {
+                m_ControlsImage.SetActive(true);
+                m_bControlsScreen = true;
+                HideUI();
             }
         }
+    }
+
+    private void HideUI()
+    {
+        if (m_Logo != null) m_Logo.SetActive(false);
+        if (m_Start != null) m_Start.SetActive(false);
+        if (m_Controls != null) m_Controls.SetActive(false);
+        if (m_Credits != null) m_Credits.SetActive(false);
+    }
+
+    private void ShowUI()
+    {
+        if (m_Logo != null) m_Logo.SetActive(true);
+        if (m_Start != null) m_Start.SetActive(true);
+        if (m_Controls != null) m_Controls.SetActive(true);
+        if (m_Credits != null) m_Credits.SetActive(true);
     }
 
     private Vector3 Bezier(Vector3 v3Start, Vector3 v3End, Vector3 v3Control1, Vector3 v3Control2, float fT)
