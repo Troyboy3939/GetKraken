@@ -198,7 +198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190642845}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 971.12195, y: -188, z: 4893}
+  m_LocalPosition: {x: 971.12195, y: -188, z: 3630}
   m_LocalScale: {x: 10000, y: 1000, z: 1000}
   m_Children: []
   m_Father: {fileID: 0}
@@ -447,13 +447,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1816865384}
-  m_LocalRotation: {x: 0.108414896, y: -0, z: -0, w: 0.99410576}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.6911837, y: -0, z: -0, w: 0.72267914}
+  m_LocalPosition: {x: 0, y: 2309, z: 1381}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 12.448001, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 87.448006, y: 0, z: 0}
 --- !u!1 &2033443288
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,7 +532,7 @@ GameObject:
   - component: {fileID: 2047094551}
   - component: {fileID: 2047094550}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -590,12 +590,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Artists :\r\nLily Huynh\r\nBeau Jackson\r\nAnthony Dimovski\r\nTristyn
-    Van Den Broek\r\nHayden Crestani\r\nTallulah Bove\r\n\r\nProgramers :\r\nTroy
-    Rooney\r\nJames Goutos\r\nLuke Lazzaro\r\n\r\nDesigner\r\nJames Cretchley\r\n\r\nProducer\r\nLuke
-    Wells\r\n\r\nAudio Used\r\n\nFonts Used\r\n\r\nCopyright (c) 26 February 2007,
-    Google, https://fonts.google.com/specimen/Chelsea+Market,\r\nwith Reserved Font
-    Name Chelsea Market.\r\n\r\n\r\nSpecial Thanks\r\n\r\n\r\nPrograms Used\r\n"
+  m_Text: "Producer\r\nLuke Wells\r\n\nDesigner\r\nJames Cretchley\r\n\r\nArtists
+    :\r\nLily Huynh\r\nTristyn Van Den Broek\r\nBeau Jackson\r\nAnthony Dimovski\r\nHayden
+    Crestani\r\nTallulah Bove\n\r\nProgramers :\r\nTroy Rooney\r\nLuke Lazzaro\r\nJames
+    Goutos\r\n\n\nAudio Used\r\n\nFonts Used\r\nCopyright (c) 26 February 2007, Google,
+    https://fonts.google.com/specimen/Chelsea+Market,\r\nwith Reserved Font Name Chelsea
+    Market.\r\n\r\nSpecial Thanks\r\n\r\n\r\nPrograms Used\r\n"
 --- !u!222 &2047094551
 CanvasRenderer:
   m_ObjectHideFlags: 0
