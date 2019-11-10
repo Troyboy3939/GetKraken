@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -87,23 +88,20 @@ public class Pointer : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        if (XCI.IsPluggedIn(1) && !m_bClicked)
-        {
-            if (XCI.GetButtonDown(XboxButton.A) && !m_bClicked)
-            {
-                Click(m_v2CursorPosition);
-            }
-        }
-    }
-
     private void Update()
     {
         // Start the game if "Start" clicked or A button pressed
         if (Input.GetMouseButtonUp(0))
         {
             Click(Input.mousePosition);
+        }
+
+        if (XCI.IsPluggedIn(1) && !m_bClicked)
+        {
+            if (XCI.GetButtonDown(XboxButton.A, XboxController.First))
+            {
+                Click(m_v2CursorPosition);
+            }
         }
 
         if (m_bClicked)
@@ -115,8 +113,9 @@ public class Pointer : MonoBehaviour
             }
 
             m_fT += m_fMoveSpeed * Time.deltaTime;
-            if ((m_fT < 1))
+            if ((m_fT < 0.7))
             {
+                Debug.Log(m_fT);
                 Vector3 rot = Vector3.Lerp(m_Rot, m_RotationEnd, m_fT * m_fLerpSpeedScale * 1.3f);
                 transform.position = Bezier(m_v3Pos, m_v3InterpolationEnd, m_Bezier1.transform.position, m_Bezier2.transform.position, m_fT * m_fLerpSpeedScale);
                 transform.rotation = Quaternion.Euler(rot.x, rot.y, rot.z);
@@ -124,8 +123,6 @@ public class Pointer : MonoBehaviour
             else
             {
                 Calibration c = GameObject.FindGameObjectWithTag("Calibration").GetComponent<Calibration>();
-
-                // TODO: Make it possible to calibrate keyboard for a specific player
 
                 //If player 1 presses A
                 if (m_bFirstControllerConnected && (XCI.GetButtonDown(XboxButton.A, XboxController.First) || Input.GetKeyDown(KeyCode.Space)))
@@ -154,6 +151,7 @@ public class Pointer : MonoBehaviour
                     }
                 }
 
+                // TODO: Make it possible to calibrate keyboard for a specific player
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     if (m_bFirstPlayerConnected)
@@ -242,6 +240,7 @@ public class Pointer : MonoBehaviour
 
     private void Click(Vector2 pos)
     {
+        // As a rule of thumb, use raycasts in the Update method, not FixedUpdate. Otherwise you might get some unresponsive behaviour.
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(pos);
         if (Physics.Raycast(ray, out hit, 500))
