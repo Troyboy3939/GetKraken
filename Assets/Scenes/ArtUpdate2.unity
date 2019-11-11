@@ -8108,7 +8108,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b8736cb9769c7d241b7665bdd3876f8c, type: 2}
+  - {fileID: 2100000, guid: 78716e80c762cfc4892e787da22381c9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8959,7 +8959,7 @@ MonoBehaviour:
   m_goP4Score: {fileID: 1298451799}
   m_goTimer: {fileID: 1797399768}
   m_goStartAndEndDisplay: {fileID: 192970504}
-  m_fInitialTimeSeconds: 180
+  m_fInitialTimeSeconds: 120
   m_bGameEnded: 0
 --- !u!1001 &1768205613
 PrefabInstance:
