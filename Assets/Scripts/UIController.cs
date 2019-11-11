@@ -25,8 +25,12 @@ public class UIController : MonoBehaviour
     public int m_nP3Score { get; set; } = 0;
     public int m_nP4Score { get; set; } = 0;
 
+    private FadeController fc;
+
     void Start()
     {
+        fc = GetComponent<FadeController>();
+
         m_bGameEnded = true;
         UpdateScore();
         m_goTimer.GetComponent<Text>().text = m_fInitialTimeSeconds.ToString();
@@ -34,6 +38,7 @@ public class UIController : MonoBehaviour
         m_fCurrentTime = m_fInitialTimeSeconds;
         m_nTimeToDisplay = (int)m_fInitialTimeSeconds;
 
+        StartCoroutine(fc.FadeIn());
         StartCoroutine(StartGameCountdown(3));
     }
 
@@ -117,7 +122,7 @@ public class UIController : MonoBehaviour
             yield return new WaitForSeconds(3);
         }
        
-        SceneManager.LoadScene("MainMenu_ArtUpdate");
+        StartCoroutine(fc.FadeOutToScene("MainMenu_ArtUpdate"));
     }
 
     private void EndGame()
