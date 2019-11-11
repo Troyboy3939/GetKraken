@@ -140,9 +140,8 @@ public class FloorGrid : MonoBehaviour
         }
 
         int nHeight = Mathf.FloorToInt(fH);
-        
 
-        if(nWidth > m_Nodes.GetLength(0) || nWidth > m_Nodes.GetLength(0) || nHeight > m_Nodes.GetLength(1) || nHeight < 0)
+        if (nWidth > m_Nodes.GetLength(0) || nWidth < 0 || nHeight > m_Nodes.GetLength(1) || nHeight < 0)
         {
             Debug.Log("Index of array out of bounds");
             return m_Nodes[0,0];

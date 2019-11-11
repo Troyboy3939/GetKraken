@@ -44,8 +44,12 @@ public class UIController : MonoBehaviour
         {
             m_goP1Score.GetComponent<Text>().text = m_nP1Score.ToString();
             m_goP2Score.GetComponent<Text>().text = m_nP2Score.ToString();
-            m_goP3Score.GetComponent<Text>().text = m_nP3Score.ToString();
-            m_goP4Score.GetComponent<Text>().text = m_nP4Score.ToString();
+
+            if (m_goP3Score != null)
+                m_goP3Score.GetComponent<Text>().text = m_nP3Score.ToString();
+
+            if (m_goP4Score != null)
+                m_goP4Score.GetComponent<Text>().text = m_nP4Score.ToString();
         }
     }
 
