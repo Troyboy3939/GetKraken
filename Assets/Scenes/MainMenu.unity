@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -761,16 +761,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780257512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.00026281}
-  m_LocalScale: {x: 6.978188, y: 3.8504598, z: 3.8504598}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2018207966}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36.64, y: -0.48505}
-  m_SizeDelta: {x: 212.9, y: 212.93}
+  m_AnchoredPosition: {x: 0.000011444, y: 1.5643e-10}
+  m_SizeDelta: {x: 605, y: 469.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &780257514
 MonoBehaviour:
@@ -792,7 +792,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d17b4eea0e34b20498e79796daec025b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec600f82927a0ef458a9805f86fa08ee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
