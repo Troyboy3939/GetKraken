@@ -1,29 +1,14 @@
 fileFormatVersion: 2
-guid: 18a4f2c46806a6b4a903365418697a2e
+guid: e3fc9d4bb5531794e8e4d7eed88256a8
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Boat
-    100002: //RootNode
-    100004: Flag_1
-    100006: Flag_2
-    100008: Flag_3
-    100010: Flag_4
-    100012: Flag_5
-    100014: Root
-    400000: Boat
-    400002: //RootNode
-    400004: Flag_1
-    400006: Flag_2
-    400008: Flag_3
-    400010: Flag_4
-    400012: Flag_5
-    400014: Root
-    2100000: lambert1
-    4300000: Boat
-    7400000: Take 001
-    9500000: //RootNode
-    13700000: Boat
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Island_PBR
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Island_001
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -57,7 +42,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
@@ -76,8 +61,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -104,7 +89,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

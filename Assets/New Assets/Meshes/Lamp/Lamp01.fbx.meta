@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: b2b0f076fdbe9644ba896a817d4c7eb9
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Lamp_Base
+    100004: Lamp_Bolts_GRP
+    100006: Lamp_Joint
+    100008: Lamp_Rings_GRP
+    100010: Lamp_Top
+    100012: Lamp_Top_Joint
+    100014: Lamp_Top_Section_GRP
+    100016: Lamp_Tube_GRP
+    100018: Lamp_Vertical_Bars_GRP
+    100020: Lamp_Wallgrip
+    100022: Ring_Bottom
+    100024: Ring_Middle
+    100026: Ring_Top
+    100028: Tubegrip
+    100030: Tubeplate
+    100032: Vertical_Metalbar_2
+    100034: Vertical_Metalbar_3
+    100036: Vertical_Metalbar_4
+    100038: Wallgrip_Bolt_1
+    100040: Wallgrip_Bolt_2
+    400000: //RootNode
+    400002: Lamp_Base
+    400004: Lamp_Bolts_GRP
+    400006: Lamp_Joint
+    400008: Lamp_Rings_GRP
+    400010: Lamp_Top
+    400012: Lamp_Top_Joint
+    400014: Lamp_Top_Section_GRP
+    400016: Lamp_Tube_GRP
+    400018: Lamp_Vertical_Bars_GRP
+    400020: Lamp_Wallgrip
+    400022: Ring_Bottom
+    400024: Ring_Middle
+    400026: Ring_Top
+    400028: Tubegrip
+    400030: Tubeplate
+    400032: Vertical_Metalbar_2
+    400034: Vertical_Metalbar_3
+    400036: Vertical_Metalbar_4
+    400038: Wallgrip_Bolt_1
+    400040: Wallgrip_Bolt_2
+    2100000: lambert1
+    2300000: Lamp_Base
+    2300002: Lamp_Joint
+    2300004: Lamp_Top
+    2300006: Lamp_Top_Joint
+    2300008: Lamp_Wallgrip
+    2300010: Ring_Bottom
+    2300012: Ring_Middle
+    2300014: Ring_Top
+    2300016: Tubegrip
+    2300018: Tubeplate
+    2300020: Vertical_Metalbar_2
+    2300022: Vertical_Metalbar_3
+    2300024: Vertical_Metalbar_4
+    2300026: Wallgrip_Bolt_1
+    2300028: Wallgrip_Bolt_2
+    3300000: Lamp_Base
+    3300002: Lamp_Joint
+    3300004: Lamp_Top
+    3300006: Lamp_Top_Joint
+    3300008: Lamp_Wallgrip
+    3300010: Ring_Bottom
+    3300012: Ring_Middle
+    3300014: Ring_Top
+    3300016: Tubegrip
+    3300018: Tubeplate
+    3300020: Vertical_Metalbar_2
+    3300022: Vertical_Metalbar_3
+    3300024: Vertical_Metalbar_4
+    3300026: Wallgrip_Bolt_1
+    3300028: Wallgrip_Bolt_2
+    4300000: Lamp_Base
+    4300002: Lamp_Top
+    4300004: Lamp_Top_Joint
+    4300006: Ring_Top
+    4300008: Ring_Middle
+    4300010: Ring_Bottom
+    4300012: Vertical_Metalbar_4
+    4300014: Vertical_Metalbar_2
+    4300016: Vertical_Metalbar_3
+    4300018: Lamp_Joint
+    4300020: Tubeplate
+    4300022: Tubegrip
+    4300024: Wallgrip_Bolt_1
+    4300026: Wallgrip_Bolt_2
+    4300028: Lamp_Wallgrip
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
