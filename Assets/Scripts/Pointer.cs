@@ -52,8 +52,12 @@ public class Pointer : MonoBehaviour
 
     private bool m_bControlsScreen = false;
 
+    private FadeController fc;
+
     private void Start()
     {
+        fc = GetComponent<FadeController>();
+
         // Disable the mouse cursor and use a software cursor
         //Cursor.visible = false;
         m_v2CursorPosition = new Vector2(Screen.width / 2f, Screen.height / 2f);
@@ -62,6 +66,8 @@ public class Pointer : MonoBehaviour
         if (!m_ControlsImage) Debug.LogError("Pointer.cs: The Controls Image object is not in the correct field in the inspector.");
 
         if (m_ControlsImage.activeSelf) m_ControlsImage.SetActive(false);
+
+        StartCoroutine(fc.FadeIn());
     }
 
     private void OnGUI()
@@ -115,7 +121,6 @@ public class Pointer : MonoBehaviour
             m_fT += m_fMoveSpeed * Time.deltaTime;
             if ((m_fT < 0.7))
             {
-                Debug.Log(m_fT);
                 Vector3 rot = Vector3.Lerp(m_Rot, m_RotationEnd, m_fT * m_fLerpSpeedScale * 1.3f);
                 transform.position = Bezier(m_v3Pos, m_v3InterpolationEnd, m_Bezier1.transform.position, m_Bezier2.transform.position, m_fT * m_fLerpSpeedScale);
                 transform.rotation = Quaternion.Euler(rot.x, rot.y, rot.z);
@@ -258,7 +263,7 @@ public class Pointer : MonoBehaviour
             }
             else if (hit.transform.gameObject.tag == "MenuCredits")
             {
-                SceneManager.LoadScene("Credits");
+                StartCoroutine(fc.FadeOutToScene("Credits"));
             }
         }
     }
@@ -300,9 +305,8 @@ public class Pointer : MonoBehaviour
             yield return new WaitForSeconds(duration);
         }
         m_ControlsImage.SetActive(false);
-        SceneManager.LoadScene(sceneName);
+        StartCoroutine(fc.FadeOutToScene(sceneName));
     }
-   
 }
 
 

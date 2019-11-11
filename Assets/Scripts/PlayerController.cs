@@ -80,9 +80,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        ParticleSystem.MainModule ma = GetComponent<ParticleSystem>().main;
-        ma.startColor = GetComponent<Renderer>().material.color;
-
         m_Controller = GetComponent<Rigidbody>();
         m_fSpeed = m_fMaxSpeed;
 

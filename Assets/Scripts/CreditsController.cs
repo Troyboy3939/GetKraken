@@ -6,11 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class CreditsController : MonoBehaviour
 {
+    private FadeController fc;
+
+    private void Start()
+    {
+        fc = GetComponent<FadeController>();
+        StartCoroutine(fc.FadeIn());
+    }
+
     void Update()
     {
         if (XCI.GetButtonDown(XboxButton.B, XboxController.All))
         {
-            SceneManager.LoadScene("MainMenu");
+            StartCoroutine(fc.FadeOutToScene("MainMenu"));
         }
     }
 }
