@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6116030042401871931}
   m_Layer: 0
   m_Name: Tentacle_Base
-  m_TagString: Untagged
+  m_TagString: Tentacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 1907577350373808649}
   m_Layer: 0
   m_Name: Tentacle_7
-  m_TagString: Untagged
+  m_TagString: Tentacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 5125270402327345377}
   m_Layer: 0
   m_Name: Tentacle_6
-  m_TagString: Untagged
+  m_TagString: Tentacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 858368947229071787}
   m_Layer: 0
   m_Name: Tentacle_5
-  m_TagString: Untagged
+  m_TagString: Tentacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 2291486006540043698}
   m_Layer: 0
   m_Name: Tentacle_4
-  m_TagString: Untagged
+  m_TagString: Tentacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 4171459227773336907}
   m_Layer: 0
   m_Name: Tentacle_3
-  m_TagString: Untagged
+  m_TagString: Tentacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 5916713786821742284}
   m_Layer: 0
   m_Name: Tentacle_2
-  m_TagString: Untagged
+  m_TagString: Tentacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 7516383995714271785}
   m_Layer: 0
   m_Name: Tentacle_1
-  m_TagString: Untagged
+  m_TagString: Tentacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 8604783256765091482}
   m_Layer: 0
   m_Name: Tentacle
-  m_TagString: Untagged
+  m_TagString: Tentacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -412,7 +412,7 @@ Animator:
   m_GameObject: {fileID: 1229342884651651773}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: faf9c93c730061b48adb5b0939a4f095, type: 3}
-  m_Controller: {fileID: 9100000, guid: b12cc607366cf5944a3078ff889fe26c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 50e09fcdc09de2a4381e6afeef85dc97, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -433,7 +433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d963f9af2dcc2eb4a8ef1616bebb56bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fRespawnTime: 2
 --- !u!64 &8604783256765091482
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -460,7 +459,7 @@ GameObject:
   - component: {fileID: 1229342884637990847}
   m_Layer: 0
   m_Name: Tentacle
-  m_TagString: Untagged
+  m_TagString: Tentacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -1,0 +1,246 @@
+fileFormatVersion: 2
+guid: 660992a99db6d43498989e6328359940
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Lid_Bottom
+    100004: Lid_Bottom1
+    100006: Metal_Ring_Bottom
+    100008: Metal_Ring_Middle
+    100010: Metal_Ring_Top
+    100012: Metal_Rings
+    100014: Screw_1
+    100016: Screw_10
+    100018: Screw_10 1
+    100020: Screw_11
+    100022: Screw_11 1
+    100024: Screw_12
+    100026: Screw_3
+    100028: Screw_5
+    100030: Screw_6
+    100032: Screw_7
+    100034: Screw_8
+    100036: Screw_9
+    100038: Screw_9 1
+    100040: Screws_Bottom
+    100042: Screws_Middle
+    100044: Screws_Top
+    100046: Wooden_Lids
+    100048: Wooden_Plank_1
+    100050: Wooden_Plank_10
+    100052: Wooden_Plank_2
+    100054: Wooden_Plank_3
+    100056: Wooden_Plank_4
+    100058: Wooden_Plank_5
+    100060: Wooden_Plank_6
+    100062: Wooden_Plank_7
+    100064: Wooden_Plank_8
+    100066: Wooden_Plank_9
+    100068: Wooden_Planks_GRP
+    400000: //RootNode
+    400002: Lid_Bottom
+    400004: Lid_Bottom1
+    400006: Metal_Ring_Bottom
+    400008: Metal_Ring_Middle
+    400010: Metal_Ring_Top
+    400012: Metal_Rings
+    400014: Screw_1
+    400016: Screw_10
+    400018: Screw_10 1
+    400020: Screw_11
+    400022: Screw_11 1
+    400024: Screw_12
+    400026: Screw_3
+    400028: Screw_5
+    400030: Screw_6
+    400032: Screw_7
+    400034: Screw_8
+    400036: Screw_9
+    400038: Screw_9 1
+    400040: Screws_Bottom
+    400042: Screws_Middle
+    400044: Screws_Top
+    400046: Wooden_Lids
+    400048: Wooden_Plank_1
+    400050: Wooden_Plank_10
+    400052: Wooden_Plank_2
+    400054: Wooden_Plank_3
+    400056: Wooden_Plank_4
+    400058: Wooden_Plank_5
+    400060: Wooden_Plank_6
+    400062: Wooden_Plank_7
+    400064: Wooden_Plank_8
+    400066: Wooden_Plank_9
+    400068: Wooden_Planks_GRP
+    2100000: lambert1
+    2300000: Lid_Bottom
+    2300002: Lid_Bottom1
+    2300004: Metal_Ring_Bottom
+    2300006: Metal_Ring_Middle
+    2300008: Metal_Ring_Top
+    2300010: Screw_1
+    2300012: Screw_10
+    2300014: Screw_10 1
+    2300016: Screw_11
+    2300018: Screw_11 1
+    2300020: Screw_12
+    2300022: Screw_3
+    2300024: Screw_5
+    2300026: Screw_6
+    2300028: Screw_7
+    2300030: Screw_8
+    2300032: Screw_9
+    2300034: Screw_9 1
+    2300036: Wooden_Plank_1
+    2300038: Wooden_Plank_10
+    2300040: Wooden_Plank_2
+    2300042: Wooden_Plank_3
+    2300044: Wooden_Plank_4
+    2300046: Wooden_Plank_5
+    2300048: Wooden_Plank_6
+    2300050: Wooden_Plank_7
+    2300052: Wooden_Plank_8
+    2300054: Wooden_Plank_9
+    3300000: Lid_Bottom
+    3300002: Lid_Bottom1
+    3300004: Metal_Ring_Bottom
+    3300006: Metal_Ring_Middle
+    3300008: Metal_Ring_Top
+    3300010: Screw_1
+    3300012: Screw_10
+    3300014: Screw_10 1
+    3300016: Screw_11
+    3300018: Screw_11 1
+    3300020: Screw_12
+    3300022: Screw_3
+    3300024: Screw_5
+    3300026: Screw_6
+    3300028: Screw_7
+    3300030: Screw_8
+    3300032: Screw_9
+    3300034: Screw_9 1
+    3300036: Wooden_Plank_1
+    3300038: Wooden_Plank_10
+    3300040: Wooden_Plank_2
+    3300042: Wooden_Plank_3
+    3300044: Wooden_Plank_4
+    3300046: Wooden_Plank_5
+    3300048: Wooden_Plank_6
+    3300050: Wooden_Plank_7
+    3300052: Wooden_Plank_8
+    3300054: Wooden_Plank_9
+    4300000: Wooden_Plank_1
+    4300002: Wooden_Plank_2
+    4300004: Wooden_Plank_3
+    4300006: Wooden_Plank_4
+    4300008: Wooden_Plank_5
+    4300010: Wooden_Plank_6
+    4300012: Wooden_Plank_7
+    4300014: Wooden_Plank_8
+    4300016: Wooden_Plank_9
+    4300018: Wooden_Plank_10
+    4300020: Lid_Bottom
+    4300022: Lid_Bottom1
+    4300024: Metal_Ring_Top
+    4300026: Metal_Ring_Middle
+    4300028: Metal_Ring_Bottom
+    4300030: Screw_1
+    4300032: Screw_3
+    4300034: Screw_5
+    4300036: Screw_6
+    4300038: Screw_7
+    4300040: Screw_8
+    4300042: Screw_9
+    4300044: Screw_10
+    4300046: Screw_11
+    4300048: Screw_9
+    4300050: Screw_10
+    4300052: Screw_11
+    4300054: Screw_12
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

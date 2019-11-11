@@ -142,7 +142,11 @@ public class FloorGrid : MonoBehaviour
         int nHeight = Mathf.FloorToInt(fH);
         
 
-
+        if(nWidth > m_Nodes.GetLength(0) || nWidth > m_Nodes.GetLength(0) || nHeight > m_Nodes.GetLength(1) || nHeight < 0)
+        {
+            Debug.Log("Index of array out of bounds");
+            return m_Nodes[0,0];
+        }
         return m_Nodes[nWidth, nHeight]; 
     }
 
@@ -153,7 +157,7 @@ public class FloorGrid : MonoBehaviour
     public void DropObjectAtNode(Node node, GameObject gameObject)
     {
         Vector3 v3Pos = node.GetPosition();
-        transform.position = v3Pos;
+        gameObject.transform.position = v3Pos;
         gameObject.transform.Translate(Vector3.up * m_fDropHeight, Space.World);
 
     }
