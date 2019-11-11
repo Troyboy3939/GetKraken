@@ -207,14 +207,13 @@ public class PlayerController : MonoBehaviour
                 if (tc != null)
                 {
                     stateMachine = tc.GetStateMachine();
-                    if (!a.GetCurrentAnimatorStateInfo(0).IsName("Lay Down Idle"))
+                  
+                    if(stateMachine.GetState() != StateMachine.ESTATE.ATTACKING)
                     {
-                        if(stateMachine.GetState() != StateMachine.ESTATE.ATTACKING)
-                        {
-                           stateMachine.GetTentacleState().Attack();
-                        }
-                       
+                       stateMachine.GetTentacleState().Attack();
                     }
+                   
+                  
                 }
               
                     

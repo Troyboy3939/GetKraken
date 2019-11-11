@@ -12,6 +12,7 @@ TagManager:
   - Calibration
   - MenuControls
   - MenuCredits
+  - Fish
   layers:
   - Default
   - TransparentFX
