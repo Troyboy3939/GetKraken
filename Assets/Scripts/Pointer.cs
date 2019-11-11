@@ -232,7 +232,7 @@ public class Pointer : MonoBehaviour
             }
         }
 
-        if (XCI.GetButtonDown(XboxButton.B, XboxController.All))
+        if (XCI.GetButtonDown(XboxButton.B, XboxController.All) || Input.GetKeyDown(KeyCode.B))
         {
             if (m_bControlsScreen)
             {
@@ -304,7 +304,6 @@ public class Pointer : MonoBehaviour
             m_ControlsImage.SetActive(true);
             yield return new WaitForSeconds(duration);
         }
-        m_ControlsImage.SetActive(false);
         StartCoroutine(fc.FadeOutToScene(sceneName));
     }
 }

@@ -16,7 +16,7 @@ public class CreditsController : MonoBehaviour
 
     void Update()
     {
-        if (XCI.GetButtonDown(XboxButton.B, XboxController.All))
+        if (XCI.GetButtonDown(XboxButton.B, XboxController.All) || Input.GetKeyDown(KeyCode.B))
         {
             StartCoroutine(fc.FadeOutToScene("MainMenu_ArtUpdate"));
         }
