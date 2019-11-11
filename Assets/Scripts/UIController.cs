@@ -95,7 +95,18 @@ public class UIController : MonoBehaviour
         {
             if (winningIDs.Count == 1)
             {
-                m_goStartAndEndDisplay.GetComponent<Text>().text = "Player " + winningIDs[0] + " Wins!";
+                Text scoreText = m_goStartAndEndDisplay.GetComponent<Text>();
+
+                if (winningIDs.Contains(1))
+                    scoreText.color = Color.blue;
+                else if (winningIDs.Contains(2))
+                    scoreText.color = Color.yellow;
+                else if (winningIDs.Contains(3))
+                    scoreText.color = Color.red;    // temporary until we figure out how to make orange work (maybe expose these to the inspector)
+                else if (winningIDs.Contains(4))
+                    scoreText.color = Color.green;
+
+                scoreText.text = "Player " + winningIDs[0] + " Wins!";
             }
             else
             {
@@ -105,9 +116,8 @@ public class UIController : MonoBehaviour
             coroutineDone = true;
             yield return new WaitForSeconds(3);
         }
-
        
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu_ArtUpdate");
     }
 
     private void EndGame()

@@ -18,7 +18,7 @@ public class CreditsController : MonoBehaviour
     {
         if (XCI.GetButtonDown(XboxButton.B, XboxController.All))
         {
-            StartCoroutine(fc.FadeOutToScene("MainMenu"));
+            StartCoroutine(fc.FadeOutToScene("MainMenu_ArtUpdate"));
         }
     }
 }
