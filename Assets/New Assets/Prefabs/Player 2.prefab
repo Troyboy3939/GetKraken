@@ -126,17 +126,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_nPlayerID: 2
-  m_fMaxSpeed: 20
+  m_fMaxSpeed: 25
   m_fCoinSpeed: 11
   m_fSphereCastDist: 10
   m_fSphereCastRadius: 2
   m_fShovePower: 100
   m_fStunTime: 1.5
   m_fGravityMultiplier: 15
-  m_fRespawnTime: 2
+  m_fRespawnTime: 0
   m_fDropCoinCooldown: 0.5
   m_szColour: Yellow
-  m_fRespawnHeight: 30
+  m_fRespawnHeight: 10
   m_fRespawnOffset: 2
   m_Grid: {fileID: 0}
   m_bIsFalling: 0
