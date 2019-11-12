@@ -57,7 +57,7 @@ public class AttackingState : State
     {
           if (m_Anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
           {
-            if (!m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Lay Down Idle") && !m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Vertical Idle"))
+            if (m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack Vertical") || m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack Horizontal"))
             {
                 m_StateMachine.ChangeState(StateMachine.ESTATE.HOLE);
                 List<Vector2> l = Blackboard.GetInstance().GetGrid().GetTentaclePos();

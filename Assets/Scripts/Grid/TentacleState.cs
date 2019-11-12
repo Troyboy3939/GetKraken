@@ -219,20 +219,21 @@ public class TentacleState : State
 
     public override void Update()
     {
-        if(m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack Vertical") || m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Attack Horizontal"))
-        {
-            if(m_Anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
-            {
-                ChangeState();
-                List<Vector2> l = Blackboard.GetInstance().GetGrid().GetTentaclePos();
-                if(l.Contains(m_v2NodePos))
-                {
-                    l.Remove(m_v2NodePos);
-                }
-                Blackboard.GetInstance().GetGrid().SetTentaclePos(l);
-            }
+        //if(m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Lay Down Idle") || m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Vertical Idle"))
+        //{
+            
+        //    if (m_Anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+        //    {
+        //        ChangeState();
+        //        List<Vector2> l = Blackboard.GetInstance().GetGrid().GetTentaclePos();
+        //        if(l.Contains(m_v2NodePos))
+        //        {
+        //            l.Remove(m_v2NodePos);
+        //        }
+        //        Blackboard.GetInstance().GetGrid().SetTentaclePos(l);
+        //    }
           
-        }
+        //}
     }
 
     public GameObject GetTentacle()

@@ -20,6 +20,7 @@ public class HoleState : State
     {
         if (m_bFirst)
         {
+            m_bFirst = false;
             GameObject.FindGameObjectWithTag("Hole");
             m_Hole = GameObject.Instantiate<GameObject>(GameObject.FindGameObjectWithTag("Hole"),m_Plane.transform.position,new Quaternion(0,0,0,0));
         }

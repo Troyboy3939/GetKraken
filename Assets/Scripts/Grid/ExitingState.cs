@@ -16,6 +16,7 @@ public class ExitingState : State
     }
     public override void OnEnter()
     {
+        //Debug.Log("Exit: OnEnter()");
         if (m_bFirstTime)
         {
             TentacleState tentacleState = m_StateMachine.GetTentacleState();
@@ -34,6 +35,7 @@ public class ExitingState : State
         {
             m.enabled = true;
         }
+        
         m_Anim.SetTrigger("Exit");
         
        
@@ -57,10 +59,13 @@ public class ExitingState : State
 
     public override void Update()
     {
-        if(m_Anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
-         {
-            if (!m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Vertical Idle") && !m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Lay Down Idle"))
+        if (m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Exit") || m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Exit Vertical"))
+        {
+            if (m_Anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !m_Anim.IsInTransition(0))
             {
+                // if (!m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Vertical Idle") && !m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Lay Down Idle"))
+                // {
+               // Debug.Log("Exit: Exiting");
                 m_StateMachine.ChangeState(StateMachine.ESTATE.HOLE);
                 List<Vector2> l = Blackboard.GetInstance().GetGrid().GetTentaclePos();
                 if (l.Contains(m_v2NodePos))
@@ -69,9 +74,15 @@ public class ExitingState : State
                 }
 
                 Blackboard.GetInstance().GetGrid().SetTentaclePos(l);
+                //  }
             }
-         }
-        
+        }
+
+        //if (m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Exit Vertical"))
+        //{
+
+        //}
+
     }
 
 

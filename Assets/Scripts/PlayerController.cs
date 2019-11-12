@@ -200,7 +200,7 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "Tentacle")
         {
             Animator a = collision.gameObject.GetComponentInParent<Animator>();
-            if (!a.GetCurrentAnimatorStateInfo(0).IsName("Rise Up") && !a.GetCurrentAnimatorStateInfo(0).IsName("Exit Horizontal") && !a.GetCurrentAnimatorStateInfo(0).IsName("Exit Vertical"))
+            if (!a.GetCurrentAnimatorStateInfo(0).IsName("Rise Up") && !a.GetCurrentAnimatorStateInfo(0).IsName("Rise Up Vertical") && !a.GetCurrentAnimatorStateInfo(0).IsName("Exit") && !a.GetCurrentAnimatorStateInfo(0).IsName("Exit Vertical") && !a.GetCurrentAnimatorStateInfo(0).IsName("Attack Vertical") && !a.GetCurrentAnimatorStateInfo(0).IsName("Attack Horizontal"))
             {
                 TentacleController tc = collision.gameObject.GetComponentInParent<TentacleController>();
                 StateMachine stateMachine = null;
@@ -211,7 +211,9 @@ public class PlayerController : MonoBehaviour
                     if(stateMachine.GetState() != StateMachine.ESTATE.ATTACKING)
                     {
                        stateMachine.GetTentacleState().Attack();
+                       Kill();
                     }
+                    
                    
                   
                 }
@@ -223,7 +225,7 @@ public class PlayerController : MonoBehaviour
                 {
 
                 }
-                Kill();
+                
             }
         }
 
