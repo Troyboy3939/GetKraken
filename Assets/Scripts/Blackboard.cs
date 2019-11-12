@@ -7,13 +7,13 @@ public class Blackboard : MonoBehaviour
 {
     private static Blackboard instance = null;
 
-    GameObject tentacle;
-    GameObject plane;
-    GameObject canvas;
-    GameObject[] m_Chests;
-    Node[,] m_Nodes;
-    FloorGrid m_Grid;
-    [SerializeField] float m_fTentacleVerticalPercentage;
+    GameObject tentacle = null;
+    GameObject plane = null;
+    GameObject canvas = null;
+    GameObject[] m_Chests = null;
+    Node[,] m_Nodes = null;
+    FloorGrid m_Grid = null;
+    [SerializeField] float m_fTentacleVerticalPercentage = 0.0f;
     [SerializeField] Material m_OrangeMaterial = null;
     [SerializeField] Material m_BlueMaterial = null;
     [SerializeField] Material m_YellowMaterial = null;
@@ -24,6 +24,7 @@ public class Blackboard : MonoBehaviour
     [SerializeField] Material m_BlueChestMaterial = null;
     [SerializeField] Material m_YellowChestMaterial = null;
     [SerializeField] Material m_GreenChestMaterial = null;
+    [SerializeField] Material m_HoleMaterial = null;
 
     void Awake()
     {
@@ -39,11 +40,6 @@ public class Blackboard : MonoBehaviour
         }
 
         SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void Update()
-    {
-     
     }
 
     // This is required since the blackboard is only created once as a singleton, and you need
@@ -95,7 +91,10 @@ public class Blackboard : MonoBehaviour
     }
 
 
-
+    public Material GetHoleMat()
+    {
+        return m_HoleMaterial;
+    }
 
 
 

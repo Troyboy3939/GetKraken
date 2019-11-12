@@ -33,7 +33,7 @@ public class StateMachine
     {
         m_TentacleState = new TentacleState(pos, plane, v2NodePos,this);
         m_FloorState =  new FloorState(ref plane);
-        m_HoleState = new HoleState(ref plane);
+        m_HoleState = new HoleState(plane);
         m_ExitingState = new ExitingState(this,v2NodePos);
         m_AttackingState = new AttackingState(this,v2NodePos);
     }

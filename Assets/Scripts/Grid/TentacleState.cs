@@ -73,6 +73,8 @@ public class TentacleState : State
             //m_Tentacle.transform.Translate(new Vector3(0,1,0),Space.Self);
         }
 
+       
+
     }
 
     void AnimationPlayer()

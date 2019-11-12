@@ -13,6 +13,7 @@ TagManager:
   - MenuControls
   - MenuCredits
   - Fish
+  - Hole
   layers:
   - Default
   - TransparentFX

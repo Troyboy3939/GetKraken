@@ -19,7 +19,7 @@ public class FloorGrid : MonoBehaviour
     int m_nRandomSeed = 0;
     List<Vector2> m_TentaclePositions = new List<Vector2>();
     
-    float m_fTentacleTimer = 0.0f;
+    float m_fTentacleTimer = 9.0f;
     float m_fCoinTimer = 0.0f;
     bool m_bFirstTime = true;
     bool m_bSwitch = false;
@@ -75,7 +75,7 @@ public class FloorGrid : MonoBehaviour
        
         for (int i = 0; i < m_HolePositions.Count; i++)
         {
-            m_Nodes[Mathf.FloorToInt(m_HolePositions[i].x), Mathf.FloorToInt(m_HolePositions[i].y)].ChangeState(StateMachine.ESTATE.HOLE);
+           m_Nodes[Mathf.FloorToInt(m_HolePositions[i].x), Mathf.FloorToInt(m_HolePositions[i].y)].ChangeState(StateMachine.ESTATE.HOLE);
         }
 
        

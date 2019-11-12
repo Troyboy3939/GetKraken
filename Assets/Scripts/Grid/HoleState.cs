@@ -4,28 +4,38 @@ using UnityEngine;
 
 public class HoleState : State
 {
-    GameObject m_Plane;
+    GameObject m_Plane = null;
     Vector3 m_v3Position;
-    public HoleState(ref GameObject plane)
+    bool m_bFirst = true;
+    GameObject m_Hole;
+   // Material m_OldMat = null;
+    public HoleState(GameObject plane)
     {
         m_Plane = plane;
-        OnEnter();
+        
+
     }
 
     public override void OnEnter()
     {
-        if (!m_Plane)
+        if (m_bFirst)
         {
-            if (m_Plane.activeInHierarchy)
-            {
-                m_Plane.SetActive(false);
-            }
+            GameObject.FindGameObjectWithTag("Hole");
+            m_Hole = GameObject.Instantiate<GameObject>(GameObject.FindGameObjectWithTag("Hole"),m_Plane.transform.position,new Quaternion(0,0,0,0));
+        }
+        MeshRenderer m = m_Hole.GetComponent<MeshRenderer>();
+        m_Plane.SetActive(true);
+
+        if (m != null)
+        {
+            m.enabled = true;
+          
         }
     }
 
     public override void OnExit()
     {
-
+       
     }
 
     public override void Update()

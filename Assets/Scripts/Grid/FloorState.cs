@@ -15,12 +15,12 @@ using UnityEngine;
     }
     public override void OnEnter()
     {
-        m_Plane.SetActive(true);
+        
     }
 
     public override void OnExit()
     {
-        m_Plane.SetActive(false);
+        
     }
     public override void Update()
     {
