@@ -54,6 +54,8 @@ public class Pointer : MonoBehaviour
 
     private FadeController fc;
 
+    [SerializeField] private bool m_bStartWithSpace = false;
+
     private void Start()
     {
         fc = GetComponent<FadeController>();
@@ -108,6 +110,10 @@ public class Pointer : MonoBehaviour
             {
                 Click(m_v2CursorPosition);
             }
+            else
+            {
+                Debug.Log("If you want to start the game with a keyboard, make sure 'Start With Space' is checked on the Pointer script component.");
+            }
         }
 
         if (m_bClicked)
@@ -129,8 +135,14 @@ public class Pointer : MonoBehaviour
             {
                 Calibration c = GameObject.FindGameObjectWithTag("Calibration").GetComponent<Calibration>();
 
+                // Let people without controllers test the game
+                if (Input.GetKeyDown(KeyCode.Space) && m_bStartWithSpace)
+                {
+                    StartCoroutine(fc.FadeOutToScene(m_sz4PlayerLevel));
+                }
+
                 //If player 1 presses A
-                if (m_bFirstControllerConnected && (XCI.GetButtonDown(XboxButton.A, XboxController.First) || Input.GetKeyDown(KeyCode.Space)))
+                if (m_bFirstControllerConnected && XCI.GetButtonDown(XboxButton.A, XboxController.First))
                 {
                     //and if a second player has been connected
                     if (m_bSecondPlayerConnected)
@@ -152,25 +164,6 @@ public class Pointer : MonoBehaviour
                         else //if third hasn't connect load two player level
                         {
                             StartCoroutine(ShowLoadingScreen(m_fLoadingDuration, m_sz2PlayerLevel));
-                        }
-                    }
-                }
-
-                // TODO: Make it possible to calibrate keyboard for a specific player
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    if (m_bFirstPlayerConnected)
-                    {
-                        if (m_bSecondPlayerConnected)
-                        {
-                            if (m_bThirdPlayerConnected)
-                            {
-
-                            }
-                            else
-                            {
-
-                            }
                         }
                     }
                 }
