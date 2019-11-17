@@ -33,4 +33,17 @@ public class FadeController : MonoBehaviour
         }
         SceneManager.LoadScene(sceneName);
     }
+
+    public IEnumerator FadeOutAndQuit()
+    {
+        bool b = true;
+        while (b)
+        {
+            m_goFadeOut.SetActive(true);
+            m_goFadeOut.GetComponent<Animator>().Play("FadeOut");
+            b = false;
+            yield return new WaitForSeconds(1);
+        }
+        Application.Quit();
+    }
 }

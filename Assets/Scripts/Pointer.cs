@@ -110,6 +110,18 @@ public class Pointer : MonoBehaviour
             {
                 Click(m_v2CursorPosition);
             }
+
+            if (XCI.GetButtonDown(XboxButton.B, XboxController.First) || Input.GetKeyDown(KeyCode.Escape))
+            {
+                StartCoroutine(fc.FadeOutAndQuit());
+            }
+        }
+        else if (!m_bClicked)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                StartCoroutine(fc.FadeOutAndQuit());
+            }
         }
 
         if (m_bClicked)
