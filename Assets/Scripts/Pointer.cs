@@ -110,10 +110,6 @@ public class Pointer : MonoBehaviour
             {
                 Click(m_v2CursorPosition);
             }
-            else
-            {
-                Debug.Log("If you want to start the game with a keyboard, make sure 'Start With Space' is checked on the Pointer script component.");
-            }
         }
 
         if (m_bClicked)
@@ -139,6 +135,10 @@ public class Pointer : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space) && m_bStartWithSpace)
                 {
                     StartCoroutine(fc.FadeOutToScene(m_sz4PlayerLevel));
+                }
+                else if (Input.GetKeyDown(KeyCode.Space) && !m_bStartWithSpace)
+                {
+                    Debug.Log("If you want to start the game with a keyboard, make sure 'Start With Space' is checked on the Pointer script component.");
                 }
 
                 //If player 1 presses A
