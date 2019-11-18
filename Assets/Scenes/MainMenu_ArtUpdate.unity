@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 383273190}
   m_Layer: 0
   m_Name: QuitBarrelCollider
-  m_TagString: MenuStart
+  m_TagString: MenuQuit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -571,7 +571,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383273188}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.16, y: -2.8394318, z: 8.98}
+  m_LocalPosition: {x: 15.48, y: -2.8394318, z: 7.22}
   m_LocalScale: {x: 5.3388343, y: 0.8149027, z: 3.338097}
   m_Children: []
   m_Father: {fileID: 73498307}

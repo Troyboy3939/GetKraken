@@ -274,6 +274,10 @@ public class Pointer : MonoBehaviour
             {
                 StartCoroutine(fc.FadeOutToScene("Credits"));
             }
+            else if (hit.transform.gameObject.tag == "MenuQuit")
+            {
+                StartCoroutine(fc.FadeOutAndQuit());
+            }
         }
     }
 
