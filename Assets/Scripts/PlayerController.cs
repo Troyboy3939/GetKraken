@@ -160,14 +160,9 @@ public class PlayerController : MonoBehaviour
 
         GameObject chest = Blackboard.GetInstance().GetChestWithID(m_nPlayerID);
 
-        //transform.position = chest.transform.position;
-        //transform.Translate(Vector3.up * m_fRespawnHeight, Space.World);
-        //transform.Translate(chest.transform.TransformDirection(0, 0, 1) * m_fRespawnOffset, Space.World);
-
-
-        FloorGrid grid = m_Grid.GetComponent<FloorGrid>();
-        grid.DropObjectAtNode(grid.GetNodeByPosition(chest.transform.position),gameObject);
-        
+        transform.position = chest.transform.position;
+        transform.Translate(Vector3.up * m_fRespawnHeight, Space.World);
+        transform.Translate(chest.transform.TransformDirection(0, 0, 1) * m_fRespawnOffset, Space.World);
 
         m_bIsDead = false;
     }
