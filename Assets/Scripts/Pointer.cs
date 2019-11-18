@@ -25,7 +25,11 @@ public class Pointer : MonoBehaviour
     [SerializeField] GameObject m_Start = null;
     [SerializeField] GameObject m_Controls = null;
     [SerializeField] GameObject m_Credits = null;
+    [SerializeField] GameObject m_Quit = null;
     [SerializeField] GameObject m_ControlsImage = null;
+    [SerializeField] GameObject m_AToConnect = null;
+    [SerializeField] GameObject m_AToStart = null;
+    [SerializeField] GameObject m_BackIndicator = null;
 
     bool m_bFirstControllerConnected = false;
     bool m_bFirstPlayerConnected = false;
@@ -110,18 +114,6 @@ public class Pointer : MonoBehaviour
             {
                 Click(m_v2CursorPosition);
             }
-
-            if (XCI.GetButtonDown(XboxButton.B, XboxController.First) || Input.GetKeyDown(KeyCode.Escape))
-            {
-                StartCoroutine(fc.FadeOutAndQuit());
-            }
-        }
-        else if (!m_bClicked)
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                StartCoroutine(fc.FadeOutAndQuit());
-            }
         }
 
         if (m_bClicked)
@@ -143,6 +135,8 @@ public class Pointer : MonoBehaviour
             {
                 Calibration c = GameObject.FindGameObjectWithTag("Calibration").GetComponent<Calibration>();
 
+                if (!m_AToConnect.activeSelf && !m_bFirstControllerConnected) m_AToConnect.SetActive(true);
+                
                 // Let people without controllers test the game
                 if (Input.GetKeyDown(KeyCode.Space) && m_bStartWithSpace)
                 {
@@ -183,7 +177,7 @@ public class Pointer : MonoBehaviour
                 for (int i = 1; i < 5; i++)
                 {
                     //Get whether the a button is presed for each controller
-                    if (XCI.GetButtonUp(XboxButton.A, (XboxController)i))
+                    if (XCI.GetButtonDown(XboxButton.A, (XboxController)i))
                     {
                         if ((XboxController)i == XboxController.First)
                         {
@@ -208,6 +202,7 @@ public class Pointer : MonoBehaviour
                                 m_bSecondPlayerConnected = true;
                                 m_bControllersConnected[i] = true;
                                 m_Players[1].GetComponent<MainMenuDiverController>().Go();
+                                m_AToStart.SetActive(true);
                             }
 
                         }
@@ -244,6 +239,7 @@ public class Pointer : MonoBehaviour
                 ShowUI();
                 m_bControlsScreen = false;
                 m_ControlsImage.SetActive(false);
+                m_BackIndicator.SetActive(false);
             }
         }
     }
@@ -259,12 +255,14 @@ public class Pointer : MonoBehaviour
             {
                 m_bClicked = true;
                 HideUI();
+                m_BackIndicator.SetActive(true);
             }
             else if (hit.transform.gameObject.tag == "MenuControls")
             {
                 m_ControlsImage.SetActive(true);
                 m_bControlsScreen = true;
                 HideUI();
+                m_BackIndicator.SetActive(true);
             }
             else if (hit.transform.gameObject.tag == "MenuCredits")
             {
@@ -279,6 +277,7 @@ public class Pointer : MonoBehaviour
         if (m_Start != null) m_Start.SetActive(false);
         if (m_Controls != null) m_Controls.SetActive(false);
         if (m_Credits != null) m_Credits.SetActive(false);
+        if (m_Quit != null) m_Quit.SetActive(false);
     }
 
     private void ShowUI()
@@ -287,6 +286,7 @@ public class Pointer : MonoBehaviour
         if (m_Start != null) m_Start.SetActive(true);
         if (m_Controls != null) m_Controls.SetActive(true);
         if (m_Credits != null) m_Credits.SetActive(true);
+        if (m_Quit != null) m_Quit.SetActive(true);
     }
 
     private Vector3 Bezier(Vector3 v3Start, Vector3 v3End, Vector3 v3Control1, Vector3 v3Control2, float fT)
@@ -306,7 +306,10 @@ public class Pointer : MonoBehaviour
         while (b)
         {
             b = false;
+            m_AToConnect.SetActive(false);
+            m_AToStart.SetActive(false);
             m_ControlsImage.SetActive(true);
+            m_BackIndicator.SetActive(false);
             yield return new WaitForSeconds(duration);
         }
         StartCoroutine(fc.FadeOutToScene(sceneName));
