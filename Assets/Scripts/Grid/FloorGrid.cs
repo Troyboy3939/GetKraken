@@ -18,6 +18,7 @@ public class FloorGrid : MonoBehaviour
     [SerializeField] List<Vector2> m_CoinSpawnBlacklist = new List<Vector2>();
     int m_nRandomSeed = 0;
     List<Vector2> m_TentaclePositions = new List<Vector2>();
+    [SerializeField] private ScreenShakeController m_ScreenShake;
     
     float m_fTentacleTimer = 9.0f;
     float m_fCoinTimer = 0.0f;
@@ -353,6 +354,8 @@ public class FloorGrid : MonoBehaviour
 
     void SpawnTentacles()
     {
+        StartCoroutine(m_ScreenShake.Shake());
+
         m_fTentacleTimer = 0;
 
         //Reset all tentacles

@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -795,6 +795,7 @@ GameObject:
   - component: {fileID: 259690234}
   - component: {fileID: 259690235}
   - component: {fileID: 259690236}
+  - component: {fileID: 259690237}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -975,6 +976,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &259690237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259690229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61d3031256dd0d54a8da4e7610f40c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &283600668
 GameObject:
   m_ObjectHideFlags: 0
@@ -5597,6 +5610,11 @@ PrefabInstance:
       propertyPath: m_Grid
       value: 
       objectReference: {fileID: 1519288277}
+    - target: {fileID: 4699360793824982799, guid: 489f93506bef503498759a208e3a3c99,
+        type: 3}
+      propertyPath: m_fRespawnHeight
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 489f93506bef503498759a208e3a3c99, type: 3}
 --- !u!1 &1146311324
@@ -7960,6 +7978,7 @@ MonoBehaviour:
   - {x: 12, y: 6}
   - {x: 12, y: 9}
   - {x: 12, y: 10}
+  m_ScreenShake: {fileID: 259690237}
   m_bLimitCoinCount: 1
 --- !u!4 &1519288279
 Transform:
