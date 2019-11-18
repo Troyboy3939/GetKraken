@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BackTex:
-        m_Texture: {fileID: 2800000, guid: a5c0aebf10748eb4c83e3b63e9d08d18, type: 3}
+        m_Texture: {fileID: 2800000, guid: cfd5acf66d540a340a57d2091b2551fc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DownTex:
-        m_Texture: {fileID: 2800000, guid: fca62eec79019fc449b7fde1c1abc1d3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 35baf24582a946a489f5c030e50d2eac, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -36,11 +36,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FrontTex:
-        m_Texture: {fileID: 2800000, guid: 629b2b4603a02614fa19b5b9184c9fe3, type: 3}
+        m_Texture: {fileID: 2800000, guid: a751e8c4eb87b0644a48eb43d64fe297, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LeftTex:
-        m_Texture: {fileID: 2800000, guid: c2d93b61ebd1d874e977b9b114650b0c, type: 3}
+        m_Texture: {fileID: 2800000, guid: b8da91ca93d1336468d764b8ce8a9631, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RightTex:
-        m_Texture: {fileID: 2800000, guid: 2404f6cbe3df3844780263b92a87f5a5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 569cfc49b9af0364b811e557a412883d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -68,7 +68,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _UpTex:
-        m_Texture: {fileID: 2800000, guid: 78dc6d08c6d2fd045bc38331d873ff4b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2f733a311f9fb4c4589c6c9714bad888, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -85,7 +85,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _ReceiveShadows: 1
-    - _Rotation: 44
+    - _Rotation: 15
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
