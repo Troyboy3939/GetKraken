@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1252,9 +1252,10 @@ MonoBehaviour:
   m_Text: "Designer\r\nJames Cretchley\r\n\r\nProducer\r\nLuke Wells\r\n\nArtists
     :\r\nLily Huynh\r\nTristyn Van Den Broek\r\nBeau Jackson\r\nAnthony Dimovski\r\nHayden
     Crestani\r\nTallulah Bove\n\r\nProgramers :\r\nTroy Rooney\r\nLuke Lazzaro\r\nJames
-    Goutos\r\n\n\nAudio Used\r\n\nFonts Used\r\nCopyright (c) 26 February 2007, Google,
-    https://fonts.google.com/specimen/Chelsea+Market,\r\nwith Reserved Font Name Chelsea
-    Market.\r\n\r\nSpecial Thanks\r\n\r\n\r\nPrograms Used\r\n"
+    Goutos\r\n\n\nAudio Used\r\nThe Show Must Go On - Kevin Macleod\nShort Burst of
+    Bubbles - Murraysortz\nFront Door - InspectorJ\n\nFonts Used\r\nCopyright (c)
+    26 February 2007, Google, https://fonts.google.com/specimen/Chelsea+Market,\r\nwith
+    Reserved Font Name Chelsea Market.\r\n\r\nSpecial Thanks\r\n\r\n\r\nPrograms Used\r\n"
 --- !u!222 &2047094551
 CanvasRenderer:
   m_ObjectHideFlags: 0
