@@ -5834,6 +5834,11 @@ PrefabInstance:
       propertyPath: m_Grid
       value: 
       objectReference: {fileID: 1519288277}
+    - target: {fileID: 4699360793824982799, guid: 489f93506bef503498759a208e3a3c99,
+        type: 3}
+      propertyPath: m_fRespawnHeight
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 489f93506bef503498759a208e3a3c99, type: 3}
 --- !u!1 &1146311324
