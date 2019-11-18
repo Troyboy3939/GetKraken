@@ -118,6 +118,12 @@ public class Pointer : MonoBehaviour
 
         if (m_bClicked)
         {
+            // "Go Back" by restarting the scene
+            if (XCI.GetButtonDown(XboxButton.B, XboxController.All) || Input.GetKeyDown(KeyCode.Escape))
+            {
+                StartCoroutine(fc.FadeOutToScene(SceneManager.GetActiveScene().name));
+            }
+
             if (!m_bDone)
             {
                 m_v3Pos = transform.position;
