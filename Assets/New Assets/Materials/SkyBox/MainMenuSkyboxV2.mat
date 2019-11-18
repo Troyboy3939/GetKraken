@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LeftTex:
-        m_Texture: {fileID: 2800000, guid: c2d93b61ebd1d874e977b9b114650b0c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1183d3b695428dc44a99a042b367661b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RightTex:
-        m_Texture: {fileID: 2800000, guid: 2404f6cbe3df3844780263b92a87f5a5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 71c3e5ea4ee39c04bb0da51ae10836f3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -85,7 +85,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _ReceiveShadows: 1
-    - _Rotation: 44
+    - _Rotation: 11
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
