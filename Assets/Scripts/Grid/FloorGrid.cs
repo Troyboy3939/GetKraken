@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class FloorGrid : MonoBehaviour
 {
     //-----------------------------------------------------------
@@ -15,7 +16,7 @@ public class FloorGrid : MonoBehaviour
     [SerializeField] float m_fTentacleSwitchTime = 3;
     [SerializeField] float m_fCoinSpawnTime = 3;
     [SerializeField] List<Vector2> m_HolePositions = new List<Vector2>();
-    [SerializeField] List<Vector2> m_CoinSpawnBlacklist = new List<Vector2>();
+    private List<Vector2> m_BufferArea;
     int m_nRandomSeed = 0;
     List<Vector2> m_TentaclePositions = new List<Vector2>();
     [SerializeField] private ScreenShakeController m_ScreenShake;
@@ -35,12 +36,87 @@ public class FloorGrid : MonoBehaviour
     // Only use this field for debugging! Should always be true when testing the game.
     [SerializeField] private bool m_bLimitCoinCount = true;
 
+    // Buffer areas for each scene, set to m_BufferArea in Awake depending on the current scene
+    private List<Vector2> m_P2BufferArea = new List<Vector2>()
+    {
+        new Vector2(9, 7),
+        new Vector2(9, 8),
+        new Vector2(10, 7),
+        new Vector2(10, 8),
+        new Vector2(11, 6),
+        new Vector2(11, 7),
+        new Vector2(11, 8),
+        new Vector2(12, 6),
+        new Vector2(12, 7),
+        new Vector2(12, 8),
+        new Vector2(13, 7),
+        new Vector2(13, 8),
+        new Vector2(14, 7),
+        new Vector2(14, 8)
+    };
+
+    private List<Vector2> m_P3BufferArea = new List<Vector2>()
+    {
+        new Vector2(9, 6),
+        new Vector2(10, 6),
+        new Vector2(10, 7),
+        new Vector2(10, 8),
+        new Vector2(10, 9),
+        new Vector2(11, 6),
+        new Vector2(11, 7),
+        new Vector2(11, 8),
+        new Vector2(11, 9),
+        new Vector2(12, 6)
+    };
+
+    private List<Vector2> m_P4BufferArea = new List<Vector2>()
+    {
+        new Vector2(8, 5),
+        new Vector2(8, 6),
+        new Vector2(8, 9),
+        new Vector2(8, 10),
+        new Vector2(9, 5),
+        new Vector2(9, 6),
+        new Vector2(9, 7),
+        new Vector2(9, 8),
+        new Vector2(9, 9),
+        new Vector2(9, 10),
+        new Vector2(10, 6),
+        new Vector2(10, 7),
+        new Vector2(10, 8),
+        new Vector2(10, 9),
+        new Vector2(11, 5),
+        new Vector2(11, 6),
+        new Vector2(11, 7),
+        new Vector2(11, 8),
+        new Vector2(11, 9),
+        new Vector2(11, 10),
+        new Vector2(12, 5),
+        new Vector2(12, 6),
+        new Vector2(12, 9),
+        new Vector2(12, 10)
+    };
+
 
     //-----------------------------------------------------------
     //Functions
     //-----------------------------------------------------------
 
-
+    private void Awake()
+    {
+        if (SceneManager.GetActiveScene().name == "Game_4P_ArtUpdate")
+        {
+            m_BufferArea = m_P4BufferArea;
+        }
+        else if (SceneManager.GetActiveScene().name == "Game_3P_ArtUpdate")
+        {
+            m_BufferArea = m_P3BufferArea;
+        }
+        else if (SceneManager.GetActiveScene().name == "Game_2P_ArtUpdate")
+        {
+            m_BufferArea = m_P2BufferArea;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -79,7 +155,11 @@ public class FloorGrid : MonoBehaviour
            m_Nodes[Mathf.FloorToInt(m_HolePositions[i].x), Mathf.FloorToInt(m_HolePositions[i].y)].ChangeState(StateMachine.ESTATE.HOLE);
         }
 
-       
+        // Loop over m_BufferArea list and set each node in that list as a buffer node
+        foreach (Vector2 item in m_BufferArea)
+        {
+            m_Nodes[Mathf.FloorToInt(item.x), Mathf.FloorToInt(item.y)].SetIsBuffer(true);
+        }
     }
 
 
@@ -194,71 +274,65 @@ public class FloorGrid : MonoBehaviour
         GameObject[] chests = new GameObject[5];
         chests = GameObject.FindGameObjectsWithTag("Chest");
 
-
-
-        while (!bValid)
+        for (int i = 0; i < chests.Length; i++)
         {
 
-            for (int i = 0; i < chests.Length; i++)
+            Node pos = GetNodeByPosition(chests[i].transform.position);
+
+
+            if (m_Nodes[n1, n2].GetPosition() == pos.GetPosition() || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.HOLE ||  m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.TENTACLE || m_Nodes[n1, n2].GetHasTentacle())
             {
+                n1 = Random.Range(0, m_nGridWidth);
+                n2 = Random.Range(0, m_nGridHeight);
+            }
 
-                Node pos = GetNodeByPosition(chests[i].transform.position);
+        }
 
+        posChest0 = GetNodeByPosition(chests[0].transform.position);
+        posChest1 = GetNodeByPosition(chests[1].transform.position);
 
-                if (m_Nodes[n1, n2].GetPosition() == pos.GetPosition() || m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.HOLE ||  m_Nodes[n1, n2].GetState() == StateMachine.ESTATE.TENTACLE || m_Nodes[n1, n2].GetHasTentacle())
+        if (chests.Length == 3)
+        {
+            posChest2 = GetNodeByPosition(chests[2].transform.position);
+        }
+
+        if (chests.Length == 4)
+        {
+            posChest3 = GetNodeByPosition(chests[3].transform.position);
+        }
+
+        // Check if the current node's state is valid
+        if (m_Nodes[n1, n2].GetState() != StateMachine.ESTATE.HOLE &&
+            m_Nodes[n1, n2].GetState() != StateMachine.ESTATE.TENTACLE &&
+            // Check if node isn't in the defined buffer area
+            !m_Nodes[n1, n2].GetIsBuffer() &&
+            // Check if node isn't taken by tentacle
+            !m_Nodes[n1, n2].GetHasTentacle())
+        {
+            // Check if node isn't taken by chest
+            if (m_Nodes[n1, n2].GetPosition() != posChest0.GetPosition() &&
+                m_Nodes[n1, n2].GetPosition() != posChest1.GetPosition())
+            {
+                // Check if chests for players 3 and 4 are null, if they are not, check if they occupy the node
+                if (posChest2 == null)
                 {
-                    n1 = Random.Range(0, m_nGridWidth);
-                    n2 = Random.Range(0, m_nGridHeight);
+                    bValid = true;
                 }
-
-            }
-
-            posChest0 = GetNodeByPosition(chests[0].transform.position);
-            posChest1 = GetNodeByPosition(chests[1].transform.position);
-
-            if (chests.Length == 3)
-            {
-                posChest2 = GetNodeByPosition(chests[2].transform.position);
-            }
-
-            if (chests.Length == 4)
-            {
-                posChest3 = GetNodeByPosition(chests[3].transform.position);
-            }
-
-            if (m_Nodes[n1, n2].GetPosition() != posChest0.GetPosition())
-            {
-                if (m_Nodes[n1, n2].GetPosition() != posChest1.GetPosition())
+                else if (m_Nodes[n1, n2].GetPosition() != posChest2.GetPosition())
                 {
-                    if (posChest2 != null && m_Nodes[n1, n2].GetPosition() != posChest2.GetPosition())
-                    {
-                        if (posChest3 != null && m_Nodes[n1, n2].GetPosition() != posChest3.GetPosition())
-                        {
-                            if(m_Nodes[n1, n2].GetState() != StateMachine.ESTATE.HOLE)
-                            {
-                                if(m_Nodes[n1, n2].GetState() != StateMachine.ESTATE.TENTACLE)
-                                {
-                                    if(!m_Nodes[n1, n2].GetHasTentacle())
-                                    {
-                                        bValid = true;
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            bValid = true;
-                        }
-                    }
-                    else
+                    if (posChest3 != null && m_Nodes[n1, n2].GetPosition() == posChest3.GetPosition())
                     {
                         bValid = true;
                     }
                 }
             }
         }
-        m_nCoinCount++;
-        DropNewObjectAtNode(m_Nodes[n1,n2],m_Coin);
+
+        if (bValid)
+        {
+            m_nCoinCount++;
+            DropNewObjectAtNode(m_Nodes[n1, n2], m_Coin);
+        }
     }
 
     //----------------------------------------------------------------------------------------------------
