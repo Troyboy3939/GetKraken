@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PositionManager : MonoBehaviour
 {
+    [SerializeField] private float m_fGridWidth = 21;
+    [SerializeField] private float m_fGridHeight = 16;
+
     private PositionManager instance;
 
     [SerializeField] private List<Vector2> m_HolePositions = new List<Vector2>()
@@ -84,6 +87,8 @@ public class PositionManager : MonoBehaviour
         new Vector2(13, 11)
     };
 
+    private List<Vector2> m_BufferAreaEdges = new List<Vector2>(100);
+
     public List<Vector2> GetHolePositions()
     {
         return m_HolePositions;
@@ -92,6 +97,11 @@ public class PositionManager : MonoBehaviour
     public List<Vector2> GetBufferArea()
     {
         return m_BufferArea;
+    }
+
+    public List<Vector2> GetBufferAreaEdges()
+    {
+        return m_BufferAreaEdges;
     }
 
     private void Awake()
@@ -104,6 +114,31 @@ public class PositionManager : MonoBehaviour
         else
         {
             Destroy(this);
+        }
+
+        CreateBufferEdges();
+    }
+
+    private void CreateBufferEdges()
+    {
+        for (int i = 0; i < m_fGridHeight; i++)
+        {
+            m_BufferAreaEdges.Add(new Vector2(0, i));
+        }
+
+        for (int i = 0; i < m_fGridHeight; i++)
+        {
+            m_BufferAreaEdges.Add(new Vector2(20, i));
+        }
+
+        for (int i = 1; i < m_fGridWidth - 1; i++)
+        {
+            m_BufferAreaEdges.Add(new Vector2(i, 0));
+        }
+
+        for (int i = 1; i < m_fGridWidth - 1; i++)
+        {
+            m_BufferAreaEdges.Add(new Vector2(i, 15));
         }
     }
 }

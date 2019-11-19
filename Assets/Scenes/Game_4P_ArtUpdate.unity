@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -8416,6 +8416,7 @@ MonoBehaviour:
   m_fDropHeight: 30
   m_fTentacleSwitchTime: 7
   m_fCoinSpawnTime: 3
+  m_bCropEdges: 1
   m_ScreenShake: {fileID: 259690237}
   m_bLimitCoinCount: 1
 --- !u!4 &1519288279

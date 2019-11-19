@@ -15,8 +15,10 @@ public class FloorGrid : MonoBehaviour
     [SerializeField] float m_fDropHeight = 30;
     [SerializeField] float m_fTentacleSwitchTime = 3;
     [SerializeField] float m_fCoinSpawnTime = 3;
+    [SerializeField] bool m_bCropEdges = true;
     List<Vector2> m_HolePositions = new List<Vector2>();
     private List<Vector2> m_BufferArea;
+    private List<Vector2> m_BufferAreaEdges;
     int m_nRandomSeed = 0;
     List<Vector2> m_TentaclePositions = new List<Vector2>();
     private PositionManager m_PositionManager;
@@ -51,6 +53,7 @@ public class FloorGrid : MonoBehaviour
             m_PositionManager = pm.GetComponent<PositionManager>();
             m_BufferArea = m_PositionManager.GetBufferArea();
             m_HolePositions = m_PositionManager.GetHolePositions();
+            m_BufferAreaEdges = m_PositionManager.GetBufferAreaEdges();
         }
         else
         {
@@ -99,6 +102,14 @@ public class FloorGrid : MonoBehaviour
         foreach (Vector2 item in m_BufferArea)
         {
             m_Nodes[Mathf.FloorToInt(item.x), Mathf.FloorToInt(item.y)].SetIsBuffer(true);
+        }
+
+        if (m_bCropEdges)
+        {
+            foreach (Vector2 item in m_BufferAreaEdges)
+            {
+                m_Nodes[Mathf.FloorToInt(item.x), Mathf.FloorToInt(item.y)].SetIsBuffer(true);
+            }
         }
     }
 
