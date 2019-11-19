@@ -23,7 +23,7 @@ public class FloorGrid : MonoBehaviour
 
     [SerializeField] private ScreenShakeController m_ScreenShake;
     
-    float m_fTentacleTimer = 9.0f;
+    float m_fTentacleTimer = 4.5f;
     float m_fCoinTimer = 0.0f;
     bool m_bFirstTime = true;
     bool m_bSwitch = false;
