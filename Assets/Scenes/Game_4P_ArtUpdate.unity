@@ -8612,10 +8612,9 @@ MonoBehaviour:
   m_Coin: {fileID: 1968982323}
   m_fDropHeight: 30
   m_fTentacleSwitchTime: 7
-  m_fCoinSpawnTime: 0.01
+  m_fCoinSpawnTime: 3
   m_ScreenShake: {fileID: 259690237}
-  m_PositionManager: {fileID: 0}
-  m_bLimitCoinCount: 0
+  m_bLimitCoinCount: 1
 --- !u!4 &1519288279
 Transform:
   m_ObjectHideFlags: 0

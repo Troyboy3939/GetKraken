@@ -37,11 +37,14 @@ public class PlayerController : MonoBehaviour
     // This will be used to store colliders that need to be accessed from multiple methods
     private Collider m_tempCol;
 
-    public ParticleSystem dustRun;
+    [SerializeField] private ParticleSystem m_DustRun;
+    [SerializeField] private GameObject m_StunParticles;
 
     // Start is called before the first frame update
     void Start()
     {
+        m_StunParticles.SetActive(false);
+
         GameObject calOb = GameObject.FindGameObjectWithTag("Calibration");
 
         Calibration c = null;
@@ -290,7 +293,7 @@ public class PlayerController : MonoBehaviour
                             m_Controller.transform.localRotation = Quaternion.LookRotation(v3InputDir, Vector3.up);
                             m_Controller.velocity = transform.forward * m_fSpeed;
 
-                            dustRun.Play();
+                            m_DustRun.Play();
                         }
                         // Or if you're using the dpad
                         else if (XCI.GetDPad(XboxDPad.Left, (XboxController)m_nPlayerID) || XCI.GetDPad(XboxDPad.Right, (XboxController)m_nPlayerID) || XCI.GetDPad(XboxDPad.Up, (XboxController)m_nPlayerID) || XCI.GetDPad(XboxDPad.Down, (XboxController)m_nPlayerID))
@@ -318,7 +321,7 @@ public class PlayerController : MonoBehaviour
                             m_Controller.transform.localRotation = Quaternion.LookRotation(v3InputDir, Vector3.up);
                             m_Controller.velocity = transform.forward * m_fSpeed;
 
-                            dustRun.Play();
+                            m_DustRun.Play();
                         }
                     }
                     else //else if controller not connected, use WASD instead
@@ -331,7 +334,7 @@ public class PlayerController : MonoBehaviour
                             m_Controller.transform.localRotation = Quaternion.LookRotation(v3InputDir, Vector3.up);
                             m_Controller.velocity = transform.forward * m_fSpeed;
 
-                            dustRun.Play();
+                            m_DustRun.Play();
                         }
                     }
 
@@ -369,9 +372,13 @@ public class PlayerController : MonoBehaviour
                 }
                 else if(m_bStunned)//If stunned
                 {
+                    // Play particles here
+                    m_StunParticles.SetActive(true);
+
                     // End the stun
                     if (Time.time - m_fTimeWhenStunned > m_fStunTime)
                     {
+                        m_StunParticles.SetActive(false);
                         m_bStunned = false;
                         m_fTimeWhenStunned = 0;
                         GetComponent<Rigidbody>().freezeRotation = false;
