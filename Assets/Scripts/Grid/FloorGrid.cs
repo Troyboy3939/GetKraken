@@ -15,10 +15,12 @@ public class FloorGrid : MonoBehaviour
     [SerializeField] float m_fDropHeight = 30;
     [SerializeField] float m_fTentacleSwitchTime = 3;
     [SerializeField] float m_fCoinSpawnTime = 3;
-    [SerializeField] List<Vector2> m_HolePositions = new List<Vector2>();
+    List<Vector2> m_HolePositions = new List<Vector2>();
     private List<Vector2> m_BufferArea;
     int m_nRandomSeed = 0;
     List<Vector2> m_TentaclePositions = new List<Vector2>();
+    private PositionManager m_PositionManager;
+
     [SerializeField] private ScreenShakeController m_ScreenShake;
     
     float m_fTentacleTimer = 9.0f;
@@ -36,85 +38,23 @@ public class FloorGrid : MonoBehaviour
     // Only use this field for debugging! Should always be true when testing the game.
     [SerializeField] private bool m_bLimitCoinCount = true;
 
-    // Buffer areas for each scene, set to m_BufferArea in Awake depending on the current scene
-    private List<Vector2> m_P2BufferArea = new List<Vector2>()
-    {
-        new Vector2(9, 7),
-        new Vector2(9, 8),
-        new Vector2(10, 7),
-        new Vector2(10, 8),
-        new Vector2(11, 6),
-        new Vector2(11, 7),
-        new Vector2(11, 8),
-        new Vector2(12, 6),
-        new Vector2(12, 7),
-        new Vector2(12, 8),
-        new Vector2(13, 7),
-        new Vector2(13, 8),
-        new Vector2(14, 7),
-        new Vector2(14, 8)
-    };
-
-    private List<Vector2> m_P3BufferArea = new List<Vector2>()
-    {
-        new Vector2(9, 6),
-        new Vector2(10, 6),
-        new Vector2(10, 7),
-        new Vector2(10, 8),
-        new Vector2(10, 9),
-        new Vector2(11, 6),
-        new Vector2(11, 7),
-        new Vector2(11, 8),
-        new Vector2(11, 9),
-        new Vector2(12, 6)
-    };
-
-    private List<Vector2> m_P4BufferArea = new List<Vector2>()
-    {
-        new Vector2(8, 5),
-        new Vector2(8, 6),
-        new Vector2(8, 9),
-        new Vector2(8, 10),
-        new Vector2(9, 5),
-        new Vector2(9, 6),
-        new Vector2(9, 7),
-        new Vector2(9, 8),
-        new Vector2(9, 9),
-        new Vector2(9, 10),
-        new Vector2(10, 6),
-        new Vector2(10, 7),
-        new Vector2(10, 8),
-        new Vector2(10, 9),
-        new Vector2(11, 5),
-        new Vector2(11, 6),
-        new Vector2(11, 7),
-        new Vector2(11, 8),
-        new Vector2(11, 9),
-        new Vector2(11, 10),
-        new Vector2(12, 5),
-        new Vector2(12, 6),
-        new Vector2(12, 9),
-        new Vector2(12, 10)
-    };
-
-
     //-----------------------------------------------------------
     //Functions
     //-----------------------------------------------------------
 
     private void Awake()
     {
-        if (SceneManager.GetActiveScene().name == "Game_4P_ArtUpdate")
+        GameObject pm = GameObject.Find("PositionManager");
+
+        if (pm != null)
         {
-            m_BufferArea = m_P4BufferArea;
+            m_PositionManager = pm.GetComponent<PositionManager>();
+            m_BufferArea = m_PositionManager.GetBufferArea();
+            m_HolePositions = m_PositionManager.GetHolePositions();
         }
-        else if (SceneManager.GetActiveScene().name == "Game_3P_ArtUpdate")
+        else
         {
-            m_BufferArea = m_P3BufferArea;
-        }
-        else if (SceneManager.GetActiveScene().name == "Game_2P_ArtUpdate")
-        {
-            m_BufferArea = m_P2BufferArea;
+            Debug.LogError("FloorGrid.cs: Position Manager not found! Positions are set in the main menu, please enter this scene from the main menu to activate manager.");
         }
     }
 

@@ -19,7 +19,6 @@ public class Blackboard : MonoBehaviour
     [SerializeField] Material m_YellowMaterial = null;
     [SerializeField] Material m_GreenMaterial = null;
 
-
     [SerializeField] Material m_OrangeChestMaterial = null;
     [SerializeField] Material m_BlueChestMaterial = null;
     [SerializeField] Material m_YellowChestMaterial = null;

@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -7938,47 +7938,8 @@ MonoBehaviour:
   m_fDropHeight: 30
   m_fTentacleSwitchTime: 7
   m_fCoinSpawnTime: 3
-  m_HolePositions:
-  - {x: 2, y: 2}
-  - {x: 2, y: 13}
-  - {x: 2, y: 7}
-  - {x: 6, y: 4}
-  - {x: 6, y: 7}
-  - {x: 6, y: 10}
-  - {x: 10, y: 2}
-  - {x: 10, y: 13}
-  - {x: 14, y: 4}
-  - {x: 14, y: 7}
-  - {x: 14, y: 10}
-  - {x: 18, y: 2}
-  - {x: 18, y: 7}
-  - {x: 18, y: 13}
-  m_CoinSpawnBlacklist:
-  - {x: 8, y: 5}
-  - {x: 8, y: 6}
-  - {x: 8, y: 9}
-  - {x: 8, y: 10}
-  - {x: 9, y: 5}
-  - {x: 9, y: 6}
-  - {x: 9, y: 7}
-  - {x: 9, y: 8}
-  - {x: 9, y: 9}
-  - {x: 9, y: 10}
-  - {x: 10, y: 6}
-  - {x: 10, y: 7}
-  - {x: 10, y: 8}
-  - {x: 10, y: 9}
-  - {x: 11, y: 5}
-  - {x: 11, y: 6}
-  - {x: 11, y: 7}
-  - {x: 11, y: 8}
-  - {x: 11, y: 9}
-  - {x: 11, y: 10}
-  - {x: 12, y: 5}
-  - {x: 12, y: 6}
-  - {x: 12, y: 9}
-  - {x: 12, y: 10}
   m_ScreenShake: {fileID: 259690237}
+  m_PositionManager: {fileID: 0}
   m_bLimitCoinCount: 1
 --- !u!4 &1519288279
 Transform:
