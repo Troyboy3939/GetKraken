@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool m_bHasCoin;
     [HideInInspector] public bool m_bCanPickUpCoin = true;
     [HideInInspector] public bool m_bIsDead = false;
-
+    Animator m_Anim;
     private bool m_bStunned = false;
 
     Rigidbody m_Controller;
@@ -46,7 +46,12 @@ public class PlayerController : MonoBehaviour
         m_StunParticles.SetActive(false);
 
         GameObject calOb = GameObject.FindGameObjectWithTag("Calibration");
+         m_Anim = GetComponent<Animator>();
 
+        if (m_Anim != null)
+        {
+            m_Anim.Play("Idle");
+        }
         Calibration c = null;
         if (calOb != null)
         {
@@ -157,7 +162,7 @@ public class PlayerController : MonoBehaviour
     // Respawns the player at their chest
     private void Respawn()
     {
-        gameObject.GetComponent<MeshRenderer>().enabled = true;
+        gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
         gameObject.GetComponent<CapsuleCollider>().enabled = true;
         gameObject.GetComponent<Rigidbody>().useGravity = true;
 
@@ -219,19 +224,28 @@ public class PlayerController : MonoBehaviour
                     
                    
                 }
-                else
-                {
-
-                }
+               
                 
+        }
+        else if(collision.gameObject.tag == "Coin")
+        {
+            if(m_Anim != null)
+            {
+                m_Anim.SetTrigger("Pickup");
             }
         }
+    }
 
 
 
     private void DropHeldCoin()
     {
         DetachCoin();
+
+        if(m_Anim != null)
+        {
+            m_Anim.SetTrigger("DropCoin");
+        }
     }
 
     private IEnumerator DropHeldCoinCooldown()
@@ -280,7 +294,14 @@ public class PlayerController : MonoBehaviour
                     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
                     //Movement
                     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
                     
+
+                    if(m_Anim != null)
+                    {
+                        m_Anim.SetBool("Run",false);
+                    }
+
                     //If your controller is plugged in
                     if (XCI.IsPluggedIn(m_nPlayerID))
                     {
@@ -294,6 +315,10 @@ public class PlayerController : MonoBehaviour
                             m_Controller.velocity = transform.forward * m_fSpeed;
 
                             m_DustRun.Play();
+                            if (m_Anim != null)
+                            {
+                                m_Anim.SetBool("Run", true);
+                            }
                         }
                         // Or if you're using the dpad
                         else if (XCI.GetDPad(XboxDPad.Left, (XboxController)m_nPlayerID) || XCI.GetDPad(XboxDPad.Right, (XboxController)m_nPlayerID) || XCI.GetDPad(XboxDPad.Up, (XboxController)m_nPlayerID) || XCI.GetDPad(XboxDPad.Down, (XboxController)m_nPlayerID))
@@ -322,6 +347,11 @@ public class PlayerController : MonoBehaviour
                             m_Controller.velocity = transform.forward * m_fSpeed;
 
                             m_DustRun.Play();
+
+                            if (m_Anim != null)
+                            {
+                                m_Anim.SetBool("Run", true);
+                            }
                         }
                     }
                     else //else if controller not connected, use WASD instead
@@ -335,6 +365,11 @@ public class PlayerController : MonoBehaviour
                             m_Controller.velocity = transform.forward * m_fSpeed;
 
                             m_DustRun.Play();
+
+                            if (m_Anim != null)
+                            {
+                                m_Anim.SetBool("Run", true);
+                            }
                         }
                     }
 

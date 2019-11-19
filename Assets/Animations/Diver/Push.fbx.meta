@@ -1,0 +1,224 @@
+fileFormatVersion: 2
+guid: 57e766f2ef910804388db6735a98e5c7
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Antenna_1
+    100002: Antenna_2
+    100004: Antenna_3
+    100006: Antenna_4
+    100008: Antenna_5
+    100010: //RootNode
+    100012: Chest
+    100014: Coin_Asset
+    100016: Collar
+    100018: Diver
+    100020: DiverMesh
+    100022: Fingers_L
+    100024: Fingers_R
+    100026: Foot_Lower_L
+    100028: Foot_Rower_R
+    100030: Foot_Upper_L
+    100032: Foot_Upper_R
+    100034: Fore1_Arm_L
+    100036: Fore1_Arm_R
+    100038: Fore2_Arm_L
+    100040: Fore2_Arm_R
+    100042: Fore3_Arm_L
+    100044: Fore3_Arm_R
+    100046: Hand_L
+    100048: Hand_R
+    100050: Head
+    100052: Hips
+    100054: Joints
+    100056: Leg_Lower_L
+    100058: Leg_Rower_R
+    100060: Leg_Upper_L
+    100062: Leg_Upper_R
+    100064: Lower_Thumb_L
+    100066: Lower_Thumb_R
+    100068: Mesh
+    100070: Neck
+    100072: pCylinder8
+    100074: Root
+    100076: Upper1_Arm_L
+    100078: Upper1_Arm_R
+    100080: Upper2_Arm_L
+    100082: Upper2_Arm_R
+    100084: Upper3_Arm_L
+    100086: Upper3_Arm_R
+    100088: Upper_Thumb_L
+    100090: Upper_Thumb_R
+    100092: Wrist_L
+    100094: Wrist_R
+    400000: Antenna_1
+    400002: Antenna_2
+    400004: Antenna_3
+    400006: Antenna_4
+    400008: Antenna_5
+    400010: //RootNode
+    400012: Chest
+    400014: Coin_Asset
+    400016: Collar
+    400018: Diver
+    400020: DiverMesh
+    400022: Fingers_L
+    400024: Fingers_R
+    400026: Foot_Lower_L
+    400028: Foot_Rower_R
+    400030: Foot_Upper_L
+    400032: Foot_Upper_R
+    400034: Fore1_Arm_L
+    400036: Fore1_Arm_R
+    400038: Fore2_Arm_L
+    400040: Fore2_Arm_R
+    400042: Fore3_Arm_L
+    400044: Fore3_Arm_R
+    400046: Hand_L
+    400048: Hand_R
+    400050: Head
+    400052: Hips
+    400054: Joints
+    400056: Leg_Lower_L
+    400058: Leg_Rower_R
+    400060: Leg_Upper_L
+    400062: Leg_Upper_R
+    400064: Lower_Thumb_L
+    400066: Lower_Thumb_R
+    400068: Mesh
+    400070: Neck
+    400072: pCylinder8
+    400074: Root
+    400076: Upper1_Arm_L
+    400078: Upper1_Arm_R
+    400080: Upper2_Arm_L
+    400082: Upper2_Arm_R
+    400084: Upper3_Arm_L
+    400086: Upper3_Arm_R
+    400088: Upper_Thumb_L
+    400090: Upper_Thumb_R
+    400092: Wrist_L
+    400094: Wrist_R
+    2100000: OBJ_Diver_LowPolySG1
+    2100002: lambert2
+    2300000: pCylinder8
+    3300000: pCylinder8
+    4300000: DiverMesh
+    4300002: pCylinder8
+    7400000: Push
+    9500000: //RootNode
+    13700000: DiverMesh
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Push
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
