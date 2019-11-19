@@ -2048,7 +2048,7 @@ MonoBehaviour:
   m_RotationEnd: {x: 12.3323, y: -10.217, z: -4.199}
   m_fLerpSpeedScale: 1.5
   m_fLoadingDuration: 5
-  m_bStartWithSpace: 0
+  m_bStartWithSpace: 1
 --- !u!114 &1244049218
 MonoBehaviour:
   m_ObjectHideFlags: 0
