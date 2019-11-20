@@ -105,13 +105,14 @@ public class UIController : MonoBehaviour
                 Text scoreText = m_goStartAndEndDisplay.GetComponent<Text>();
 
                 if (winningIDs.Contains(1))
-                    scoreText.color = Color.blue;
+                    // Divide by 255 to convert from 0-255 to 0-1, since Unity needs 0-1
+                    scoreText.color = new Color(93f / 255f, 131f / 255f, 142f / 255f);
                 else if (winningIDs.Contains(2))
-                    scoreText.color = Color.yellow;
+                    scoreText.color = new Color(187f / 255f, 166f / 255f, 91f / 255f);
                 else if (winningIDs.Contains(3))
-                    scoreText.color = Color.red;    // temporary until we figure out how to make orange work (maybe expose these to the inspector)
+                    scoreText.color = new Color(196f / 255f, 113f / 255f, 53f / 255f);
                 else if (winningIDs.Contains(4))
-                    scoreText.color = Color.green;
+                    scoreText.color = new Color(137f / 255f, 176f / 255f, 112f / 255f);
 
                 scoreText.text = "Player " + winningIDs[0] + " Wins!";
             }
