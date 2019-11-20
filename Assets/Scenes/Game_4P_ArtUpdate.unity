@@ -471,7 +471,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9d99c88824674234caf4a3bfd6b12300, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -8808,6 +8808,7 @@ MonoBehaviour:
   m_fDropHeight: 30
   m_fTentacleSwitchTime: 7
   m_fCoinSpawnTime: 3
+  m_bCropEdges: 1
   m_ScreenShake: {fileID: 259690237}
   m_bLimitCoinCount: 0
 --- !u!4 &1519288279
@@ -9952,6 +9953,7 @@ MonoBehaviour:
   m_goP4Score: {fileID: 1298451799}
   m_goTimer: {fileID: 1797399768}
   m_goStartAndEndDisplay: {fileID: 192970504}
+  m_StartSound: {fileID: 192970508}
   m_fInitialTimeSeconds: 100
   m_bGameEnded: 0
 --- !u!114 &1702106463
@@ -12497,8 +12499,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0826897493109a449943342d18140f3a, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.263
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -12593,7 +12595,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d45a8849055632b40959bc8f80116115, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
