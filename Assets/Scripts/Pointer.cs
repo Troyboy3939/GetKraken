@@ -60,6 +60,9 @@ public class Pointer : MonoBehaviour
 
     [SerializeField] private bool m_bStartWithSpace = false;
 
+
+    public GameObject ControlPanel;
+
     private void Start()
     {
         fc = GetComponent<FadeController>();
@@ -324,6 +327,8 @@ public class Pointer : MonoBehaviour
         }
         StartCoroutine(fc.FadeOutToScene(sceneName));
     }
+
+
 }
 
 
