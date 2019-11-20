@@ -19,6 +19,8 @@ public class UIController : MonoBehaviour
     private float m_fCurrentTime;
     private int m_nTimeToDisplay;
 
+    public GameObject PausePanel;
+
     [HideInInspector] public bool m_bGameEnded = true;
 
     public int m_nP1Score { get; set; } = 0;
@@ -192,7 +194,41 @@ public class UIController : MonoBehaviour
             m_nTimeToDisplay = Mathf.CeilToInt(m_fCurrentTime);
             m_goTimer.GetComponent<Text>().text = m_nTimeToDisplay.ToString();
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Time.timeScale == 1)
+            {
+                Time.timeScale = 0;
+                PausePanel.SetActive(true);
+            }
+            else if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+                PausePanel.SetActive(false);
+            }
+        }
+
     }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        PausePanel.SetActive(false);
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1;
+        Application.LoadLevel(Application.loadedLevel);
+    }
+
+    public void QuitGame()
+    {
+        Application.LoadLevel("MainMenu_ArtUpdate");
+    }
+
+}
 
     // trigger game over thing where the kraken kills each of the players one by one
     // from last place to second, first place player stays alive
@@ -206,5 +242,3 @@ public class UIController : MonoBehaviour
 
     // consider using a coroutine for this
 
-
-}

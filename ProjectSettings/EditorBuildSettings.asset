@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game_4P_ArtUpdate.unity
     guid: e1edd505bcb9f8d45981990022276c5a
+  - enabled: 1
+    path: Assets/Scenes/MainMenu_ArtUpdate.unity
+    guid: c8e95d309c6400b4e90e965ff5dcf178
   m_configObjects: {}
