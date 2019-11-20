@@ -1,0 +1,150 @@
+fileFormatVersion: 2
+guid: f24415838d4d66f4da59515174471b45
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Crab_MainBody
+    100004: Eye_Base_Left
+    100006: Eye_Base_Right
+    100008: Eye_Left_GRP
+    100010: Eye_Pupil_Left
+    100012: Eye_Pupil_Right
+    100014: Eye_Right_GRP
+    100016: Limbs_Claw
+    100018: Limbs_Claw_Base
+    100020: Limbs_Left_GRP
+    100022: Limbs_Small_1
+    100024: Limbs_Small_2
+    100026: Limbs_Small_3
+    400000: //RootNode
+    400002: Crab_MainBody
+    400004: Eye_Base_Left
+    400006: Eye_Base_Right
+    400008: Eye_Left_GRP
+    400010: Eye_Pupil_Left
+    400012: Eye_Pupil_Right
+    400014: Eye_Right_GRP
+    400016: Limbs_Claw
+    400018: Limbs_Claw_Base
+    400020: Limbs_Left_GRP
+    400022: Limbs_Small_1
+    400024: Limbs_Small_2
+    400026: Limbs_Small_3
+    2100000: lambert1
+    2300000: Crab_MainBody
+    2300002: Eye_Base_Left
+    2300004: Eye_Base_Right
+    2300006: Eye_Pupil_Left
+    2300008: Eye_Pupil_Right
+    2300010: Limbs_Claw
+    2300012: Limbs_Claw_Base
+    2300014: Limbs_Small_1
+    2300016: Limbs_Small_2
+    2300018: Limbs_Small_3
+    3300000: Crab_MainBody
+    3300002: Eye_Base_Left
+    3300004: Eye_Base_Right
+    3300006: Eye_Pupil_Left
+    3300008: Eye_Pupil_Right
+    3300010: Limbs_Claw
+    3300012: Limbs_Claw_Base
+    3300014: Limbs_Small_1
+    3300016: Limbs_Small_2
+    3300018: Limbs_Small_3
+    4300000: Crab_MainBody
+    4300002: Limbs_Claw
+    4300004: Limbs_Claw_Base
+    4300006: Limbs_Small_1
+    4300008: Limbs_Small_2
+    4300010: Limbs_Small_3
+    4300012: Eye_Pupil_Left
+    4300014: Eye_Base_Left
+    4300016: Eye_Base_Right
+    4300018: Eye_Pupil_Right
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
