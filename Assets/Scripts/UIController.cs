@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Linq;
+using XboxCtrlrInput;
 
 public class UIController : MonoBehaviour
 {
@@ -126,8 +126,8 @@ public class UIController : MonoBehaviour
             coroutineDone = true;
             yield return new WaitForSeconds(3);
         }
-       
-        StartCoroutine(fc.FadeOutToScene("MainMenu_ArtUpdate"));
+
+        QuitGame();
     }
 
     private void EndGame()
@@ -195,7 +195,7 @@ public class UIController : MonoBehaviour
             m_goTimer.GetComponent<Text>().text = m_nTimeToDisplay.ToString();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (XCI.GetButtonDown(XboxButton.Start, XboxController.All) || Input.GetKeyDown(KeyCode.Escape))
         {
             if (Time.timeScale == 1)
             {
@@ -220,25 +220,13 @@ public class UIController : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1;
-        Application.LoadLevel(Application.loadedLevel);
+        StartCoroutine(fc.FadeOutToScene(SceneManager.GetActiveScene().name));
     }
 
     public void QuitGame()
     {
-        Application.LoadLevel("MainMenu_ArtUpdate");
+        Time.timeScale = 1;
+        PausePanel.SetActive(false);
+        StartCoroutine(fc.FadeOutToScene("MainMenu_ArtUpdate"));
     }
-
 }
-
-    // trigger game over thing where the kraken kills each of the players one by one
-    // from last place to second, first place player stays alive
-
-    // add each player to a list, sorted by score
-    // remove the winning player from the list
-    // loop over the list every second (Time.deltaTime), kraken will kill the next player in the list
-
-    // What should happen when players are tied? What happens if the winning player is killed just
-    // before the time runs out?
-
-    // consider using a coroutine for this
-
