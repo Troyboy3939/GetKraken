@@ -10,9 +10,11 @@ public class TentacleController : MonoBehaviour
     TentacleState m_TentacleState = null;
     StateMachine m_StateMachine;
 
-    void Start()
+    private AudioSource[] m_Sounds;
+
+    private void Awake()
     {
-  
+        m_Sounds = GetComponents<AudioSource>();
     }
 
     public TentacleState GetTentacleState()
@@ -36,5 +38,8 @@ public class TentacleController : MonoBehaviour
         m_StateMachine = state;
     }
 
-
+    public void PlayAttackSound()
+    {
+        m_Sounds[0].Play();
+    }
 }

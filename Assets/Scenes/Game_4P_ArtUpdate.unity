@@ -11002,6 +11002,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6442893845631651228, guid: 0015ca2efdd3d814c880ab1c3a708c0f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5767519144444907403, guid: 0015ca2efdd3d814c880ab1c3a708c0f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13383,6 +13388,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Coin (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6442893845631651228, guid: 0015ca2efdd3d814c880ab1c3a708c0f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5767519144444907403, guid: 0015ca2efdd3d814c880ab1c3a708c0f,
         type: 3}

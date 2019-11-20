@@ -40,13 +40,25 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ParticleSystem m_DustRun;
     [SerializeField] private GameObject m_StunParticles;
 
+    private AudioSource m_WalkingUnderwater;
+
+    private void Awake()
+    {
+        m_WalkingUnderwater = GetComponent<AudioSource>();
+        m_Controller = GetComponent<Rigidbody>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        m_StunParticles.SetActive(false);
+        m_UiController = GameObject.Find("Canvas").GetComponent<UIController>();
+        Debug.Assert(m_UiController != null, "Cannot find the UIController script on Canvas.");
 
         GameObject calOb = GameObject.FindGameObjectWithTag("Calibration");
-         m_Anim = GetComponent<Animator>();
+        m_Anim = GetComponent<Animator>();
+
+        m_WalkingUnderwater.Stop();
+        m_StunParticles.SetActive(false);
 
         if (m_Anim != null)
         {
@@ -88,11 +100,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        m_Controller = GetComponent<Rigidbody>();
         m_fSpeed = m_fMaxSpeed;
-
-        m_UiController = GameObject.Find("Canvas").GetComponent<UIController>();
-        Debug.Assert(m_UiController != null, "Cannot find the UIController script on Canvas.");
 
         Respawn();
     }
@@ -215,17 +223,9 @@ public class PlayerController : MonoBehaviour
                     {
                        stateMachine.GetTentacleState().Attack();
                        Kill();
-                    }
-                    
-                   
-                  
-                }
-              
-                    
-                   
-                }
-               
-                
+                    } 
+                }      
+            }    
         }
         else if(collision.gameObject.tag == "Coin")
         {
@@ -235,8 +235,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-
 
     private void DropHeldCoin()
     {
@@ -315,6 +313,8 @@ public class PlayerController : MonoBehaviour
                             m_Controller.velocity = transform.forward * m_fSpeed;
 
                             m_DustRun.Play();
+                            if (!m_WalkingUnderwater.isPlaying) m_WalkingUnderwater.Play();
+
                             if (m_Anim != null)
                             {
                                 m_Anim.SetBool("Run", true);
@@ -347,11 +347,16 @@ public class PlayerController : MonoBehaviour
                             m_Controller.velocity = transform.forward * m_fSpeed;
 
                             m_DustRun.Play();
+                            if (!m_WalkingUnderwater.isPlaying) m_WalkingUnderwater.Play();
 
                             if (m_Anim != null)
                             {
                                 m_Anim.SetBool("Run", true);
                             }
+                        }
+                        else
+                        {
+                            m_WalkingUnderwater.Stop();
                         }
                     }
                     else //else if controller not connected, use WASD instead
@@ -365,11 +370,16 @@ public class PlayerController : MonoBehaviour
                             m_Controller.velocity = transform.forward * m_fSpeed;
 
                             m_DustRun.Play();
+                            if (!m_WalkingUnderwater.isPlaying) m_WalkingUnderwater.Play();
 
                             if (m_Anim != null)
                             {
                                 m_Anim.SetBool("Run", true);
                             }
+                        }
+                        else
+                        {
+                            m_WalkingUnderwater.Stop();
                         }
                     }
 

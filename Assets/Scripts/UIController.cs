@@ -7,12 +7,13 @@ using System.Linq;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] GameObject m_goP1Score;
-    [SerializeField] GameObject m_goP2Score;
-    [SerializeField] GameObject m_goP3Score;
-    [SerializeField] GameObject m_goP4Score;
-    [SerializeField] GameObject m_goTimer;
-    [SerializeField] GameObject m_goStartAndEndDisplay;
+    [SerializeField] private GameObject m_goP1Score;
+    [SerializeField] private GameObject m_goP2Score;
+    [SerializeField] private GameObject m_goP3Score;
+    [SerializeField] private GameObject m_goP4Score;
+    [SerializeField] private GameObject m_goTimer;
+    [SerializeField] private GameObject m_goStartAndEndDisplay;
+    [SerializeField] private AudioSource m_StartSound;
 
     public float m_fInitialTimeSeconds = 180;
     private float m_fCurrentTime;
@@ -73,6 +74,7 @@ public class UIController : MonoBehaviour
                     break;
                 case 0:
                     m_goStartAndEndDisplay.GetComponent<Text>().text = "Get Kraken!";
+                    m_StartSound.Play();
                     StartGame();
                     break;
                 default:
