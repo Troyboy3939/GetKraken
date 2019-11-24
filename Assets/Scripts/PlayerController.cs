@@ -170,7 +170,7 @@ public class PlayerController : MonoBehaviour
     // Respawns the player at their chest
     private void Respawn()
     {
-        //gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
+        gameObject.GetComponent<MeshRenderer>().enabled = true;
         gameObject.GetComponent<CapsuleCollider>().enabled = true;
         gameObject.GetComponent<Rigidbody>().useGravity = true;
 
