@@ -42,8 +42,8 @@ public class CursorState : MonoBehaviour
             {
                 Cursor.visible = false;
 
-                float h = (m_fMouseSpeed * XCI.GetAxis(XboxAxis.LeftStickX));
-                float v = (m_fMouseSpeed * XCI.GetAxis(XboxAxis.LeftStickY));
+                float h = (m_fMouseSpeed * XCI.GetAxis(XboxAxis.LeftStickX, XboxController.All));
+                float v = (m_fMouseSpeed * XCI.GetAxis(XboxAxis.LeftStickY, XboxController.All));
 
                 m_v2CursorPosition.x += h;
                 m_v2CursorPosition.y += v;
