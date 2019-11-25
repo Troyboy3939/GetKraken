@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2036,6 +2036,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 73498307}
     m_Modifications:
+    - target: {fileID: 1170940114419356407, guid: d85d473ee92f75d41ac001f73733ff0e,
+        type: 3}
+      propertyPath: m_Name
+      value: Seagulls
+      objectReference: {fileID: 0}
     - target: {fileID: 1170940114419356404, guid: d85d473ee92f75d41ac001f73733ff0e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2090,11 +2095,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1170940114419356407, guid: d85d473ee92f75d41ac001f73733ff0e,
-        type: 3}
-      propertyPath: m_Name
-      value: Seagulls
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d85d473ee92f75d41ac001f73733ff0e, type: 3}
@@ -2556,9 +2556,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Pointer: {fileID: 1244049217}
+  m_UIController: {fileID: 0}
   m_fMouseSpeed: 6
   m_tCursorImage: {fileID: 2800000, guid: 64dd4f56a77e1af48bcbff88276a48ca, type: 3}
   m_bIsCursorVisible: 1
+  m_ResumeButton: {fileID: 0}
+  m_QuitButton: {fileID: 0}
 --- !u!1 &1320542006
 GameObject:
   m_ObjectHideFlags: 0
@@ -3991,7 +3994,7 @@ PrefabInstance:
     - target: {fileID: 9214804697258795231, guid: 47adfe95f5933df43959dc50eb3f7aaa,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9214804697258795228, guid: 47adfe95f5933df43959dc50eb3f7aaa,
         type: 3}
