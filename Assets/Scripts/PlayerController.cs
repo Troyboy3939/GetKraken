@@ -130,8 +130,17 @@ public class PlayerController : MonoBehaviour
     {
         if (!m_bHasCoin)
         {
+            Animator a = GetComponent<Animator>();
+
+            if(a != null)
+            {
+                a.SetTrigger("Shove");
+            }
+
             if (Physics.SphereCast(transform.position - (transform.forward * 2), m_fSphereCastRadius, transform.forward, out hit, m_fSphereCastDist))
             {
+
+                
                 Rigidbody hitController = hit.transform.GetComponent<Rigidbody>();
                 PlayerController p = hit.transform.GetComponentInParent<PlayerController>();
                 
@@ -234,6 +243,10 @@ public class PlayerController : MonoBehaviour
             if(m_Anim != null)
             {
                 m_Anim.SetTrigger("Pickup");
+                m_Anim.ResetTrigger("DropCoin");
+                
+                  
+             
             }
         }
     }
@@ -267,6 +280,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        AnimatorStateInfo a = m_Anim.GetCurrentAnimatorStateInfo(0);
+        if(a.IsName("Push"))
+        {
+            if (a.normalizedTime >= 1)
+            {
+                m_Anim.ResetTrigger("Shove");
+            }
+        }
+
         if (!m_UiController.m_bGameEnded)
         {
             // Disable everything but the respawn timer while the player is dead
@@ -289,7 +311,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
-                if (!m_bStunned && !m_bIsFalling && !m_PausePanel.activeSelf)
+                if (!m_bStunned && !m_bIsFalling)
                 {
                     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
                     //Movement
@@ -396,6 +418,7 @@ public class PlayerController : MonoBehaviour
                         //If button being pressed
                         if (XCI.GetButtonDown(XboxButton.B, (XboxController)m_nPlayerID) || XCI.GetButtonDown(XboxButton.A, (XboxController)m_nPlayerID))
                         {
+
                             Shove(ref hit);
                         }
 

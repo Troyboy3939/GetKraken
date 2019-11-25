@@ -45,10 +45,22 @@ public class CoinController : MonoBehaviour
                 transform.SetParent(other.transform);
                 transform.Translate(new Vector3(0, 1, 0));
 
+
+
+                MeshRenderer[] m = GetComponentsInChildren<MeshRenderer>();
+
+
+                for(int i = 0; i < m.Length; i++)
+                {
+                    m[i].enabled = false;
+                }
+                
+
+
                 Rigidbody rb = GetComponent<Rigidbody>();
                 rb.constraints = RigidbodyConstraints.FreezePositionY;
 
-                rb.isKinematic = true;
+                
                 rb.velocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
 

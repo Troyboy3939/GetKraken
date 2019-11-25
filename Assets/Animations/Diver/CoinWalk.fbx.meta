@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1852c5df506eaf64097b525b41038750
+guid: 34a590f21da5b5747b444a14da0a8224
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -126,9 +126,9 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    importAnimatedCustomProperties: 1
+    importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 0
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -139,7 +139,7 @@ ModelImporter:
     - serializedVersion: 16
       name: CoinWalk
       takeName: Take 001
-      firstFrame: 1
+      firstFrame: 0
       lastFrame: 59
       wrapMode: 0
       orientationOffsetY: 0
@@ -199,7 +199,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   importAnimation: 1
-  copyAvatar: 1
+  copyAvatar: 0
   humanDescription:
     serializedVersion: 2
     human: []
@@ -215,8 +215,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: d788b72ffc69a064d8336c6128be2d73,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
   humanoidOversampling: 1
   additionalBone: 0

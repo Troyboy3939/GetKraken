@@ -65,12 +65,21 @@ public class ChestController : MonoBehaviour
         {
             PlayerController pc = collision.gameObject.GetComponent<PlayerController>();
 
+
+            Animator a = collision.gameObject.GetComponent<Animator>();
+            
+            if(a != null)
+            {
+                a.SetTrigger("DropCoin");
+            }
+
             // Destroy the coin and update score
             if (pc.m_bHasCoin && pc.m_nPlayerID == m_nPlayerID)
             {
                 FloorGrid grid = m_bGrid.GetComponent<FloorGrid>();
                 grid.SetCoinCount(grid.GetCoinCount() - 1);
 
+                
                 Destroy(pc.gameObject.GetComponentInChildren<CoinController>().gameObject);
                 pc.m_bHasCoin = false;
                 pc.m_bCanPickUpCoin = true;
