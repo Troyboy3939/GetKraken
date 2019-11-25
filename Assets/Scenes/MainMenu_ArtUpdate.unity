@@ -2414,6 +2414,7 @@ GameObject:
   - component: {fileID: 1244049214}
   - component: {fileID: 1244049217}
   - component: {fileID: 1244049218}
+  - component: {fileID: 1244049219}
   m_Layer: 2
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2497,6 +2498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e10d7f63005d14ba6a944131e58e5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_bClicked: 0
   m_fMoveSpeed: 0.2
   m_fDisplacement: 1
   m_sz4PlayerLevel: Game_4P_ArtUpdate
@@ -2519,12 +2521,12 @@ MonoBehaviour:
   - {fileID: 588766153}
   - {fileID: 642249272}
   - {fileID: 1037309185}
-  m_fMouseSpeed: 300
-  m_tCursorImage: {fileID: 2800000, guid: 0eecc937eb492a745901ef10789ca9fc, type: 3}
   m_cBarrelCollider: {fileID: 0}
   m_RotationEnd: {x: 12.3323, y: -10.217, z: -4.199}
   m_fLerpSpeedScale: 1.5
   m_fLoadingDuration: 5
+  m_bControlsScreen: 0
+  fc: {fileID: 0}
   m_bStartWithSpace: 1
   ControlPanel: {fileID: 267549117}
 --- !u!114 &1244049218
@@ -2541,6 +2543,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_goFadeIn: {fileID: 336674565}
   m_goFadeOut: {fileID: 295028209}
+--- !u!114 &1244049219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244049213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcc7a241d5b9e6b47a77c6af8f395113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Pointer: {fileID: 1244049217}
+  m_fMouseSpeed: 6
+  m_tCursorImage: {fileID: 2800000, guid: 64dd4f56a77e1af48bcbff88276a48ca, type: 3}
+  m_bIsCursorVisible: 1
 --- !u!1 &1320542006
 GameObject:
   m_ObjectHideFlags: 0

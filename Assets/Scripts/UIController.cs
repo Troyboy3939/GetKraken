@@ -14,6 +14,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject m_goTimer;
     [SerializeField] private GameObject m_goStartAndEndDisplay;
     [SerializeField] private AudioSource m_StartSound;
+    [SerializeField] private CursorState m_CursorState;
 
     public float m_fInitialTimeSeconds = 180;
     private float m_fCurrentTime;
@@ -201,11 +202,13 @@ public class UIController : MonoBehaviour
             {
                 Time.timeScale = 0;
                 PausePanel.SetActive(true);
+                m_CursorState.ShowCursor();
             }
             else if (Time.timeScale == 0)
             {
                 Time.timeScale = 1;
                 PausePanel.SetActive(false);
+                m_CursorState.HideCursor();
             }
         }
 
@@ -215,6 +218,7 @@ public class UIController : MonoBehaviour
     {
         Time.timeScale = 1;
         PausePanel.SetActive(false);
+        m_CursorState.HideCursor();
     }
 
     public void RestartGame()

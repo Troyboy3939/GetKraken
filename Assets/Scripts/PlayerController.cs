@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
 
     private AudioSource m_WalkingUnderwater;
 
+    [SerializeField] private GameObject m_PausePanel;
+
     private void Awake()
     {
         m_WalkingUnderwater = GetComponent<AudioSource>();
@@ -287,7 +289,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationY;
-                if (!(m_bStunned) && !(m_bIsFalling))
+                if (!m_bStunned && !m_bIsFalling && !m_PausePanel.activeSelf)
                 {
                     //-------------------------------------------------------------------------------------------------------------------------------------------------------------
                     //Movement

@@ -9,7 +9,7 @@ using XboxCtrlrInput;
 
 public class Pointer : MonoBehaviour
 {
-    bool m_bClicked = false;
+    public bool m_bClicked = false;
     float m_fT = 0.0f;
     [SerializeField] float m_fMoveSpeed = 0.01f;
     [SerializeField] float m_fDisplacement = 10.0f;
@@ -26,10 +26,10 @@ public class Pointer : MonoBehaviour
     [SerializeField] GameObject m_Controls = null;
     [SerializeField] GameObject m_Credits = null;
     [SerializeField] GameObject m_Quit = null;
-    [SerializeField] GameObject m_ControlsImage = null;
+    public GameObject m_ControlsImage = null;
     [SerializeField] GameObject m_AToConnect = null;
     [SerializeField] GameObject m_AToStart = null;
-    [SerializeField] GameObject m_BackIndicator = null;
+    public GameObject m_BackIndicator = null;
 
     bool m_bFirstControllerConnected = false;
     bool m_bFirstPlayerConnected = false;
@@ -39,10 +39,6 @@ public class Pointer : MonoBehaviour
 
     bool[] m_bControllersConnected = new bool[5] { true, false, false, false, false };
     [SerializeField] GameObject[] m_Players = new GameObject[4];
-
-    [SerializeField] float m_fMouseSpeed = 5f;
-    private Vector2 m_v2CursorPosition;
-    [SerializeField] Texture m_tCursorImage;
 
     [SerializeField] Collider m_cBarrelCollider;
     Vector3 m_Rot;
@@ -54,9 +50,9 @@ public class Pointer : MonoBehaviour
 
     [SerializeField] private float m_fLoadingDuration = 5;
 
-    private bool m_bControlsScreen = false;
+    public bool m_bControlsScreen = false;
 
-    private FadeController fc;
+    [HideInInspector] public FadeController fc;
 
     [SerializeField] private bool m_bStartWithSpace = false;
 
@@ -69,7 +65,6 @@ public class Pointer : MonoBehaviour
 
         // Disable the mouse cursor and use a software cursor
         //Cursor.visible = false;
-        m_v2CursorPosition = new Vector2(Screen.width / 2f, Screen.height / 2f);
         m_Rot = transform.rotation.eulerAngles;
 
         if (!m_ControlsImage) Debug.LogError("Pointer.cs: The Controls Image object is not in the correct field in the inspector.");
@@ -79,46 +74,8 @@ public class Pointer : MonoBehaviour
         StartCoroutine(fc.FadeIn());
     }
 
-    private void OnGUI()
-    {
-        // Allow a joystick to move the mouse cursor if a controller is connected
-        if (XCI.IsPluggedIn(1) && !m_bClicked)
-        {
-            Cursor.visible = false;
-
-            float h = (m_fMouseSpeed * XCI.GetAxis(XboxAxis.LeftStickX)) * Time.deltaTime;
-            float v = (m_fMouseSpeed * XCI.GetAxis(XboxAxis.LeftStickY)) * Time.deltaTime;
-
-            m_v2CursorPosition.x += h;
-            m_v2CursorPosition.y += v;
-
-            if (m_tCursorImage != null)
-            {
-                GUI.DrawTexture(new Rect(m_v2CursorPosition.x, Screen.height - m_v2CursorPosition.y, 32, 32), m_tCursorImage);
-            }
-        }
-        else
-        {
-            Cursor.visible = true;
-        }
-    }
-
     private void Update()
     {
-        // Start the game if "Start" clicked or A button pressed
-        if (Input.GetMouseButtonUp(0))
-        {
-            Click(Input.mousePosition);
-        }
-
-        if (XCI.IsPluggedIn(1) && !m_bClicked)
-        {
-            if (XCI.GetButtonDown(XboxButton.A, XboxController.First))
-            {
-                Click(m_v2CursorPosition);
-            }
-        }
-
         if (m_bClicked)
         {
             // "Go Back" by restarting the scene
@@ -253,38 +210,7 @@ public class Pointer : MonoBehaviour
         }
     }
 
-    private void Click(Vector2 pos)
-    {
-        // As a rule of thumb, use raycasts in the Update method, not FixedUpdate. Otherwise you might get some unresponsive behaviour.
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(pos);
-        if (Physics.Raycast(ray, out hit, 500))
-        {
-            if (hit.transform.gameObject.tag == "MenuStart" && !m_bControlsScreen)
-            {
-                m_bClicked = true;
-                HideUI();
-                m_BackIndicator.SetActive(true);
-            }
-            else if (hit.transform.gameObject.tag == "MenuControls")
-            {
-                m_ControlsImage.SetActive(true);
-                m_bControlsScreen = true;
-                HideUI();
-                m_BackIndicator.SetActive(true);
-            }
-            else if (hit.transform.gameObject.tag == "MenuCredits")
-            {
-                StartCoroutine(fc.FadeOutToScene("Credits"));
-            }
-            else if (hit.transform.gameObject.tag == "MenuQuit")
-            {
-                StartCoroutine(fc.FadeOutAndQuit());
-            }
-        }
-    }
-
-    private void HideUI()
+    public void HideUI()
     {
         if (m_Logo != null) m_Logo.SetActive(false);
         if (m_Start != null) m_Start.SetActive(false);
@@ -293,7 +219,7 @@ public class Pointer : MonoBehaviour
         if (m_Quit != null) m_Quit.SetActive(false);
     }
 
-    private void ShowUI()
+    public void ShowUI()
     {
         if (m_Logo != null) m_Logo.SetActive(true);
         if (m_Start != null) m_Start.SetActive(true);

@@ -591,6 +591,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc7a241d5b9e6b47a77c6af8f395113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Pointer: {fileID: 0}
+  m_UIController: {fileID: 7741207998544335202}
+  m_fMouseSpeed: 6
+  m_tCursorImage: {fileID: 2800000, guid: 64dd4f56a77e1af48bcbff88276a48ca, type: 3}
+  m_bIsCursorVisible: 0
+  m_ResumeButton: {fileID: 5514194965116963351}
+  m_QuitButton: {fileID: 5514194965116963350}
 --- !u!114 &259690234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1893,6 +1900,11 @@ PrefabInstance:
       propertyPath: m_Grid
       value: 
       objectReference: {fileID: 1519288277}
+    - target: {fileID: 4276531699556662141, guid: e2524b777c9037b46b825567fdf20a63,
+        type: 3}
+      propertyPath: m_PausePanel
+      value: 
+      objectReference: {fileID: 5514194965116963349}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2524b777c9037b46b825567fdf20a63, type: 3}
 --- !u!1 &511218061 stripped
@@ -5192,6 +5204,11 @@ PrefabInstance:
       propertyPath: m_fRespawnHeight
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4699360793824982799, guid: 489f93506bef503498759a208e3a3c99,
+        type: 3}
+      propertyPath: m_PausePanel
+      value: 
+      objectReference: {fileID: 5514194965116963349}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 489f93506bef503498759a208e3a3c99, type: 3}
 --- !u!1 &1135151089 stripped
@@ -7993,7 +8010,7 @@ Transform:
   m_LocalScale: {x: 9.715121, y: 9.71511, z: 9.715121}
   m_Children: []
   m_Father: {fileID: 1934880617}
-  m_RootOrder: 59
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1574467234
 Mesh:
@@ -9457,6 +9474,7 @@ Transform:
   - {fileID: 620505986}
   - {fileID: 547707408}
   - {fileID: 2086883442}
+  - {fileID: 1564930617}
   - {fileID: 1319724595}
   - {fileID: 1260974769}
   - {fileID: 1220314938}
@@ -9484,7 +9502,6 @@ Transform:
   - {fileID: 1193840477}
   - {fileID: 974034002}
   - {fileID: 1458836272}
-  - {fileID: 1564930617}
   - {fileID: 2095051636}
   - {fileID: 5966626598281601494}
   - {fileID: 1445505280}
@@ -11165,11 +11182,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7741207997412745230}
     m_Modifications:
-    - target: {fileID: 2875566720427211944, guid: f9584dc24420fa54d96ddffc3faba5d2,
-        type: 3}
-      propertyPath: m_Name
-      value: PausePanel
-      objectReference: {fileID: 0}
     - target: {fileID: 2875566720427211945, guid: f9584dc24420fa54d96ddffc3faba5d2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11208,7 +11220,7 @@ PrefabInstance:
     - target: {fileID: 2875566720427211945, guid: f9584dc24420fa54d96ddffc3faba5d2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2875566720427211945, guid: f9584dc24420fa54d96ddffc3faba5d2,
         type: 3}
@@ -11275,6 +11287,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2875566720427211944, guid: f9584dc24420fa54d96ddffc3faba5d2,
+        type: 3}
+      propertyPath: m_Name
+      value: PausePanel
+      objectReference: {fileID: 0}
     - target: {fileID: 2875566719940720845, guid: f9584dc24420fa54d96ddffc3faba5d2,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -11298,6 +11315,18 @@ RectTransform:
 --- !u!1 &5514194965116963349 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2875566720427211944, guid: f9584dc24420fa54d96ddffc3faba5d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5514194965116963347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5514194965116963350 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2875566720890708227, guid: f9584dc24420fa54d96ddffc3faba5d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5514194965116963347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5514194965116963351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2875566719940720843, guid: f9584dc24420fa54d96ddffc3faba5d2,
     type: 3}
   m_PrefabInstance: {fileID: 5514194965116963347}
   m_PrefabAsset: {fileID: 0}
@@ -12767,6 +12796,7 @@ MonoBehaviour:
   m_goTimer: {fileID: 7741207998378120605}
   m_goStartAndEndDisplay: {fileID: 7741207997381509637}
   m_StartSound: {fileID: 7741207997381509636}
+  m_CursorState: {fileID: 259690233}
   m_fInitialTimeSeconds: 100
   PausePanel: {fileID: 5514194965116963349}
   m_bGameEnded: 0
