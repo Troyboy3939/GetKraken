@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1852c5df506eaf64097b525b41038750
+guid: d788b72ffc69a064d8336c6128be2d73
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -8,12 +8,12 @@ ModelImporter:
     100004: Antenna_3
     100006: Antenna_4
     100008: Antenna_5
-    100010: //RootNode
-    100012: Chest
-    100014: Coin_Asset
-    100016: Collar
-    100018: Diver
-    100020: DiverMesh
+    100010: Chest
+    100012: Coin_Asset
+    100014: Collar
+    100016: Diver
+    100018: DiverMesh
+    100020: //RootNode
     100022: Fingers_L
     100024: Fingers_R
     100026: Foot_Lower_L
@@ -56,12 +56,12 @@ ModelImporter:
     400004: Antenna_3
     400006: Antenna_4
     400008: Antenna_5
-    400010: //RootNode
-    400012: Chest
-    400014: Coin_Asset
-    400016: Collar
-    400018: Diver
-    400020: DiverMesh
+    400010: Chest
+    400012: Coin_Asset
+    400014: Collar
+    400016: Diver
+    400018: DiverMesh
+    400020: //RootNode
     400022: Fingers_L
     400024: Fingers_R
     400026: Foot_Lower_L
@@ -100,12 +100,12 @@ ModelImporter:
     400092: Wrist_L
     400094: Wrist_R
     2100000: OBJ_Diver_LowPolySG1
-    2100002: lambert2
+    2100002: lambert3
     2300000: pCylinder8
     3300000: pCylinder8
     4300000: DiverMesh
     4300002: pCylinder8
-    7400000: CoinWalk
+    7400000: Take 001
     9500000: //RootNode
     13700000: DiverMesh
   externalObjects: {}
@@ -126,44 +126,16 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    importAnimatedCustomProperties: 1
+    importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 0
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: CoinWalk
-      takeName: Take 001
-      firstFrame: 1
-      lastFrame: 59
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -199,7 +171,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   importAnimation: 1
-  copyAvatar: 1
+  copyAvatar: 0
   humanDescription:
     serializedVersion: 2
     human: []
@@ -215,8 +187,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: d788b72ffc69a064d8336c6128be2d73,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
   humanoidOversampling: 1
   additionalBone: 0

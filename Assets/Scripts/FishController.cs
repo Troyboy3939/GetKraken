@@ -12,12 +12,31 @@ public class FishController : MonoBehaviour
     [SerializeField] float m_fMaxSpeed = 5.0f;
     Rigidbody m_rb;
     Vector3 m_v3Start;
+
+    [Range(0,15)]
+    [SerializeField] float m_fAlignmentMod = 0.0f;
+
+    [Range(0, 15)]
+    [SerializeField] float m_fCohesionMod = 0.0f;
+
+    [Range(0, 15)]
+    [SerializeField] float m_fSeperationMod = 0.0f;
+
+
+    [Range(0, 15)]
+    [SerializeField] float m_fSharkSeperationMod = 0.0f;
+
+    [Range(0, 15)]
+    [SerializeField] float m_fSeekMod = 0.0f;
+    GameObject m_Shark;
     // Start is called before the first frame update
     void Start()
     {
         m_aNeighbours = GameObject.FindGameObjectsWithTag("Fish");
         m_rb = GetComponent<Rigidbody>();
         m_v3Start = transform.position;
+
+        m_Shark = GameObject.FindGameObjectWithTag("Shark");
     }
 
     // Update is called once per frame
@@ -27,16 +46,20 @@ public class FishController : MonoBehaviour
         
        
        
-        Vector3 v3Acceleration =  Alignment() + Cohesion() + Separation();
-    
+        Vector3 v3Acceleration = (m_fAlignmentMod * Alignment()) + (m_fCohesionMod * Cohesion()) + (m_fSeperationMod * Separation()) + (m_fSeekMod * Seek(new Vector3(3,10,8)) + (SharkSeparation() * m_fSharkSeperationMod) );
+        //transform.localRotation = Quaternion.LookRotation(transform.forward,Vector3.up);
+        
 
-        if(m_rb != null)
+
+
+        if (m_rb != null)
         {
             
             m_rb.AddForce(v3Acceleration * Time.deltaTime,ForceMode.VelocityChange);
-            //rb.rotation = Quaternion.LookRotation(transform.forward,Vector3.up);
-            //transform.LookAt(transform.forward,Vector3.up);
         }
+
+        if(m_rb.velocity.magnitude > 1)
+            transform.forward = m_rb.velocity.normalized;
     }
     private Vector3 Seek(Vector3 v3Pos)
     {
@@ -63,18 +86,32 @@ public class FishController : MonoBehaviour
                     {
                        
                             Vector3 v = m_aNeighbours[i].transform.position - transform.position; 
-                             v3Result -= v / v.magnitude;
+                            v3Result -= v / v.magnitude;
                         
                     }
                 }
             }
         }
-
+      
         return v3Result;
     
     }
+    private Vector3 SharkSeparation()
+    {
+        Vector3 v3Result = new Vector3(0, 0, 0);
 
-    private Vector3 Alignment()
+        GameObject s = GameObject.FindGameObjectWithTag("Shark");
+        if (s != null)
+        {
+            Vector3 v = s.transform.position - transform.position;
+            v3Result -= v.normalized;
+        }
+
+        return v3Result;
+    }
+
+
+private Vector3 Alignment()
     {
         Vector3 v3Result = new Vector3(0, 0, 0);
         int nNeighbourCount = 0;

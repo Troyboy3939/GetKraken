@@ -158,7 +158,7 @@ public class PlayerController : MonoBehaviour
     {
         // Can't deactivate the object itself because then this script stops running
         // Deactivating the mesh, collider and gravity will do what we need
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
         gameObject.GetComponent<CapsuleCollider>().enabled = false;
         gameObject.GetComponent<Rigidbody>().useGravity = false;
 
@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour
     // Respawns the player at their chest
     private void Respawn()
     {
-        gameObject.GetComponent<MeshRenderer>().enabled = true;
+        gameObject.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
         gameObject.GetComponent<CapsuleCollider>().enabled = true;
         gameObject.GetComponent<Rigidbody>().useGravity = true;
 

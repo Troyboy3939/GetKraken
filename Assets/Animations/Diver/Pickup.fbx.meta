@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5a6365a764c350e4b8384b878bcb1181
+guid: 8494cbc1367075148ba778b640b7bfdf
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -10,47 +10,46 @@ ModelImporter:
     100008: Antenna_5
     100010: //RootNode
     100012: Chest
-    100014: Coin_Asset
-    100016: Collar
-    100018: Diver
-    100020: DiverMesh
-    100022: Fingers_L
-    100024: Fingers_R
-    100026: Foot_Lower_L
-    100028: Foot_Rower_R
-    100030: Foot_Upper_L
-    100032: Foot_Upper_R
-    100034: Fore1_Arm_L
-    100036: Fore1_Arm_R
-    100038: Fore2_Arm_L
-    100040: Fore2_Arm_R
-    100042: Fore3_Arm_L
-    100044: Fore3_Arm_R
-    100046: Hand_L
-    100048: Hand_R
-    100050: Head
-    100052: Hips
-    100054: Joints
-    100056: Leg_Lower_L
-    100058: Leg_Rower_R
-    100060: Leg_Upper_L
-    100062: Leg_Upper_R
-    100064: Lower_Thumb_L
-    100066: Lower_Thumb_R
-    100068: Mesh
-    100070: Neck
-    100072: pCylinder8
-    100074: Root
-    100076: Upper1_Arm_L
-    100078: Upper1_Arm_R
-    100080: Upper2_Arm_L
-    100082: Upper2_Arm_R
-    100084: Upper3_Arm_L
-    100086: Upper3_Arm_R
-    100088: Upper_Thumb_L
-    100090: Upper_Thumb_R
-    100092: Wrist_L
-    100094: Wrist_R
+    100014: Collar
+    100016: Diver
+    100018: DiverMesh
+    100020: Fingers_L
+    100022: Fingers_R
+    100024: Foot_Lower_L
+    100026: Foot_Rower_R
+    100028: Foot_Upper_L
+    100030: Foot_Upper_R
+    100032: Fore1_Arm_L
+    100034: Fore1_Arm_R
+    100036: Fore2_Arm_L
+    100038: Fore2_Arm_R
+    100040: Fore3_Arm_L
+    100042: Fore3_Arm_R
+    100044: Hand_L
+    100046: Hand_R
+    100048: Head
+    100050: Hips
+    100052: Joints
+    100054: Leg_Lower_L
+    100056: Leg_Rower_R
+    100058: Leg_Upper_L
+    100060: Leg_Upper_R
+    100062: Lower_Thumb_L
+    100064: Lower_Thumb_R
+    100066: Mesh
+    100068: Neck
+    100070: pCylinder8
+    100072: Root
+    100074: Upper1_Arm_L
+    100076: Upper1_Arm_R
+    100078: Upper2_Arm_L
+    100080: Upper2_Arm_R
+    100082: Upper3_Arm_L
+    100084: Upper3_Arm_R
+    100086: Upper_Thumb_L
+    100088: Upper_Thumb_R
+    100090: Wrist_L
+    100092: Wrist_R
     400000: Antenna_1
     400002: Antenna_2
     400004: Antenna_3
@@ -58,47 +57,46 @@ ModelImporter:
     400008: Antenna_5
     400010: //RootNode
     400012: Chest
-    400014: Coin_Asset
-    400016: Collar
-    400018: Diver
-    400020: DiverMesh
-    400022: Fingers_L
-    400024: Fingers_R
-    400026: Foot_Lower_L
-    400028: Foot_Rower_R
-    400030: Foot_Upper_L
-    400032: Foot_Upper_R
-    400034: Fore1_Arm_L
-    400036: Fore1_Arm_R
-    400038: Fore2_Arm_L
-    400040: Fore2_Arm_R
-    400042: Fore3_Arm_L
-    400044: Fore3_Arm_R
-    400046: Hand_L
-    400048: Hand_R
-    400050: Head
-    400052: Hips
-    400054: Joints
-    400056: Leg_Lower_L
-    400058: Leg_Rower_R
-    400060: Leg_Upper_L
-    400062: Leg_Upper_R
-    400064: Lower_Thumb_L
-    400066: Lower_Thumb_R
-    400068: Mesh
-    400070: Neck
-    400072: pCylinder8
-    400074: Root
-    400076: Upper1_Arm_L
-    400078: Upper1_Arm_R
-    400080: Upper2_Arm_L
-    400082: Upper2_Arm_R
-    400084: Upper3_Arm_L
-    400086: Upper3_Arm_R
-    400088: Upper_Thumb_L
-    400090: Upper_Thumb_R
-    400092: Wrist_L
-    400094: Wrist_R
+    400014: Collar
+    400016: Diver
+    400018: DiverMesh
+    400020: Fingers_L
+    400022: Fingers_R
+    400024: Foot_Lower_L
+    400026: Foot_Rower_R
+    400028: Foot_Upper_L
+    400030: Foot_Upper_R
+    400032: Fore1_Arm_L
+    400034: Fore1_Arm_R
+    400036: Fore2_Arm_L
+    400038: Fore2_Arm_R
+    400040: Fore3_Arm_L
+    400042: Fore3_Arm_R
+    400044: Hand_L
+    400046: Hand_R
+    400048: Head
+    400050: Hips
+    400052: Joints
+    400054: Leg_Lower_L
+    400056: Leg_Rower_R
+    400058: Leg_Upper_L
+    400060: Leg_Upper_R
+    400062: Lower_Thumb_L
+    400064: Lower_Thumb_R
+    400066: Mesh
+    400068: Neck
+    400070: pCylinder8
+    400072: Root
+    400074: Upper1_Arm_L
+    400076: Upper1_Arm_R
+    400078: Upper2_Arm_L
+    400080: Upper2_Arm_R
+    400082: Upper3_Arm_L
+    400084: Upper3_Arm_R
+    400086: Upper_Thumb_L
+    400088: Upper_Thumb_R
+    400090: Wrist_L
+    400092: Wrist_R
     2100000: OBJ_Diver_LowPolySG1
     2100002: lambert2
     2300000: pCylinder8
@@ -126,9 +124,9 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    importAnimatedCustomProperties: 0
+    importAnimatedCustomProperties: 1
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 0
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -199,7 +197,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   importAnimation: 1
-  copyAvatar: 0
+  copyAvatar: 1
   humanDescription:
     serializedVersion: 2
     human: []
@@ -215,7 +213,8 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: d788b72ffc69a064d8336c6128be2d73,
+    type: 3}
   animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
