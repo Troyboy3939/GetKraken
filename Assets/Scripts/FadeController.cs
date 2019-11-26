@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class FadeController : MonoBehaviour
 {
-    [SerializeField] private GameObject m_goFadeIn;
-    [SerializeField] private GameObject m_goFadeOut;
+    [SerializeField] private GameObject m_goFadeIn = null;
+    [SerializeField] private GameObject m_goFadeOut = null;
 
     public IEnumerator FadeIn()
     {

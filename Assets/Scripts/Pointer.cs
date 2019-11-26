@@ -12,7 +12,6 @@ public class Pointer : MonoBehaviour
     public bool m_bClicked = false;
     float m_fT = 0.0f;
     [SerializeField] float m_fMoveSpeed = 0.01f;
-    [SerializeField] float m_fDisplacement = 10.0f;
     [SerializeField] string m_sz4PlayerLevel = "";
     [SerializeField] string m_sz3PlayerLevel = "";
     [SerializeField] string m_sz2PlayerLevel = "";
@@ -42,7 +41,7 @@ public class Pointer : MonoBehaviour
 
     [SerializeField] Collider m_cBarrelCollider;
     Vector3 m_Rot;
-    [SerializeField] Vector3 m_RotationEnd;
+    [SerializeField] Vector3 m_RotationEnd = new Vector3(0, 0, 0);
 
     [SerializeField] float m_fLerpSpeedScale = 4;
     Vector3 m_v3Pos;

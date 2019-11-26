@@ -21,9 +21,8 @@ public class Blackboard : MonoBehaviour
 
     [SerializeField] Material m_OrangeChestMaterial = null;
     [SerializeField] Material m_BlueChestMaterial = null;
-    [SerializeField] Material m_YellowChestMaterial = null;
     [SerializeField] Material m_GreenChestMaterial = null;
-    [SerializeField] Material m_HoleMaterial = null;
+    [SerializeField] List<GameObject> m_Waypoints = null;
 
     void Awake()
     {
@@ -51,6 +50,10 @@ public class Blackboard : MonoBehaviour
         m_Chests = GameObject.FindGameObjectsWithTag("Chest");
     }
 
+    public List<GameObject> GetWaypoints()
+    {
+        return m_Waypoints;
+    }
     public Material GetBlueMat()
     {
         return m_BlueMaterial;
@@ -90,11 +93,7 @@ public class Blackboard : MonoBehaviour
     }
 
 
-    public Material GetHoleMat()
-    {
-        return m_HoleMaterial;
-    }
-
+    
 
 
     public static Blackboard GetInstance()

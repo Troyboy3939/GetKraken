@@ -10,7 +10,6 @@ public class FloorGrid : MonoBehaviour
     [SerializeField] int m_nGridWidth = 10;
     [SerializeField] int m_nGridHeight = 10;
     [SerializeField] GameObject m_Plane = null;
-    [SerializeField] GameObject m_Tentacle = null;
     [SerializeField] GameObject m_Coin = null;
     [SerializeField] float m_fDropHeight = 30;
     [SerializeField] float m_fTentacleSwitchTime = 3;
@@ -19,19 +18,15 @@ public class FloorGrid : MonoBehaviour
     List<Vector2> m_HolePositions = new List<Vector2>();
     private List<Vector2> m_BufferArea;
     private List<Vector2> m_BufferAreaEdges;
-    int m_nRandomSeed = 0;
     List<Vector2> m_TentaclePositions = new List<Vector2>();
     private PositionManager m_PositionManager;
 
-    [SerializeField] private ScreenShakeController m_ScreenShake;
+    [SerializeField] private ScreenShakeController m_ScreenShake = null;
     
     float m_fTentacleTimer = 4.5f;
     float m_fCoinTimer = 0.0f;
-    bool m_bFirstTime = true;
-    bool m_bSwitch = false;
-    int m_nCoinCount = 0;
     Node[,] m_Nodes;
-
+    int m_nCoinCount = 0;
     private Node posChest0;
     private Node posChest1;
     private Node posChest2;

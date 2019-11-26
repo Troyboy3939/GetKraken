@@ -35,10 +35,10 @@ public class PlayerController : MonoBehaviour
     private UIController m_UiController;
 
     // This will be used to store colliders that need to be accessed from multiple methods
-    private Collider m_tempCol;
+    private Collider m_tempCol = null;
 
-    [SerializeField] private ParticleSystem m_DustRun;
-    [SerializeField] private GameObject m_StunParticles;
+    [SerializeField] private ParticleSystem m_DustRun = null;
+    [SerializeField] private GameObject m_StunParticles = null;
 
     private AudioSource m_WalkingUnderwater;
 

@@ -6,7 +6,7 @@ using UnityEngine;
 public class CoinController : MonoBehaviour
 {
     BoxCollider col;
-    [SerializeField] private float m_fGravityMultiplier;
+    [SerializeField] private float m_fGravityMultiplier = 0;
     [HideInInspector] public bool m_bHeld = false;
 
     public void SetHeld(bool bHeld)

@@ -9,11 +9,11 @@ public class CursorState : MonoBehaviour
 {
     [SerializeField] private Pointer m_Pointer = null;
     [SerializeField] private UIController m_UIController = null;
-    [SerializeField] private float m_fMouseSpeed;
-    [SerializeField] private Texture m_tCursorImage;
+    [SerializeField] private float m_fMouseSpeed = 0;
+    [SerializeField] private Texture m_tCursorImage = null;
     [SerializeField] private bool m_bIsCursorVisible = false;
-    [SerializeField] private GameObject m_ResumeButton;
-    [SerializeField] private GameObject m_QuitButton;
+    [SerializeField] private GameObject m_ResumeButton = null;
+    [SerializeField] private GameObject m_QuitButton = null;
     private Vector2 m_v2CursorPosition;
     
     void Start()

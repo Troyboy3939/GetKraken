@@ -7,14 +7,14 @@ using XboxCtrlrInput;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] private GameObject m_goP1Score;
-    [SerializeField] private GameObject m_goP2Score;
-    [SerializeField] private GameObject m_goP3Score;
-    [SerializeField] private GameObject m_goP4Score;
-    [SerializeField] private GameObject m_goTimer;
-    [SerializeField] private GameObject m_goStartAndEndDisplay;
-    [SerializeField] private AudioSource m_StartSound;
-    [SerializeField] private CursorState m_CursorState;
+    [SerializeField] private GameObject m_goP1Score = null;
+    [SerializeField] private GameObject m_goP2Score = null;
+    [SerializeField] private GameObject m_goP3Score = null;
+    [SerializeField] private GameObject m_goP4Score = null;
+    [SerializeField] private GameObject m_goTimer = null;
+    [SerializeField] private GameObject m_goStartAndEndDisplay = null;
+    [SerializeField] private AudioSource m_StartSound = null;
+    [SerializeField] private CursorState m_CursorState = null;
 
     public float m_fInitialTimeSeconds = 180;
     private float m_fCurrentTime;

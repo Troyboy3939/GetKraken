@@ -29,6 +29,9 @@ public class FishController : MonoBehaviour
     [Range(0, 15)]
     [SerializeField] float m_fSeekMod = 0.0f;
     GameObject m_Shark;
+    int m_nCurrentWaypoint = 0;
+    List<GameObject> m_Waypoints = null;
+    [SerializeField] float m_fWaypointDistance = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,16 +40,24 @@ public class FishController : MonoBehaviour
         m_v3Start = transform.position;
 
         m_Shark = GameObject.FindGameObjectWithTag("Shark");
+        m_Waypoints = Blackboard.GetInstance().GetWaypoints();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        
+        //If you are close enough
+        if(Vector3.Distance(transform.position,m_Waypoints[m_nCurrentWaypoint].transform.position) < m_fWaypointDistance)
+        {
+            m_nCurrentWaypoint++;
+        }
+        if(m_nCurrentWaypoint > m_Waypoints.Count)
+        {
+            m_nCurrentWaypoint = 0;
+        }
        
        
-        Vector3 v3Acceleration = (m_fAlignmentMod * Alignment()) + (m_fCohesionMod * Cohesion()) + (m_fSeperationMod * Separation()) + (m_fSeekMod * Seek(new Vector3(3,10,8)) + (SharkSeparation() * m_fSharkSeperationMod) );
+        Vector3 v3Acceleration = (m_fAlignmentMod * Alignment()) + (m_fCohesionMod * Cohesion()) + (m_fSeperationMod * Separation()) + (m_fSeekMod * Seek(m_Waypoints[m_nCurrentWaypoint].transform.position) + (SharkSeparation() * m_fSharkSeperationMod) );
         //transform.localRotation = Quaternion.LookRotation(transform.forward,Vector3.up);
         
 

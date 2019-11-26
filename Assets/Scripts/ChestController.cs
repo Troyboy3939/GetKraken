@@ -7,7 +7,7 @@ public class ChestController : MonoBehaviour
     // This should match the ID of the player that can deposit coins into this chest
     // Should be manually set in the inspector
     public int m_nPlayerID = 0;
-    [SerializeField] GameObject m_bGrid;
+    [SerializeField] GameObject m_bGrid = null;
     private Animation chestAnimation;
     [SerializeField] string m_szColour = "";
 

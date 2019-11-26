@@ -5,8 +5,8 @@ using UnityEngine;
 public class MainMenuDiverController : MonoBehaviour
 {
     bool m_bGo = false;
-    [SerializeField] Vector3 m_v3Start;
-    [SerializeField] Vector3 m_v3End;
+    [SerializeField] Vector3 m_v3Start = new Vector3(0,0,0);
+    [SerializeField] Vector3 m_v3End = new Vector3(0, 0, 0);
     float m_fT;
     [SerializeField] float m_fSpeed = 0.0f;
     private AudioSource m_Footsteps;
