@@ -69,7 +69,7 @@ public class FishController : MonoBehaviour
             m_rb.AddForce(v3Acceleration * Time.deltaTime,ForceMode.VelocityChange);
         }
 
-        if(m_rb.velocity.magnitude > 1)
+        //if(m_rb.velocity.magnitude > 1)
             transform.forward = m_rb.velocity.normalized;
     }
     private Vector3 Seek(Vector3 v3Pos)

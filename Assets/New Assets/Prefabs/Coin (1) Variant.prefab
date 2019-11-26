@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8621130300637236440, guid: fc3c7bad1e8e84045bcd8c0d803bafa3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 9135536035795390159, guid: fc3c7bad1e8e84045bcd8c0d803bafa3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -82,8 +87,20 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.91993046
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3085582562010236900, guid: fc3c7bad1e8e84045bcd8c0d803bafa3, type: 3}
-    - {fileID: 6696338946694625315, guid: fc3c7bad1e8e84045bcd8c0d803bafa3, type: 3}
-    - {fileID: 2373230744256368824, guid: fc3c7bad1e8e84045bcd8c0d803bafa3, type: 3}
+    - target: {fileID: 7474762380163912015, guid: fc3c7bad1e8e84045bcd8c0d803bafa3,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268796592957435059, guid: fc3c7bad1e8e84045bcd8c0d803bafa3,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268796592957435061, guid: fc3c7bad1e8e84045bcd8c0d803bafa3,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc3c7bad1e8e84045bcd8c0d803bafa3, type: 3}

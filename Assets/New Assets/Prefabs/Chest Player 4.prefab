@@ -70,7 +70,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6361774169614395347}
   m_Enabled: 0
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -377,18 +377,34 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 4543d9cde1985f242a317b8f6d67881b, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a8c70b1f7b3c79945b514983e294ef61, type: 2}
-    - target: {fileID: 2300006, guid: 4543d9cde1985f242a317b8f6d67881b, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a8c70b1f7b3c79945b514983e294ef61, type: 2}
-    - target: {fileID: 2300004, guid: 4543d9cde1985f242a317b8f6d67881b, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 4543d9cde1985f242a317b8f6d67881b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a8c70b1f7b3c79945b514983e294ef61, type: 2}
     - target: {fileID: 2300002, guid: 4543d9cde1985f242a317b8f6d67881b, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300002, guid: 4543d9cde1985f242a317b8f6d67881b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a8c70b1f7b3c79945b514983e294ef61, type: 2}
+    - target: {fileID: 2300004, guid: 4543d9cde1985f242a317b8f6d67881b, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300004, guid: 4543d9cde1985f242a317b8f6d67881b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a8c70b1f7b3c79945b514983e294ef61, type: 2}
+    - target: {fileID: 2300006, guid: 4543d9cde1985f242a317b8f6d67881b, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300006, guid: 4543d9cde1985f242a317b8f6d67881b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a8c70b1f7b3c79945b514983e294ef61, type: 2}
@@ -417,6 +433,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CoinSplash_Particle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682961121976099500, guid: 6e02b674e9dc47647989a3939df63d2b,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6682961121976099501, guid: 6e02b674e9dc47647989a3939df63d2b,
         type: 3}
@@ -471,11 +492,6 @@ PrefabInstance:
     - target: {fileID: 6682961121976099501, guid: 6e02b674e9dc47647989a3939df63d2b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6682961121976099500, guid: 6e02b674e9dc47647989a3939df63d2b,
-        type: 3}
-      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6682961122963247487, guid: 6e02b674e9dc47647989a3939df63d2b,
