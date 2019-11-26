@@ -24,20 +24,36 @@ public class MainMenuDiverController : MonoBehaviour
         if (m_bGo)
         {
             if (!m_Footsteps.isPlaying) m_Footsteps.Play();
-            transform.position = Vector3.Lerp(m_v3Start, m_v3End, m_fT);
-
             m_fT += m_fSpeed * Time.deltaTime;
+
+            if(m_fT < 1)
+            {
+                transform.position = Vector3.Lerp(m_v3Start, m_v3End, m_fT); 
+
+            }
         }
 
         // If diver has reached the edge of the boat
-        if (transform.position.x > 89f)
+        if (m_fT > 1)
         {
             m_Footsteps.Stop();
+            Animator a = GetComponent<Animator>();
+
+            if (a != null)
+            {
+                a.SetBool("Run", false);
+            }
         }
     }
 
     public void Go()
     {
         m_bGo = true;
+        Animator a = GetComponent<Animator>();
+
+        if(a != null)
+        {
+            a.SetBool("Run", true);
+        }
     }
 }
