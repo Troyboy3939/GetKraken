@@ -201,8 +201,22 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(DropHeldCoinCooldown());
         CoinController[] coins = GetComponentsInChildren<CoinController>();
 
+
+
+
+
+        m_Anim.SetTrigger("DropCoin");
+
         foreach (CoinController coin in coins)
         {
+
+            MeshRenderer[] m = coin.gameObject.GetComponentsInChildren<MeshRenderer>();
+
+            for (int i = 0; i < m.Length; i++)
+            {
+                m[i].enabled = true;
+            }
+
             coin.SetHeld(false);
             coin.transform.parent = null;
             coin.transform.Translate(new Vector3(0, -1, 0));
