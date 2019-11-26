@@ -42,6 +42,10 @@ public class PlayerController : MonoBehaviour
 
     private AudioSource m_WalkingUnderwater;
 
+    public int GetID()
+    {
+        return m_nPlayerID;
+    }
     private void Awake()
     {
         m_WalkingUnderwater = GetComponent<AudioSource>();

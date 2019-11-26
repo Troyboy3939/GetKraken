@@ -70,7 +70,14 @@ public class ChestController : MonoBehaviour
             
             if(a != null)
             {
-                a.SetTrigger("DropCoin");
+                PlayerController p = collision.gameObject.GetComponent<PlayerController>();
+                if (p != null)
+                {
+                    if (p.GetID() == m_nPlayerID)
+                    {
+                        a.SetTrigger("DropCoin");
+                    }
+                }
             }
 
             // Destroy the coin and update score
