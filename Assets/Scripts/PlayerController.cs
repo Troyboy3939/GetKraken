@@ -42,8 +42,6 @@ public class PlayerController : MonoBehaviour
 
     private AudioSource m_WalkingUnderwater;
 
-    [SerializeField] private GameObject m_PausePanel;
-
     private void Awake()
     {
         m_WalkingUnderwater = GetComponent<AudioSource>();
@@ -151,7 +149,7 @@ public class PlayerController : MonoBehaviour
                     {
                         if (hitController.tag == "Player")
                         {
-                            p.GetComponent<ParticleSystem>().Play();
+                            //p.GetComponent<ParticleSystem>().Play();
                             hitController.AddForce(transform.forward * m_fShovePower, ForceMode.VelocityChange);
                             p.Stun();
                             p.DetachCoin();
@@ -232,8 +230,8 @@ public class PlayerController : MonoBehaviour
                   
                     if(stateMachine.GetState() != StateMachine.ESTATE.ATTACKING)
                     {
-                       stateMachine.GetTentacleState().Attack();
-                       Kill();
+                        stateMachine.GetTentacleState().Attack();
+                        Kill();
                     } 
                 }      
             }    
