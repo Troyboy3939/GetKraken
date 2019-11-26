@@ -1779,8 +1779,7 @@ MonoBehaviour:
   m_bIsDead: 0
   m_DustRun: {fileID: 7060240461477736326, guid: 5bdca99b7cb7c1842be19be389b4db66,
     type: 3}
-  m_StunParticles: {fileID: 7075238075967217441, guid: fc623b094090e1d4bb58709a51743f09,
-    type: 3}
+  m_StunParticles: {fileID: 4780405007278238309}
   m_PausePanel: {fileID: 0}
 --- !u!1 &2334872924841709278
 GameObject:
@@ -1956,6 +1955,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc623b094090e1d4bb58709a51743f09, type: 3}
+--- !u!1 &4780405007278238309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7075238075967217441, guid: fc623b094090e1d4bb58709a51743f09,
+    type: 3}
+  m_PrefabInstance: {fileID: 2334872925062657348}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4780405007278238360 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7075238075967217628, guid: fc623b094090e1d4bb58709a51743f09,

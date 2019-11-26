@@ -1809,8 +1809,7 @@ MonoBehaviour:
   m_bIsDead: 0
   m_DustRun: {fileID: 7060240461477736326, guid: 5bdca99b7cb7c1842be19be389b4db66,
     type: 3}
-  m_StunParticles: {fileID: 7075238075967217441, guid: fc623b094090e1d4bb58709a51743f09,
-    type: 3}
+  m_StunParticles: {fileID: 0}
   m_PausePanel: {fileID: 0}
 --- !u!1001 &2635915797744235676
 PrefabInstance:
